@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=FF-Mogno
+Comment=FF-Mogno é um Tema que lembra a Madeira: Mogno. É legível, quase Dark e muito atrativo aos olhos. (FF - Felipe Facundes).
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=FF-Mogno
+GtkTheme=FF-Mogno
+IconTheme=FF-Mogno
+MetacityTheme=FF-Mogno
