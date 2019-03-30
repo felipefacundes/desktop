@@ -1,0 +1,31 @@
+# Crie e monte o swapfile
+sudo fallocate -l 3G /swapfile
+sudo chmod 0600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+# Descubra o dispositivo que foi criado
+sudo findmnt -no SOURCE,UUID -T /swapfile
+
+# Recomenda-se ao usar resume=UUID no grub
+sudo findmnt -no UUID -T /var/lib/swap/swapfile
+
+# Descubra o offset do arquivo swap (swapfile) 
+# É indicado o número no primeiro bloco (no ínicio)
+sudo filefrag -v /swapfile
+
+# Ou para descubrir logo o offset, use:
+sudo filefrag -v /swapfile | grep "0:        0.."
+
+# Em GRUB_CMDLINE_LINUX_DEFAULT= no arquivo /etc/default/grub
+# inlua resume e resume_offset
+# use o UUID (recomendado)
+resume=UUID="seu UUID" resume_offset="seu offset"
+
+# Em "HOOKS" no arquivo /etc/mkinitcpio.conf 
+# logo após filesystems, inclua resume
+.. filesystems resume ..
+
+# Finalize rodando os comandos
+sudo mkinitcpio -p linux
+sudo grub-mkconfig -o /boot/grub/grub.cfg
