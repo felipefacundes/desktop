@@ -44,7 +44,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=UUID=v7a16d7b-dd4b-42fd-a410-f4c7e3488a5
 
 > Na linha: **GRUB_CMDLINE_LINUX=** inclua crypto="**e a opção acima descrita**"
 
-    GRUB_CMDLINE_LINUX="intel_pstate=disable root=/dev/mapper/ArchLinuxVG-ArchLinuxRoot crypto=sha512:aes-xts-plain64:512:0"
+    GRUB_CMDLINE_LINUX="root=/dev/mapper/ArchLinuxVG-ArchLinuxRoot crypto=sha512:aes-xts-plain64:512:0"
 
 <br></br>
 
@@ -75,7 +75,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="cryptdevice=UUID=v7a16d7b-dd4b-42fd-a410-f4c7e3488a5
 
 #### Forneça rede, adicionando o parâmetro do kernel ip à configuração do GRUB: /etc/default/grub:
 
-    GRUB_CMDLINE_LINUX="cryptdevice=/dev/sda3:lv name:allow-discards ip=:::::eth0:dhcp"
+    GRUB_CMDLINE_LINUX="root=/dev/mapper/ArchLinuxVG-ArchLinuxRoot crypto=sha512:aes-xts-plain64:512:0 ip=:::::eth0:dhcp"
 
 <br></br>
 
