@@ -1,0 +1,108 @@
+# ubuntu-mate GRUB2 theme
+#
+# Copyright (C) 2014 nadrimajstor <ipejic@gmail.com>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+# general settings
+title-text: ""
+title-color: "white"
+message-font: "DroidLogo Regular 12"
+message-color: "white"
+message-bg-color: "black"
+desktop-image: "tuxkiller2.png"
+desktop-color: "#3c3b37"
+terminal-font: "DejaVu Sans Regular 14"
+terminal-box: "terminal_box_*.png"
+
+# Logos XFCE LXDE
++ image { 
+    left = 9%
+    top = 84%
+    width = 198
+    height = 64
+    file = "ubuntu_xfce_lxde_logos.png"
+}
+
+# Titre menu
++ label {
+	top = 40%
+	left = 7%
+	width = 50%
+	height = 40
+	text = "GRUB 2.00-7ubuntu11~precise1~ppa1"
+	align = "center"
+	font = "DroidLogo Bold 26"
+	color = "white"
+}
+# boot menu
++ boot_menu {
+    left = 5%
+    width = 55%
+    top = 45%
+    height = 50%	
+    item_font = "DroidLogo Regular 17"
+    item_color = "white"
+    selected_item_font = "DroidLogo Bold 17"
+    selected_item_color = "yellow"
+    icon_width = 16
+    icon_height = 16
+    item_height = 33
+    item_padding = 20
+    item_icon_space = 0
+    item_spacing = 1
+    menu_pixmap_style = "boot_menu2_*.png"
+    selected_item_pixmap_style = "highlight_*.png"
+}
+
+# Show logo and circular progress
++ circular_progress
+{
+   id = "__timeout__"
+   left = 100
+   top = 100
+   width = 168
+   height = 168
+   num_ticks = 50
+   ticks_disappear = false
+   start_angle = -67
+   end_angle = -67
+   center_bitmap = "Ubulogo2.png"
+   tick_bitmap = "tick.png"
+}
+
+# help bar at the bottom
++ image { 
+    left = 18%
+    top = 100%-30
+    width = 20 
+    height = 20 
+    file = "fleches_haut_bas.png"
+}
++ hbox {
+    top = 100%-50
+    left = 20%
+
+#    + label { text = "↑↓" font = "DroidLogo Bold 20" color = "#87a556" }
+    + label { text = ":select       " font = "DroidLogo Bold 20" color = "gainsboro" }
+    + label { text = "enter" font = "DroidLogo Bold 20" color = "#87a556" }
+    + label { text = ":boot       " font = "DroidLogo Bold 20" color = "gainsboro" }
+    + label { text = "e" font = "DroidLogo Bold 20" color = "#87a556" }
+    + label { text = ":edit       " font = "DroidLogo Bold 20" color = "gainsboro" }
+    + label { text = "c" font = "DroidLogo Bold 20" color = "#87a556" }
+    + label { text = ":command-line       " font = "DroidLogo Bold 20" color = "gainsboro" }
+    + label { text = "esc" font = "DroidLogo Bold 20" color = "#87a556" }
+    + label { text = ":retour menu" font = "DroidLogo Bold 20" color = "gainsboro" }
+}

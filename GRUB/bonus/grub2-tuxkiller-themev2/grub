@@ -1,0 +1,25 @@
+GRUB_CMDLINE_LINUX_DEFAULT="intel_pstate=disable cryptdevice=UIID=xxx:LvRootName quiet nosplash"
+GRUB_CMDLINE_LINUX=""
+GRUB_DEFAULT="0"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_DISTRIBUTOR="Arch Linux"
+GRUB_BACKGROUND="/boot/grub/themes/Tuxkiller2/tuxkiller3.png"
+GRUB_GFXMODE="1280x1024x32"
+GRUB_GFXPAYLOAD_LINUX="1024x768x32"
+GRUB_FONT="/boot/grub/themes/Tuxkiller2/dejavu_14.pf2"
+GRUB_PRELOAD_MODULES="lvm"
+GRUB_THEME="/boot/grub/themes/Tuxkiller2/theme.txt"
+GRUB_HIDDEN_TIMEOUT_QUIET="true"
+GRUB_TIMEOUT="5"
+#LANG=pt_BR
+#LANGUAGE=pt_BR
+
+# Uncomment to disable graphical terminal (grub-pc only)
+#GRUB_TERMINAL="console"
+#GRUB_DISABLE_OS_PROBER="true"
+
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM="0x01234567,0xfefefefe,0x89abcdef,0xefefefef"
+
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_RECOVERY="true"
