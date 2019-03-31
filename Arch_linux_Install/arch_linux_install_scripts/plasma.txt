@@ -1,0 +1,16 @@
+kdeplasma-addons
+kscreenlocker 
+dolphin
+plasma-pa
+plasma-nm
+plasma-desktop
+kde-l10n-pt_br
+kde-gtk-config
+p7zip
+zip
+unzip
+unrar
+ark
+okular
+transmission-qt
+qt-gstreamer
