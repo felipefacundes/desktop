@@ -12,9 +12,11 @@ Para montar e bootar um sistema LVM encriptado, é necessário alterar o arquivo
 
 #### Comandos para achar o UUID do root
 
-`lsblk -o +uuid,name`
-`lsblk -f`
-`blkid`
+```
+lsblk -o +uuid,name
+lsblk -f
+blkid
+```
 
 #### Para saber logo, qual é o root
 `sudo lvdisplay | grep -i "lv name"`
