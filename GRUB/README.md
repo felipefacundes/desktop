@@ -4,7 +4,7 @@ Para montar e bootar um sistema LVM encriptado, é necessário alterar o arquivo
     
 <br></br>
 
-- **Atenção:** usa-se o **UUID** para o GRUB e FSTAB achar o root, caso você use diretamente a partição, exemplo: "/dev/sda2". Geralmente quando se tem mais de um HD, de vez em quando, o sistema pode embaralhar a letras da partição, para /dev/sdb2. Essa mudança acarreta na não inicialização do sistema. Por isso, é tão importante usar o **UUID**, para uma identificação precisa da partição, a outros métodos eficazes, como LABEL, ou PARTUUID.
+- **Atenção:** usa-se o **UUID** para o GRUB e FSTAB achar o diretório root, caso você use diretamente a partição, exemplo: "/dev/sda2" o Linux poderá não bootar. Geralmente quando se tem mais de um HD, de vez em quando, o sistema pode embaralhar a letra da partição, para /dev/sdb2. Essa mudança acarreta na não inicialização do sistema. Por isso, é tão importante usar o **UUID**, para uma identificação precisa da partição, a outros métodos eficazes, como LABEL, ou PARTUUID.
 
 <br></br>
 
@@ -174,6 +174,7 @@ Pronto, tudo certo: HD encriptado, passará a bootar o sistema ;)
 
 <br></br>
 
+```
 ┏┓
 ┃┃╱╲ nesta
 ┃╱╱╲╲ casa
@@ -183,10 +184,10 @@ Pronto, tudo certo: HD encriptado, passará a bootar o sistema ;)
 LINUX
 ╱╱┏┳┓╭╮┏┳┓ ╲╲
 ▔▏┗┻┛┃┃┗┻┛▕▔
---------------------------
+```
 
-###### Fatality
-###### Linux Wins
+###### - Fatality
+###### - Linux Wins
 
 
 
