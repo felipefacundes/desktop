@@ -3,6 +3,8 @@
 #
 ------------------------------------------------------------------
 
+<br></br>
+
 ##### Edite o arquivo de configuração do initramfs (mkinitcpio)
 
     sudo nano /etc/mkinitcpio.conf
@@ -14,6 +16,8 @@
 Atualiza os módulos adicionados
 
     sudo mkinitcpio -p linux
+
+<br></br>
 
 #
 ------------------------------------------------------------------
@@ -33,6 +37,8 @@ Atualiza os módulos adicionados
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 ------------------------------------------------------------------
 
+<br></br>
+
 ### Edite o arquivo de configuração do cpupower
 
     sudo nano /etc/default/cpupower
@@ -46,7 +52,7 @@ Atualiza os módulos adicionados
 
 ### O segredo está no: powersave
 
-governor='powersave'
+    governor='powersave'
 
 ###### Limit frequency range
 ###### Valid suffixes: Hz, kHz (default), MHz, GHz, THz
@@ -59,6 +65,8 @@ governor='powersave'
 
 min_freq="x.xxGHz"
 max_freq="x.xxGHz"
+
+<br></br>
 
 #
 ------------------------------------------------------------------
@@ -74,6 +82,7 @@ cpupower frequency-info | grep --color -i call
 cpupower frequency-info | grep --color -i entre
 cpupower frequency-info | grep --color -i current
 
+<br></br>
 
 ```
 ┏┓
