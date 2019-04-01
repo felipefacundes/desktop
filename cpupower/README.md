@@ -1,6 +1,6 @@
 # CPUPOWER        - Esfriar o PC e Notebook: método que realmente funciona
 
-#
+
 ------------------------------------------------------------------
 
 <br></br>
@@ -19,7 +19,7 @@ Atualiza os módulos adicionados
 
 <br></br>
 
-#
+
 ------------------------------------------------------------------
 
   > Para processadores intel inclua "intel_pstate=disable" na linha:
@@ -68,19 +68,32 @@ max_freq="x.xxGHz"
 
 <br></br>
 
-#
+
 ------------------------------------------------------------------
 
-> Um script, para ser chamado quando quiser:
+  > Um script, para ser chamado quando quiser:
+  
+  - Opção 1
 
-sudo nano /bin/esfriar
-sudo chmod +x /bin/esfriar
+  `sudo nano /bin/esfriar`
+
+  `sudo chmod +x /bin/esfriar`
+
+```
 #!/bin/bash
 sudo systemctl stop cpupower
 sudo systemctl start cpupower
-cpupower frequency-info | grep --color -i call
-cpupower frequency-info | grep --color -i entre
-cpupower frequency-info | grep --color -i current
+cpupower frequency-info | grep --color -i "asserted by"
+```
+
+  - Opção 2
+
+```
+#!/bin/bash
+sudo cpupower frequency-set -d "frequência mínima"GHz                   # Exemplo: 2.2GHz
+sudo cpupower frequency-set -f "Mesma frequêcia relatada acima"GHz      # Exemplo: 2.2GHz
+cpupower frequency-info | grep --color -i "asserted by"
+```
 
 <br></br>
 
