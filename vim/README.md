@@ -1,4 +1,4 @@
-﻿<div class="apresenta">Arquivos históricos do [https://telegram.me/comandos_linux](https://telegram.me/comandos_linux) apresenta:</div>
+﻿<div class="apresenta">Arquivos históricos do https://telegram.me/comandos_linux apresenta:</div>
 
 # Comandos Linux (Tutorial do Vim)
 
