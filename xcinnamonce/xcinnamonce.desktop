@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=xcinnamonce
+Comment=Highly configurable framework window manager
+TryExec=xcinnamonce
+Exec=xcinnamonce
+Type=Application

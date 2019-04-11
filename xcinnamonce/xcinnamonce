@@ -1,0 +1,21 @@
+#!/bin/bash
+export DESKTOP_SESSION=Cinnamon
+export XDG_CURRENT_DESKTOP=Cinnamon
+export QT_QPA_PLATFORM=xcb
+export QT_QPA_PLATFORMTHEME=gtk2
+export QT_STYLE_OVERRIDE=gtk2
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+##/## /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+##/## /usr/lib/cinnamon-settings-daemon-3.0/libcsd.so &
+/usr/lib/cinnamon-settings-daemon/csd-xrandr &
+/usr/lib/cinnamon-settings-daemon/csd-a11y-settings &
+/usr/lib/cinnamon-settings-daemon/csd-mouse &
+/usr/lib/cinnamon-settings-daemon/csd-xsettings &
+##/## /usr/lib/cinnamon-settings-daemon/csd-a11y-keyboard &
+##/## /usr/lib/cinnamon-settings-daemon/csd-keyboard &
+exec xfce4-panel &
+xbindkeys &
+nm-applet &
+$HOME/.make/random-wallpaper.sh/random-wallpaper.sh &
+marco -c
