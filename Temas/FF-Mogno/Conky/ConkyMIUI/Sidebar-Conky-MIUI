@@ -1,0 +1,93 @@
+############################################################################################
+# Sidebar-Conky					 					                                       #
+# by wim66 https://www.google.com/+WillemO						                           #
+# 26-5-15										                                           #
+# "Inspired by" other people's code							                               #
+# Calendar, more great conky's http://erikdubois.be/category/conky			               #
+# Jesse Avalos http://speedracker.deviantart.com/					                       #
+# Weather font by Kelly Kretchek https://plus.google.com/u/0/103934698784251707937/posts   #
+# Wallpaper http://0rax0.deviantart.com/art/Linux-2014-Wallpaper-457151439		           #
+# Use with Conky-Manager								                                   #
+# http://www.teejeetech.in/p/conky-manager.html						                       #
+#											                                               #
+############################################################################################
+
+background yes
+double_buffer yes
+no_buffers yes
+text_buffer_size 2048
+imlib_cache_size 0
+update_interval 1
+cpu_avg_samples 1
+format_human_readable
+
+alignment bottom_right
+gap_x 0
+gap_y 0
+minimum_size 240
+maximum_width 240
+
+own_window yes
+# options are:  normal/override/dock/desktop/panel
+own_window_type desktop
+own_window_class Conky
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_transparent yes
+own_window_colour 333333
+own_window_argb_visual no
+own_window_argb_value 0
+
+border_inner_margin 0
+border_outer_margin 0
+
+default_bar_size 100 6
+draw_shades no
+default_shade_color 000000
+draw_outline no
+default_outline_color 000000
+draw_borders no
+draw_graph_borders yes
+default_graph_size 40,220
+show_graph_scale no
+show_graph_range no
+
+override_utf8_locale yes
+use_xft yes
+xftfont Adele:normal:size=13
+xftalpha 0.1
+uppercase no
+max_text_width 40
+
+default_color ffffff
+color1 ffffff
+color2 FF5A45
+color3 81CAE0
+color4 FF5A45
+
+TEXT
+${goto 10}$color1${voffset -10}${font Adele:normal:size=15}
+# $sysname
+${goto 10}$kernel
+${goto 10}Desktop:${alignr 5}$XDG_CURRENT_DESKTOP
+${goto 10}Uptime:${alignr 5}$uptime
+#
+# cpu load/temp/graph
+${goto 10}${voffset 5}CPU1: ${cpu cpu1}%${alignr 10}${exec sensors|grep 'Core 0'|awk '{print $3}'}
+${goto 10}${voffset -5}${color2}${cpugraph cpu1 40,220 66241C FF5A45}
+#${goto 10}${voffset 0}${color1}CPU2: ${cpu cpu2}%${alignr 10}${exec sensors|grep 'Core 1'|awk '{print $3}'}
+#${goto 10}${voffset -5}${color2}${cpugraph cpu2 40,220 66241C FF5A45}
+#
+# top processes
+${voffset -5}${font Adele:normal:size=15}${color1}${alignc}Top Processes ${font}
+${voffset 4}${goto 10}${top name 1}${alignr 10}${top cpu 1}%
+${goto 10}${voffset -2}${top name 2}${alignr 10}${top cpu 2}%
+${goto 10}${voffset -2}${top name 3}${alignr 10}${top cpu 3}%
+${goto 10}${voffset -2}${top name 4}${alignr 10}${top cpu 4}%
+#
+# top memory
+${goto 10}${voffset 10}${font Adele:normal:size=15}Memory
+${goto 70}${color2}$membar${alignr 10}${color1}$memperc%
+${goto 10}${color1}${voffset -2}${font}${top_mem name 1}${alignr 10}${top mem 1}%
+${goto 10}${voffset -2}${top_mem name 2}${alignr 10}${top mem 2}%
+${goto 10}${voffset -2}${top_mem name 3}${alignr 10}${top mem 3}%
+${goto 10}${voffset -2}${top_mem name 4}${alignr 10}${top mem 4}%
