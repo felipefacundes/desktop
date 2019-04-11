@@ -1,0 +1,48 @@
+Section "InputClass"
+        Identifier "libinput pointer catchall"
+        MatchIsPointer "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+EndSection
+
+Section "InputClass"
+        Identifier "libinput keyboard catchall"
+        MatchIsKeyboard "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+	Option "XkbLayout" "br"
+	Option "XkbVariant" "abnt2"
+EndSection
+
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "Tapping" "on"
+	Option "TappingButtonMap" "lmr"
+	Option "TappingDrag" "on"
+	Option "RotationAngle" "exclusive"
+	Option "MiddleEmulation" "on"
+	Option "ClickMethod" "buttonareas" # "clickfinger"
+	Option "NaturalScrolling" "off"
+	Option "ScrollMethod" "twofinger"
+	Option "HorizontalScrolling" "on"
+	Option "VerticalScrolling" "on"
+	Option "EnableWhileTyping" "on"
+	Option "TapToClick" "on"
+EndSection
+
+Section "InputClass"
+        Identifier "libinput touchscreen catchall"
+        MatchIsTouchscreen "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+EndSection
+
+Section "InputClass"
+        Identifier "libinput tablet catchall"
+        MatchIsTablet "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+EndSection
