@@ -1,0 +1,24 @@
+#!/bin/bash
+
+export TERM=xterm
+export GALLIUM_HUD="cpu,fps"
+#export PATH=/bin/
+export WINE=/home/maria/.jogos/wines/3.4-staging-nine/bin/wine64
+#export PATH=/home/maria/.jogos/wines/3.4-staging-nine/bin/
+export WINEVERPATH=/home/maria/.jogos/wines/3.4-staging-nine/bin/wine64
+export WINESERVER=/home/maria/.jogos/wines/3.4-staging-nine/bin/wineserver
+export WINELOADER=/home/maria/.jogos/wines/3.4-staging-nine/bin/wine64
+#export WINEDLLPATH=
+export LD_LIBRARY32_PATH=/home/maria/.jogos/wines/3.4-staging-nine/lib32
+export LD_LIBRARY64_PATH=/home/maria/.jogos/wines/3.4-staging-nine/lib
+export WINEDEBUG=+fps
+
+cd "/home/maria/.jogos/wineprefixes/Blur/drive_c/Program Files (x86)/R.G. Mechanics/Blur"
+#cd /home/maria/.cache/winetricks/dxsdk_jun2010
+#cd "/home/maria/Downloads/Tudo/Torrents/Blur/"
+#cd /home/maria/.cache/winetricks/physx
+vblank_mode=0 
+WINEPREFIX=~/.jogos/wineprefixes/Blur/ vblank_mode=0 /home/maria/.jogos/wines/3.4-staging/bin/wine64 Blur.exe
+#setup.exe
+#DXSETUP.exe
+#Blur.exe
