@@ -1,0 +1,4 @@
+#!/bin/bash
+while true;
+do /home/$USER/.local/bin/lembrete_repetitivo/regras_do_lembrete_repetitivo.sh;
+done;
