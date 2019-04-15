@@ -1,0 +1,65 @@
+
+
+
+# Boas Vindas.
+echo '   _ '
+echo '  *v* *** BEM VINDO AO '`hostname`' ***'
+
+echo ' /(_)\ '
+echo '  ^ ^ ' `date`
+echo ' '
+
+#Sistema
+echo '    '
+echo '  *** Sistema: '`uname -a`' ***'
+echo '   '
+echo '  *** Usuario: '`echo $USER`' ***'
+echo '   _ '
+
+# Checa a Hora do Brasil, lista servidores NTP e ajusta Teclado:
+setxkbmap -model abnt2 -layout br -variant abnt2
+echo '   _ '
+echo '*** PRONTO, OK, EIS SEU TERMINAL, DIGITE SEU COMANDO: ***'
+date
+
+# Teste de Shell, default no Sabayon. Copiado de /etc/skel/.bashrc
+# Remova se sua Distro não tiver:
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+    # Shell is non-interactive.  Be done now!
+    return
+fi
+
+# Para Sabayon, mude para sua Distro:
+
+alias lsa='lsd -a'
+
+# Caso não queira Itens repetidos no bash_history
+# edite este .bashrc e adicione a linha:
+export HISTCONTROL=ignoreboth
+
+# Tem muitos comandos uteis e quer um historico maior das coisas?, Aumente aqui
+export HISTSIZE=1000
+export HISTFILESIZE=2000
+
+# Côres Gerais:
+export LS_OPTIONS='--color=auto'
+eval `dircolors`
+alias ls='lsd $LS_OPTIONS'
+alias ll='lsd $LS_OPTIONS -l'
+alias l='lsd $LS_OPTIONS -lA'
+
+# Côres Básicas do Prompt Inicial Simples, se quiser usar, descomente
+ # PS1="\[\e[0;39m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[0;94m\]\$ \[\e[m\]\[\e[0;32m\]"
+
+ # tambem tem este:
+ # PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\H> \[\e[0m\]"
+
+ # E Este, que estou usando:
+
+ PS1="\[\e[36;1m\]\u@\[\e[32;1m\]\H> \[\e[4;>>>>>[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\] ] \n\[\e[0; [ \[\e[1;34m\]Diretório: \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]-------> \[\e[0;37m\]  "
+
+ OSH_THEME="powerline"

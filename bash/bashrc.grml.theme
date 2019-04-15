@@ -1,0 +1,312 @@
+# Name:     GrmlBash
+# Author:   Dylan McClure <dylnmc@gmail.com>
+# URL:      https://github.com/dylnmc/dotfiles/blob/master/dotfiles/.bashrc
+# Created:  In the 21 century
+# Modified: Jun 08 2016
+# License:  WTFPL (w)
+
+[[ $- != *i* ]] && return
+# initial setup {{{
+
+if [[ -f $HOME/.profile ]]; then
+    source $HOME/.profile
+fi;
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+stty -ctlecho
+
+complete -cf sudo
+
+# }}}
+# exports {{{
+
+export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
+export HISTCONTROL=ignoreboth
+
+## }}}
+# shopt {{{
+
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s dotglob
+shopt -s expand_aliases
+shopt -s extglob
+shopt -s histappend
+shopt -s hostcomplete
+
+# }}}
+# Key Bindings {{{
+
+# hard screen clear
+bind -x '"\C-t": printf "\ec"'
+
+# tab
+bind 'set show-all-if-ambiguous on'
+bind '"\C-i" menu-complete'
+
+# }}}
+# Aliases {{{
+
+# ls options
+alias ls='ls --color=auto --file-type'
+alias la='ls -AF'
+alias ll='ls -lAF'
+
+# grep options
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# }}}
+# GRML {{{
+
+# attributes {{{
+
+_ESC=$'\e';
+_ATT_clear=$'\e[0m';
+
+# on {{{
+
+_ATT_bold=$'\e[1m';          # bold (brighter)
+# _ATT_dim=$'\e[2m';           # dim (darker)
+# _ATT_italic=$'\e[3m';        # italics; sometimes inverse (like _ATT_INVERSE); not supported often (often is)
+# _ATT_underline=$'\e[4m';     # underline
+# _ATT_blink_slow=$'\e[5m';    # blink slow; not widely supported
+# _ATT_blink_rapid=$'\e[6m';   # blink rapid; not widely supported
+# _ATT_inverse=$'\e[7m';       # inverse (negative image)
+# _ATT_concearl=$'\e[8m';      # conceal (hide); not supported sometimes (usually is)
+# _ATT_strike=$'\e[9m';        # strike through; not widely supported (almost never is)
+
+# }}}
+# off {{{
+
+# _ATT_bold_off=$'\e[21m';         # unbold; this usually doesn't work even though bold is supported (use _ATT_clear or _C_FG_...))
+# _ATT_dim_off=$'\e[22m';          # undim
+# _ATT_italic_off=$'\e[23m';       # sometimes inverse (like _ATT_INVERSE_OFF); not supported often
+# _ATT_underline_off=$'\e[24m';    # remove underline
+# _ATT_blink_slow_off=$'\e[25m';   # stop slow blink; not widely supported
+# _ATT_blink_rapid_off=$'\e[26m';  # stop fast blink; not widely supported
+# _ATT_inverse_off=$'\e[27m';      # stop inverse
+# _ATT_concearl_off=$'\e[28m';     # this often doesn't work when supported; not supported sometimes
+# _ATT_strike_off=$'\e[29m';       # not widely supported
+
+# }}}
+
+# }}}
+# colors {{{
+
+# foreground {{{
+
+# _FG_black=$'\e[30m';     # foregreound black
+# _FG_red=$'\e[31m';       # foregreound red
+_FG_green=$'\e[32m';     # foregreound green
+# _FG_yellow=$'\e[33m';    # foregreound yellow
+# _FG_blue=$'\e[34m';      # foregreound blue
+_FG_magenta=$'\e[35m';   # foregreound magenta
+# _FG_cyan=$'\e[36m';      # foregreound cyan
+# _FG_white=$'\e[37m';     # foregreound white
+_FG_normal=$'\e[39m';    # foregreound normal
+
+# }}}
+# background {{{
+
+# _BG_black=$'\e[40m';     # background black
+# _BG_red=$'\e[41m';       # background red
+# _BG_green=$'\e[42m';     # background green
+# _BG_yellow=$'\e[43m';    # background yellow
+# _BG_blue=$'\e[44m';      # background blue
+# _BG_magenta=$'\e[35m';   # background magenta
+# _BG_cyan=$'\e[46m';      # background cyan
+# _BG_white=$'\e[47m';     # background white
+# _BG_normal=$'\e[49m';    # background normal
+
+# }}}
+
+# }}}
+# colors with attributes {{{
+
+# clear foreground {{{
+
+# _C_FG_black=$'\e[0;30m';     # clear then foregreound black
+# _C_FG_red=$'\e[0;31m';       # clear then foregreound red
+# _C_FG_green=$'\e[0;32m';     # clear then foregreound green
+# _C_FG_yellow=$'\e[0;33m';    # clear then foregreound yellow
+# _C_FG_blue=$'\e[0;34m';      # clear then foregreound blue
+_C_FG_magenta=$'\e[0;35m';   # clear then foregreound magenta
+# _C_FG_cyan=$'\e[0;36m';      # clear then foregreound cyan
+# _C_FG_white=$'\e[0;37m';     # clear then foregreound white
+# _C_FG_normal=$'\e[0;39m';    # clear then foregreound normal
+
+# }}}
+# clear background {{{
+
+# _C_BG_black=$'\e[0;40m';     # clear then background black
+# _C_BG_red=$'\e[0;41m';       # clear then background red
+# _C_BG_green=$'\e[0;42m';     # clear then background green
+# _C_BG_yellow=$'\e[0;43m';    # clear then background yellow
+# _C_BG_blue=$'\e[0;44m';      # clear then background blue
+# _C_BG_magenta=$'\e[0;35m';   # clear then background magenta
+# _C_BG_cyan=$'\e[0;46m';      # clear then background cyan
+# _C_BG_white=$'\e[0;47m';     # clear then background white
+# _C_BG_normal=$'\e[0;49m';    # clear then background normal
+
+# }}}
+
+# foreground bright {{{
+
+# _FG_B_black=$'\e[30;1m';     # bright foregreound black
+# _FG_B_red=$'\e[31;1m';       # bright foregreound red
+# _FG_B_green=$'\e[32;1m';     # bright foregreound green
+# _FG_B_yellow=$'\e[33;1m';    # bright foregreound yellow
+# _FG_B_blue=$'\e[34;1m';      # bright foregreound blue
+# _FG_B_magenta=$'\e[35;1m';   # bright foregreound magenta
+# _FG_B_cyan=$'\e[36;1m';      # bright foregreound cyan
+# _FG_B_white=$'\e[37;1m';     # bright foregreound white
+# _FG_B_normal=$'\e[39;1m';    # bright foregreound normal
+
+# }}}
+# background bright{{{
+
+# _BG_B_black=$'\e[40;1m';     # bright background black
+# _BG_B_red=$'\e[41;1m';       # bright background red
+# _BG_B_green=$'\e[42;1m';     # bright background green
+# _BG_B_yellow=$'\e[43;1m';    # bright background yellow
+# _BG_B_blue=$'\e[44;1m';      # bright background blue
+# _BG_B_magenta=$'\e[35;1m';   # bright background magenta
+# _BG_B_cyan=$'\e[46;1m';      # bright background cyan
+# _BG_B_white=$'\e[47;1m';     # bright background white
+# _BG_B_normal=$'\e[49;1m';    # bright background normal
+
+# }}}
+
+# clear foreground bright {{{
+
+# _C_FG_B_black=$'\e[0;30;1m';     # clear then bright foregreound black
+_C_FG_B_red=$'\e[0;31;1m';       # clear then bright foregreound red
+# _C_FG_B_green=$'\e[0;32;1m';     # clear then bright foregreound green
+# _C_FG_B_yellow=$'\e[0;33;1m';    # clear then bright foregreound yellow
+_C_FG_B_blue=$'\e[0;34;1m';      # clear then bright foregreound blue
+# _C_FG_B_magenta=$'\e[0;35;1m';   # clear then bright foregreound magenta
+# _C_FG_B_cyan=$'\e[0;36;1m';      # clear then bright foregreound cyan
+# _C_FG_B_white=$'\e[0;37;1m';     # clear then bright foregreound white
+# _C_FG_B_normal=$'\e[0;39;1m';    # clear then bright foregreound normal
+
+# }}}
+# clear background bright{{{
+
+# _C_BG_B_black=$'\e[0;40;1m';     # clear then bright background black
+# _C_BG_B_red=$'\e[0;41;1m';       # clear then bright background red
+# _C_BG_B_green=$'\e[0;42;1m';     # clear then bright background green
+# _C_BG_B_yellow=$'\e[0;43;1m';    # clear then bright background yellow
+# _C_BG_B_blue=$'\e[0;44;1m';      # clear then bright background blue
+# _C_BG_B_magenta=$'\e[0;35;1m';   # clear then bright background magenta
+# _C_BG_B_cyan=$'\e[0;46;1m';      # clear then bright background cyan
+# _C_BG_B_white=$'\e[0;47;1m';     # clear then bright background white
+# _C_BG_B_normal=$'\e[0;49;1m';    # clear then bright background normal
+
+# }}}
+
+# }}}
+
+
+# grml battery?
+GRML_DISPLAY_BATTERY=1
+
+# battery dir
+if [ -d /sys/class/power_supply/BAT0 ]; then
+    _PS1_bat_dir='BAT0';
+else
+    _PS1_bat_dir='BAT1';
+fi
+
+# ps1 return and battery
+_PS1_ret(){
+    # should be at beg of line (otherwise more complex stuff needed)
+    RET=$?;
+
+    # battery
+    if [[ "$GRML_DISPLAY_BATTERY" == "1" ]]; then
+        if [ -d /sys/class/power_supply/$_PS1_bat_dir ]; then
+            # linux
+            STATUS="$( cat /sys/class/power_supply/$_PS1_bat_dir/status )";
+            if [ "$STATUS" = "Discharging" ]; then
+                bat=$( printf ' v%d%%' "$( cat /sys/class/power_supply/$_PS1_bat_dir/capacity )" );
+            elif [ "$STATUS" = "Charging" ]; then
+                bat=$( printf ' ^%d%%' "$( cat /sys/class/power_supply/$_PS1_bat_dir/capacity )" );
+            elif [ "$STATUS" = "Full" ] || [ "$STATUS" = "Unknown" ] && [ "$(cat /sys/class/power_supply/$_PS1_bat_dir/capacity)" -gt "98" ]; then
+                bat=$( printf ' =%d%%' "$( cat /sys/class/power_supply/$_PS1_bat_dir/capacity )" );
+            else
+                bat=$( printf ' ?%d%%' "$( cat /sys/class/power_supply/$_PS1_bat_dir/capacity )" );
+            fi;
+        fi
+    fi
+
+    if [[ "$RET" -ne "0" ]]; then
+        printf '\001%*s%s' "$(tput cols)" ":( $bat "
+        printf '\r%s\002%s ' "$_C_FG_B_red" "$RET"
+    else
+        printf '\001%*s%s\r\002' "$(tput cols)" "$bat "
+    fi;
+}
+
+_HAS_GIT=$( type 'git' &> /dev/null );
+
+# ps1 git branch
+_PS1_git(){
+    if ! $_HAS_GIT; then
+        return 1;
+    fi;
+    if [ ! "$( git rev-parse --is-inside-git-dir 2> /dev/null )" ]; then
+        return 2;
+    fi
+    branch="$( git symbolic-ref --short -q HEAD 2> /dev/null )"
+
+    if [ "$branch" ]; then
+        printf ' \001%s\002(\001%s\002git\001%s\002)\001%s\002-\001%s\002[\001%s\002%s\001%s\002]\001%s\002' "$_C_FG_magenta" "$_FG_normal" "$_FG_magenta" "$_FG_normal" "$_FG_magenta" "$_FG_green" "${branch}" "$_FG_magenta" "$_FG_normal"
+    fi;
+}
+
+# grml PS1 string
+PS1="\n\[\$_ESC[F\$_ATT_clear\]\$(_PS1_ret)\[\$_C_FG_B_blue\]${debian_chroot:+($debian_chroot)}\u\[\$_ATT_clear\]@\h \[\$_ATT_bold\]\w\$(_PS1_git) \[\$_ATT_clear\]% "
+
+# my weirdo fancy schmancy PS1
+# PS1="\[\e[0m\]\e[K\e[31m\${?##0}\n\[\e[1;31;44m\]┌\[\e[1;37m\] \t \[\e[0;34;49m\]\e[K\n\[\e[1;31;44m\]└\[\e[1;37;44m\] ${debian_chroot:+($debian_chroot)}\u@\h \[\e[0;34;47m\]\[\e[37;40m\]\[\e[1;32m\] \w \[\e[0;30;49m\]\[\e[00m\] "
+# }}}
+# license {{{
+#
+# DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+#         Version 2, February 2016
+#
+# Copyright (C) 2016 Dylan McClure <dylnmc@gmail.com>
+#
+# Everyone is permitted to copy and distribute verbatim or modified
+# copies of this license document, and changing it is allowed as long
+# as the name is changed.
+#
+# DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+# TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+#
+# 0. You just DO WHAT THE FUCK YOU WANT TO.
+#
+# vim:foldmethod=marker:foldlevel=0
+#}}}
+
+#screenfetch
+alias rm='trash-put'
+alias yd='youtube-dl -i'
+/home/maria/.local/bin/arch_artwork_A_colors.sh
+PATH=$PATH:~/.local/bin
+export PATH
+alias jo="cd ~/.local/bin/jogos"
+alias bi="cd ~/.local/bin"
+alias opengl="echo 'execute: glxinfo | grep -i opengl'; glxinfo | grep -i opengl"
+alias ~="cd ~"
+alias ..="cd .."
+# alias -="cd -"
+alias n="nice -n +19"
+alias free="free -hlt"
+alias merge="echo ffmpeg -i audio_de_entrada.m4a -i video_de_entrada.webm -acodec copy -vcodec copy OU -c copy video_de_saida.webm"
+
