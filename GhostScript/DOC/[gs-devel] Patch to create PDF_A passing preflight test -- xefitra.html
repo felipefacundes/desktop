@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN"><html><head>
+    <base href="https://www.ghostscript.com/pipermail/gs-devel/2009-January/008083.html">
+   <title> [gs-devel] Patch to create PDF/A passing preflight test -- xefitra
+   </title>
+   <link rel="Index" href="index.html">
+   <link rel="made" href="mailto:gs-devel%40ghostscript.com?Subject=%5Bgs-devel%5D%20Patch%20to%20create%20PDF/A%20passing%20preflight%20test%20--%20xefitra&In-Reply-To=">
+   <meta name="robots" content="index,nofollow">
+   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <link rel="Previous" href="008082.html">
+   <link rel="Next" href="008092.html">
+ 
+    <link rel="icon" href="">
+    <script id="savepage-pageloader" type="application/javascript">
+      savepage_PageLoader(5);
+      "use strict";function savepage_PageLoader(maxframedepth){var resourceMimeType=new Array();var resourceBase64Data=new Array();var resourceBlobUrl=new Array();window.addEventListener("DOMContentLoaded",function(a){createBlobURLs();replaceReferences(0,document.documentElement)},false);function createBlobURLs(){var i,j,binaryString,blobData;var a=new Array();for(i=0;i<resourceMimeType.length;i++){if(typeof resourceMimeType[i]!="undefined"){binaryString=atob(resourceBase64Data[i]);resourceBase64Data[i]="";a.length=0;for(j=0;j<binaryString.length;j++){a[j]=binaryString.charCodeAt(j)}blobData=new Blob([new Uint8Array(a)],{type:resourceMimeType[i]});resourceMimeType[i]="";resourceBlobUrl[i]=window.URL.createObjectURL(blobData)}}}function replaceReferences(a,b){var i,regex1,regex2,csstext,blobData;regex1=/url\(\s*((?:"[^"]+")|(?:'[^']+')|(?:[^\s)]+))\s*\)/gi;regex2=/data:[^;]*;resource=(\d+);base64,/i;if(b.hasAttribute("style")){csstext=b.style.cssText;b.style.cssText=csstext.replace(regex1,replaceCSSRef)}if(b.localName=="style"){csstext=b.textContent;b.textContent=csstext.replace(regex1,replaceCSSRef)}else if(b.localName=="link"&&(b.rel.toLowerCase()=="icon"||b.rel.toLowerCase()=="shortcut icon")){if(b.href!="")b.href=b.href.replace(regex2,replaceRef)}else if(b.localName=="body"){if(b.background!="")b.background=b.background.replace(regex2,replaceRef)}else if(b.localName=="img"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="input"&&b.type.toLowerCase()=="image"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="audio"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.load()}}else if(b.localName=="video"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.load()}if(b.poster!="")b.poster=b.poster.replace(regex2,replaceRef)}else if(b.localName=="source"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.parentElement.load()}}else if(b.localName=="track"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="object"){if(b.data!="")b.data=b.data.replace(regex2,replaceRef)}else if(b.localName=="embed"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}if(b.localName=="iframe"||b.localName=="frame"){if(a<maxframedepth){if(b.hasAttribute("data-savepage-sameorigin")){blobData=new Blob([decodeURIComponent(b.src.substr(29))],{type:"text/html;charset=utf-8"});b.onload=function(){try{if(b.contentDocument.documentElement!=null){replaceReferences(a+1,b.contentDocument.documentElement)}}catch(e){}};b.src=window.URL.createObjectURL(blobData)}}}else{for(i=0;i<b.childNodes.length;i++){if(b.childNodes[i]!=null){if(b.childNodes[i].nodeType==1)replaceReferences(a,b.childNodes[i])}}}}function replaceCSSRef(a,b,c,d){var e=new Array();e=b.match(/data:[^;]*;resource=(\d+);base64,/i);if(e!=null)return"url("+resourceBlobUrl[+e[1]]+")";else return a}function replaceRef(a,b,c,d){return resourceBlobUrl[+b]}
+      }
+    </script>
+    <meta name="savepage-url" content="https://www.ghostscript.com/pipermail/gs-devel/2009-January/008083.html">
+    <meta name="savepage-title" content="[gs-devel] Patch to create PDF/A passing preflight test -- xefitra">
+    <meta name="savepage-date" content="Tue Apr 16 2019 15:22:26 GMT-0300 (Horário Padrão de Brasília)">
+    <meta name="savepage-state" content="Standard Items; Used page loader; Retained cross-origin frames; Removed unsaved URLs; Max frame depth = 5; Max resource size = 50MB; Max resource time = 10s;">
+    <meta name="savepage-version" content="13.6">
+    <meta name="savepage-comments" content=""></head>
+ <body bgcolor="#ffffff">
+   <h1>[gs-devel] Patch to create PDF/A passing preflight test -- xefitra</h1>
+    <b>HAENEL Florian FDEP-G (AREVA NP GmbH)</b> 
+    <a href="mailto:gs-devel%40ghostscript.com?Subject=%5Bgs-devel%5D%20Patch%20to%20create%20PDF/A%20passing%20preflight%20test%20--%20xefitra&In-Reply-To=" title="[gs-devel] Patch to create PDF/A passing preflight test -- xefitra">Florian.Haenel at areva.com
+       </a><br>
+    <i>Wed Jan  7 01:45:31 PST 2009</i>
+    <p></p><ul>
+        <li>Previous message: <a href="008082.html">Fwd: Re: [gs-devel] Font
+</a></li>
+        <li>Next message: <a href="008092.html">[gs-devel] using xefitra and moderation is overkill
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="date.html#8083">[ date ]</a>
+              <a href="thread.html#8083">[ thread ]</a>
+              <a href="subject.html#8083">[ subject ]</a>
+              <a href="author.html#8083">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--beginarticle-->
+<pre>I succeded in creating pdf/a1b files that pass the Adobe Preflight check
+as well as the pdf-tools.com validator.
+My workflow is:
+Latex -&gt; dvips -&gt; gs
+
+Steps to reproduce:
+1. Apply attached patch to fullfill metadata requirements
+2. Make sure your embedded images and ps file share the same colorspace
+3. embed the appropriate icc file for your colorspace via the
+PDFA_def.ps file (sample attached)
+4. the PDFA_def.ps file must define Author/Creator metadata to be
+included.
+
+Commandline:
+gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite \\
+	-dPDFA \\
+	-sOutputFile=footemp.pdf -c .setpdfwrite \\
+	-dCompatibilityLevel=1.5 -r600 \\
+	-dEmbedAllFonts=true -dSubsetFonts=true -dMaxSubsetPct=100 \\
+	-dAutoFilterColorImages=false -dAutoFilterGrayImages=false \\
+	-dColorImageFilter=/FlateEncode -dGrayImageFilter=/FlateEncode
+-dMonoImageFilter=/CCITTFaxEncode \\
+	-dEncodeColorImages=true -dEncodeGrayImages=true
+-dEncodeMonoImages=true \\
+	-dDownsampleGrayImages=false -dDownsampleMonoImages=false \\
+	-dProcessColorModel=/DeviceCMYK -dUseCIEColor \\
+	PDFA_def.ps $tempname.ps
+
+Not tested with raster files yet.
+I think this is interesting for users trying to create automated reports
+and the like for later archival as pdf/a.
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: pdfa.diff
+Type: application/octet-stream
+Size: 2071 bytes
+Desc: pdfa.diff
+Url : <a href="http://ghostscript.com/pipermail/gs-devel/attachments/20090107/fbd169f9/pdfa.obj">http://ghostscript.com/pipermail/gs-devel/attachments/20090107/fbd169f9/pdfa.obj</a>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: PDFA_def.ps
+Type: application/postscript
+Size: 2045 bytes
+Desc: PDFA_def.ps
+Url : <a href="http://ghostscript.com/pipermail/gs-devel/attachments/20090107/fbd169f9/PDFA_def.ps">http://ghostscript.com/pipermail/gs-devel/attachments/20090107/fbd169f9/PDFA_def.ps</a>
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li>Previous message: <a href="008082.html">Fwd: Re: [gs-devel] Font
+</a></li>
+	<li>Next message: <a href="008092.html">[gs-devel] using xefitra and moderation is overkill
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="date.html#8083">[ date ]</a>
+              <a href="thread.html#8083">[ thread ]</a>
+              <a href="subject.html#8083">[ subject ]</a>
+              <a href="author.html#8083">[ author ]</a>
+         </li>
+       </ul>
+
+<hr>
+<a href="http://www.ghostscript.com/mailman/listinfo/gs-devel">More information about the gs-devel
+mailing list</a><br>
+
+</body></html>
