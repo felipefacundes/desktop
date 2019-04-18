@@ -1,6 +1,6 @@
 # Comandos: OpenRC vs Systemd
 
-<br> </br>
+
 
            Comando          |                            OpenRC                           |                  Systemd
                             |                                                             |
@@ -19,7 +19,7 @@
                             |                                                             |
  Desabilitar um serviço     | rc-update del <service> <runlevel>                          | systemctl disable <service>
 
-<br> </br>
+
 
 #
 
