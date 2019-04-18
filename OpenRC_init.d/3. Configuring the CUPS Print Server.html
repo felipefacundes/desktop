@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <base href="https://www.freebsd.org/doc/en_US.ISO8859-1/articles/cups/printing-cups-configuring-server.html"><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>3. Configuring the CUPS Print Server</title><style data-savepage-href="docbook.css" type="text/css">/*
+ * Copyright (c) 2001, 2003, 2010 The FreeBSD Documentation Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $FreeBSD: head/share/misc/docbook.css 48258 2016-02-26 04:59:09Z wblock $
+ */
+
+/*
+ * General DocBook styles from the DocBook XSL distribution
+ */
+
+.formalpara-title {
+	font-weight: bold;
+}
+
+a:link {
+	color:#0645AD;
+	text-decoration: underline;
+}
+
+a:visited, a:hover, a:active {
+	color:#663366;
+	text-decoration: underline;
+}
+
+div.blockquote-title {
+	font-weight: bold;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+span.msgmain-title {
+	font-weight: bold;
+}
+
+span.msgsub-title {
+	font-weight: bold;
+}
+
+span.msgrel-title {
+	font-weight: bold;
+}
+
+div.msglevel, div.msgorig, div.msgaud {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+span.msglevel-title, span.msgorig-title, span.msgaud-title {
+	font-weight: bold;
+}
+
+div.msgexplan {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+span.msgexplan-title {
+	font-weight: bold;
+}
+
+div.figure-title {
+	font-weight: bold;
+}
+
+div.example-title {
+	font-weight: bold;
+}
+
+div.equation-title {
+	font-weight: bold;
+}
+
+div.table-title {
+	font-weight: bold;
+}
+
+div.sidebar-title {
+	font-weight: bold;
+}
+
+div.synopsis {
+	white-space: pre;
+	font-family: monospace;
+}
+
+/*
+ * FreeBSD-specific formatting
+ */
+
+body address {
+	line-height: 1.3;
+	margin: .6em 0;
+}
+
+html body {
+	margin: 1em 8% 1em 10%;
+	line-height: 1.2;
+}
+
+@media screen {
+	html body { font-family: sans-serif; }
+}
+
+@media print {
+	html body { font-family: serif; }
+}
+
+.legalnotice {
+	font-size: small;
+	font-variant: small-caps;
+}
+
+body div {
+	margin: 0;
+}
+
+dl {
+	margin: .4em 0 0 0;
+	line-height: 1.2;
+}
+
+dt {
+	font-weight: bold;
+	margin: 0.4em 0 0 0;
+}
+
+div.abstract div.abstract-title,
+div.toc div.toc-title,
+div.list-of-figures div.toc-title,
+div.list-of-tables div.toc-title,
+div.list-of-examples div.toc-title {
+	font-size: 115%;
+}
+
+div.calloutlist dt {
+	float: left;
+width: 1em;}
+
+div.calloutlist dd {
+	clear: right;
+	margin-bottom: 1ex;
+}
+
+body .calloutlist td {
+	padding-right: 0.5em;
+	width: auto;
+}
+
+body .calloutlist td p {
+	line-height: 1.2;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+body form {
+	margin: .6em 0;
+}
+
+div.example p b,
+.question,
+div.table p b,
+div.procedure p b {
+	color: #990000;
+}
+
+h1.title, h2.title, h3.title, h4.title, h5.title, h6.title,
+h3.author, .corpauthor,
+div.abstract div.abstract-title,
+div.toc div.toc-title,
+div.list-of-figures div.toc-title,
+div.list-of-tables div.toc-title,
+div.list-of-examples div.toc-title {
+	font-weight: bold;
+	line-height: 1.3;
+	margin-top: 1em;
+	margin-left: 0;
+	color: #990000;
+}
+
+h1.title, h2.title {
+	margin: .8em 0 0 -4%;
+}
+
+h3.title, h4.title {
+	margin: .8em 0 0 -3%;
+}
+
+h5.title {
+	margin: .8em 0 0 -2%;
+}
+
+h6.title {
+	margin: .8em 0 0 -1%;
+}
+
+body hr {
+	margin: .6em;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #cecece;
+}
+
+body img.navheader {
+	margin: 0 0 0 -4%;
+}
+
+ol {
+	margin: 0 0 0 1em;
+	line-height: 1.2;
+}
+
+body pre {
+	margin: .75em 0;
+	font-family: monospace;
+}
+
+body td, body th {
+	line-height: 1.2;
+	padding-right: 1.5em;
+}
+
+ul, body dir, body menu {
+	margin: 0 0 0 1em;
+	line-height: 1.2;
+}
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+.filename {
+	color: #007a00;
+}
+
+.package, .port {
+	color: #007a00;
+	font-family: monospace;
+	font-style: italic;
+}
+
+.svnref {
+	color: #007a00;
+}
+
+.guimenu, .guimenuitem, .guisubmenu,
+.guilabel, .interface,
+.shortcut, .shortcut .keycap {
+	font-weight: bold;
+}
+
+.guibutton {
+	background-color: #CFCFCF;
+	padding: 2px;
+}
+
+.accel {
+	background-color: #F0F0F0;
+	text-decoration: underline;
+}
+
+pre.screen {
+	white-space: pre;
+	overflow: auto;
+	font-family: monospace;
+	padding: 1em;
+	background-color: #edc;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+pre.programlisting {
+	white-space: pre;
+	overflow: auto;
+	font-family: monospace;
+	padding: 1ex;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+@media screen {  /* hide from IE3 */
+	a[href]:hover { background: #ffa }
+}
+
+.informaltable, .table th {
+	padding-left: 0.2em;
+	text-align: left;
+}
+
+.note, .tip, .important, .warning, .caution, .example, div.procedure {
+	border-radius: 4px;
+	padding: 2ex;
+	margin: .75em 3em .75em 1em;
+	line-height: 1.3;
+}
+
+.note, div.procedure {
+	color: #222;
+	background: #eee;
+	border: 1px solid #ccc;
+	width: 90%;
+}
+
+.tip {
+	color: #004F00;
+	background: #d8ecd6;
+	border: 1px solid green;
+	width: 90%;
+}
+
+.important {
+	font-style:italic;
+	border: 1px solid #a00;
+	border-left: 12px solid #c00;
+	width: 90%;
+}
+
+.warning {
+	color: #9F1313;
+	background: #f8e8e8;
+	border: 1px solid #e59595;
+	width: 90%;
+}
+
+.caution {
+	color: #3E3535;
+	background: #FFC;
+	border: 1px solid #e59595;
+	width: 90%;
+}
+
+.example {
+	background: #fefde6;
+	border: 1px solid #f1bb16;
+	width: 90%;
+}
+
+.admontitle {
+	display: inline;
+	line-height: 1;
+	margin-right: 0;
+}
+
+.procedure-title {
+	font-weight: bold;
+	line-height: 1;
+	margin-right: 0;
+}
+
+.note p:first-of-type, .tip p:first-of-type, .important p:first-of-type, .warning p:first-of-type, .caution p:first-of-type {
+	display: inline-block;
+}
+
+.note p, .tip p, .important p, .warning p, .caution p {
+	margin: .4ex 0 .4ex 0;
+}
+
+.informaltable table.calstable tr td {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.authorgroup {
+	font-style: italic;
+}
+
+.userinput,
+.userinput code {
+	font-family: monospace;
+	font-weight: bold;
+}
+
+.errorname {
+	font-family: monospace;
+	font-style:  italic;
+}
+
+pre.screen strong {
+	font-family: monospace;
+	font-weight: normal;
+}
+
+.procedure ol {
+	line-height: 1.2;
+	margin: 0 0 0 -1em;
+}
+
+span.contrib {
+	font-size: small;
+	font-style: italic;
+}
+
+.literal, .command {
+	font-family: monospace;
+}
+
+code.prompt {
+	margin-left: -3px;
+}
+</style><link rev="made" href="mailto:doc@FreeBSD.org"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="index.html" title="CUPS on FreeBSD"><link rel="up" href="index.html" title="CUPS on FreeBSD"><link rel="prev" href="printing-cups-install.html" title="2. Installing the CUPS Print Server"><link rel="next" href="printing-cups-configuring-printers.html" title="4. Configuring Printers on the CUPS Print Server"><link rel="copyright" href="trademarks.html" title="Legal Notice"><script xmlns="" type="text/javascript" data-savepage-src="/layout/js/google.js" src=""></script>
+    <link rel="icon" href="data:image/x-icon;base64,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///N0///Y2vw/wQLxP8AAJP/LS2t/xwcUZYAAAASAAAAAAAAAAEAAAAmBwdzxgEClP8AA6T/BA/T/0BN9//V2/3////+///////8/v///f////r+///4/f//+vz+//v7/v/8/P7/+/v9//Pz+v92dc3/AAes/5yt6f/7/////////+To//+wtf7/Tlbi/wEGrP8FBZP/FRV/0QAAAC0AAAABAAAABAAAB0IAAIfqAACR/woSu/9rcuz/tLv//8DR//+4yuv65OTl+P////////////////7////9//////7///39/v/g4fb/1tf1/9DS9P+urer/xMf1/7zR6/nB0uv59vz///b3//+zt/f/MjnK/wABlf8DA4nwAAALSwAAAAMAAAAEAAAKRwABhe8SFqv/dnvn/9XY//+Rn/L7P1WXwxchNHhHR0V8oaGgxNzc3fD+/v7///////////////////////v8///8/f///////+zs5vK3trDFWVhWfBwlNHROYI2+oq7u+djc//+QlfD/Exew/wAAhvUAAAxOAAAAAwAAAAIAAAAjBARIqiYqmOlKT6XYJixvpwEFJGYAAAAnCAcGESMjIhYwMDAzRUVFW3R0dIiWlparqampwLe4uM25ubnNrq6swZycmq59fXyMVFRTWkNDQy4zMzMTDAwLEAAAACUCBR5gIylpoUBFo9QaHpfpAABMswAAACoAAAACAAAAAAAAAAcAAAAcAAAANQAAAC4AAAAXAAAACAAAAAIAAAAAAwMDABQUFAEeHh4HKioqDjMzMxk0NDQlNjY2Lzg3Ny83NzcmNjY2GjExMQ4oKCgGISEhAAgICAAAAAAAAAAAAQAAAAcAAAAUAAAAKwAAADYAAAAgAAAACgAAAAEAAAAAAAAAAAAAAAEAAAACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAQADQ0NABEREQAQEBAAERERABISEgAQEBAABgYGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAgAAAAEAAAAAAAAAAP/8P///wAP//wAA//4AAD/4AAAf8AAAD+AAAAfgAAAHwAAAA8AAAAOAAAABgAAAAYAAAAGAAAABgAAAAAAAAAAAAAAAgAAAAIAAAAGAAAABgAAAAcAAAAHAAAADwAAAA4AAAAGAAAABAAAAAAAAAAAAAAAAAAAAAIDABwDH///j">
+    <script id="savepage-pageloader" type="application/javascript">
+      savepage_PageLoader(5);
+      "use strict";function savepage_PageLoader(maxframedepth){var resourceMimeType=new Array();var resourceBase64Data=new Array();var resourceBlobUrl=new Array();window.addEventListener("DOMContentLoaded",function(a){createBlobURLs();replaceReferences(0,document.documentElement)},false);function createBlobURLs(){var i,j,binaryString,blobData;var a=new Array();for(i=0;i<resourceMimeType.length;i++){if(typeof resourceMimeType[i]!="undefined"){binaryString=atob(resourceBase64Data[i]);resourceBase64Data[i]="";a.length=0;for(j=0;j<binaryString.length;j++){a[j]=binaryString.charCodeAt(j)}blobData=new Blob([new Uint8Array(a)],{type:resourceMimeType[i]});resourceMimeType[i]="";resourceBlobUrl[i]=window.URL.createObjectURL(blobData)}}}function replaceReferences(a,b){var i,regex1,regex2,csstext,blobData;regex1=/url\(\s*((?:"[^"]+")|(?:'[^']+')|(?:[^\s)]+))\s*\)/gi;regex2=/data:[^;]*;resource=(\d+);base64,/i;if(b.hasAttribute("style")){csstext=b.style.cssText;b.style.cssText=csstext.replace(regex1,replaceCSSRef)}if(b.localName=="style"){csstext=b.textContent;b.textContent=csstext.replace(regex1,replaceCSSRef)}else if(b.localName=="link"&&(b.rel.toLowerCase()=="icon"||b.rel.toLowerCase()=="shortcut icon")){if(b.href!="")b.href=b.href.replace(regex2,replaceRef)}else if(b.localName=="body"){if(b.background!="")b.background=b.background.replace(regex2,replaceRef)}else if(b.localName=="img"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="input"&&b.type.toLowerCase()=="image"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="audio"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.load()}}else if(b.localName=="video"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.load()}if(b.poster!="")b.poster=b.poster.replace(regex2,replaceRef)}else if(b.localName=="source"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.parentElement.load()}}else if(b.localName=="track"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="object"){if(b.data!="")b.data=b.data.replace(regex2,replaceRef)}else if(b.localName=="embed"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}if(b.localName=="iframe"||b.localName=="frame"){if(a<maxframedepth){if(b.hasAttribute("data-savepage-sameorigin")){blobData=new Blob([decodeURIComponent(b.src.substr(29))],{type:"text/html;charset=utf-8"});b.onload=function(){try{if(b.contentDocument.documentElement!=null){replaceReferences(a+1,b.contentDocument.documentElement)}}catch(e){}};b.src=window.URL.createObjectURL(blobData)}}}else{for(i=0;i<b.childNodes.length;i++){if(b.childNodes[i]!=null){if(b.childNodes[i].nodeType==1)replaceReferences(a,b.childNodes[i])}}}}function replaceCSSRef(a,b,c,d){var e=new Array();e=b.match(/data:[^;]*;resource=(\d+);base64,/i);if(e!=null)return"url("+resourceBlobUrl[+e[1]]+")";else return a}function replaceRef(a,b,c,d){return resourceBlobUrl[+b]}
+      }
+    </script>
+    <meta name="savepage-url" content="https://www.freebsd.org/doc/en_US.ISO8859-1/articles/cups/printing-cups-configuring-server.html">
+    <meta name="savepage-title" content="3. Configuring the CUPS Print Server">
+    <meta name="savepage-date" content="Wed Apr 17 2019 23:06:21 GMT-0300 (Horário Padrão de Brasília)">
+    <meta name="savepage-state" content="Standard Items; Used page loader; Retained cross-origin frames; Removed unsaved URLs; Max frame depth = 5; Max resource size = 50MB; Max resource time = 10s;">
+    <meta name="savepage-version" content="13.7">
+    <meta name="savepage-comments" content=""></head><body><div class="navheader"><table summary="Navigation header" width="100%"><tbody><tr><th colspan="3" align="center">3. Configuring the CUPS Print Server</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="printing-cups-install.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="printing-cups-configuring-printers.html">Next</a></td></tr></tbody></table><hr></div><div class="sect1"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both"><a id="printing-cups-configuring-server"></a>3. Configuring the CUPS Print Server</h2></div></div></div><p>After installation, a few files must be edited in order to
+      configure the <span class="application">CUPS</span> server.  First,
+      create or modify, as the case may be, the file
+      <code class="filename">/etc/devfs.rules</code> and add the following
+      information to set the proper permissions on all potential
+      printer devices and to associate printers with the <code class="systemitem">cups</code> user group:</p><pre class="programlisting">[system=10]
+add path 'unlpt*' mode 0660 group cups
+add path 'ulpt*' mode 0660 group cups
+add path 'lpt*' mode 0660 group cups
+add path 'usb/<em class="replaceable"><code>X</code></em>.<em class="replaceable"><code>Y</code></em>.<em class="replaceable"><code>Z</code></em>' mode 0660 group cups</pre><div xmlns="" class="note"><h3 class="admontitle">Note: </h3><p xmlns="http://www.w3.org/1999/xhtml">Note that <em class="replaceable"><code>X</code></em>,
+	<em class="replaceable"><code>Y</code></em>, and <em class="replaceable"><code>Z</code></em>
+	should be replaced with the target USB device listed in the
+	<code class="filename">/dev/usb</code> directory that
+	corresponds to the printer.  To find the correct device,
+	examine the output of <a class="citerefentry" href="https://www.FreeBSD.org/cgi/man.cgi?query=dmesg&sektion=8&manpath=freebsd-release-ports"><span class="citerefentry"><span class="refentrytitle">dmesg</span>(8)</span></a>, where
+	<code class="filename">ugen<em class="replaceable"><code>X</code></em>.<em class="replaceable"><code>Y</code></em></code>
+	lists the printer device, which is a symbolic link to a USB
+	device in <code class="filename">/dev/usb</code>.</p></div><p>Next, add two lines to <code class="filename">/etc/rc.conf</code> as
+      follows:</p><pre class="programlisting">cupsd_enable="YES"
+devfs_system_ruleset="system"</pre><p>These two entries will start the
+      <span class="application">CUPS</span> print server on boot and invoke
+      the local devfs rule created above, respectively.</p><p>In order to enable <span class="application">CUPS</span> printing
+      under certain <span class="trademark">Microsoft</span>® <span class="trademark">Windows</span>® clients, the line below should
+      be uncommented in
+      <code class="filename">/usr/local/etc/cups/mime.types</code> and
+      <code class="filename">/usr/local/etc/cups/mime.convs</code>:</p><pre class="programlisting">application/octet-stream</pre><p>Once these changes have been made, the <a class="citerefentry" href="https://www.FreeBSD.org/cgi/man.cgi?query=devfs&sektion=8&manpath=freebsd-release-ports"><span class="citerefentry"><span class="refentrytitle">devfs</span>(8)</span></a> and
+      <span class="application">CUPS</span> systems must both be restarted,
+      either by rebooting the computer or issuing the following two
+      commands in a root terminal:</p><pre class="screen"><code class="prompt">#</code> <strong class="userinput"><code>/etc/rc.d/devfs restart</code></strong>
+<code class="prompt">#</code> <strong class="userinput"><code>/usr/local/etc/rc.d/cupsd restart</code></strong></pre></div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tbody><tr><td width="40%" align="left"><a accesskey="p" href="printing-cups-install.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="printing-cups-configuring-printers.html">Next</a></td></tr><tr><td width="40%" valign="top" align="left">2. Installing the CUPS Print Server </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" valign="top" align="right"> 4. Configuring Printers on the CUPS Print Server</td></tr></tbody></table></div><p xmlns="" align="center"><small>All FreeBSD documents are available for download
+    at <a href="https://download.freebsd.org/ftp/doc/">https://download.freebsd.org/ftp/doc/</a></small></p><p xmlns="" align="center"><small>Questions that are not answered by the
+    <a href="https://www.FreeBSD.org/docs.html">documentation</a> may be
+    sent to &lt;<a href="mailto:freebsd-questions@FreeBSD.org">freebsd-questions@FreeBSD.org</a>&gt;.<br>
+    Send questions about this document to &lt;<a href="mailto:freebsd-doc@FreeBSD.org">freebsd-doc@FreeBSD.org</a>&gt;.</small></p></body></html>
