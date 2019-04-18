@@ -72,13 +72,13 @@ rc‐update add NetworkManager default
 
 Generate locales:
 
-nano /etc/locale.gen
+    nano /etc/locale.gen
 
 <‐ descomente sua localidade
 
     locale‐gen
 
-###### Para definir a localidade em todo o sistema, edite /etc/locale.conf (que é originado por /etc/profile) ou /etc/bash/bashrc.d/artix.bashrc ou /etc/bash/bashrc.d / local.bashrc; alterações específicas do usuário podem ser feitas em seus respectivos ~/.bashrc , for example:
+###### Para definir a localidade em todo o sistema, edite /etc/locale.conf (que é originado por /etc/profile) ou /etc/bash/bashrc.d/artix.bashrc ou /etc/bash/bashrc.d/local.bashrc; alterações específicas do usuário podem ser feitas em seus respectivos ~/.bashrc, por exemplo:
 
 ```
 export LANG="pt_BR.UTF‐8"
@@ -93,8 +93,10 @@ Agora, você pode reiniciar e entrar em sua nova instalação:
 
 <‐ sair do ambiente chroot
 
+```
 umount ‐R /mnt
 reboot
+```
 
 Quando o desligamento estiver concluído, remova a mídia de instalação. Se tudo correu bem, você deve iniciar o seu novo sistema. Faça o login como sua raiz para completar a configuração de instalação. Para obter um ambiente gráfico, você precisa instalar o grupo xorg:
 
@@ -108,7 +110,7 @@ Os cartões nvidia mais antigos funcionam com as séries legacy, nvidia-340xx-lt
 
     pacman ‐S mate mate‐extra xfce4 xfce4‐goodies lxqt
 
-And optionally a display manager, like lightdm or SDDM:
+E, opcionalmente, um gerenciador de exibição, como lightdm ou SDDM:
 
 ```
 pacman ‐S lightdm displaymanager‐openrc
@@ -116,9 +118,58 @@ rc‐update add xdm default
 nano /etc/conf.d/xdm
 ```
 
-<‐ editar e definir DISPLAYMANAGER="lighdm"
+<‐ editar e definir DISPLAYMANAGER="lightdm"
 
 Ou você pode usar o .xinitrc para iniciar seu DE manualmente; edite (ou crie) ~/.xinitrc e adicione exec mate-session. Aviso: mate-session e alguns outros
 pacotes dos repositórios do Arch são compilados contra o systemd mesmo que eles não o utilizem, pelo menos não como PID1; para satisfazer o link da biblioteca você pode instalar elogind e seus arquivos de serviços elogind-openrc or elogind-runit.
 
     pacman ‐S elogind
+
+#### Ou, se você preferir: você não precisa de DE para logar ou gerenciar o servidor X, você poderá conceder autologin ao sistema e incluir "startx" ou "sx" no seu .bash_profile:
+
+```
+sudo rc-update delete xdm
+sudo nano /etc/conf.d/agetty.tty1     (ou agetty.tty2, 3, onde você preferir que logue automaticamente)
+```
+###### E inclua em agetty.tty1 (ou 2...): "-a seu_usuário" exemplo: maria ou joão ... tem que usar aspas "" como descrito abaixo:
+
+    agetty_options="-a maria"
+
+##### Para impressora você terá que instalar o CUPS e iniciar o CUPS e o Avahi no BOOT:
+
+```
+PARA IMPRESSORAS: HP inclua hplip: sudo pacman -S hplip
+
+sudo pacman -S cups cups-filters cups-openrc avahi-openrc system-config-printer
+sudo rc-update add avahi-dnsconfd default
+sudo rc-update add cupsd default
+
+AGORA INICIE OS SERVIÇOS:
+
+sudo rc-service avahi-dnsconfd start
+sudo rc-service cupsd start
+```
+
+INSTALE A IMPRESSORA
+
+sudo system-config-printer
+
+OBS: Caso à sua impressora não seja reconhecida, terá de instalar hplip para HP, splix para SAMSUNG e os drivers foomatic
+
+OPCIONAL:
+
+    sudo pacman -S foomatic-db-engine foomatic-db foomatic-db-gutenprint-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds foomatic-db-ppds
+
+##### Para desligar o sistema sem precisar de senha
+
+```
+sudo chmod +x /usr/bin/openrc-shutdown
+sudo chmod +s /usr/bin/openrc-shutdown
+```
+
+###### Para desligar, passe a usar:
+
+openrc-shutdow --reboot now
+
+###### Ou reiniciar
+openrc-shutdow --poweroff now
