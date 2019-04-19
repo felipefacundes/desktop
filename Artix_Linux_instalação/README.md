@@ -126,7 +126,6 @@ setfont
 ###### Para definir a localidade em todo o sistema, edite /etc/locale.conf (que é originado por /etc/profile) ou /etc/bash/bashrc.d/artix.bashrc ou /etc/bash/bashrc.d/local.bashrc; alterações específicas do usuário podem ser feitas em seus respectivos ~/.bashrc, por exemplo:
 
 ```
-export LANG="pt_BR ISO-8859-1"
 export LANG="pt_BR.UTF‐8"
 export LC_COLLATE="C"
 ```
