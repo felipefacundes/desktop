@@ -1,10 +1,10 @@
 # Instalação do Artix Linux
 
 ```
-mkfs.ext4 ‐L ROOT /dev/sda2 <‐ root partition
-mkfs.ext4 ‐L HOME /dev/sda3 <‐ home partition, optional
-mkfs.ext4 ‐L BOOT /dev/sda4 <‐ boot partition, optional
-mkswap ‐L SWAP /dev/sda1 <‐ swap partition
+mkfs.ext4 -L ROOT /dev/sda2 <‐ root partition
+mkfs.ext4 -L HOME /dev/sda3 <‐ home partition, optional
+mkfs.ext4 -L BOOT /dev/sda4 <‐ boot partition, optional
+mkswap -L SWAP /dev/sda1 <‐ swap partition
 ```
 
 
@@ -24,38 +24,38 @@ mount /dev/sda4 /mnt/boot (if created)
 
 ```
 ping artixlinux.org
-pacman ‐Syy
+pacman -Syy
 ```
 ##### Use basestrap para instalar a base e, opcionalmente, os grupos de pacotes base-devel e seu init preferido (atualmente disponível: openrc e runit):
 
 ```
-basestrap /mnt base base‐devel openrc
+basestrap /mnt base base-devel openrc
 or
-basestrap /mnt base base‐devel runit
+basestrap /mnt base base-devel runit
 ```
 
 ##### Use fstabgen para gerar /etc/fstab, use -U para UUIDs e -L para rótulos de partições:
 
 ```
-fstabgen ‐L /mnt >>/mnt/etc/fstab
+fstabgen -L /mnt >>/mnt/etc/fstab
 ```
 
 ##### Verifique o fstab resultante para erros antes de reinicializar. Agora, você pode entrar em seu novo sistema Artix com:
 
-    artools‐chroot /mnt
+    artools-chroot /mnt
 
 ##### Configure o sistema base. Primeiro, instale o grub e o os-prober (para detectar outros sistemas operacionais instalados):
 
 ```
-pacman ‐S grub os‐prober
-grub‐install ‐‐recheck /dev/sda
-grub‐mkconfig ‐o /boot/grub/grub.cfg
+pacman -S grub os‐prober
+grub-install --recheck /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ##### Create a user and password:
 
 ```
-useradd ‐m user
+useradd -m user
 passwd user
 ```
 
@@ -66,7 +66,7 @@ Configure sua senha de ROOT:
 Instalar networkmanager:
 
 ```
-pacman ‐S networkmanager networkmanager‐openrc network‐manager‐applet
+pacman -S networkmanager networkmanager-openrc network-manager-applet
 rc‐update add NetworkManager default
 ```
 
@@ -76,7 +76,7 @@ Generate locales:
 
 <‐ descomente sua localidade
 
-    locale‐gen
+    locale-gen
 
 ###### Para definir a localidade em todo o sistema, edite /etc/locale.conf (que é originado por /etc/profile) ou /etc/bash/bashrc.d/artix.bashrc ou /etc/bash/bashrc.d/local.bashrc; alterações específicas do usuário podem ser feitas em seus respectivos ~/.bashrc, por exemplo:
 
@@ -94,34 +94,33 @@ Agora, você pode reiniciar e entrar em sua nova instalação:
 <‐ sair do ambiente chroot
 
 ```
-umount ‐R /mnt
+umount -R /mnt
 reboot
 ```
 
 Quando o desligamento estiver concluído, remova a mídia de instalação. Se tudo correu bem, você deve iniciar o seu novo sistema. Faça o login como sua raiz para completar a configuração de instalação. Para obter um ambiente gráfico, você precisa instalar o grupo xorg:
 
-    pacman ‐S xorg
+    pacman -S xorg xorg-server xorg-server-devel
 
 Escolha seus pacotes ou instale todos eles. Para os drivers nvidia de código fechado, você pode usar o pacote nvidia-lts, já que nosso kernel padrão é linux-lts:
 
-    pacman ‐S nvidia‐lts
+    pacman -S nvidia-lts
 
 Os cartões nvidia mais antigos funcionam com as séries legacy, nvidia-340xx-lts e nvidia-304xx-lts. Se você quer rodar um kernel customizado, você pode instalar o nvidia pacote dkms que garante que todos os kernels instalados recebam seus módulos nvidia. As placas AMD e Intel desfrutam de excelente suporte (ou quase excelente) 3D com código aberto drivers. Leia o wiki do Arch para obter informações sobre como o Xorg escolhe o melhor driver de vídeo disponível e qual é o ideal para o seu hardware. Instale um ambiente de área de trabalho, por exemplo MATE, LXQt or XFCE4:
 
-    pacman ‐S mate mate‐extra xfce4 xfce4‐goodies lxqt
+    pacman -S mate mate‐extra xfce4 xfce4‐goodies lxqt
 
 E, opcionalmente, um gerenciador de exibição, como lightdm ou SDDM:
 
 ```
-pacman ‐S lightdm displaymanager‐openrc
-rc‐update add xdm default
+pacman -S lightdm displaymanager-openrc
+rc-update add xdm default
 nano /etc/conf.d/xdm
 ```
 
 <‐ editar e definir DISPLAYMANAGER="lightdm"
 
-Ou você pode usar o .xinitrc para iniciar seu DE manualmente; edite (ou crie) ~/.xinitrc e adicione exec mate-session. Aviso: mate-session e alguns outros
-pacotes dos repositórios do Arch são compilados contra o systemd mesmo que eles não o utilizem, pelo menos não como PID1; para satisfazer o link da biblioteca você pode instalar elogind e seus arquivos de serviços elogind-openrc or elogind-runit.
+Ou você pode usar o .xinitrc para iniciar seu DE manualmente; edite (ou crie) ~/.xinitrc e adicione exec mate-session. Aviso: mate-session e alguns outros pacotes dos repositórios do Arch são compilados contra o systemd mesmo que eles não o utilizem, pelo menos não como PID1; para satisfazer o link da biblioteca você pode instalar elogind e seus arquivos de serviços elogind-openrc or elogind-runit.
 
     pacman ‐S elogind
 
