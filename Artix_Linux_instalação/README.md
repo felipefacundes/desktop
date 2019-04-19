@@ -120,7 +120,7 @@ nano /etc/conf.d/keymaps
 # substitua "us" por "br-abnt2" ficará assim:
 keymap="br-abnt2"
 
-rc-update add keymaps default
+rc-service keymaps start
 ```
 
 ###### Para definir a localidade em todo o sistema, edite /etc/locale.conf (que é originado por /etc/profile) ou /etc/bash/bashrc.d/artix.bashrc ou /etc/bash/bashrc.d/local.bashrc; alterações específicas do usuário podem ser feitas em seus respectivos ~/.bashrc, por exemplo:
