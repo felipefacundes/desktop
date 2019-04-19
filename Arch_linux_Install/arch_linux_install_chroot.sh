@@ -12,7 +12,7 @@ echo -e "LOCALE=pt_BR.UTF-8" >> /etc/locale.conf
 echo -e "LC_CTYPE="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_NUMERIC="pt_BR.UTF-8"" >> /etc/locale.conf 
 echo -e "LC_TIME="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_COLLATE="pt_BR.UTF-8"" >> /etc/locale.conf 
+echo -e "LC_COLLATE="C"" >> /etc/locale.conf 
 echo -e "LC_MONETARY="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_MESSAGES="pt_BR.UTF-8"" >> /etc/locale.conf 
 echo -e "LC_PAPER="pt_BR.UTF-8"" >> /etc/locale.conf
@@ -22,23 +22,20 @@ echo -e "LC_TELEPHONE="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_MEASUREMENT="pt_BR.UTF-8"" >> /etc/locale.conf 
 echo -e "LC_IDENTIFICATION="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_ALL=pt_BR" >> /etc/locale.conf
-echo -e "CONSOLEFONT=" >> /etc/locale.conf
 echo -e "KEYMAP="br-abnt2"" >> /etc/locale.conf
-
-echo -e "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
-echo -e "pt_BR ISO-8859-1" >> /etc/locale.gen
-
+ 
 cp -rf /etc/locale.conf /etc/vconsole.conf
+
+loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
+
+#  localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
+echo -e "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
 
 locale-gen
 export LANG=pt_BR.UTF-8
-sleep 1
-#
-
-loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
 setfont
-
 localectl set-x11-keymap br abnt2
+#
 
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc --utc
