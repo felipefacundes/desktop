@@ -117,7 +117,7 @@ loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
 setfont
 
 nano /etc/conf.d/keymaps
-e substitua **us** por **br-abnt2** ficará assim:
+# substitua "us" por "br-abnt2" ficará assim:
 keymap="br-abnt2"
 
 rc-update add keymaps default
