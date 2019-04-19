@@ -70,17 +70,59 @@ pacman -S networkmanager networkmanager-openrc network-manager-applet
 rc‐update add NetworkManager default
 ```
 
-Generate locales:
+Gerar local:
 
     nano /etc/locale.gen
 
 <‐ descomente sua localidade
 
-    locale-gen
+##### OU
+
+```
+echo -e "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
+echo -e "pt_BR ISO-8859-1" >> /etc/locale.gen
+
+locale-gen
+```
+
+    
+###### Sistema em português e teclado em ABNT2
+
+```
+echo -e "LANG=pt_BR.UTF-8" > /etc/locale.conf
+echo -e "LOCALE=pt_BR.UTF-8" >> /etc/locale.conf
+echo -e "LC_CTYPE="pt_BR.UTF-8"" >> /etc/locale.conf
+echo -e "LC_NUMERIC="pt_BR.UTF-8"" >> /etc/locale.conf 
+echo -e "LC_TIME="pt_BR.UTF-8"" >> /etc/locale.conf
+echo -e "LC_COLLATE="C"" >> /etc/locale.conf 
+echo -e "LC_MONETARY="pt_BR.UTF-8"" >> /etc/locale.conf
+echo -e "LC_MESSAGES="pt_BR.UTF-8"" >> /etc/locale.conf 
+echo -e "LC_PAPER="pt_BR.UTF-8"" >> /etc/locale.conf
+echo -e "LC_NAME="pt_BR.UTF-8"" >> /etc/locale.conf
+echo -e "LC_ADDRESS="pt_BR.UTF-8"" >> /etc/locale.conf 
+echo -e "LC_TELEPHONE="pt_BR.UTF-8"" >> /etc/locale.conf
+echo -e "LC_MEASUREMENT="pt_BR.UTF-8"" >> /etc/locale.conf 
+echo -e "LC_IDENTIFICATION="pt_BR.UTF-8"" >> /etc/locale.conf
+echo -e "LC_ALL=pt_BR" >> /etc/locale.conf
+echo -e "CONSOLEFONT="lat1-16 -m 8859-1"" >> /etc/locale.conf
+echo -e "KEYMAP="br-abnt2"" >> /etc/locale.conf
+echo -e "UNICODE="1"" >> /etc/locale.conf
+echo -e "FONT="lat1-16 -m 8859-1"" >> /etc/locale.conf
+ 
+cp -rf /etc/locale.conf /etc/vconsole.conf
+
+loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
+setfont
+
+Opções alternativas:
+LEGACY_CHARSET="iso-8859-1"
+FONT="ter-128n"
+```
 
 ###### Para definir a localidade em todo o sistema, edite /etc/locale.conf (que é originado por /etc/profile) ou /etc/bash/bashrc.d/artix.bashrc ou /etc/bash/bashrc.d/local.bashrc; alterações específicas do usuário podem ser feitas em seus respectivos ~/.bashrc, por exemplo:
 
 ```
+export LANG="pt_BR ISO-8859-1"
 export LANG="pt_BR.UTF‐8"
 export LC_COLLATE="C"
 ```
@@ -172,3 +214,4 @@ openrc-shutdow --reboot now
 
 ###### Ou reiniciar
 openrc-shutdow --poweroff now
+
