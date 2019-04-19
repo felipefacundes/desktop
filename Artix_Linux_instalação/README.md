@@ -104,16 +104,20 @@ echo -e "LC_TELEPHONE="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_MEASUREMENT="pt_BR.UTF-8"" >> /etc/locale.conf 
 echo -e "LC_IDENTIFICATION="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_ALL=pt_BR" >> /etc/locale.conf
-echo -e "CONSOLEFONT="lat1-16 -m 8859-1"" >> /etc/locale.conf
+echo -e "CONSOLEFONT="lat1-16"" >> /etc/locale.conf
 echo -e "KEYMAP="br-abnt2"" >> /etc/locale.conf
 echo -e "UNICODE="1"" >> /etc/locale.conf
-echo -e "FONT="lat1-16 -m 8859-1"" >> /etc/locale.conf
+echo -e "FONT="lat1-16"" >> /etc/locale.conf
  
 cp -rf /etc/locale.conf /etc/vconsole.conf
+
+nano /etc/rc.conf
+e inclua:
 
 loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
 setfont
 
+----------------------------
 Opções alternativas:
 LEGACY_CHARSET="iso-8859-1"
 FONT="ter-128n"
