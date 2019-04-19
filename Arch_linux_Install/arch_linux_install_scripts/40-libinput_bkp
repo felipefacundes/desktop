@@ -7,11 +7,12 @@ EndSection
 
 Section "InputClass"
         Identifier "libinput keyboard catchall"
-        MatchIsKeyboard "on"
+        MatchIsKeyboard "yes"
         MatchDevicePath "/dev/input/event*"
         Driver "libinput"
 	Option "XkbLayout" "br"
 	Option "XkbVariant" "abnt2"
+	Option "XkbOptions" "terminate:ctrl_alt_bksp"
 EndSection
 
 Section "InputClass"
