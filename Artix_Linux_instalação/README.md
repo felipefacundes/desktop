@@ -74,13 +74,12 @@ Gerar local:
 
     nano /etc/locale.gen
 
-<‐ descomente sua localidade
+<‐ descomente sua localidade em **UTF-8** (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
 
 ##### OU
 
 ```
 echo -e "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
-echo -e "pt_BR ISO-8859-1" >> /etc/locale.gen
 
 locale-gen
 ```
