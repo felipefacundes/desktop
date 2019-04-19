@@ -9,3 +9,6 @@ kernel.msgmnb=65536
 kernel.msgmax=65536
 kernel.shmmax=68719476736
 kernel.shmall=4294967296
+
+# Para laptop inclua:
+vm.laptop_mode=1
