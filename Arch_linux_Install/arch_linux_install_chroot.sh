@@ -34,6 +34,10 @@ locale-gen
 export LANG=pt_BR.UTF-8
 sleep 1
 #
+
+loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
+setfont
+
 localectl set-x11-keymap br abnt2
 
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
