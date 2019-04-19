@@ -899,6 +899,7 @@ vid.stab
 vim
 vim-runtime
 vim-spell-pt
+vim-supertab
 vlc
 volume_key
 vte-common
