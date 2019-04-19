@@ -116,11 +116,11 @@ export LANG=pt_BR.UTF-8
 loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
 setfont
 
-nano /etc/rc.conf
-e inclua:
+nano /etc/conf.d/keymaps
+e substitua **us** por **br-abnt2** ficará assim:
+keymap="br-abnt2"
 
-loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
-setfont
+rc-update add keymaps default
 ```
 
 ###### Para definir a localidade em todo o sistema, edite /etc/locale.conf (que é originado por /etc/profile) ou /etc/bash/bashrc.d/artix.bashrc ou /etc/bash/bashrc.d/local.bashrc; alterações específicas do usuário podem ser feitas em seus respectivos ~/.bashrc, por exemplo:
