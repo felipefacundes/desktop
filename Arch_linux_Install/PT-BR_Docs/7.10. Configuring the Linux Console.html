@@ -1,0 +1,1534 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <base href="http://www.linuxfromscratch.org/lfs/view/7.1/chapter07/console.html">
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1">
+    <title>
+      7.10. Configuring the Linux Console
+    </title>
+    <style data-savepage-href="../stylesheets/lfs.css" type="text/css">/*
+$LastChangedBy: bdubbs $
+$Date: 2008-10-19 22:30:43 -0600 (Sun, 19 Oct 2008) $
+*/
+/* Global settings */
+body {
+  font-family: verdana, tahoma, helvetica, arial, sans-serif;
+  text-align: left;
+  background: #fff;
+  color: #222;
+  margin: 1em;
+  padding: 0;
+  font-size: 1em;
+  line-height: 1.2em
+}
+
+
+/* Links */
+a:link { color: #22b; }
+a.ulink:link { font-weight: bold; color: #55f; }
+a:visited { color: #7e4988 ! important; }
+a:hover, a:focus { color: #d30e08 ! important; }
+a:active { color: #6b77b1 ! important;}
+
+
+/* Book titlepage */
+.book .titlepage {
+  background: #f5f6f7;
+  margin: 0px auto;
+  padding: 0 1em;
+}
+
+.book hr {
+  background: #dbddec;
+  height: .3em;
+  border: 0px;
+  margin: 0 -1em;
+  padding: 0;
+}
+
+div.dedication {
+  padding-left: 1em;
+}
+
+
+/* Sections */
+div.sect1, div.appendix {
+  padding-left: .3em;
+}
+
+.package, .kernel, .installation, .commands, .testing, .configuration, .content {
+  padding: 0 .5em .2em 0;
+  margin: 0;
+}
+
+.lfs .package {
+  background: #f5f6f7;
+  border-bottom: 0.2em solid #dbddec;
+  padding-top: .1em;
+  margin-top: 0;
+}
+
+.lfs .configuration {
+  background:   #fefefe;
+  border-top: 0.2em solid #dbddec;
+}
+
+.lfs .content {
+  background: #f5f6f7;
+  border-top: 0.2em solid #dbddec;
+  padding-bottom: .1em;
+  margin-bottom: 0;
+}
+
+
+/* Headers */
+h1, h2, h3, h4, h5, h6, b, .strong {
+  color: #000;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+h1 {
+  font-size: 173%;
+  text-align: center;
+}
+
+.book h1 {
+  margin: 0;
+  padding: 0.4em;
+}
+
+.preface h1, .part h1, .chapter h1, .appendix h1, .index h1, .sect1 h1 {
+  background: #f5f6f7;
+  border-bottom: .1em solid #dbddec;
+  margin-bottom: 1em;
+  margin-top: 0;
+  padding: .4em;
+}
+
+.sect1 h1, .appendix h1 {
+  margin-left: -.2em;
+}
+
+.wrap h1 {
+  background: #f5f6f7;
+  margin: 0;
+  padding: .4em;
+}
+
+h1.title sup {
+  font-size: small;
+}
+
+h2 {
+  font-size: 144%;
+}
+
+.book h2.subtitle {
+  text-align: center;
+  background: #dbddec;
+  margin: 0;
+  padding: 0.2em;
+}
+
+.appendix h2 {
+  font-size: 133%;
+  margin-top: .8em;
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 120%;
+}
+
+h4 {
+  font-size: 110%;
+}
+
+.package h4, h5, h6 {
+  font-size: 100%;
+  font-style: italic;
+}
+
+
+/* Navigation */
+div.navheader, div.navfooter {
+  background: #ecedef;
+  margin: 0;
+  padding: 0.1em .5em;
+}
+
+div.navheader {
+  border-bottom: 1px solid #dbddec;
+}
+
+div.navfooter {
+  border-top: 1px solid #dbddec;
+}
+
+div.navheader h4 {
+  margin-top: .4em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+div.navheader h3 {
+  margin-top: .2em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+div.navheader ul, div.navfooter ul {
+  padding: .2em .5em .5em 0;
+  margin: .5em 0;
+  position: relative;
+  background: #dbddec;
+}
+
+div.navheader ul li, div.navfooter ul li {
+  display: inline;
+  width: 40%;
+}
+
+div.navheader ul li.prev, div.navfooter ul li.prev {
+  position: absolute;
+  display: block;
+  left: 0;
+  text-align: left;
+  padding: 0.2em 1em;
+  margin-left: 6px;
+}
+
+div.navheader ul li.next, div.navfooter ul li.next {
+  position: absolute;
+  display: block;
+  text-align: right;
+  right: 5px;
+  padding: 0.2em 0.5em;
+  margin-right: 7px;
+}
+
+div.navheader ul li.prev p, div.navfooter ul li.prev p,
+div.navheader ul li.next p, div.navfooter ul li.next p {
+  padding: 0;
+  margin: 1px 0px;
+}
+
+div.navheader ul li.home, div.navheader ul li.up,
+div.navfooter ul li.home, div.navfooter ul li.up {
+  text-align: center;
+  padding: 0;
+  margin: 0px auto;
+  display: block;
+  color: #dbddec;
+}
+
+
+/* TOC */
+div.toc ul, div.index ul, div.navheader ul, div.navfooter ul {
+  list-style: none;
+}
+
+div.toc {
+  padding-left: 1em;
+}
+
+li.preface, .part li.appendix {
+  margin-left: 1em;
+}
+
+div.toc h3 {
+  margin: 1em 0 .3em 0;
+}
+
+li.appendix h3, li.glossary h3, li.index h3 {
+  margin: .5em
+}
+
+div.toc h4 {
+  margin: .6em 0 .2em 0;
+}
+
+li.chapter h4 a {
+  display: block;
+  margin-bottom: .4em
+}
+
+.dummy {
+  display: block;
+  font-weight: bold;
+  font-size: 110%;
+  margin: .6em 0 .2em 0;
+}
+
+
+/* Index */
+.item {
+    float: left;
+    margin-right: 1em
+}
+
+.secitem {
+    font-weight: normal;
+    float: left;
+    margin-right: 1em
+}
+
+.indexref {
+    display: block;
+}
+
+.item + .indexref {
+    margin-left: 20em;
+}
+
+.secitem + .indexref {
+    margin-left: 19em;
+}
+
+
+/* Admonitions */
+div.admon img {
+  padding: .3em;
+}
+
+div.admon h3 {
+  display: inline;
+  margin-left: 2em;
+}
+
+div.admon p {
+  margin-left: .5em;
+  padding-bottom: .4em;
+}
+
+div.admon pre {
+  margin: 0.5em 3em;
+}
+
+div.note, div.tip {
+  background-color: #fffff6;
+  border: 2px solid #dbddec;
+  width: 90%;
+  margin: .5em auto;
+}
+
+div.important, div.warning, div.caution {
+  background-color: #fffff6;
+  border: medium solid #400;
+  width: 90%;
+  margin: .5em auto;
+  color: #600;
+}
+
+div.important h3, div.warning h3, div.caution h3 {
+  color: #900;
+}
+
+div.important em, div.warning em, div.caution em {
+  color: #000;
+  font-weight: bold;
+}
+
+
+/* table */
+.table p.title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: .3em;
+}
+
+.table table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table table th, .table table td {
+  padding: 0.2em 2em 0.2em 2em;
+  text-align: left;
+}
+
+.revhistory {
+  padding-left: 1em;
+}
+
+.revhistory th {
+  line-height: 2em;
+  text-align: left;
+}
+
+.revhistory td {
+  padding-right: 1em;
+}
+
+
+/* variablelist as table */
+.variablelist table {
+  width: auto;
+  margin: 0 1em 0 1em;
+}
+
+.variablelist td {
+  vertical-align: top;
+}
+
+.variablelist td span, td p {
+  margin: 0.25em;
+}
+
+
+/* variablelist as list */
+dl {
+  padding-left: 1em
+}
+
+dt {
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+dd {
+  margin-bottom: .6em;
+  margin-left: 1em;
+}
+
+dd p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+div.materials dt {
+  display: list-item;
+}
+
+div.materials dd {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+
+/* segmentedlist */
+.appendix .segmentedlist {
+  padding-left: 1em;
+}
+
+.package .seg {
+  margin-bottom: 0em;
+  margin-top: 0em;
+  clear: left;
+}
+
+.content .seg {
+  margin-bottom: .4em;
+  margin-top: .4em;
+  clear: left;
+}
+
+.segtitle {
+  float: left;
+}
+
+.package .segbody, .appendix .segbody {
+  display: block;
+  padding-left: 14em;
+}
+
+.content .segbody {
+  display: block;
+  padding-left: 12em;
+}
+
+
+/* itemizedlist */
+ul {
+  padding-left: 1em
+}
+
+.itemizedlist ul {
+  margin-left: 1em
+}
+
+.itemizedlist li ul {
+  margin-bottom: 1.2em;
+}
+
+.itemizedlist li ul li p {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.itemizedlist li ul li:first-child p:first-child {
+  margin-top: -.6em;
+}
+
+ul.compact {
+  list-style: none;
+}
+
+.blfs ul.compact {
+  list-style: disc;
+}
+
+ul.compact li {
+  margin: 0em;
+  padding: 0em;
+}
+
+ul.compact li p {
+  padding: 0.3em;
+  margin: 0em;
+}
+
+.blfs ul.compact li p {
+  background-color: #f0fff0;
+}
+
+/* orderedlist */
+ol {
+  list-style: decimal;
+}
+
+ol ol {
+  list-style: lower-alpha;
+}
+
+ol ol ol {
+  list-style: lower-roman;
+}
+
+ol.compact li {
+  margin: 0em;
+  padding: 0em;
+}
+
+ol.compact li p {
+  padding: 0.3em;
+  margin: 0em;
+}
+
+
+/* Indented blocks */
+p, blockquote {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+
+/* Monospaced elements */
+tt, code, kbd, pre, .command {
+  font-family: monospace;
+}
+
+.systemitem {
+  font-style: italic;
+}
+
+pre {
+  background-color: #e5e5e5;
+  border: 1px solid #050505;
+  padding: .5em 1em;
+  margin: 0 2em .5em 2em;
+  font-weight: bold;
+}
+
+pre.userinput {
+  color: #101310;
+}
+
+pre.root {
+  color: #101310;
+  border: 1px solid #11a;
+}
+
+pre.screen {
+  color: #000;
+  background-color: #e9e9e9;
+  font-weight: normal;
+}
+
+.literal, .prompt {
+  font-weight: normal;
+}
+
+
+/* Mixed tags */
+p.usernotes {
+  margin-left: -1em;
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+
+/* Last edited info */
+p.updated {
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+/* Special colored blocks */
+  /* OrangeRed4 */
+.feature-ssp {
+  color: #8B2500;
+}
+
+  /* RoyalBlue3 */
+.feature-aslr {
+  color: #3A5FCD;
+}
+
+  /* NavyBlue */
+.feature-pax {
+  color: #000080;
+}
+
+  /* VioletRed */
+.feature-hardened_tmp {
+  color: #d02090;
+}
+
+  /* PaleTurquoise4 */
+.feature-warnings {
+  color: #668b8b;
+}
+
+  /* RosyBrown */
+.feature-misc {
+  color: #bc8f8f;
+}
+
+  /* Sienna*/
+.feature-blowfish {
+  color: #8E6B23
+}
+</style>
+    <meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+    <style data-savepage-href="../stylesheets/lfs-print.css" type="text/css" media="print">/*
+$LastChangedBy: manuel $
+$Date: 2007-07-05 15:18:33 -0600 (Thu, 05 Jul 2007) $
+*/
+/*savepage-import-url=lfs.css*//*
+$LastChangedBy: bdubbs $
+$Date: 2008-10-19 22:30:43 -0600 (Sun, 19 Oct 2008) $
+*/
+/* Global settings */
+body {
+  font-family: verdana, tahoma, helvetica, arial, sans-serif;
+  text-align: left;
+  background: #fff;
+  color: #222;
+  margin: 1em;
+  padding: 0;
+  font-size: 1em;
+  line-height: 1.2em
+}
+
+
+/* Links */
+a:link { color: #22b; }
+a.ulink:link { font-weight: bold; color: #55f; }
+a:visited { color: #7e4988 ! important; }
+a:hover, a:focus { color: #d30e08 ! important; }
+a:active { color: #6b77b1 ! important;}
+
+
+/* Book titlepage */
+.book .titlepage {
+  background: #f5f6f7;
+  margin: 0px auto;
+  padding: 0 1em;
+}
+
+.book hr {
+  background: #dbddec;
+  height: .3em;
+  border: 0px;
+  margin: 0 -1em;
+  padding: 0;
+}
+
+div.dedication {
+  padding-left: 1em;
+}
+
+
+/* Sections */
+div.sect1, div.appendix {
+  padding-left: .3em;
+}
+
+.package, .kernel, .installation, .commands, .testing, .configuration, .content {
+  padding: 0 .5em .2em 0;
+  margin: 0;
+}
+
+.lfs .package {
+  background: #f5f6f7;
+  border-bottom: 0.2em solid #dbddec;
+  padding-top: .1em;
+  margin-top: 0;
+}
+
+.lfs .configuration {
+  background:   #fefefe;
+  border-top: 0.2em solid #dbddec;
+}
+
+.lfs .content {
+  background: #f5f6f7;
+  border-top: 0.2em solid #dbddec;
+  padding-bottom: .1em;
+  margin-bottom: 0;
+}
+
+
+/* Headers */
+h1, h2, h3, h4, h5, h6, b, .strong {
+  color: #000;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+h1 {
+  font-size: 173%;
+  text-align: center;
+}
+
+.book h1 {
+  margin: 0;
+  padding: 0.4em;
+}
+
+.preface h1, .part h1, .chapter h1, .appendix h1, .index h1, .sect1 h1 {
+  background: #f5f6f7;
+  border-bottom: .1em solid #dbddec;
+  margin-bottom: 1em;
+  margin-top: 0;
+  padding: .4em;
+}
+
+.sect1 h1, .appendix h1 {
+  margin-left: -.2em;
+}
+
+.wrap h1 {
+  background: #f5f6f7;
+  margin: 0;
+  padding: .4em;
+}
+
+h1.title sup {
+  font-size: small;
+}
+
+h2 {
+  font-size: 144%;
+}
+
+.book h2.subtitle {
+  text-align: center;
+  background: #dbddec;
+  margin: 0;
+  padding: 0.2em;
+}
+
+.appendix h2 {
+  font-size: 133%;
+  margin-top: .8em;
+  margin-bottom: 0.2em;
+}
+
+h3 {
+  font-size: 120%;
+}
+
+h4 {
+  font-size: 110%;
+}
+
+.package h4, h5, h6 {
+  font-size: 100%;
+  font-style: italic;
+}
+
+
+/* Navigation */
+div.navheader, div.navfooter {
+  background: #ecedef;
+  margin: 0;
+  padding: 0.1em .5em;
+}
+
+div.navheader {
+  border-bottom: 1px solid #dbddec;
+}
+
+div.navfooter {
+  border-top: 1px solid #dbddec;
+}
+
+div.navheader h4 {
+  margin-top: .4em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+div.navheader h3 {
+  margin-top: .2em;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+div.navheader ul, div.navfooter ul {
+  padding: .2em .5em .5em 0;
+  margin: .5em 0;
+  position: relative;
+  background: #dbddec;
+}
+
+div.navheader ul li, div.navfooter ul li {
+  display: inline;
+  width: 40%;
+}
+
+div.navheader ul li.prev, div.navfooter ul li.prev {
+  position: absolute;
+  display: block;
+  left: 0;
+  text-align: left;
+  padding: 0.2em 1em;
+  margin-left: 6px;
+}
+
+div.navheader ul li.next, div.navfooter ul li.next {
+  position: absolute;
+  display: block;
+  text-align: right;
+  right: 5px;
+  padding: 0.2em 0.5em;
+  margin-right: 7px;
+}
+
+div.navheader ul li.prev p, div.navfooter ul li.prev p,
+div.navheader ul li.next p, div.navfooter ul li.next p {
+  padding: 0;
+  margin: 1px 0px;
+}
+
+div.navheader ul li.home, div.navheader ul li.up,
+div.navfooter ul li.home, div.navfooter ul li.up {
+  text-align: center;
+  padding: 0;
+  margin: 0px auto;
+  display: block;
+  color: #dbddec;
+}
+
+
+/* TOC */
+div.toc ul, div.index ul, div.navheader ul, div.navfooter ul {
+  list-style: none;
+}
+
+div.toc {
+  padding-left: 1em;
+}
+
+li.preface, .part li.appendix {
+  margin-left: 1em;
+}
+
+div.toc h3 {
+  margin: 1em 0 .3em 0;
+}
+
+li.appendix h3, li.glossary h3, li.index h3 {
+  margin: .5em
+}
+
+div.toc h4 {
+  margin: .6em 0 .2em 0;
+}
+
+li.chapter h4 a {
+  display: block;
+  margin-bottom: .4em
+}
+
+.dummy {
+  display: block;
+  font-weight: bold;
+  font-size: 110%;
+  margin: .6em 0 .2em 0;
+}
+
+
+/* Index */
+.item {
+    float: left;
+    margin-right: 1em
+}
+
+.secitem {
+    font-weight: normal;
+    float: left;
+    margin-right: 1em
+}
+
+.indexref {
+    display: block;
+}
+
+.item + .indexref {
+    margin-left: 20em;
+}
+
+.secitem + .indexref {
+    margin-left: 19em;
+}
+
+
+/* Admonitions */
+div.admon img {
+  padding: .3em;
+}
+
+div.admon h3 {
+  display: inline;
+  margin-left: 2em;
+}
+
+div.admon p {
+  margin-left: .5em;
+  padding-bottom: .4em;
+}
+
+div.admon pre {
+  margin: 0.5em 3em;
+}
+
+div.note, div.tip {
+  background-color: #fffff6;
+  border: 2px solid #dbddec;
+  width: 90%;
+  margin: .5em auto;
+}
+
+div.important, div.warning, div.caution {
+  background-color: #fffff6;
+  border: medium solid #400;
+  width: 90%;
+  margin: .5em auto;
+  color: #600;
+}
+
+div.important h3, div.warning h3, div.caution h3 {
+  color: #900;
+}
+
+div.important em, div.warning em, div.caution em {
+  color: #000;
+  font-weight: bold;
+}
+
+
+/* table */
+.table p.title {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: .3em;
+}
+
+.table table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.table table th, .table table td {
+  padding: 0.2em 2em 0.2em 2em;
+  text-align: left;
+}
+
+.revhistory {
+  padding-left: 1em;
+}
+
+.revhistory th {
+  line-height: 2em;
+  text-align: left;
+}
+
+.revhistory td {
+  padding-right: 1em;
+}
+
+
+/* variablelist as table */
+.variablelist table {
+  width: auto;
+  margin: 0 1em 0 1em;
+}
+
+.variablelist td {
+  vertical-align: top;
+}
+
+.variablelist td span, td p {
+  margin: 0.25em;
+}
+
+
+/* variablelist as list */
+dl {
+  padding-left: 1em
+}
+
+dt {
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+dd {
+  margin-bottom: .6em;
+  margin-left: 1em;
+}
+
+dd p {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+div.materials dt {
+  display: list-item;
+}
+
+div.materials dd {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+
+/* segmentedlist */
+.appendix .segmentedlist {
+  padding-left: 1em;
+}
+
+.package .seg {
+  margin-bottom: 0em;
+  margin-top: 0em;
+  clear: left;
+}
+
+.content .seg {
+  margin-bottom: .4em;
+  margin-top: .4em;
+  clear: left;
+}
+
+.segtitle {
+  float: left;
+}
+
+.package .segbody, .appendix .segbody {
+  display: block;
+  padding-left: 14em;
+}
+
+.content .segbody {
+  display: block;
+  padding-left: 12em;
+}
+
+
+/* itemizedlist */
+ul {
+  padding-left: 1em
+}
+
+.itemizedlist ul {
+  margin-left: 1em
+}
+
+.itemizedlist li ul {
+  margin-bottom: 1.2em;
+}
+
+.itemizedlist li ul li p {
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+.itemizedlist li ul li:first-child p:first-child {
+  margin-top: -.6em;
+}
+
+ul.compact {
+  list-style: none;
+}
+
+.blfs ul.compact {
+  list-style: disc;
+}
+
+ul.compact li {
+  margin: 0em;
+  padding: 0em;
+}
+
+ul.compact li p {
+  padding: 0.3em;
+  margin: 0em;
+}
+
+.blfs ul.compact li p {
+  background-color: #f0fff0;
+}
+
+/* orderedlist */
+ol {
+  list-style: decimal;
+}
+
+ol ol {
+  list-style: lower-alpha;
+}
+
+ol ol ol {
+  list-style: lower-roman;
+}
+
+ol.compact li {
+  margin: 0em;
+  padding: 0em;
+}
+
+ol.compact li p {
+  padding: 0.3em;
+  margin: 0em;
+}
+
+
+/* Indented blocks */
+p, blockquote {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+
+/* Monospaced elements */
+tt, code, kbd, pre, .command {
+  font-family: monospace;
+}
+
+.systemitem {
+  font-style: italic;
+}
+
+pre {
+  background-color: #e5e5e5;
+  border: 1px solid #050505;
+  padding: .5em 1em;
+  margin: 0 2em .5em 2em;
+  font-weight: bold;
+}
+
+pre.userinput {
+  color: #101310;
+}
+
+pre.root {
+  color: #101310;
+  border: 1px solid #11a;
+}
+
+pre.screen {
+  color: #000;
+  background-color: #e9e9e9;
+  font-weight: normal;
+}
+
+.literal, .prompt {
+  font-weight: normal;
+}
+
+
+/* Mixed tags */
+p.usernotes {
+  margin-left: -1em;
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+
+/* Last edited info */
+p.updated {
+  font-size: small;
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+/* Special colored blocks */
+  /* OrangeRed4 */
+.feature-ssp {
+  color: #8B2500;
+}
+
+  /* RoyalBlue3 */
+.feature-aslr {
+  color: #3A5FCD;
+}
+
+  /* NavyBlue */
+.feature-pax {
+  color: #000080;
+}
+
+  /* VioletRed */
+.feature-hardened_tmp {
+  color: #d02090;
+}
+
+  /* PaleTurquoise4 */
+.feature-warnings {
+  color: #668b8b;
+}
+
+  /* RosyBrown */
+.feature-misc {
+  color: #bc8f8f;
+}
+
+  /* Sienna*/
+.feature-blowfish {
+  color: #8E6B23
+}
+
+
+.navfooter, .headerlinks {
+   display: none;
+}
+</style>
+  
+    <link rel="icon" href="data:image/vnd.microsoft.icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AHl1eAB7e3sAJH+uAFOIowCRmZ4AD4/HAGKDjAAcfaQACYW5ADOCogBoiZkAnp6fABJjgwAWndAAEsPkABy1zgAWxOcADp3JABR7oQBad4AACQgGAC8tLQCcnJwAcX2EAA98sgAJpt4ADrnrADDM7wAp2PQAFdf1ABG82wARm8gAD2uJAAYDAwAHAgIAQkJCAKKiogAjHR4AM2N+ABKTygALs+wACL/pABrP7gA32PQAHdX3ABDN8QAqvN8AFEZbAAsCAgAEBAMALCwsAIyMjAAJCAgAs7a0ABlCUwAVjL8AC7nrABKv3QAcsdcAHI2nABQ6SAC/yMkAXmBdAHR0cwCkpKQAHhoeABUTFABpeH8AFkRXAA5FVgB9lJ8AMjE0AAYFBABiYWMAnZ2eAMHAwQAcHBwAPT09AMnJyQAZGRkAw8PDAFxcXAAwMDAAmZmZAImJiQAODg4Ara2tANHR0QCsrKwAAwMDAAICAgCKiooA4eHhALCwsADY2NgAMjIyAAQEBAAMDAwAFBQUADQ0NAB2dnYAJiYmAAYGBgAEAgIAGBYWAHFxcQChoaEAZmZmAFFRUQBVVVUAS0pKAAsKCgBWVlYAR0dHAA0NDQAFBQUAr6+vADw8PAAFAwMAxsbGAICAgAB0dHQAOTg4AA8ODgA5NzcAOjg4AL28vAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICAAAAAAAAAAAAAAAAAgMEBQYAAAAAAAAAAAAABwgJCgcLDAANDQAAAAAODw8QERITFAwVFhcYAAAZGhscEB0eHyAhIiMkJQAmJygpKissLS4vMDEyMzQANTY3ODk6Ozw9Pj9AQUJCAAJDAkRFRkdISUpLTE0AAAA1TjVPUE5RUlNUVVYDAAAAJldYWVpbXF1eX2BhYmNkAAAlZWZnaGlqa2xtZFxcbgAAJmhkb3BpaXFyc3RcdQ0AAAB2dgB3eGlieQB6e3oAAAAAAAAAfGlpfXkAAAAAAAAAAAAAAGt+f4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPx/AAD4PwAA8BMAAMABAACAAQAAAAEAAAABAAAABwAAAAcAAAABAACAAQAAgAEAAMgjAAD4PwAA+H8AAP//AAA=">
+    <script id="savepage-pageloader" type="application/javascript">
+      savepage_PageLoader(5);
+      "use strict";function savepage_PageLoader(maxframedepth){var resourceMimeType=new Array();var resourceBase64Data=new Array();var resourceBlobUrl=new Array();window.addEventListener("DOMContentLoaded",function(a){createBlobURLs();replaceReferences(0,document.documentElement)},false);function createBlobURLs(){var i,j,binaryString,blobData;var a=new Array();for(i=0;i<resourceMimeType.length;i++){if(typeof resourceMimeType[i]!="undefined"){binaryString=atob(resourceBase64Data[i]);resourceBase64Data[i]="";a.length=0;for(j=0;j<binaryString.length;j++){a[j]=binaryString.charCodeAt(j)}blobData=new Blob([new Uint8Array(a)],{type:resourceMimeType[i]});resourceMimeType[i]="";resourceBlobUrl[i]=window.URL.createObjectURL(blobData)}}}function replaceReferences(a,b){var i,regex1,regex2,csstext,blobData;regex1=/url\(\s*((?:"[^"]+")|(?:'[^']+')|(?:[^\s)]+))\s*\)/gi;regex2=/data:[^;]*;resource=(\d+);base64,/i;if(b.hasAttribute("style")){csstext=b.style.cssText;b.style.cssText=csstext.replace(regex1,replaceCSSRef)}if(b.localName=="style"){csstext=b.textContent;b.textContent=csstext.replace(regex1,replaceCSSRef)}else if(b.localName=="link"&&(b.rel.toLowerCase()=="icon"||b.rel.toLowerCase()=="shortcut icon")){if(b.href!="")b.href=b.href.replace(regex2,replaceRef)}else if(b.localName=="body"){if(b.background!="")b.background=b.background.replace(regex2,replaceRef)}else if(b.localName=="img"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="input"&&b.type.toLowerCase()=="image"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="audio"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.load()}}else if(b.localName=="video"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.load()}if(b.poster!="")b.poster=b.poster.replace(regex2,replaceRef)}else if(b.localName=="source"){if(b.src!=""){b.src=b.src.replace(regex2,replaceRef);b.parentElement.load()}}else if(b.localName=="track"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}else if(b.localName=="object"){if(b.data!="")b.data=b.data.replace(regex2,replaceRef)}else if(b.localName=="embed"){if(b.src!="")b.src=b.src.replace(regex2,replaceRef)}if(b.localName=="iframe"||b.localName=="frame"){if(a<maxframedepth){if(b.hasAttribute("data-savepage-sameorigin")){blobData=new Blob([decodeURIComponent(b.src.substr(29))],{type:"text/html;charset=utf-8"});b.onload=function(){try{if(b.contentDocument.documentElement!=null){replaceReferences(a+1,b.contentDocument.documentElement)}}catch(e){}};b.src=window.URL.createObjectURL(blobData)}}}else{for(i=0;i<b.childNodes.length;i++){if(b.childNodes[i]!=null){if(b.childNodes[i].nodeType==1)replaceReferences(a,b.childNodes[i])}}}}function replaceCSSRef(a,b,c,d){var e=new Array();e=b.match(/data:[^;]*;resource=(\d+);base64,/i);if(e!=null)return"url("+resourceBlobUrl[+e[1]]+")";else return a}function replaceRef(a,b,c,d){return resourceBlobUrl[+b]}
+      }
+    </script>
+    <meta name="savepage-url" content="http://www.linuxfromscratch.org/lfs/view/7.1/chapter07/console.html">
+    <meta name="savepage-title" content="7.10. Configuring the Linux Console">
+    <meta name="savepage-date" content="Fri Apr 19 2019 16:52:05 GMT-0300 (Horário Padrão de Brasília)">
+    <meta name="savepage-state" content="Standard Items; Used page loader; Retained cross-origin frames; Removed unsaved URLs; Max frame depth = 5; Max resource size = 50MB; Max resource time = 10s;">
+    <meta name="savepage-version" content="13.7">
+    <meta name="savepage-comments" content=""></head>
+  <body class="lfs" id="lfs-7.1">
+    <div class="navheader">
+      <h4>
+        Linux From Scratch - Version 7.1
+      </h4>
+      <h3>
+        Chapter 7. Setting Up System Bootscripts
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="setclock.html" title="Configuring the setclock Script">Prev</a>
+          <p>
+            Configuring the setclock Script
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="sysklogd.html" title="Configuring the sysklogd Script">Next</a>
+          <p>
+            Configuring the sysklogd Script
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter07.html" title="Chapter 7. Setting Up System Bootscripts">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title="Linux From Scratch - Version 7.1">Home</a>
+        </li>
+      </ul>
+    </div>
+    <div class="sect1" xml:lang="en" lang="en">
+      <h1 class="sect1">
+        <a id="ch-scripts-console" name="ch-scripts-console"></a>7.10.
+        Configuring the Linux Console
+      </h1>
+      <p>
+        This section discusses how to configure the <span class="command"><strong>console</strong></span> bootscript that sets up the
+        keyboard map, console font and console kernel log level. If non-ASCII
+        characters (e.g., the copyright sign, the British pound sign and Euro
+        symbol) will not be used and the keyboard is a U.S. one, much of this
+        section can be skipped. Without the configuration file, (or
+        equivalent settings in <code class="filename">rc.site</code>), the
+        <span class="command"><strong>console</strong></span> bootscript will
+        do nothing.
+      </p>
+      <p>
+        The <span class="command"><strong>console</strong></span> script
+        reads the <code class="filename">/etc/sysconfig/console</code> file
+        for configuration information. Decide which keymap and screen font
+        will be used. Various language-specific HOWTOs can also help with
+        this, see <a class="ulink" href="http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html">http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html</a>.
+        If still in doubt, look in the <code class="filename">/lib/kbd</code>
+        directory for valid keymaps and screen fonts. Read <code class="filename">loadkeys(1)</code> and <code class="filename">setfont(8)</code> manual pages to determine the correct
+        arguments for these programs.
+      </p>
+      <p>
+        The <code class="filename">/etc/sysconfig/console</code> file should
+        contain lines of the form: VARIABLE="value". The following variables
+        are recognized:
+      </p>
+      <div class="variablelist">
+        <dl>
+          <dt>
+            <span class="term">LOGLEVEL</span>
+          </dt>
+          <dd>
+            <p>
+              This variable specifies the log level for kernel messages sent
+              to the console as set by <span class="command"><strong>dmesg</strong></span>. Valid levels are from
+              "1" (no messages) to "8". The default level is "7".
+            </p>
+          </dd>
+          <dt>
+            <span class="term">KEYMAP</span>
+          </dt>
+          <dd>
+            <p>
+              This variable specifies the arguments for the <span class="command"><strong>loadkeys</strong></span> program, typically,
+              the name of keymap to load, e.g., “<span class="quote">es</span>”. If this variable is not set, the
+              bootscript will not run the <span class="command"><strong>loadkeys</strong></span> program, and the
+              default kernel keymap will be used.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">KEYMAP_CORRECTIONS</span>
+          </dt>
+          <dd>
+            <p>
+              This (rarely used) variable specifies the arguments for the
+              second call to the <span class="command"><strong>loadkeys</strong></span> program. This is
+              useful if the stock keymap is not completely satisfactory and a
+              small adjustment has to be made. E.g., to include the Euro sign
+              into a keymap that normally doesn't have it, set this variable
+              to “<span class="quote">euro2</span>”.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">FONT</span>
+          </dt>
+          <dd>
+            <p>
+              This variable specifies the arguments for the <span class="command"><strong>setfont</strong></span> program. Typically,
+              this includes the font name, “<span class="quote">-m</span>”, and the name of the application
+              character map to load. E.g., in order to load the
+              “<span class="quote">lat1-16</span>” font together
+              with the “<span class="quote">8859-1</span>”
+              application character map (as it is appropriate in the USA),
+              set this variable to “<span class="quote">lat1-16 -m
+              8859-1</span>”. In UTF-8 mode, the kernel uses the
+              application character map for conversion of composed 8-bit key
+              codes in the keymap to UTF-8, and thus the argument of the "-m"
+              parameter should be set to the encoding of the composed key
+              codes in the keymap.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">UNICODE</span>
+          </dt>
+          <dd>
+            <p>
+              Set this variable to “<span class="quote">1</span>”, “<span class="quote">yes</span>” or “<span class="quote">true</span>” in order to put the console into
+              UTF-8 mode. This is useful in UTF-8 based locales and harmful
+              otherwise.
+            </p>
+          </dd>
+          <dt>
+            <span class="term">LEGACY_CHARSET</span>
+          </dt>
+          <dd>
+            <p>
+              For many keyboard layouts, there is no stock Unicode keymap in
+              the Kbd package. The <span class="command"><strong>console</strong></span> bootscript will
+              convert an available keymap to UTF-8 on the fly if this
+              variable is set to the encoding of the available non-UTF-8
+              keymap.
+            </p>
+          </dd>
+        </dl>
+      </div>
+      <p>
+        Some examples:
+      </p>
+      <div class="itemizedlist">
+        <ul>
+          <li>
+            <p>
+              For a non-Unicode setup, only the KEYMAP and FONT variables are
+              generally needed. E.g., for a Polish setup, one would use:
+            </p>
+            <pre class="userinput"><kbd class="command">cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/sysconfig/console
+
+KEYMAP="pl2"
+FONT="lat2a-16 -m 8859-2"
+
+# End /etc/sysconfig/console</code>
+EOF</kbd></pre>
+          </li>
+          <li>
+            <p>
+              As mentioned above, it is sometimes necessary to adjust a stock
+              keymap slightly. The following example adds the Euro symbol to
+              the German keymap:
+            </p>
+            <pre class="userinput"><kbd class="command">cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/sysconfig/console
+
+KEYMAP="de-latin1"
+KEYMAP_CORRECTIONS="euro2"
+FONT="lat0-16 -m 8859-15"
+
+# End /etc/sysconfig/console</code>
+EOF</kbd></pre>
+          </li>
+          <li>
+            <p>
+              The following is a Unicode-enabled example for Bulgarian, where
+              a stock UTF-8 keymap exists:
+            </p>
+            <pre class="userinput"><kbd class="command">cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/sysconfig/console
+
+UNICODE="1"
+KEYMAP="bg_bds-utf8"
+FONT="LatArCyrHeb-16"
+
+# End /etc/sysconfig/console</code>
+EOF</kbd></pre>
+          </li>
+          <li>
+            <p>
+              Due to the use of a 512-glyph LatArCyrHeb-16 font in the
+              previous example, bright colors are no longer available on the
+              Linux console unless a framebuffer is used. If one wants to
+              have bright colors without framebuffer and can live without
+              characters not belonging to his language, it is still possible
+              to use a language-specific 256-glyph font, as illustrated
+              below:
+            </p>
+            <pre class="userinput"><kbd class="command">cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/sysconfig/console
+
+UNICODE="1"
+KEYMAP="bg_bds-utf8"
+FONT="cyr-sun16"
+
+# End /etc/sysconfig/console</code>
+EOF</kbd></pre>
+          </li>
+          <li>
+            <p>
+              The following example illustrates keymap autoconversion from
+              ISO-8859-15 to UTF-8 and enabling dead keys in Unicode mode:
+            </p>
+            <pre class="userinput"><kbd class="command">cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
+<code class="literal"># Begin /etc/sysconfig/console
+
+UNICODE="1"
+KEYMAP="de-latin1"
+KEYMAP_CORRECTIONS="euro2"
+LEGACY_CHARSET="iso-8859-15"
+FONT="LatArCyrHeb-16 -m 8859-15"
+
+# End /etc/sysconfig/console</code>
+EOF</kbd></pre>
+          </li>
+          <li>
+            <p>
+              Some keymaps have dead keys (i.e., keys that don't produce a
+              character by themselves, but put an accent on the character
+              produced by the next key) or define composition rules (such as:
+              “<span class="quote">press Ctrl+. A E to get
+              Æ</span>” in the default keymap). Linux-3.2.6 interprets
+              dead keys and composition rules in the keymap correctly only
+              when the source characters to be composed together are not
+              multibyte. This deficiency doesn't affect keymaps for European
+              languages, because there accents are added to unaccented ASCII
+              characters, or two ASCII characters are composed together.
+              However, in UTF-8 mode it is a problem, e.g., for the Greek
+              language, where one sometimes needs to put an accent on the
+              letter “<span class="quote">alpha</span>”. The
+              solution is either to avoid the use of UTF-8, or to install the
+              X window system that doesn't have this limitation in its input
+              handling.
+            </p>
+          </li>
+          <li>
+            <p>
+              For Chinese, Japanese, Korean and some other languages, the
+              Linux console cannot be configured to display the needed
+              characters. Users who need such languages should install the X
+              Window System, fonts that cover the necessary character ranges,
+              and the proper input method (e.g., SCIM, it supports a wide
+              variety of languages).
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="admon note">
+        <img alt="[Note]" data-savepage-src="../images/note.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAAAAADFHGIkAAAAAmJLR0QAAKqNIzIAAAEESURBVHjaZZIhksMwDEV9voWFSwsLA0MLDf8VdARBUUNBQ1FBHcErZ5M0baXJjOPnb0vfLuMMn3H+lWMgBKL89A1Eq9Q9IrwB+gIOsnMPBR8giMclguQfBGS8x5xIoPQxnxqb4LL/eQ4l2AVNONP2ZshLCqJ3qqzWtT5pNgNnLU4OcNbuiqaLmFmHGhJ0TCMC99+f2wphlhaOYjuQVc0IIzLH2BRWfQoWsNSjct8AVop4rF3belTuVAb3MRj6kLrcTwtIy+g03V1vC57t1XrMzqfP5pln5yLTkk7+5UhstvOni1X3ixLEdf2c36+W0Q7kOb48hnSRLI/XdNPfX4kpMkgP5R+elfdkDPprQgAAAEN0RVh0U29mdHdhcmUAQCgjKUltYWdlTWFnaWNrIDQuMi44IDk5LzA4LzAxIGNyaXN0eUBteXN0aWMuZXMuZHVwb250LmNvbZG6IbgAAAAqdEVYdFNpZ25hdHVyZQAzYmQ3NDdjNWU0NTgwNzAwNmIwOTBkZDNlN2EyNmM0NBTTk/oAAAAOdEVYdFBhZ2UAMjR4MjQrMCswclsJMQAAAABJRU5ErkJggg==">
+        <h3>
+          Note
+        </h3>
+        <p>
+          The <code class="filename">/etc/sysconfig/console</code> file only
+          controls the Linux text console localization. It has nothing to do
+          with setting the proper keyboard layout and terminal fonts in the X
+          Window System, with ssh sessions or with a serial console. In such
+          situations, limitations mentioned in the last two list items above
+          do not apply.
+        </p>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="setclock.html" title="Configuring the setclock Script">Prev</a>
+          <p>
+            Configuring the setclock Script
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="sysklogd.html" title="Configuring the sysklogd Script">Next</a>
+          <p>
+            Configuring the sysklogd Script
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter07.html" title="Chapter 7. Setting Up System Bootscripts">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title="Linux From Scratch - Version 7.1">Home</a>
+        </li>
+      </ul>
+    </div>
+  
+
+</body></html>
