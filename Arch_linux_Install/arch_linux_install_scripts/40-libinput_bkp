@@ -22,7 +22,7 @@ Section "InputClass"
         MatchDevicePath "/dev/input/event*"
         Driver "libinput"
         Option "Tapping" "on"
-	Option "TappingButtonMap" "lmr"
+	Option "TappingButtonMap" "lrm"    # "lrm" left/right/middle / "lmr" left/middle/right
 	Option "TappingDrag" "on"
 	Option "RotationAngle" "exclusive"
 	Option "MiddleEmulation" "on"
