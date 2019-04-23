@@ -1,3 +1,4 @@
+#!/bin/bash
 export DESKTOP_SESSION=mate
 export XDG_CURRENT_DESKTOP=MATE
 export QT_QPA_PLATFORM=xcb
