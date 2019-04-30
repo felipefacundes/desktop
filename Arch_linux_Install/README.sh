@@ -100,21 +100,20 @@ echo -e "LC_ADDRESS="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_TELEPHONE="pt_BR.UTF-8"" >> /etc/locale.conf
 echo -e "LC_MEASUREMENT="pt_BR.UTF-8"" >> /etc/locale.conf 
 echo -e "LC_IDENTIFICATION="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_ALL=pt_BR" >> /etc/locale.conf
+echo -e "LC_ALL="C"" >> /etc/locale.conf
 echo -e "KEYMAP="br-abnt2"" >> /etc/locale.conf
  
 cp -rf /etc/locale.conf /etc/vconsole.conf
 
 loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
 
+#  localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
 echo -e "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
 
 locale-gen
 export LANG=pt_BR.UTF-8
 setfont
 localectl set-x11-keymap br abnt2
-
-sleep 1
 #
 
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -135,7 +134,18 @@ echo ArchLinux > /etc/hostname
 sleep 2
 
 pacman -S wireless_tools wpa_supplicant wifi-menu dialog
-pacman -Syy transmission-cli transmission-gtk net-tools aspell-pt zip ark ufw ufw-extras xfce4-terminal grml-zsh-config zsh zsh-completions zsh-lovers zsh-syntax-highlighting zshdb arandr potrace gimp-dbp gimp-help-pt_br gimp gimp-refocus gimp-plugin-wavelet-denoise gimp-plugin-wavelet-decompose gimp-plugin-mathmap gimp-plugin-lqr gimp-plugin-gmic gimp-plugin-fblur btrfs-progs grub gnome-keyring leafpad pcsx2 elementary-icon-theme arc-gtk-theme gnome-icon-theme-extras icon-naming-utils faenza-icon-theme faience-icon-theme flattr-icon-theme human-icon-theme lxde-icon-theme openstreetmap-map-icons-svn png2ico tangerine-icon-theme arc-icon-theme wireless_tools wpa_supplicant wpa_actiond dialog acpi acpid os-prober xorg-xinit xorg-utils xorg-server glu libtxc_dxtn libva-mesa-driver mesa mesa-demos mesa-libgl mesa-vdpau opencl-mesa lib32-glu lib32-libtxc_dxtn lib32-mesa lib32-mesa-demos lib32-mesa-libgl lib32-mesa-vdpau vulkan-intel vulkan-radeon lib32-vulkan-intel lib32-vulkan-radeon spirv-tools vulkan-extra-layers vulkan-headers vulkan-html-docs vulkan-icd-loader vulkan-trace vulkan-validation-layers lib32-vulkan-icd-loader lib32-vulkan-intel lib32-vulkan-radeon lib32-vulkan-validation-layers pyopencl-headers python-pyopencl python2-pyopencl opencl-headers lib32-ocl-icd ocl-icd libclc xf86-video-nouveau xf86-video-ati xf86-video-amdgpu xf86-video-intel jwm slim archlinux-themes-slim slim-themes networkmanager unrar unzip p7zip lib32-alsa-plugins lib32-alsa-lib zita-alsa-pcmi pulseaudio-alsa alsa-plugins alsa-lib alsa-firmware pavucontrol lib32-libpulse lib32-libcanberra-pulse pulseaudio-lirc pulseaudio-jack pulseaudio-gconf pulseaudio-equalizer pulseaudio-alsa pulseaudio libpulse libcanberra-pulse lib32-gstreamer gstreamer lib32-gst-plugins-good gst-plugins-ugly lib32-gst-plugins-base-libs lib32-gst-plugins-base gstreamermm gst-transcoder gst-editing-services libcanberra-gstreamer gstreamer-vaapi gstreamer gst-python2 gst-python gst-plugins-ugly gst-plugins-good gst-plugins-base-libs gst-plugins-base gst-plugins-bad gst-libav clutter-gst xf86-input-libinput xf86-input-mouse xf86-input-keyboard mpv evince libreoffice-fresh-pt-BR libreoffice-fresh libcdr unoconv testdisk foremost shake python2-lxml uniconvertor trash-cli lib32-smpeg2 lib32-smpeg lib32-sdl_ttf lib32-sdl_mixer lib32-sdl_image lib32-sdl2_ttf lib32-sdl2_mixer lib32-sdl2_image lib32-sdl2 lib32-sdl lua-sdl2 smpeg2 smpeg sdl_ttf sdl_sound sdl_pango sdl_net sdl_mixer sdl_image sdl_gfx sdl2_ttf sdl2_net sdl2_mixer sdl2_image sdl2_gfx sdl2 sdl perl-sdl perl-alien-sdl lib32-openal alure openal-examples openal freealut
+# Preparar para jogos
+pacman -Syy --asdeps egl-wayland eglexternalplatform libglvnd glfw-wayland clinfo opencl-headers opencl-mesa intel-opencl-clang libclc ocl-icd lib32-ocl-icd lib32-libglvnd lib32-glu glu libva-mesa-driver mesa mesa-demos mesa-vdpau lib32-mesa lib32-mesa-demos lib32-mesa-vdpau lib32-smpeg lib32-sdl_ttf lib32-sdl_mixer lib32-sdl_image lib32-sdl2_ttf lib32-sdl2_mixer lib32-sdl2_image lib32-sdl2 lib32-sdl sdl sdl2 sdl2_image sdl2_mixer sdl2_ttf sdl_image sdl_mixer sdl_ttf smpeg lib32-openal gambas3-gb-openal alure openal-examples openal freealut ffnvcodec-headers libxnvctrl xf86-video-nouveau nvidia-cg-toolkit steam-native-runtime lib32-gtk3 vulkan-devel attr lib32-attr fontconfig lib32-fontconfig lcms2 lib32-lcms2 libxml2 lib32-libxml2 libxcursor lib32-libxcursor libxrandr lib32-libxrandr libxdamage lib32-libxdamage libxi lib32-libxi gettext lib32-gettext freetype2 lib32-freetype2 glu lib32-glu libsm lib32-libsm gcc-libs lib32-gcc-libs libpcap lib32-libpcap desktop-file-utils giflib lib32-giflib libpng lib32-libpng gnutls lib32-gnutls libxinerama lib32-libxinerama libxcomposite lib32-libxcomposite libxmu lib32-libxmu libxxf86vm lib32-libxxf86vm libldap lib32-libldap mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils alsa-lib lib32-alsa-lib libxcomposite lib32-libxcomposite mesa lib32-mesa mesa-libgl lib32-mesa-libgl opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libpulse lib32-libpulse libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2 vkd3d lib32-vkd3d sane libgphoto2 gsm ffmpeg samba xf86-video-ati xf86-video-amdgpu xf86-video-intel xf86-video-nouveau libva-intel-driver libva-utils libva-vdpau-driver libva1 libva1-intel-driver vulkan-icd-loader vulkan-intel vulkan-radeon lib32-vulkan-icd-loader lib32-vulkan-intel lib32-vulkan-radeon lib32-vulkan-validation-layers python-olefile python-pyqt5 wine-staging lutris xorg-server xorg-server-devel
+
+# Para Nvidia
+pacman -Syy nvidia nvidia-settings lib32-libvdpau libvdpau nvidia-utils opencl-nvidia xsettingsd xsettings-client ffnvcodec-headers libxnvctrl xf86-video-nouveau lib32-nvidia-utils lib32-opencl-nvidia nccl nvidia-cg-toolkit
+
+# Para codecs
+pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib32-gst-plugins-base-libs lib32-gst-plugins-base aribb24 gpac gst-libav lame libdvbpsi libiec61883 libmad libmp4v2 libmpeg2 mjpegtools mpg123 twolame xvidcore libquicktime sox libopusenc opus opus-tools opusfile schroedinger aom celt flac libde265 opencore-amr openjpeg2 speex libfishsound gst-plugins-base gst-plugins-base-libs gst-plugins-good gstreamer libcanberra-gstreamer fmt atomicparsley
+
+# Para Plasma kde
+pacman -S lightdm-gtk-greeter lightdm kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc
+systemctl enable lightdm
 
 # echo # For Catalyst
 #
@@ -284,4 +294,3 @@ echo
 echo -e "antes de sair da instalacao execute chsh para mudar o shell"
 sleep 1
 exit
-
