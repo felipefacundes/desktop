@@ -65,7 +65,7 @@ echo
 cd /mnt/boot/
 sudo rm -rf *
 cd -
-sudo pacstrap -i /mnt base base-devel btrfs-progs
+sudo pacstrap -i /mnt base base-devel wget btrfs-progs
 sudo genfstab -U -p /mnt >> /mnt/etc/fstab
 
 echo -e "execute arch_linux_install_chroot.sh"
