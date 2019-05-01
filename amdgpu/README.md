@@ -70,8 +70,23 @@ MODULES=(amdgpu radeon)
 
   - Teste o vulkan:
 
+
   1. vulkaninfo
+  
   2. vkcube
+  
+```
+┏┓
+┃┃╱╲ nesta
+┃╱╱╲╲ casa
+╱╱╭╮╲╲ todos
+▔▏┗┛▕▔ usam
+╱▔▔▔▔▔▔▔▔▔▔╲
+LINUX
+╱╱┏┳┓╭╮┏┳┓ ╲╲
+▔▏┗┻┛┃┃┗┻┛▕▔
+--------------------------
+```
 
 
 ###### #tutorialvulkan
