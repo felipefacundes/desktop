@@ -63,8 +63,10 @@ MODULES=(amdgpu radeon)
 
 5. **ESSES DOIS ÚLTIMOS COMANDOS PARA FINALIZAR:**
 
-`sudo mkinitcpio -p linux`
-`sudo grub-mkconfig -o /boot/grub/grub.cfg`
+```
+sudo mkinitcpio -p linux
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 - Reinicie o computador ou notebook
 
