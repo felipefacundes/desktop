@@ -13,7 +13,7 @@ export WINELOADER=/usr/bin/wine
 export LD_LIBRARY32_PATH=/usr/bin/lib32
 export LD_LIBRARY64_PATH=/usr/bin/lib
 #export WINEDEBUG=+fps
-export WINEPREFIX=~/.age_of_empires_III/
+export WINEPREFIX=~/.LoL/
 # Esta é uma opção que às vezes é necessária para alguns jogos
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bis. Opção necessária para alguns jogos:
