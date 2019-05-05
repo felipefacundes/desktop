@@ -1,4 +1,5 @@
 #!/bin/bash
+# Felipe Facundes: https://t.me/winehq_linux
 ########### Este script irá usar o wine do sistema. Mas, você poderá usar um wine na versão e local de sua escolha
 #cd ~/.local/share/applications
 #rm -rf wine*
@@ -21,16 +22,17 @@ export WINEARCH=win32
 export vblank_mode=0
 export DRI_PRIME=1
 
-# Aqui prepara o Wine para o jogo poder rodar:         #l3codecx
-/usr/bin/winetricks -q corefonts d3dx9 quartz mfc42 msxml4 vcrun6 riched20 wmp10 xact
+# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
+/usr/bin/winetricks -q corefonts mfc42 msxml4 vcrun6 riched20 wmp9 xact wmp10 vlc faudio quartz d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43
+# Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd "/home/maria/.age_of_empires_III/drive_c/Program Files (x86)/Microsoft Games/Age of Empires III"
+cd "/home/maria/.age_of_empires_III/drive_c/Program Files/Microsoft Games/Age of Empires III"
 
 # Primeiro configurar o wine
 #/usr/bin/winecfg
 # Depois executar o instalador e depois o jogo
 #/usr/bin/wine regsvr32 l3codecx.ax
-/usr/bin/wine age3.exe
+#/usr/bin/wine age3.exe
 
 # Opções extras:
 # programa.exe -opengl
@@ -39,5 +41,10 @@ cd "/home/maria/.age_of_empires_III/drive_c/Program Files (x86)/Microsoft Games/
 # https://t.me/winehq_linux
 # Canal do telegram. Para os arquivos: mfc42.dll e l3codecx.ax só efetuar a busca com o hashtag: #ageofempires
 # https://t.me/archLinux_pacotes
-# Tutorial do wine, porém fiz alterações para funcionar corretamente:
+# Tutorial do wine, todavia fiz alterações para funcionar corretamente:
 # https://appdb.winehq.org/objectManager.php?sClass=version&iId=29761&iTestingId=82749
+# Dlls links:
+# https://www.pconlife.com/download/winosfile/208/49/c4cce0cfb49fbcc0ad0596523839ccfc/
+# https://www.dlldump.com/download-dll-files_new.php/dllfiles/M/mfc42.dll/6.0.400/download.html
+# Codecs:
+# https://www.codecguide.com/download_kl.htm
