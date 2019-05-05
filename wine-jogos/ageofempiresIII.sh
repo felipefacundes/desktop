@@ -17,12 +17,12 @@ export WINEPREFIX=~/.age_of_empires_III/
 # Esta é uma opção que às vezes é necessária para alguns jogos
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits. Opção necessária para alguns jogos:
-#export WINEARCH=win32
+export WINEARCH=win32
 export vblank_mode=0
 export DRI_PRIME=1
 
 # Aqui prepara o Wine para o jogo poder rodar:         #l3codecx
-/usr/bin/winetricks -q corefonts d3dx9 quartz mfc42 msxml4 vcrun6 riched20 wmp9 xact
+/usr/bin/winetricks -q corefonts d3dx9 quartz mfc42 msxml4 vcrun6 riched20 wmp10 xact
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd "/home/maria/.age_of_empires_III/drive_c/Program Files (x86)/Microsoft Games/Age of Empires III"
 
