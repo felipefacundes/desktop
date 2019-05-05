@@ -23,7 +23,7 @@ export vblank_mode=0
 export DRI_PRIME=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-/usr/bin/winetricks -q corefonts mfc42 msxml4 vcrun6 riched20 wmp9 xact wmp10 vlc faudio quartz d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43
+#/usr/bin/winetricks -q corefonts mfc42 msxml4 vcrun6 riched20 wmp9 xact wmp10 vlc faudio quartz d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd "/home/maria/.age_of_empires_III/drive_c/Program Files/Microsoft Games/Age of Empires III"
@@ -32,7 +32,7 @@ cd "/home/maria/.age_of_empires_III/drive_c/Program Files/Microsoft Games/Age of
 #/usr/bin/winecfg
 # Depois executar o instalador e depois o jogo
 #/usr/bin/wine regsvr32 l3codecx.ax
-#/usr/bin/wine age3.exe
+/usr/bin/wine age3.exe
 
 # Opções extras:
 # programa.exe -opengl
@@ -46,5 +46,5 @@ cd "/home/maria/.age_of_empires_III/drive_c/Program Files/Microsoft Games/Age of
 # Dlls links:
 # https://www.pconlife.com/download/winosfile/208/49/c4cce0cfb49fbcc0ad0596523839ccfc/
 # https://www.dlldump.com/download-dll-files_new.php/dllfiles/M/mfc42.dll/6.0.400/download.html
-# Codecs:
+# Codecs:  Baixe a versão Mega:  K-Lite_Codec_Pack_1494_Mega.exe  # Depois tem que configurar: às preferencias de codec e habilitar tudo.
 # https://www.codecguide.com/download_kl.htm
