@@ -26,7 +26,7 @@ export DRI_PRIME=1
 /usr/bin/winetricks -q corefonts mfc42 msxml4 vcrun6 riched20 wmp9 xact wmp10 vlc faudio quartz d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd "/home/maria/.age_of_empires_III/drive_c/Program Files/Microsoft Games/Age of Empires III"
+cd "/home/$USER/.age_of_empires_III/drive_c/Program Files/Microsoft Games/Age of Empires III"
 
 # Primeiro configurar o wine
 #/usr/bin/winecfg
