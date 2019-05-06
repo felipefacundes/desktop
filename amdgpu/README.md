@@ -6,7 +6,7 @@
 
 https://www.x.org/wiki/RadeonFeature/
 
-1. Execute:
+1. **Para o GRUB.** Execute:
 
 `sudo nano /etc/default/grub`
 
@@ -33,7 +33,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="radeon.cik_support=0 radeon.si_support=0 amdgpu.cik_
 
 `amdgpu.vm_update_mode=3`
 
-2. `sudo nano /etc/modprobe.d/amdgpu.conf`
+2. **Para alivar os Modulos.** Execute:
+
+`sudo nano /etc/modprobe.d/amdgpu.conf`
 
 ###### E adicione:
 
@@ -42,7 +44,9 @@ options amdgpu si_support=1
 options amdgpu cik_support=1
 ```
 
-3. `sudo nano /etc/X11/xorg.conf.d/20-amdgpu.conf`
+3. **Para o XORG.** Execute:
+
+`sudo nano /etc/X11/xorg.conf.d/20-amdgpu.conf`
 
 ###### E adicione:
 
@@ -53,7 +57,9 @@ Section "Device"
 EndSection
 ```
 
-4. `sudo nano /etc/mkinitcpio.conf`
+4. **Para o MKINITCPIO (initramfs).** Execute:
+
+`sudo nano /etc/mkinitcpio.conf`
 
 ###### E adicione em:
 
