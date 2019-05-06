@@ -34,5 +34,12 @@ sudo swapon /swapfile
     .. filesystems resume ..
 
 ### Finalize rodando os comandos. Run commands ###
-    sudo mkinitcpio -p linux
-    sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+sudo mkinitcpio -p linux
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+### Em FSTAB
+    sudo nano /etc/fstab
+##### Inclua:
+    /swapfile  none  swap  defaults  0 0
+
