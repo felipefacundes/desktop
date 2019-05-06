@@ -33,7 +33,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="radeon.cik_support=0 radeon.si_support=0 amdgpu.cik_
 
 `amdgpu.vm_update_mode=3`
 
-2. **Para alivar os Modulos.** Execute:
+2. **Para ativar os Modulos.** Execute:
 
 `sudo nano /etc/modprobe.d/amdgpu.conf`
 
