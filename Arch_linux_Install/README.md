@@ -1,8 +1,8 @@
 # Uma forma intuitiva de instalar o ArchLinux, por Felipe Facundes
 
 > Grupo do telegram: https://t.me/winehq_linux
-###### Canal: https://t.me/comandos_linux
-#
+###### Canal do telegram: https://t.me/comandos_linux
+###### Site: https://brasiltts.wordpress.com/
 
 #### Primeiro conecte com a internet:
 
@@ -334,10 +334,13 @@ systemctl enable org.cups.cupsd.service
 resume=UUID="swap UUID" em "GRUB_CMDLINE_LINUX_DEFAULT="
 em /etc/mkinitcpio.conf inclua em "HOOKS=" "resume" logo depois de "filesystems"
 ```
+##### Para ter um excelente suporte de acessibilidade, como TTS, siga o tutorial do meu site:
+
+https://brasiltts.wordpress.com/
 
 ##### Para você mudar o nome da sua distribuição, caso queira:
 
-`sudo vim /etc/lsb-release`
+`sudo nano /etc/lsb-release`
 
 #
 ###### Para o driver obsoleto e incompatível com os kernels atuais: Catalyst
