@@ -65,7 +65,6 @@ sudo pacman -S $(cat lista)
 cd /mnt
 sudo rm -rf bin dev etc lib lib64 mnt opt proc root run sbin srv sys tmp usr
 ```
-
 ###### Analise se existe subvolume interferindo:
 ```
 sudo btrfs subvol list -a /mnt/
@@ -73,7 +72,9 @@ sudo btrfs subvol delete /mnt/var/lib/machines
 ```
 ###### Faça o backup dos pcotes existentes no cache:
 ```
-cd /mnt/var/cache/pacman
+cd /mnt/var/cache/pacman/
+sudo mkdir -p pkg
+sudo mv *.pkg.* pkg/
 sudo mv pkg /mnt/
 cd /mnt
 sudo rm -rf var
@@ -238,6 +239,12 @@ pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib
 ```
 pacman -S xf86-input-synaptics acpi libinput
 echo -e "vm.laptop_mode=1" > /etc/sysctl.conf
+```
+##### Para deixar o seu computador muito mais rápido, eficiente e mais seguro:
+```
+echo -e "vm.swappiness=0" > /etc/sysctl.conf
+echo -e "net.ipv4.tcp_syncookies=1" > /etc/sysctl.conf
+echo -e "net.ipv4.ip_forward=1" > /etc/sysctl.conf
 ```
 ### Áreas de trabalho, escolha ou uma, ou outra. Dentre elas são: KDE, Cinnamon, GNOME, DEEPIN, XFCE, MATE
 ###### Para Plasma kde
