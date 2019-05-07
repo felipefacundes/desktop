@@ -156,7 +156,7 @@ ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc --utc
 ```
 
-### Melor é a opção automática acima descrita. Caso queire, coloque o seu sistema para português MANUALMENTE:
+### Melhor é a opção automática acima descrita. Caso queire, coloque o seu sistema para português MANUALMENTE:
 ```
 echo -e "LANG=pt_BR.UTF-8" > /etc/locale.conf
 echo -e "LOCALE=pt_BR.UTF-8" >> /etc/locale.conf
