@@ -70,7 +70,7 @@ sudo rm -rf bin dev etc lib lib64 mnt opt proc root run sbin srv sys tmp usr
 sudo btrfs subvol list -a /mnt/
 sudo btrfs subvol delete /mnt/var/lib/machines
 ```
-###### Faça o backup dos pcotes existentes no cache:
+###### Faça o backup dos pacotes existentes no cache:
 ```
 cd /mnt/var/cache/pacman/
 sudo mkdir -p pkg
@@ -160,7 +160,7 @@ ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc --utc
 ```
 
-### Melhor é a opção automática acima descrita. Caso queire, coloque o seu sistema para português MANUALMENTE:
+### Melhor é a opção automática acima descrita. Caso queira, coloque o seu sistema para português MANUALMENTE:
 ```
 echo -e "LANG=pt_BR.UTF-8" > /etc/locale.conf
 echo -e "LOCALE=pt_BR.UTF-8" >> /etc/locale.conf
@@ -256,7 +256,7 @@ pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover oku
 systemctl enable sddm
 ```
 
-###### Para intalar o Cinnamon:
+###### Para instalar o Cinnamon:
 ```
 pacman -S cinnamon lightdm-gtk-greeter lightdm gimp viewnior
 systemctl enable lightdm
@@ -267,7 +267,7 @@ systemctl enable lightdm
 sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior
 systemctl enable gdm
 ```
-###### Para intalar o DEEPIN:
+###### Para instalar o DEEPIN:
 ```
 pacman -S deepin deepin-extra lightdm-gtk-greeter lightdm gimp viewnior
 systemctl enable lightdm
