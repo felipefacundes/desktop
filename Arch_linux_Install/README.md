@@ -255,28 +255,28 @@ systemctl enable sddm
 
 ###### Para intalar o Cinnamon:
 ```
-pacman -S cinnamon lightdm-gtk-greeter lightdm
+pacman -S cinnamon lightdm-gtk-greeter lightdm gimp viewnior
 systemctl enable lightdm
 ```
 
 ###### Para instalar o GNOME:
 ```
-sudo pacman -S gnome gnome-extra gnome-shell gdm
+sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior
 systemctl enable gdm
 ```
 ###### Para intalar o DEEPIN:
 ```
-pacman -S deepin deepin-extra lightdm-gtk-greeter lightdm
+pacman -S deepin deepin-extra lightdm-gtk-greeter lightdm gimp viewnior
 systemctl enable lightdm
 ```
 ###### Para instalar o XFCE:
 ```
-sudo pacman -S xfce4 xfce4-goodies lightdm-gtk-greeter lightdm
+sudo pacman -S xfce4 xfce4-goodies lightdm-gtk-greeter lightdm gimp viewnior
 systemctl enable lightdm
 ```
 ###### Para instalar o MATE:
 ```
-sudo pacman -S mate mate-extra lightdm-gtk-greeter lightdm
+sudo pacman -S mate mate-extra lightdm-gtk-greeter lightdm gimp viewnior
 systemctl enable lightdm
 ```
 ###### O KDE usa 800MB de RAM, o  Cinnamon e o GNOME usam 750MB de RAM, o DEEPIN usa 700MB de RAM, o XFCE e o MATE usam 650MB de RAM
@@ -302,6 +302,9 @@ echo -e "ExecStart=" >> /etc/systemd/system/serial-getty@ttyS0.service.d/autolog
 ```
 echo -e "ExecStart=-/usr/bin/agetty --autologin UsuárioDaSuaPreferência -s %I 115200,38400,9600 vt102" >> /etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf
 ```
+
+### Para instalar o LibreOffice:
+    sudo pacman -S libreoffice-fresh libreoffice-fresh-pt-br
 
 ### Se você não curte o seu monitor, desligando, ou esmaecendo a tela (tela preta), faça o seguinte:
 ```
