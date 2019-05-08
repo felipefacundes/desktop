@@ -304,7 +304,7 @@ echo -e "ExecStart=-/usr/bin/agetty --autologin UsuárioDaSuaPreferência -s %I 
 ```
 
 ### Para instalar o LibreOffice:
-    sudo pacman -S libreoffice-fresh libreoffice-fresh-pt-br
+    pacman -S libreoffice-fresh libreoffice-fresh-pt-br
 
 ### Se você não curte o seu monitor, desligando, ou esmaecendo a tela (tela preta), faça o seguinte:
 ```
@@ -329,7 +329,7 @@ fc-cache
 ```
 ###### Totalmente opcional, para virtualbox execute:
 
-`sudo pacman -S virtualbox-host-modules-arch virtualbox-guest-iso virtualbox`
+`pacman -S virtualbox-host-modules-arch virtualbox-guest-iso virtualbox`
 
 ### Para instalar às impressoras:
 
@@ -341,16 +341,29 @@ systemctl enable org.cups.cupsd.service
 
 ##### Para HIBERNAÇÃO do sistema. Exemplo:
 ```
-resume=UUID="swap UUID" em "GRUB_CMDLINE_LINUX_DEFAULT="
-em /etc/mkinitcpio.conf inclua em "HOOKS=" "resume" logo depois de "filesystems"
+blkid
+nano /etc/default/grub
 ```
+###### Em resume=UUID  altere conforme o exemplo abaixo e coloque conforme, o resultado do comando blkid, somente a parte do UUID
+```
+resume=UUID="swap UUID" em "GRUB_CMDLINE_LINUX_DEFAULT="
+```
+###### Em /etc/mkinitcpio.conf inclua em "HOOKS=" "resume" logo depois de "filesystems"
+###### Depois de tudo alterado, rode os comandos para que o sistema passe a hibernar:
+```
+grub-mkconfig -o /boot/grub/grub.cfg
+mkinitcpio -p linux
+```
+### Se você usa arquivo de troca de paginação - arquivo para memória virtual (swapfile) e quer que o sistema hiberne,siga:
+https://github.com/felipefacundes/desktop/tree/master/swapfile-hibernate
+
 ##### Para ter um excelente suporte de acessibilidade, como TTS, siga o tutorial do meu site:
 
 https://brasiltts.wordpress.com/
 
 ##### Para você mudar o nome da sua distribuição, caso queira:
 
-`sudo nano /etc/lsb-release`
+`nano /etc/lsb-release`
 
 #
 ###### Para o driver obsoleto e incompatível com os kernels atuais: Catalyst
