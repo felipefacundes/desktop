@@ -354,7 +354,7 @@ resume=UUID="swap UUID" em "GRUB_CMDLINE_LINUX_DEFAULT="
 grub-mkconfig -o /boot/grub/grub.cfg
 mkinitcpio -p linux
 ```
-### Se você usa arquivo de troca de paginação - arquivo para memória virtual (swapfile) e quer que o sistema hiberne,siga:
+##### Se você usa arquivo de troca de paginação - arquivo para memória virtual (swapfile) e quer que o sistema hiberne, siga o tutorial abaixo:
 https://github.com/felipefacundes/desktop/tree/master/swapfile-hibernate
 
 ##### Para ter um excelente suporte de acessibilidade, como TTS, siga o tutorial do meu site:
