@@ -147,6 +147,9 @@ echo -e "pt_BR.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 export LANG=pt_BR.UTF-8
 localectl set-x11-keymap br abnt2
+wget https://github.com/felipefacundes/desktop/blob/master/Arch_linux_Install/arch_linux_install_scripts/hunspell-pt-br-3.2-5-any.pkg.tar.xz?raw=true -O hunspell-pt-br-3.2-5-any.pkg.tar.xz
+pacman -U hunspell-pt-br-3.2-5-any.pkg.tar.xz
+rm hunspell-pt-br-3.2-5-any.pkg.tar.xz
 setfont
 ```
 ###### Localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
@@ -302,7 +305,6 @@ echo -e "ExecStart=" >> /etc/systemd/system/serial-getty@ttyS0.service.d/autolog
 ```
 echo -e "ExecStart=-/usr/bin/agetty --autologin UsuárioDaSuaPreferência -s %I 115200,38400,9600 vt102" >> /etc/systemd/system/serial-getty@ttyS0.service.d/autologin.conf
 ```
-
 ### Para instalar o LibreOffice:
     pacman -S libreoffice-fresh libreoffice-fresh-pt-br
 
@@ -365,6 +367,14 @@ https://brasiltts.wordpress.com/
 
 `nano /etc/lsb-release`
 
+### Para que você use o famoso repositório do AUR, quando não tiver o programa desejado no repositório oficial, instale o yay, para usar o repositório do AUR:
+```
+wget https://github.com/felipefacundes/desktop/blob/master/Arch_linux_Install/arch_linux_install_scripts/yay-9.2.0-1-x86_64.pkg.tar.xz?raw=true -O yay-9.2.0-1-x86_64.pkg.tar.xz
+pacman -U yay-9.2.0-1-x86_64.pkg.tar.xz
+rm yay-9.2.0-1-x86_64.pkg.tar.xz
+```
+### Para você que veio do UBUNTU ou DEBIAN, e está acostumado com o comando apt-get, use:
+`bash <(curl -s https://raw.githubusercontent.com/felipefacundes/apt-get-pacman/master/iniciorapido.sh)`
 #
 ###### Para o driver obsoleto e incompatível com os kernels atuais: Catalyst
 
