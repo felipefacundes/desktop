@@ -140,7 +140,7 @@ usermod -a -G daemon,disk,wheel,rfkill,dbus,network,video,audio,storage,power,us
 cd /etc
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/locale.conf
 cd /etc/X11/xorg.conf.d/
-https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/arch_linux_install_scripts/00-keyboard.conf
+wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/arch_linux_install_scripts/00-keyboard.conf
 cp -r /etc/locale.conf /etc/vconsole.conf
 loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
 echo -e "pt_BR.UTF-8 UTF-8" > /etc/locale.gen
