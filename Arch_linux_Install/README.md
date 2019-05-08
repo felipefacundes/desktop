@@ -60,7 +60,7 @@ sudo pacman -Syy archlinux-keyring antergos-keyring arch-install-scripts btrfs-p
 sudo pacman -Qnq > lista
 sudo pacman -S $(cat lista)
 ```
-##### OU VOCÊ PODE REAPROVEITAR OS PACOTES EXISTENTES DO SEU HD COM ESSE MÈTODO:
+##### OU VOCÊ PODE REAPROVEITAR OS PACOTES EXISTENTES DO SEU HD COM ESSE MÉTODO:
 ```
 cd /mnt
 sudo rm -rf bin dev etc lib lib64 mnt opt proc root run sbin srv sys tmp usr
@@ -85,7 +85,7 @@ sudo mv pkg /mnt/var/cache/pacman/
 cd /mnt/boot/
 sudo rm -rf *
 ```
-# FINALMENTE, VAMOS PARA A INSTALAÇÂO:
+# FINALMENTE, VAMOS PARA A INSTALAÇÃO:
 ```
 sudo pacstrap -i /mnt grub base wget base-devel btrfs-progs
 sudo genfstab -U -p /mnt >> /mnt/etc/fstab
