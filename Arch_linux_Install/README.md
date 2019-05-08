@@ -13,7 +13,7 @@
 
 #### "Primeiro de Tudo Particione o HD"
 ##### "Crie sda1 500MB para boot" - Se for UEFI a partição de BOOT tem que estar em FAT32.
-##### "Crie sda2 para raiz /" - Faça uma partição para a raíz do sistema (root)
+##### "Crie sda2 para raiz /" - Faça uma partição para a raiz do sistema (root)
 ##### "Crie sda3 512MB ou 3GB para swap / 3GB se quiser o modo hibernar" - pode ser uma tamanho maior, até o mesmo número de sua quantidade de RAM
 
 #### Para particionar use esses comandos:
@@ -234,20 +234,20 @@ sudo pacman -S opencl-mesa xf86-video-amdgpu xf86-video-ati vulkan-devel vulkan-
 
 https://github.com/felipefacundes/desktop/tree/master/amdgpu
 
-### Para codecs (codecs, são extremamente importante no sistema, para uma melhor harmonia multimia: som e vídeo):
+### Para codecs (codecs, são extremamente importante no sistema, para uma melhor harmonia multimídia: som e vídeo):
 ```
 pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib32-gst-plugins-base-libs lib32-gst-plugins-base aribb24 gpac gst-libav lame libdvbpsi libiec61883 libmad libmp4v2 libmpeg2 mjpegtools mpg123 twolame xvidcore libquicktime sox libopusenc opus opus-tools opusfile schroedinger aom celt flac libde265 opencore-amr openjpeg2 speex libfishsound gst-plugins-base gst-plugins-base-libs gst-plugins-good gstreamer libcanberra-gstreamer fmt atomicparsley
-```
-##### Para notebooks:
-```
-pacman -S xf86-input-synaptics acpi libinput
-echo -e "vm.laptop_mode=1" > /etc/sysctl.conf
 ```
 ##### Para deixar o seu computador muito mais rápido, eficiente e mais seguro:
 ```
 echo -e "vm.swappiness=0" > /etc/sysctl.conf
-echo -e "net.ipv4.tcp_syncookies=1" > /etc/sysctl.conf
-echo -e "net.ipv4.ip_forward=1" > /etc/sysctl.conf
+echo -e "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
+echo -e "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+```
+##### Para notebooks:
+```
+pacman -S xf86-input-synaptics acpi libinput
+echo -e "vm.laptop_mode=1" >> /etc/sysctl.conf
 ```
 ### Áreas de trabalho, escolha ou uma, ou outra. Dentre elas são: KDE, Cinnamon, GNOME, DEEPIN, XFCE, MATE
 ###### Para Plasma kde
