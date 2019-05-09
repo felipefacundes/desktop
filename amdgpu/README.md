@@ -1,5 +1,13 @@
 # Tutorial para HABILITAR à sua AMDGPU
 
+> by Felipe Facundes
+###### Grupo Telegram: https://t.me/winehq_linux
+###### Canal Telegram: https://t.me/comandos_linux
+
+------------------------------------------------------------------
+
+<br></br>
+
 #### Primeiro verifique se à sua placa é:
 
 > Southern Islands (SI) ou Sea Islands (CIK)
