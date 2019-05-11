@@ -3,6 +3,9 @@
 > Grupo do telegram: https://t.me/winehq_linux
 ###### Canal do telegram: https://t.me/comandos_linux
 ###### Site: https://brasiltts.wordpress.com/
+#
+
+<br></br>
 
 #### Primeiro conecte com a internet:
 
@@ -391,6 +394,8 @@ rm yay-9.2.0-1-x86_64.pkg.tar.xz
 ###### install extra components (optional but needed for gaming):
 ###### pacman -S opencl-catalyst lib32-catalyst-utils lib32-catalyst-libgl lib32-opencl-catalyst
 #
+
+<br></br>
 
 ```
                     ,cldxOxoc:;,
