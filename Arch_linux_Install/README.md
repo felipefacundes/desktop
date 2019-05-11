@@ -39,12 +39,14 @@ sudo fdisk -l
 `mkfs.fat -F32 -n BOOT /dev/sda1`
 
 #### Para apenas carregar o layout do teclado para abnt2:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 loadkeys br-abnt2
 export LANG=pt_BR.UTF-8
 ```
 
 ## "INSTALAÇÃO: SISTEMA BASE E FERRAMENTAS"
+###### Leia. Na linha abaixo, contém 4 linhas de comando, obedeça cada comando:
 
 ```
 sudo mount /dev/sda2 /mnt
@@ -56,21 +58,25 @@ sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
 ###### Se for reinstalar os pacotes, antes de formatar, faça um backup:
 
 ###### O BACKUP PODE SER, PARA UMA LISTA. Para uma reinstalação, baixando os pacotes novamente:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 sudo pacman -Qnq > lista
 sudo pacman -S $(cat lista)
 ```
 ##### OU VOCÊ PODE REAPROVEITAR OS PACOTES EXISTENTES DO SEU HD COM ESSE MÉTODO:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 cd /mnt
 sudo rm -rf bin dev etc lib lib64 mnt opt proc root run sbin srv sys tmp usr
 ```
 ###### Analise se existe subvolume interferindo:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 sudo btrfs subvol list -a /mnt/
 sudo btrfs subvol delete /mnt/var/lib/machines
 ```
 ###### Faça o backup dos pacotes existentes no cache:
+###### Leia. Na linha abaixo, contém 11 linhas de comando, obedeça cada comando:
 ```
 cd /mnt/var/cache/pacman/
 sudo mkdir -p pkg
@@ -86,6 +92,7 @@ cd /mnt/boot/
 sudo rm -rf *
 ```
 # FINALMENTE, VAMOS PARA A INSTALAÇÃO:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 sudo pacstrap -i /mnt grub base wget base-devel btrfs-progs
 sudo genfstab -U -p /mnt >> /mnt/etc/fstab
@@ -98,42 +105,46 @@ sudo genfstab -U -p /mnt >> /mnt/etc/fstab
 
 https://github.com/felipefacundes/desktop/tree/master/GRUB
 
-### Para que o sistema inicie corretamente, instalar o GRUB:
+## Para que o sistema inicie corretamente, instalar o GRUB:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacman -S grub bash-completion libusbx sdl bash xz gettext device-mapper freetype2 fuse2 dosfstools efibootmgr libisoburn mtools ntfs-3g
+pacman -S grub bash-completion libusbx sdl bash xz gettext device-mapper freetype2 fuse2 dosfstools efibootmgr libisoburn mtools ntfs-3g
 mkinitcpio -p linux
 ```
 
-##### "Senha do root"
+### "Senha do root"
     passwd root
 
-##### Para sistemas UEFI
+### Para sistemas UEFI
 ###### "A partição /boot já tem que estar em FAT32". Lá em cima foi dito, para formatar a partição boot: sudo mkfs.fat -F32 -n BOOT /dev/sda1
 ###### Agora prepare o GRUB para o UEFI:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-##### Para BIOS (i386-pc)
+### Para BIOS (i386-pc):
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 grub-install --target=i386-pc --recheck /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-#### Se você possui dual boot com Rwindows, instale o seguinte o "os-prober", depois repita o comando acima, ou o faça antes de executar:
+### Se você possui dual boot com Rwindows, instale o seguinte o "os-prober", depois repita o comando acima, ou o faça antes de executar:
 
     pacman -S os-prober
 
-##### Crie o seu usuário: Não esqueça de mudar o nome: UsuárioDaSuaPreferência  <-- Para o nome do seu usuário de sua preferência. Sem acentos. Exemplo: joao
+### Crie o seu usuário: Não esqueça de mudar o nome: UsuárioDaSuaPreferência  <-- Para o nome do seu usuário de sua preferência. Sem acentos. Exemplo: joao
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 
 ```
 useradd -m -g users -G daemon,disk,wheel,rfkill,dbus,network,video,audio,storage,power,users,input -s /bin/bash UsuárioDaSuaPreferência
 
 usermod -a -G daemon,disk,wheel,rfkill,dbus,network,video,audio,storage,power,users,input UsuárioDaSuaPreferência
 ```
-##### Criando uma senha de sua preferência, para o seu usuário:
+### Criando uma senha de sua preferência, para o seu usuário:
 `passwd UsuárioDaSuaPreferência`
 
-#### Editando o SUDOers para ter acesso de administrador:
+### Editando o SUDOers para ter acesso de administrador:
     nano /etc/sudoers
 ###### procure pela linha: "root ALL=(ALL) ALL" 
 ###### e logo abaixo inclua o seu usuário assim: UsuárioDaSuaPreferência ALL=(ALL) ALL
@@ -142,17 +153,17 @@ root ALL=(ALL) ALL
 UsuárioDaSuaPreferência ALL=(ALL) ALL
 ```
 
-##### Para o XORG - Ou seja, sem ele você não terá interface gráfica, é extremamente importante:
+### Para o XORG - Ou seja, sem ele você não terá interface gráfica, é extremamente importante:
 `pacman -S xorg-xinit xorg-server xorg-server-devel`
 
 ### Colocando o seu sistema para PORTUGUÊS de forma automática:
+###### Leia. Na linha abaixo, contém 12 linhas de comando, obedeça cada comando:
 ```
 cd /etc
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/locale.conf
 cd /etc/X11/xorg.conf.d/
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/arch_linux_install_scripts/00-keyboard.conf
 cp -r /etc/locale.conf /etc/vconsole.conf
-loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
 echo -e "pt_BR.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 export LANG=pt_BR.UTF-8
@@ -165,25 +176,27 @@ setfont
 ###### Localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
 ###### Caso de erro na opção abaixo: ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 ###### Execute antes: rm /etc/localtime
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc --utc
 ```
 
-#### Se possui dual boot com Rwindows, use:
+### Se possui dual boot com Rwindows, use:
+###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 hwclock --systohc --localtime
 echo -e "HARDWARECLOCK="localtime"" >> /etc/locale.conf"
 echo -e "echo -e "UTC=no" >> /etc/locale.conf"
 ```
 
-#### Para o seu hostname
+### Para o seu hostname
 ```
 echo ArchLinux > /etc/hostname
 ```
 
-#### Para ter internet:
-
+### Para ter internet:
+###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 pacman -S wireless_tools wpa_supplicant dialog network-manager-applet networkmanager
 systemctl enable NetworkManager.service
@@ -213,48 +226,54 @@ https://github.com/felipefacundes/desktop/tree/master/amdgpu
 ```
 pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib32-gst-plugins-base-libs lib32-gst-plugins-base aribb24 gpac gst-libav lame libdvbpsi libiec61883 libmad libmp4v2 libmpeg2 mjpegtools mpg123 twolame xvidcore libquicktime sox libopusenc opus opus-tools opusfile schroedinger aom celt flac libde265 opencore-amr openjpeg2 speex libfishsound gst-plugins-base gst-plugins-base-libs gst-plugins-good gstreamer libcanberra-gstreamer fmt atomicparsley
 ```
-##### Para deixar o seu computador muito mais rápido, eficiente e mais seguro:
+### Para deixar o seu computador muito mais rápido, eficiente e mais seguro:
 ```
 echo -e "vm.swappiness=0" > /etc/sysctl.conf
 echo -e "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
 echo -e "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 ```
-##### Para notebooks:
+### Para notebooks:
 ```
 pacman -S xf86-input-synaptics acpi libinput
 echo -e "vm.laptop_mode=1" >> /etc/sysctl.conf
 ```
 ### Áreas de trabalho, escolha ou uma, ou outra. Dentre elas são: KDE, Cinnamon, GNOME, DEEPIN, XFCE, MATE
 ###### Para Plasma kde
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm
+pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm firefox-i18n-pt-br firefox
 systemctl enable sddm
 ```
 
 ###### Para instalar o Cinnamon:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S cinnamon lightdm-gtk-greeter lightdm gimp viewnior
+pacman -S cinnamon lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
 
 ###### Para instalar o GNOME:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior
+sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable gdm
 ```
 ###### Para instalar o DEEPIN:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S deepin deepin-extra lightdm-gtk-greeter lightdm gimp viewnior
+pacman -S deepin deepin-extra lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
 ###### Para instalar o XFCE:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacman -S xfce4 xfce4-goodies lightdm-gtk-greeter lightdm gimp viewnior
+sudo pacman -S xfce4 xfce4-goodies lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
 ###### Para instalar o MATE:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacman -S mate mate-extra lightdm-gtk-greeter lightdm gimp viewnior
+sudo pacman -S mate mate-extra lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
 ###### O KDE usa 800MB de RAM, o  Cinnamon e o GNOME usam 750MB de RAM, o DEEPIN usa 700MB de RAM, o XFCE e o MATE usam 650MB de RAM
@@ -263,12 +282,14 @@ systemctl enable lightdm
 https://github.com/felipefacundes/xmatece
 
 ### Para TTY Autologin - GETTY - aqui é para autologin, SEM PRECISAR de DM (Desktop Manager), como: lightdm, GDM, SDDM e etc:
+###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 mkdir -p /etc/systemd/system/getty@tty1.service.d/
 echo -e "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf
 echo -e "ExecStart=" >> /etc/systemd/system/getty@tty1.service.d/override.conf
 ```
 ###### Não esqueça de mudar o nome do UsuárioDaSuaPreferência  <-- Para o nome do seu usuário de sua preferência. Sem acentos. Exemplo: joao
+###### Leia. Na linha abaixo, contém 4 linhas de comando, obedeça cada comando:
 
 ```
 echo -e "ExecStart=-/usr/bin/agetty --autologin UsuárioDaSuaPreferência --noclear %I $TERM" >> /etc/systemd/system/getty@tty1.service.d/override.conf
@@ -284,22 +305,24 @@ echo -e "ExecStart=-/usr/bin/agetty --autologin UsuárioDaSuaPreferência -s %I 
     pacman -S libreoffice-fresh libreoffice-fresh-pt-br
 
 ### Se você não curte o seu monitor, desligando, ou esmaecendo a tela (tela preta), faça o seguinte:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 cd /etc/X11/xorg.conf.d/
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/arch_linux_install_scripts/naodesligamonitor.conf
 ```
-### Opcional. Para instalar fontes TrueType para aumentar o número de fontes no sistema, pesquise e instale às que preferir:
+##### Opcional. Para instalar fontes TrueType para aumentar o número de fontes no sistema, pesquise e instale às que preferir:
 
     pacman -Ss ttf
 
 ###### Se preferir instalar todas as fontes disponíveis no repositório, tudo de uma vez, sem ao menos pesquisar:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S $(pacman -Ssq ttf)
 fc-cache
 ```
 
 ###### Ou também você poderá instalar essas fontes:
-
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei terminus-font tamsyn-font dina-font adobe-source-han-sans-otc-fonts noto-fonts-emoji noto-fonts-cjk gnu-free-fonts font-bitstream-speedo bdf-unifont adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts
 fc-cache
@@ -309,6 +332,7 @@ fc-cache
 `pacman -S virtualbox-host-modules-arch virtualbox-guest-iso virtualbox`
 
 ### Para instalar às impressoras:
+###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 
 ```
 pacman -S cups cups-filters cups-pdf cups-pk-helper libcups python-pycups python2-pycups system-config-printer lib32-libcups splix foomatic-db foomatic-db-engine foomatic-db-gutenprint-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds foomatic-db-ppds hplip
@@ -343,6 +367,7 @@ https://brasiltts.wordpress.com/
 `nano /etc/lsb-release`
 
 ### Para que você use o famoso repositório do AUR, quando não tiver o programa desejado no repositório oficial, instale o yay, para usar o repositório do AUR:
+###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 wget https://github.com/felipefacundes/desktop/blob/master/Arch_linux_Install/arch_linux_install_scripts/yay-9.2.0-1-x86_64.pkg.tar.xz?raw=true -O yay-9.2.0-1-x86_64.pkg.tar.xz
 pacman -U yay-9.2.0-1-x86_64.pkg.tar.xz
@@ -352,6 +377,7 @@ rm yay-9.2.0-1-x86_64.pkg.tar.xz
 `bash <(curl -s https://raw.githubusercontent.com/felipefacundes/apt-get-pacman/master/iniciorapido.sh)`
 #
 ###### Para o driver obsoleto e incompatível com os kernels atuais: Catalyst
+###### Não use é obsoleto, está aqui para fins de história do Linux. 
 
 ###### pacman-key -r 653C3094
 ###### pacman-key --lsign-key 653C3094
