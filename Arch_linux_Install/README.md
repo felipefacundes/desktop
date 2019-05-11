@@ -261,7 +261,7 @@ systemctl enable lightdm
 
 https://github.com/felipefacundes/xmatece
 
-### Para tty autologin - aqui é para autologin, sem precisar de DE (Desktop Manager), como: lightdm, GDM, SDDM e etc:
+### Para TTY Autologin - GETTY - aqui é para autologin, SEM PRECISAR de DM (Desktop Manager), como: lightdm, GDM, SDDM e etc:
 ```
 mkdir -p /etc/systemd/system/getty@tty1.service.d/
 echo -e "[Service]" > /etc/systemd/system/getty@tty1.service.d/override.conf
