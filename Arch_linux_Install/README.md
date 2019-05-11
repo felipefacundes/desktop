@@ -50,7 +50,7 @@ export LANG=pt_BR.UTF-8
 sudo mount /dev/sda2 /mnt"
 sudo mount /dev/sda1 /mnt/boot"
 sudo mkswap /dev/sda3 && sudo swapon /dev/sda3
-sudo pacman -Syy archlinux-keyring antergos-keyring arch-install-scripts btrfs-progs
+sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
 ```
 #### Para uma reinstalação do sistema sem formatar:
 ###### Se for reinstalar os pacotes, antes de formatar, faça um backup:
