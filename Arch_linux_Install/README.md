@@ -160,41 +160,6 @@ ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc --utc
 ```
 
-### Melhor é a opção automática acima descrita. Caso queira, coloque o seu sistema para português MANUALMENTE:
-```
-echo -e "LANG=pt_BR.UTF-8" > /etc/locale.conf
-echo -e "LOCALE=pt_BR.UTF-8" >> /etc/locale.conf
-echo -e "LC_CTYPE="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_NUMERIC="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_TIME="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_COLLATE="C"" >> /etc/locale.conf
-echo -e "LC_MONETARY="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_MESSAGES="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_PAPER="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_NAME="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_ADDRESS="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_TELEPHONE="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_MEASUREMENT="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_IDENTIFICATION="pt_BR.UTF-8"" >> /etc/locale.conf
-echo -e "LC_ALL="C"" >> /etc/locale.conf
-echo -e "KEYMAP="br-abnt2"" >> /etc/locale.conf
-
-cp -rf /etc/locale.conf /etc/vconsole.conf
-loadkeys /usr/share/kbd/keymaps/i386/qwerty/br-abnt2.map.gz
-```
-###### Localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
-###### Caso de erro na opção abaixo: ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-###### Execute antes: rm /etc/localtime
-```
-echo -e "pt_BR.UTF-8 UTF-8" > /etc/locale.gen
-locale-gen
-export LANG=pt_BR.UTF-8
-localectl set-x11-keymap br abnt2
-setfont
-ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-hwclock --systohc --utc
-```
-
 #### Se possui dual boot com Rwindows, use:
 ```
 hwclock --systohc --localtime
