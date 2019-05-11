@@ -227,56 +227,58 @@ https://github.com/felipefacundes/desktop/tree/master/amdgpu
 pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib32-gst-plugins-base-libs lib32-gst-plugins-base aribb24 gpac gst-libav lame libdvbpsi libiec61883 libmad libmp4v2 libmpeg2 mjpegtools mpg123 twolame xvidcore libquicktime sox libopusenc opus opus-tools opusfile schroedinger aom celt flac libde265 opencore-amr openjpeg2 speex libfishsound gst-plugins-base gst-plugins-base-libs gst-plugins-good gstreamer libcanberra-gstreamer fmt atomicparsley
 ```
 ### Para deixar o seu computador muito mais rápido, eficiente e mais seguro:
+###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 echo -e "vm.swappiness=0" > /etc/sysctl.conf
 echo -e "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
 echo -e "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 ```
 ### Para notebooks:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S xf86-input-synaptics acpi libinput
 echo -e "vm.laptop_mode=1" >> /etc/sysctl.conf
 ```
 ### Áreas de trabalho, escolha ou uma, ou outra. Dentre elas são: KDE, Cinnamon, GNOME, DEEPIN, XFCE, MATE
-###### Para Plasma kde
+##### Para Plasma kde
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm firefox-i18n-pt-br firefox
 systemctl enable sddm
 ```
 
-###### Para instalar o Cinnamon:
+##### Para instalar o Cinnamon:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S cinnamon lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
 
-###### Para instalar o GNOME:
+##### Para instalar o GNOME:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable gdm
 ```
-###### Para instalar o DEEPIN:
+##### Para instalar o DEEPIN:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S deepin deepin-extra lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
-###### Para instalar o XFCE:
+##### Para instalar o XFCE:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 sudo pacman -S xfce4 xfce4-goodies lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
-###### Para instalar o MATE:
+##### Para instalar o MATE:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 sudo pacman -S mate mate-extra lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 systemctl enable lightdm
 ```
-###### O KDE usa 800MB de RAM, o  Cinnamon e o GNOME usam 750MB de RAM, o DEEPIN usa 700MB de RAM, o XFCE e o MATE usam 650MB de RAM
+##### O KDE usa 800MB de RAM, o  Cinnamon e o GNOME usam 750MB de RAM, o DEEPIN usa 700MB de RAM, o XFCE e o MATE usam 650MB de RAM
 ###### Para instalar o XMATECE, uma interface tão bonita e completa quanto o MATE, mas que usa menos de 300MB de RAM, siga esse tutorial:
 
 https://github.com/felipefacundes/xmatece
@@ -341,6 +343,7 @@ systemctl enable org.cups.cupsd.service
 ```
 
 ##### Para HIBERNAÇÃO do sistema. Exemplo:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 blkid
 nano /etc/default/grub
@@ -351,6 +354,7 @@ resume=UUID="swap UUID" em "GRUB_CMDLINE_LINUX_DEFAULT="
 ```
 ###### Em /etc/mkinitcpio.conf inclua em "HOOKS=" "resume" logo depois de "filesystems"
 ###### Depois de tudo alterado, rode os comandos para que o sistema passe a hibernar:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
 mkinitcpio -p linux
