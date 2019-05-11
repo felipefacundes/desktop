@@ -132,6 +132,15 @@ usermod -a -G daemon,disk,wheel,rfkill,dbus,network,video,audio,storage,power,us
 ##### Criando uma senha de sua preferência, para o seu usuário:
 `passwd UsuárioDaSuaPreferência`
 
+#### Editando o SUDOers para ter acesso de administrador:
+    nano /etc/sudoers
+###### procure pela linha: "root ALL=(ALL) ALL" 
+###### e logo abaixo inclua o seu usuário assim: UsuárioDaSuaPreferência ALL=(ALL) ALL
+```
+root ALL=(ALL) ALL
+UsuárioDaSuaPreferência ALL=(ALL) ALL
+```
+
 ##### Para o XORG - Ou seja, sem ele você não terá interface gráfica, é extremamente importante:
 `pacman -S xorg-xinit xorg-utils xorg-server xorg-server-devel`
 
