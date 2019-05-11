@@ -94,14 +94,15 @@ sudo genfstab -U -p /mnt >> /mnt/etc/fstab
 ### Agora é dentro do sistema (chroot):
 `sudo arch-chroot /mnt`
 
+##### Para HDs encryptados, ou seja, somente, se você, deliberadamente, encryptou o seu HD, para tanto, siga esse LINK do meu tutorial:
+
+https://github.com/felipefacundes/desktop/tree/master/GRUB
+
 ### Para que o sistema inicie corretamente, instalar o GRUB:
 ```
 sudo pacman -S grub bash-completion libusbx sdl bash xz gettext device-mapper freetype2 fuse2 dosfstools efibootmgr libisoburn mtools ntfs-3g
 mkinitcpio -p linux
 ```
-### Para HDs encryptados, ou seja, somente, se você, deliberadamente, encryptou o seu HD, para tanto, siga esse meu tutorial:
-
-https://github.com/felipefacundes/desktop/tree/master/GRUB
 
 ##### "Senha do root"
     passwd root
