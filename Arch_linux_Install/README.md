@@ -7,14 +7,14 @@
 
 <br></br>
 
-#### Primeiro conecte com a internet:
+### Primeiro conecte com a internet:
 
 ##### Verifique sua interface de rede Wifi:
 `iwconfig`
 ###### Digite:  "wifi-menu e à sua interface de rede"
 ###### Exemplo:  wifi-menu wlp6s0
 
-#### Primeiro de Tudo Particione o HD
+### Particione o HD
 ##### Crie sda1 500MB para boot - Se for UEFI a partição de BOOT tem que estar em FAT32.
 ##### Crie sda2 para raiz / - Faça uma partição para a raiz do sistema (root)
 ##### Crie sda3 512MB ou 3GB para swap / 3GB se quiser o modo hibernar - pode ser uma tamanho maior, até o mesmo número de sua quantidade de RAM
@@ -25,19 +25,19 @@
 sudo blkid
 sudo fdisk -l
 ```
-###### Para zerar rapidamente o HD e criar uma nova tabela de partição:
+##### Para zerar rapidamente o HD e criar uma nova tabela de partição:
 `sudo cfdisk -z /dev/sda`
-###### Para apenas criar partições dentro de uma tabela de partição existente:
+##### Para apenas criar partições dentro de uma tabela de partição existente:
 `sudo cfdisk /dev/sda`
-###### Para outro particionador em modo texto, muito eficiente por sinal, na minha opinião o melhor: o `parted`
+##### Para outro particionador em modo texto, muito eficiente por sinal, na minha opinião o melhor: o `parted`
 `sudo parted /dev/sda`
-###### Para particionador gráfico caso esteja disponível:
+##### Para particionador gráfico caso esteja disponível:
 `sudo gparted`
-###### Para formatar corretamente cada partição linux. Formate em ext4 64Bits. Exemplo:  sudo mke2fs -text4 -O 64bit /dev/sdXnº
+##### Para formatar corretamente cada partição linux. Formate em ext4 64Bits. Exemplo:  sudo mke2fs -text4 -O 64bit /dev/sdXnº
 ###### EXT4 é mais compatível com programas DESKTOP: jogos, e etc. Sem dizer que ext4 é um sistema maduro. Que suporta desligamento inadequado.
 `sudo mke2fs -text4 -O 64bit /dev/sda1`
 
-##### Para UEFI
+#### Para UEFI
 ###### A partição /boot já tem que estar em FAT32
 `mkfs.fat -F32 -n BOOT /dev/sda1`
 
@@ -48,7 +48,7 @@ loadkeys br-abnt2
 export LANG=pt_BR.UTF-8
 ```
 
-## "INSTALAÇÃO: SISTEMA BASE E FERRAMENTAS"
+## INSTALAÇÃO: SISTEMA BASE E FERRAMENTAS
 ###### Leia. Na linha abaixo, contém 4 linhas de comando, obedeça cada comando:
 
 ```
