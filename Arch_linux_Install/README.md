@@ -142,7 +142,7 @@ UsuárioDaSuaPreferência ALL=(ALL) ALL
 ```
 
 ##### Para o XORG - Ou seja, sem ele você não terá interface gráfica, é extremamente importante:
-`pacman -S xorg-xinit xorg-utils xorg-server xorg-server-devel`
+`pacman -S xorg-xinit xorg-server xorg-server-devel`
 
 ### Colocando o seu sistema para PORTUGUÊS de forma automática:
 ```
