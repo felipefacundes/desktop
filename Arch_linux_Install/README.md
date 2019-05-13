@@ -234,7 +234,7 @@ pacman -Syy opencl-mesa xf86-video-amdgpu xf86-video-ati linux-headers dkms vulk
 ###### Habilite o Multilib em /etc/pacman.conf 
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 
-    pacman -Syy lib32-libpulse lib32-libcanberra-pulse pulseaudio-equalizer-ladspa ponymix pulseaudio-qt pulseaudio-lirc pulseaudio-jack pulseaudio-equalizer pulseaudio-bluetooth pulseaudio-alsa pulseaudio pavucontrol libpulse libcanberra-pulse libao lib32-libpulse plasma-pa
+    pacman -Syy lib32-libpulse lib32-libcanberra-pulse pulseaudio-equalizer-ladspa ponymix pulseaudio-qt pulseaudio-lirc pulseaudio-jack pulseaudio-equalizer pulseaudio-bluetooth pulseaudio-alsa pulseaudio pavucontrol libpulse libcanberra-pulse libao lib32-libpulse
 
 ### Você poderá habilitar o Radv, para à sua AMDGPU RADEON, para tanto siga esse meu tutorial, super fácil:
 
@@ -263,7 +263,7 @@ echo -e "vm.laptop_mode=1" >> /etc/sysctl.conf
 ##### Para Plasma kde
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm firefox-i18n-pt-br firefox
+pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm firefox-i18n-pt-br firefox plasma-pa
 systemctl enable sddm
 ```
 
