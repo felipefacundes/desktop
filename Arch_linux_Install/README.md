@@ -15,9 +15,9 @@
 ###### Exemplo:  wifi-menu wlp6s0
 
 ### Particione o HD
-##### Crie sda1 500MB para boot - Se for UEFI a partição de BOOT tem que estar em FAT32.
-##### Crie sda2 para raiz / - Faça uma partição para a raiz do sistema (root)
-##### Crie sda3 512MB ou 3GB para swap / 3GB se quiser o modo hibernar - pode ser uma tamanho maior, até o mesmo número de sua quantidade de RAM
+###### Crie sda1 500MB para boot - Se for UEFI a partição de BOOT tem que estar em FAT32.
+###### Crie sda2 para raiz / - Faça uma partição para a raiz do sistema (root)
+###### Crie sda3 512MB ou 3GB para swap / 3GB se quiser o modo hibernar - pode ser uma tamanho maior, até o mesmo número de sua quantidade de RAM
 
 #### Para particionar use esses comandos:
 ###### Para checar as partições existentes:
