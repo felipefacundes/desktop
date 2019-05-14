@@ -111,7 +111,8 @@ https://github.com/felipefacundes/desktop/tree/master/GRUB
 ## Para que o sistema inicie corretamente, instalar o GRUB:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S grub bash-completion libusbx sdl bash xz gettext device-mapper freetype2 fuse2 dosfstools efibootmgr libisoburn mtools ntfs-3g
+pacman -S grub ntfs-3g fuse2 fuse3 dosfstools efibootmgr exfat-utils mtools f2fs-tools gpart libusbx ifuse udftools sdl xz gettext device-mapper  lxcfs bash-completion bash freetype2 libisoburn jfsutils btrfs-progs reiserfsprogs xfsprogs nilfs-utils fuseiso polkit gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp
+
 mkinitcpio -p linux
 ```
 
@@ -264,6 +265,7 @@ echo -e "vm.laptop_mode=1" >> /etc/sysctl.conf
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm firefox-i18n-pt-br firefox plasma-pa
+
 systemctl enable sddm
 ```
 
@@ -347,6 +349,7 @@ fc-cache
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacman -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei terminus-font tamsyn-font dina-font adobe-source-han-sans-otc-fonts noto-fonts-emoji noto-fonts-cjk gnu-free-fonts font-bitstream-speedo bdf-unifont adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts
+
 fc-cache
 ```
 ###### Totalmente opcional, para virtualbox execute:
@@ -358,6 +361,7 @@ fc-cache
 
 ```
 pacman -S cups cups-filters cups-pdf cups-pk-helper libcups python-pycups python2-pycups system-config-printer lib32-libcups splix foomatic-db foomatic-db-engine foomatic-db-gutenprint-ppds foomatic-db-nonfree foomatic-db-nonfree-ppds foomatic-db-ppds hplip
+
 systemctl enable cups-browsed.service
 systemctl enable org.cups.cupsd.service
 ```
@@ -394,6 +398,7 @@ https://brasiltts.wordpress.com/
 ###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 wget https://github.com/felipefacundes/desktop/blob/master/Arch_linux_Install/arch_linux_install_scripts/yay-9.2.0-1-x86_64.pkg.tar.xz?raw=true -O yay-9.2.0-1-x86_64.pkg.tar.xz
+
 pacman -U yay-9.2.0-1-x86_64.pkg.tar.xz
 rm yay-9.2.0-1-x86_64.pkg.tar.xz
 ```
