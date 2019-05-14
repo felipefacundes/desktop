@@ -111,7 +111,7 @@ https://github.com/felipefacundes/desktop/tree/master/GRUB
 ## Para que o sistema inicie corretamente, instalar o GRUB:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S grub ntfs-3g fuse2 fuse3 dosfstools efibootmgr exfat-utils mtools f2fs-tools gpart libusbx udftools gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp ifuse sdl xz gettext device-mapper lxcfs bash-completion bash freetype2 libisoburn jfsutils btrfs-progs reiserfsprogs xfsprogs nilfs-utils fuseiso polkit
+pacman -S grub ntfs-3g fuse2 fuse3 dosfstools efibootmgr exfat-utils mtools f2fs-tools gpart libusbx udftools gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp ifuse fuseiso libisoburn sdl xz gettext device-mapper lxcfs bash-completion bash freetype2 jfsutils btrfs-progs reiserfsprogs xfsprogs nilfs-utils polkit
 
 mkinitcpio -p linux
 ```
