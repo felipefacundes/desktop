@@ -254,6 +254,14 @@ echo -e "vm.swappiness=0" > /etc/sysctl.conf
 echo -e "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
 echo -e "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 ```
+###### Em /etc/security/limits.conf   inclua:   * hard nofile 1048576
+###### Leia. Na linha abaixo, contém 1 linha de comando e uma inclusão de texto:
+```
+sudo nano /etc/security/limits.conf
+
+* hard nofile 1048576
+```
+
 ### Para notebooks:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
@@ -392,7 +400,10 @@ https://brasiltts.wordpress.com/
 
 ##### Para você mudar o nome da sua distribuição, caso queira:
 
-`nano /etc/lsb-release`
+```
+pacman -S lsb-release
+nano /etc/lsb-release
+```
 
 ### Para que você use o famoso repositório do AUR, quando não tiver o programa desejado no repositório oficial, instale o yay, para usar o repositório do AUR:
 ###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
