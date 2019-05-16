@@ -299,7 +299,8 @@ systemctl enable gdm
 ##### Para instalar o DEEPIN:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S deepin deepin-extra lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
+pacman -S pacman -S deepin-control-center deepin-daemon deepin-api deepin-desktop-base deepin-desktop-schemas deepin-dock deepin-gtk-theme deepin-launcher deepin-menu deepin-network-utils deepin-polkit-agent-ext-gnomekeyring deepin-qt5dxcb-plugin deepin-qt5integration deepin-session-ui deepin-shortcut-viewer deepin-sound-theme deepin-system-monitor deepin-wallpapers startdde lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
+
 systemctl enable lightdm
 ```
 ##### Para instalar o XFCE:
