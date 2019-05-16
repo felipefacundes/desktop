@@ -254,19 +254,16 @@ echo -e "vm.swappiness=0" > /etc/sysctl.conf
 echo -e "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
 echo -e "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
 ```
-###### Em /etc/security/limits.conf   inclua:   * hard nofile 1048576
-###### Leia. Na linha abaixo, contém 1 linha de comando e uma inclusão de texto:
+###### Em /etc/security/limits.conf   Observação:   o comando abaixo aumentará o FPS em jogos.
 ```
-sudo nano /etc/security/limits.conf
-
-* hard nofile 1048576
+echo -e "* hard nofile 1048576" >> /etc/security/limits.conf
 ```
 ###### Inclua em /etc/systemd/
 ###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 cd /etc/systemd/
-sudo wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/system.conf
-sudo wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/user.conf
+wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/system.conf
+wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/user.conf
 ```
 ### Para notebooks:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
@@ -297,12 +294,15 @@ sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior firefox firefox-i
 systemctl enable gdm
 ```
 ##### Para instalar o DEEPIN:
-###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
+###### Leia. Na linha abaixo, contém 3 linhas de comando, e uma alternativa de comando. Obedeça cada comando, e leia a alternativa:
 ```
 pacman -S pacman -S deepin-control-center deepin-daemon deepin-api deepin-desktop-base deepin-desktop-schemas deepin-dock deepin-gtk-theme deepin-launcher deepin-menu deepin-network-utils deepin-polkit-agent-ext-gnomekeyring deepin-qt5dxcb-plugin deepin-qt5integration deepin-session-ui deepin-shortcut-viewer deepin-sound-theme deepin-system-monitor deepin-wallpapers startdde lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
 
-sudo pacman -Rdd deepin-anything deepin-anything-dkms
 systemctl enable lightdm
+
+pacman -Rdd deepin-anything deepin-anything-dkms
+Ou, se você não tiver o deepin-anything-dkms:
+pacman -Rdd deepin-anything
 ```
 ##### Para instalar o XFCE:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
