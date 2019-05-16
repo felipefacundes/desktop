@@ -18,7 +18,7 @@ sudo rm user.conf
 sudo wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/user.conf
 ```
 
-###### Em /etc/security/limits.conf inclua: * hard nofile 1048576
+##### Em /etc/security/limits.conf inclua: * hard nofile 1048576
 ###### Leia. Na linha abaixo, contém 1 linha de comando e uma inclusão de texto:
 
 ```
