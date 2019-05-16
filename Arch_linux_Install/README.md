@@ -247,7 +247,7 @@ https://github.com/felipefacundes/desktop/tree/master/amdgpu
 ```
 pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib32-gst-plugins-base-libs lib32-gst-plugins-base aribb24 gpac gst-libav lame libdvbpsi libiec61883 libmad libmp4v2 libmpeg2 mjpegtools mpg123 twolame xvidcore libquicktime sox libopusenc opus opus-tools opusfile schroedinger aom celt flac libde265 opencore-amr openjpeg2 speex libfishsound gst-plugins-base gst-plugins-base-libs gst-plugins-good gstreamer libcanberra-gstreamer fmt atomicparsley
 ```
-### Para deixar o seu computador muito mais rápido, eficiente e mais seguro:
+### Para deixar o seu computador muito mais rápido, eficiente, mais seguro. Aumente a performance e o FPS em JOGOS:
 ###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 echo -e "vm.swappiness=0" > /etc/sysctl.conf
@@ -261,7 +261,13 @@ sudo nano /etc/security/limits.conf
 
 * hard nofile 1048576
 ```
-
+###### Inclua em /etc/systemd/
+###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
+```
+cd /etc/systemd/
+sudo wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/system.conf
+sudo wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/user.conf
+```
 ### Para notebooks:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
