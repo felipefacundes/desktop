@@ -4,13 +4,17 @@
 ###### Canal do telegram: https://t.me/comandos_linux
 ###### Site: https://brasiltts.wordpress.com/
 
-#### Inclua em /etc/systemd/
+<br></br>
 
+#### Inclua em /etc/systemd/
+###### Leia. Na linha abaixo, contém 5 linhas de comando, obedeça cada comando:
 ```
 cd /etc/systemd/
 
+sudo rm system.conf
 sudo wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/system.conf
 
+sudo rm user.conf
 sudo wget https://raw.githubusercontent.com/felipefacundes/desktop/master/etc-systemd/user.conf
 ```
 
@@ -29,6 +33,7 @@ sudo nano /etc/security/limits.conf
 
 ###### O resultado deverá ser: 1048576
 
+<br></br>
 ```
                     ,cldxOxoc:;,
                ,;:okKNXKK0kO0Okxddol:;,
