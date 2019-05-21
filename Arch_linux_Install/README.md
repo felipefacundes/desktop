@@ -180,6 +180,7 @@ setfont
 ###### Localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
 ###### Caso de erro na opção abaixo: ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 ###### Execute antes: rm /etc/localtime
+###### O Padrão abaixo Sao_Paulo é o padrão de Brasília. Mude para o fuso horário da sua respectiva cidade, Veja antes a zonas disponíveis com o comando: `ls /usr/share/zoneinfo/America/`
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
@@ -190,7 +191,7 @@ hwclock --systohc --utc
 ###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
 ```
 hwclock --systohc --localtime
-echo -e "HARDWARECLOCK="localtime"" >> /etc/locale.conf"
+echo -e "HARDWARECLOCK="localtime" >> /etc/locale.conf"
 echo -e "echo -e "UTC=no" >> /etc/locale.conf"
 ```
 
