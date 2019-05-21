@@ -178,8 +178,8 @@ rm hunspell-pt-br-3.2-5-any.pkg.tar.xz
 setfont
 ```
 ###### Localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
-###### Caso de erro na opção abaixo: ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
-###### Execute antes: rm /etc/localtime
+###### Caso de [ERRO] na opção [ABAIXO]: `ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime`
+###### Execute antes: `rm /etc/localtime`
 ###### O Padrão abaixo "Sao_Paulo" é o padrão de Brasília. Mude para o fuso horário da sua respectiva cidade, Veja antes às zonas disponíveis com o comando: `ls -h /usr/share/zoneinfo/America/`
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
