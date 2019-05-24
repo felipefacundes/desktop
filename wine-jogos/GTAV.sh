@@ -6,6 +6,7 @@
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 cd ~
 mkdir -p ~/.jogos/wines/
+mkdir -p ~/.jogos/libraries/dxvk/
 mkdir -p ~/.jogos/scripts/
 mkdir -p ~/.jogos/setups/
 mkdir -p ~/.jogos/wineprefixes/GTAV/
@@ -48,10 +49,10 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine DXSDK_Jun10.exe
 
-mkdir -p ~/.jogos/setups/GTAV/
-cd ~/.jogos/setups/GTAV/
+
 #rm *.exe*
 #cd ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
+
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
 #~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 ntdll.dll
@@ -59,10 +60,25 @@ cd ~/.jogos/setups/GTAV/
 # Primeiro configurar o wine
 #~/.jogos/wines/Proton-4.6-GE-2/dist/bin/winecfg
 
+# Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
+cd ~/.jogos/libraries/dxvk/
+wget -nc wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
+tar -xf dxvk-1.2.1.tar.gz
+
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/syswow64/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
+
+#~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 l3codecx.ax
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d10.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d10_1.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d10core.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d11.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 dxgi.dll
+
 # Executar o instalador e depois o jogo
-#/usr/bin/wine regsvr32 l3codecx.ax
+
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd
+cd ""
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine setup.exe
 
 # Opções extras:
