@@ -19,7 +19,7 @@ chmod +x winetricks
 cd ~/.jogos/wines/
 rm -rf Proton-4.6-GE-2
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/Proton-4.6-GE-2.tar.xz
-tar -xf Proton-4.6-GE-2.tar.gz
+tar -xf Proton-4.6-GE-2.tar.xz
 
 export TERM=xterm
 #export GALLIUM_HUD="cpu,fps"
@@ -41,7 +41,7 @@ export vblank_mode=0
 export DRI_PRIME=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-~/.jogos/scripts/winetricks -q corefonts mfc42 msxml4 vcrun6 riched20 xact xact_x64 vlc faudio quartz d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+~/.jogos/scripts/winetricks -q corefonts mfc42 msxml4 vcrun6 riched20 xact vlc faudio quartz d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
@@ -58,7 +58,7 @@ wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-A
 #~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 ntdll.dll
 /bin/winetricks -q win7
 # Primeiro configurar o wine
-#~/.jogos/wines/Proton-4.6-GE-2/dist/bin/winecfg
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/winecfg
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
@@ -75,10 +75,12 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/GTAV/drive
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d11.dll
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 dxgi.dll
 
+bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh
+
 # Executar o instalador e depois o jogo
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd ""
+cd "/home/maria/Downloads/Grand Theft Auto V"
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine setup.exe
 
 # Opções extras:
