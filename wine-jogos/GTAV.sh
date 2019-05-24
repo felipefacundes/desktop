@@ -75,7 +75,7 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/GTAV/drive
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d11.dll
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 dxgi.dll
 
-bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh
+bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 
 # Executar o instalador e depois o jogo
 
