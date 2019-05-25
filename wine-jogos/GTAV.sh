@@ -33,6 +33,7 @@ cd ~/.local/share/applications/
 echo "#!/usr/bin/env xdg-open" > GTAV.desktop
 echo "[Desktop Entry]" >> GTAV.desktop
 echo "Name=GTA V" >> GTAV.desktop
+echo "Comment=Jogo de Ação" >> GTAV.desktop
 echo "Categories=Game;" >> GTAV.desktop
 echo "Exec=/home/$USER/.jogos/scripts/run/GTAV-run.sh" >> GTAV.desktop
 echo "Type=Application" >> GTAV.desktop
@@ -99,6 +100,11 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd ""
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine setup.exe
+
+
+# Irá abrir a localização e o script de inicialização do jogo:
+xdg-open ~/.jogos/wineprefixes/GTAV/drive_c/ 
+xdg-open ~/.jogos/scripts/run/GTAV-run.sh
 
 # Opções extras:
 # programa.exe -opengl
