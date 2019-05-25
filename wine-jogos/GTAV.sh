@@ -15,7 +15,6 @@ mkdir -p ~/.jogos/scripts/run/
 mkdir -p ~/.jogos/setups/
 #mkdir -p ~/.jogos/wineprefixes/GTAV/
 
-# Essa é a versão escolhida do Wine
 cd ~/.jogos/scripts/run/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/GTAV-run.sh
 chmod +x GTAV-run.sh
@@ -41,6 +40,7 @@ echo "StartupNotify=true" >> GTAV.desktop
 echo "Icon=/home/$USER/.jogos/icons/GTAV.png" >> GTAV.desktop
 echo "Terminal=false" >> GTAV.desktop
 
+# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
