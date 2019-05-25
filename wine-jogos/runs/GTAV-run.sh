@@ -1,31 +1,51 @@
 #!/bin/bash
+# Licença: GPLv3
 # Felipe Facundes: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-#cd ~/.local/share/applications
-#rm -rf wine*
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
+cd ~
+mkdir -p ~/.local/share/applications/wine/Programs/
+mkdir -p ~/.jogos/wines/
+mkdir -p ~/.jogos/icons/
+mkdir -p ~/.jogos/libraries/dxvk/
+mkdir -p ~/.jogos/scripts/run/
+mkdir -p ~/.jogos/setups/
+#mkdir -p ~/.jogos/wineprefixes/GTAV/
+
+# Essa é a versão escolhida do Wine
+
 export TERM=xterm
-#export GALLIUM_HUD="cpu,fps"
-export WINE=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-export WINEVERPATH=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-export WINESERVER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wineserver
-export WINELOADER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-#export WINEDLLPATH=
-export LD_LIBRARY32_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib/
-export LD_LIBRARY64_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib64/
+# Para ver o FPS na tela, para CPU, inclua cpu,fps
+#export GALLIUM_HUD="fps"
+#export WINE=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+export WINE=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
+#export WINEVERPATH=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+export WINEVERPATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
+#export WINESERVER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wineserver
+export WINESERVER=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wineserver
+#export WINELOADER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+export WINELOADER=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
+#export WINEDLLPATH=$WINEPATH”~/.jogos/wines/wine-staging-4.8-1-x86_64/lib/wine/fakedlls”
+#export LD_LIBRARY32_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib/
+export LD_LIBRARY32_PATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/lib32/
+#export LD_LIBRARY64_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib64/
+export LD_LIBRARY64_PATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/lib/
+
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/GTAV/
+export WINEPREFIX=~/.jogos/wineprefixes/GTAV
 # Esta é uma opção que às vezes é necessária para alguns jogos
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
-# Para tornar a prefix do wine preparada para 32bits. Opção necessária para alguns jogos:
+# Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
+export WINEESYNC=1
 export vblank_mode=0
 export DRI_PRIME=1
+export DXVK_HUD=1
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd ""
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine GTAV.exe
+~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine GTAV.exe
 
 # Opções extras:
 # programa.exe -opengl
@@ -88,4 +108,29 @@ cd ""
 # LINUX
 # ╱╱┏┳┓╭╮┏┳┓ ╲╲
 # ▔▏┗┻┛┃┃┗┻┛▕▔
-# --------------------------
+# -------------------------
+
+
+
+
+
+# Oções descartadas:
+
+
+#cd ~/.local/share/applications
+#rm -rf wine*
+
+#cd ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
+#rm ntdll.dll
+#wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 ntdll.dll
+
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/syswow64/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
+
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 l3codecx.ax
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10_1.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10core.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d11.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i dxgi.dll
