@@ -14,16 +14,15 @@ mkdir -p ~/.jogos/setups/
 
 # Essa é a versão escolhida do Wine
 cd ~/.jogos/scripts/run/
-wget https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/GTAV-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/GTAV-run.sh
 chmod +x GTAV-run.sh
 cd ~/.jogos/icons/
-
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/GTAV.png
 cd ~/.local/share/applications/wine/Programs/
-
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/desktop-shortcut/GTAV.desktop
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
-
 cd ~/.jogos/wines/
 rm -rf wine-staging-4.8-1-x86_64
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/wine-staging-4.8-1-x86_64.tar.xz
@@ -85,7 +84,7 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/winecfg
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd ""
+cd "/home/$USER/Downloads/Torrents/Grand Theft Auto V"
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine setup.exe
 
 # Opções extras:
