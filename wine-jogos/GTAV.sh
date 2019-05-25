@@ -1,89 +1,92 @@
 #!/bin/bash
+# Licença: GPLv3
 # Felipe Facundes: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-#cd ~/.local/share/applications
-#rm -rf wine*
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 cd ~
+mkdir -p ~/.local/share/applications/wine/Programs/
 mkdir -p ~/.jogos/wines/
+mkdir -p ~/.jogos/icons/
 mkdir -p ~/.jogos/libraries/dxvk/
-mkdir -p ~/.jogos/scripts/
+mkdir -p ~/.jogos/scripts/run/
 mkdir -p ~/.jogos/setups/
-mkdir -p ~/.jogos/wineprefixes/GTAV/
+#mkdir -p ~/.jogos/wineprefixes/GTAV/
 
 # Essa é a versão escolhida do Wine
+cd ~/.jogos/scripts/run/
+wget https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/GTAV-run.sh
+chmod +x GTAV-run.sh
+cd ~/.jogos/icons/
+
+cd ~/.local/share/applications/wine/Programs/
+
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 
 cd ~/.jogos/wines/
-rm -rf Proton-4.6-GE-2
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/Proton-4.6-GE-2.tar.xz
-tar -xf Proton-4.6-GE-2.tar.xz
+rm -rf wine-staging-4.8-1-x86_64
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/wine-staging-4.8-1-x86_64.tar.xz
+tar -xf wine-staging-4.8-1-x86_64.tar.xz
 
 export TERM=xterm
-#export GALLIUM_HUD="cpu,fps"
-export WINE=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-export WINEVERPATH=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-export WINESERVER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wineserver
-export WINELOADER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-#export WINEDLLPATH=
-export LD_LIBRARY32_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib/
-export LD_LIBRARY64_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib64/
+# Para ver o FPS na tela, para CPU, inclua cpu,fps
+#export GALLIUM_HUD="fps"
+#export WINE=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+export WINE=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
+#export WINEVERPATH=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+export WINEVERPATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
+#export WINESERVER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wineserver
+export WINESERVER=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wineserver
+#export WINELOADER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+export WINELOADER=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
+#export WINEDLLPATH=$WINEPATH”~/.jogos/wines/wine-staging-4.8-1-x86_64/lib/wine/fakedlls”
+#export LD_LIBRARY32_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib/
+export LD_LIBRARY32_PATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/lib32/
+#export LD_LIBRARY64_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib64/
+export LD_LIBRARY64_PATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/lib/
+
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/GTAV/
+export WINEPREFIX=~/.jogos/wineprefixes/GTAV
 # Esta é uma opção que às vezes é necessária para alguns jogos
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
-# Para tornar a prefix do wine preparada para 32bits. Opção necessária para alguns jogos:
+# Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
+export WINEESYNC=1
 export vblank_mode=0
 export DRI_PRIME=1
+export DXVK_HUD=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-~/.jogos/scripts/winetricks -q corefonts mfc42 vcrun6 vlc d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+~/.jogos/scripts/winetricks -q corefonts mfc42 vlc d3dx9 vcrun2012 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus vulkansdk
 
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
 cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-#~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine DXSDK_Jun10.exe
-
-
-#rm *.exe*
-#cd ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
-
-#rm ntdll.dll
-#wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-#~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 ntdll.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine DXSDK_Jun10.exe
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.11.tar.gz
 tar -xf dxvk-1.2.1.tar.gz
+tar -xf d9vk-0.11.tar.gz
 
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/syswow64/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
-
-#~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 l3codecx.ax
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d10.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d10_1.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d10core.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d11.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i dxgi.dll
-
+bash ~/.jogos/libraries/dxvk/d9vk-0.11/setup_dxvk.sh install
 bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 
 # Executar o instalador e depois o jogo
 
 ~/.jogos/scripts/winetricks -q win7
 # Primeiro configurar o wine
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/winecfg
+~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/winecfg
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd "/home/$USER/Downloads/Torrents/Grand Theft Auto V"
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine setup.exe
+~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine setup.exe
 
 # Opções extras:
 # programa.exe -opengl
@@ -147,3 +150,28 @@ cd "/home/$USER/Downloads/Torrents/Grand Theft Auto V"
 # ╱╱┏┳┓╭╮┏┳┓ ╲╲
 # ▔▏┗┻┛┃┃┗┻┛▕▔
 # -------------------------
+
+
+
+
+
+# Oções descartadas:
+
+
+#cd ~/.local/share/applications
+#rm -rf wine*
+
+#cd ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
+#rm ntdll.dll
+#wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 ntdll.dll
+
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/syswow64/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
+
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 l3codecx.ax
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10_1.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10core.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d11.dll
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i dxgi.dll
