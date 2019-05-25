@@ -41,13 +41,14 @@ export vblank_mode=0
 export DRI_PRIME=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-~/.jogos/scripts/winetricks -q corefonts mfc42 msxml4 vcrun6 riched20 xact vlc faudio quartz d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+~/.jogos/scripts/winetricks -q corefonts mfc42 vcrun6 vlc d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
 cd ~/.jogos/setups/DXSDK_Jun10/
-wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine DXSDK_Jun10.exe
+#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+#~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine DXSDK_Jun10.exe
 
 
 #rm *.exe*
@@ -66,11 +67,11 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/GTAV/drive
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/GTAV/drive_c/windows/system32/
 
 #~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 l3codecx.ax
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d10.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d10_1.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d10core.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 d3d11.dll
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 dxgi.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d10.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d10_1.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d10core.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i d3d11.dll
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32.exe /n /i dxgi.dll
 
 bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 
@@ -81,8 +82,8 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 ~/.jogos/wines/Proton-4.6-GE-2/dist/bin/winecfg
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd "/home/maria/Downloads/Torrents/Grand Theft Auto V"
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine setup-ultra-repack-2.1.exe
+cd "/home/$USER/Downloads/Torrents/Grand Theft Auto V"
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine setup.exe
 
 # Opções extras:
 # programa.exe -opengl
