@@ -98,8 +98,8 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/winecfg
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd ""
-~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine setup.exe
+cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
+~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe
 
 
 # Irá abrir a localização e o script de inicialização do jogo:
