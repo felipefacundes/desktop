@@ -56,9 +56,6 @@ wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-A
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
 #~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine regsvr32 ntdll.dll
-/bin/winetricks -q win7
-# Primeiro configurar o wine
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/winecfg
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
@@ -79,9 +76,13 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 
 # Executar o instalador e depois o jogo
 
+~/.jogos/scripts/winetricks -q win7
+# Primeiro configurar o wine
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/winecfg
+
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd "/home/maria/Downloads/Grand Theft Auto V"
-~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine setup.exe
+cd "/home/maria/Downloads/Torrents/Grand Theft Auto V"
+~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine setup-ultra-repack-2.1.exe
 
 # Opções extras:
 # programa.exe -opengl
