@@ -44,7 +44,7 @@ export DRI_PRIME=1
 export DXVK_HUD=1
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd "~/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
+cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe
 
 # Opções extras:
