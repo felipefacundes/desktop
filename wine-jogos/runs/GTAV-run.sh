@@ -38,7 +38,7 @@ export WINEPREFIX=~/.jogos/wineprefixes/GTAV
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
-export WINEESYNC=1
+export WINEESYNC=0
 export vblank_mode=0
 export DRI_PRIME=1
 export DXVK_HUD=1
