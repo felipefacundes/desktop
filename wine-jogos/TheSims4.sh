@@ -1,5 +1,5 @@
 #!/bin/bash
-# PlayOnGit - Scripts do Wine - para iniciar sem precisar de PlayOnLinux
+# PlayOnGit - Scripts do Wine - para iniciar sem precisar de PlayOnLinux, Proton ou Lutris, inicie direto do menu iniciar com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
 # Faça o seu pedido de tutorial e GamePlay no nosso:
@@ -73,10 +73,9 @@ export DRI_PRIME=1
 #export DXVK_HUD=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-~/.jogos/scripts/winetricks -q corefonts mfc42 vlc d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus vulkansdk
-~/.jogos/scripts/winetricks -q win10 vcrun2008 vcrun2010 vcrun2013 
-~/.jogos/scripts/winetricks -q win10
-~/.jogos/scripts/winetricks -q win10 vcrun2015 vcrun2017
+~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus vulkansdk
+#~/.jogos/scripts/winetricks -q vcrun2008 vcrun2010 vcrun2013 vcrun2015 vcrun2017
+
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
@@ -108,7 +107,7 @@ wget https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginTh
 ~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe
 
 cd "/home/$USER/.jogos/wineprefixes/TheSims4/drive_c"
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine Steam.exe
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe
 
 
 # Irá abrir a localização e o script de inicialização do jogo:
