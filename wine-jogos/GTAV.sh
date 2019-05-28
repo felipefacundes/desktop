@@ -103,8 +103,8 @@ cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
 
 
 # Irá abrir a localização e o script de inicialização do jogo:
-xdg-open ~/.jogos/wineprefixes/GTAV/drive_c/ 
-xdg-open ~/.jogos/scripts/run/GTAV-run.sh
+#xdg-open ~/.jogos/wineprefixes/GTAV/drive_c/ 
+#xdg-open ~/.jogos/scripts/run/GTAV-run.sh
 
 # Opções extras:
 # programa.exe -opengl
