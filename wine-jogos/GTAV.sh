@@ -1,5 +1,5 @@
 #!/bin/bash
-# PlayOnGit - Scripts do Wine - para iniciar sem precisar de PlayOnLinux
+# PlayOnGit - Scripts do Wine - para Iniciar seus jogos sem precisar de PlayOnLinux, Proton ou Lutris, inicie direto do menu iniciar com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
 # Faça o seu pedido de tutorial e GamePlay no nosso:
