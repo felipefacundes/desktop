@@ -72,7 +72,7 @@ export DRI_PRIME=1
 export DXVK_HUD=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-~/.jogos/scripts/winetricks -q corefonts vlc d3dx9 vcrun2012 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus vulkansdk steam
+~/.jogos/scripts/winetricks -q corefonts vlc d3dx9 vcrun2012 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 galliumnine gdiplus vulkansdk steam
 
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
