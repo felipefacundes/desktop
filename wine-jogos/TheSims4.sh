@@ -46,18 +46,18 @@ echo "Terminal=false" >> TheSims4.desktop
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-#export WINE=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+#export WINE=~/.jogos/wines/tkg-4.6-x86_64/bin/wine
 export WINE=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine
-#export WINEVERPATH=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+#export WINEVERPATH=~/.jogos/wines/tkg-4.6-x86_64/bin/wine
 export WINEVERPATH=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine
-#export WINESERVER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wineserver
+#export WINESERVER=~/.jogos/wines/tkg-4.6-x86_64/bin/wineserver
 export WINESERVER=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wineserver
-#export WINELOADER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
+#export WINELOADER=~/.jogos/wines/tkg-4.6-x86_64/bin/wine
 export WINELOADER=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine
 #export WINEDLLPATH=$WINEPATH”~/.jogos/wines/wine-staging-4.9-1-x86_64/lib/wine/fakedlls”
-#export LD_LIBRARY32_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib/
+#export LD_LIBRARY32_PATH=~/.jogos/wines/tkg-4.6-x86_64/lib/
 export LD_LIBRARY32_PATH=~/.jogos/wines/wine-staging-4.9-1-x86_64/lib32/
-#export LD_LIBRARY64_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib64/
+#export LD_LIBRARY64_PATH=~/.jogos/wines/tkg-4.6-x86_64/lib64/
 export LD_LIBRARY64_PATH=~/.jogos/wines/wine-staging-4.9-1-x86_64/lib/
 
 export WINEDEBUG=-all
@@ -73,8 +73,8 @@ export DRI_PRIME=1
 #export DXVK_HUD=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus vulkansdk
-#~/.jogos/scripts/winetricks -q vcrun2008 vcrun2010 vcrun2013 vcrun2015 vcrun2017
+~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 galliumnine gdiplus vulkansdk
+~/.jogos/scripts/winetricks -q vcrun2008 vcrun2010 vcrun2013 vcrun2015 vcrun2017
 
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
