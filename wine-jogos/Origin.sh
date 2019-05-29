@@ -72,10 +72,10 @@ export vblank_mode=0
 export DRI_PRIME=1
 #export DXVK_HUD=1
 
-# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list        vulkansdk
+# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list        vulkansdk nvapi=disabled
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 galliumnine gdiplus 
 ~/.jogos/scripts/winetricks -q vcrun2008 vcrun2010 vcrun2013 vcrun2015 vcrun2017
-~/.jogos/scripts/winetricks nvapi=disabled nvapi64=disabled
+~/.jogos/scripts/winetricks nvapi64=disabled autostart_winedbg=disable csmt=off hosts
 
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
@@ -108,9 +108,11 @@ cd ~/.jogos/setups/
 #wget -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
 rm -rf OriginThinSetup.exe
 wget https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe
-~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe
+~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe /S
 
-cd "/home/$USER/.jogos/wineprefixes/Origin/drive_c"
+sleep 3
+pkill -9 .exe
+
 #~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe
 
 
@@ -205,3 +207,9 @@ cd "/home/$USER/.jogos/wineprefixes/Origin/drive_c"
 #~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i d3d10core.dll
 #~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i d3d11.dll
 #~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i dxgi.dll
+
+echo "Instalação FINALIZADA com SUCESSO"
+echo "Acesse seu programa no seu: Menu inciar > Jogos"
+echo "Criação de Felipe Facundes"
+echo "Acesse nosso grupo do Telegram:"
+echo "https://t.me/winehq_linux"
