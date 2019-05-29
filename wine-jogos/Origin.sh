@@ -101,7 +101,7 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 ~/.jogos/scripts/winetricks -q win10
 
 # Primeiro configurar o wine
-~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/winecfg
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/winecfg
 
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd ~/.jogos/setups/
@@ -209,7 +209,7 @@ pkill -9 .exe
 #~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i dxgi.dll
 
 echo "Instalação FINALIZADA com SUCESSO"
-echo "Acesse seu programa no seu: Menu inciar > Jogos"
+echo "Acesse o seu programa no: Menu inciar > Jogos"
 echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
