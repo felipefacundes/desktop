@@ -6,41 +6,6 @@
 # Grupo Gamer do Telegram: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
-cd ~
-mkdir -p ~/.local/share/applications/wine/Programs/
-mkdir -p ~/.jogos/wines/
-mkdir -p ~/.jogos/icons/
-mkdir -p ~/.jogos/libraries/dxvk/
-mkdir -p ~/.jogos/scripts/run/
-mkdir -p ~/.jogos/setups/
-#mkdir -p ~/.jogos/wineprefixes/Origin/
-
-cd ~/.jogos/scripts/run/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/Origin-run.sh
-chmod +x Origin-run.sh
-cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/Origin.png
-cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
-chmod +x winetricks
-cd ~/.jogos/wines/
-rm -rf wine-staging-4.9-1-x86_64
-# https://lutris.nyc3.digitaloceanspaces.com/runners/wine/wine-tkg-4.6-x86_64.tar.gz
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/wine-staging-4.9-1-x86_64.tar.xz
-tar -xf wine-staging-4.9-1-x86_64.tar.xz
-
-# Criando o atalho .desktop
-cd ~/.local/share/applications/
-echo "#!/usr/bin/env xdg-open" > Origin.desktop
-echo "[Desktop Entry]" >> Origin.desktop
-echo "Name=Origin" >> Origin.desktop
-echo "Comment=Loja de Jogos da EA Games" >> Origin.desktop
-echo "Categories=Game;" >> Origin.desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/Origin-run.sh" >> Origin.desktop
-echo "Type=Application" >> Origin.desktop
-echo "StartupNotify=true" >> Origin.desktop
-echo "Icon=/home/$USER/.jogos/icons/Origin.png" >> Origin.desktop
-echo "Terminal=false" >> Origin.desktop
 
 # Essa é a versão escolhida do Wine
 export TERM=xterm
@@ -72,46 +37,13 @@ export vblank_mode=0
 export DRI_PRIME=1
 #export DXVK_HUD=1
 
-# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list
-~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 galliumnine gdiplus vulkansdk
-~/.jogos/scripts/winetricks -q vcrun2008 vcrun2010 vcrun2013 vcrun2015 vcrun2017
 
-# Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
-# vamos instalar o DXSDK
-mkdir -p ~/.jogos/setups/DXSDK_Jun10/
-cd ~/.jogos/setups/DXSDK_Jun10/
-#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine DXSDK_Jun10.exe
-
-# Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
-cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.11.tar.gz
-tar -xf dxvk-1.2.1.tar.gz
-tar -xf d9vk-0.11.tar.gz
-
-bash ~/.jogos/libraries/dxvk/d9vk-0.11/setup_dxvk.sh install
-bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
-
-# Executar o instalador e depois o jogo
-~/.jogos/scripts/winetricks -q win10
-
-# Primeiro configurar o wine
-~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/winecfg
-
-# Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd ~/.jogos/setups/
-#wget -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
-rm -rf OriginThinSetup.exe
-wget https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe
-~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe
-
-cd "/home/$USER/.jogos/wineprefixes/Origin/drive_c"
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe
+cd "/home/$USER/.jogos/wineprefixes/Origin/drive_c/Program Files (x86)/Origin"
+~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine Origin.exe
 
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/Origin/drive_c/ 
+#xdg-open ~/.jogos/wineprefixes/Origin/drive_c/
 #xdg-open ~/.jogos/scripts/run/Origin-run.sh
 
 # Opções extras:
