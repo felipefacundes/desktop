@@ -38,7 +38,7 @@ export DRI_PRIME=1
 #export DXVK_HUD=1
 
 
-cd "/home/$USER/.jogos/wineprefixes/TheSims4/drive_c/Program Files (x86)/Origin"
+cd "/home/$USER/.jogos/wineprefixes/Origin/drive_c/Program Files (x86)/Origin"
 ~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine Origin.exe
 
 
