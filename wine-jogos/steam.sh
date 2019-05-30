@@ -115,14 +115,16 @@ cd "/home/$USER/.jogos/wineprefixes/steam/drive_c/Program Files (x86)/Steam/"
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
-echo "Acesse o seu programa no: \"Menu inciar > Jogos"\"
+echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
 echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 pkill -9 .exe
 notify-send "Instalação FINALIZADA com SUCESSO."
-sleep 15
+sleep 10
+notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+sleep 10
 notify-send "Se quiser, pode fechar o terminal."
 
 # Opções extras:
