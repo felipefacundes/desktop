@@ -120,11 +120,10 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-sleep 3
 pkill -9 .exe
-notify-send "Instalação FINALIZADA com SUCESSO"
-sleep 3
-notify-send "Se quiser, pode fechar o terminal"
+notify-send "Instalação FINALIZADA com SUCESSO."
+sleep 15
+notify-send "Se quiser, pode fechar o terminal."
 # Opções extras:
 # programa.exe -opengl
 # progrma.exe -dx9
