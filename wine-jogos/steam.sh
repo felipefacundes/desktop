@@ -102,7 +102,7 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 #~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/winecfg
 
 cd ~/.jogos/setups/
-wget https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine SteamSetup.exe /S
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd "/home/$USER/.jogos/wineprefixes/steam/drive_c/Program Files (x86)/Steam/"
