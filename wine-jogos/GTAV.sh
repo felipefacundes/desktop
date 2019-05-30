@@ -66,13 +66,14 @@ export WINEPREFIX=~/.jogos/wineprefixes/GTAV
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
-export WINEESYNC=1
+export WINEESYNC=0
 export vblank_mode=0
 export DRI_PRIME=1
 export DXVK_HUD=1
 
-# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list           vulkansdk
-~/.jogos/scripts/winetricks -q corefonts vlc d3dx9 vcrun2012 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 galliumnine gdiplus steam
+# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list           galliumnine vulkansdk steam
+~/.jogos/scripts/winetricks -q corefonts vlc d3dx9 vcrun2012 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+~/.jogos/scripts/winetricks autostart_winedbg=disable csmt=off hosts
 
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
@@ -87,11 +88,11 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.11.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
 tar -xf dxvk-1.2.1.tar.gz
-tar -xf d9vk-0.11.tar.gz
+tar -xf d9vk-0.12.tar.gz
 
-bash ~/.jogos/libraries/dxvk/d9vk-0.11/setup_dxvk.sh install
+bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 
 # Executar o instalador e depois o jogo
@@ -100,15 +101,27 @@ bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 # Primeiro configurar o wine
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/winecfg
 
+cd ~/.jogos/setups/
+wget https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine SteamSetup.exe /S
 # Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe
 
 
 # Irá abrir a localização e o script de inicialização do jogo:
-xdg-open ~/.jogos/wineprefixes/GTAV/drive_c/ 
+xdg-open ~/.jogos/wineprefixes/GTAV/drive_c/
 xdg-open ~/.jogos/scripts/run/GTAV-run.sh
 
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Instalação FINALIZADA com SUCESSO"
+echo "Acesse o seu programa no: \"Menu inciar > Jogos"\"
+echo "Criação de Felipe Facundes"
+echo "Acesse nosso grupo do Telegram:"
+echo "https://t.me/winehq_linux"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+sleep 3
+pkill -9 .exe
 # Opções extras:
 # programa.exe -opengl
 # progrma.exe -dx9
