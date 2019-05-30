@@ -58,7 +58,7 @@ cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe
 # Só altere essas duas linhas acima, como já explicado.
 
-# Não mexa às demais linhas, deixa do jeito que está.
+# Não mexa nas demais linhas, deixa do jeito que está.
 
 # Opções extras:
 # programa.exe -opengl
