@@ -43,9 +43,20 @@ export vblank_mode=0
 export DRI_PRIME=1
 export DXVK_HUD=1
 
-# Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
+##############################################################################################
+#  _          _                     _ _       _                       _           _
+# | |        (_)                   | (_)     | |                     | |         (_)
+# | |     ___ _  __ _    __ _ ___  | |_ _ __ | |__   __ _ ___    __ _| |__   __ _ ___  _____
+# | |    / _ \ |/ _` |  / _` / __| | | | '_ \| '_ \ / _` / __|  / _` | '_ \ / _` | \ \/ / _ \
+# | |___|  __/ | (_| | | (_| \__ \ | | | | | | | | | (_| \__ \ | (_| | |_) | (_| | |>  < (_) |
+# \_____/\___|_|\__,_|  \__,_|___/ |_|_|_| |_|_| |_|\__,_|___/  \__,_|_.__/ \__,_|_/_/\_\___/
+#
+# Logo abaixo é o caminho do instalador do jogo e pode ser alterado por você, de acordo com às suas necessidades:
+# Coloque o endereço da PASTA entre às "aspas" e mude o nome do executável do instalador.
+# Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe
+# Só altere essas duas linhas acima, como já explicado.
 
 # Opções extras:
 # programa.exe -opengl
