@@ -74,7 +74,7 @@ export DRI_PRIME=1
 #export DXVK_HUD=1
 
 # Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list       galliumnine vulkansdk nvapi=disabled
-~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus 
+~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
 ~/.jogos/scripts/winetricks -q vcrun2008 vcrun2010 vcrun2013 vcrun2015 vcrun2017
 ~/.jogos/scripts/winetricks nvapi64=disabled autostart_winedbg=disable csmt=off hosts vd=1360x768
 
@@ -108,25 +108,44 @@ bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 # Primeiro configurar o wine
 ~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/winecfg
 
-# Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd ~/.jogos/setups/
-#wget -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
-rm -rf OriginThinSetup.exe
-wget https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe
-~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe /S
+##############################################################################################
+# _          _                     _ _       _                       _           _
+#| |        (_)                   | (_)     | |                     | |         (_)
+#| |     ___ _  __ _    __ _ ___  | |_ _ __ | |__   __ _ ___    __ _| |__   __ _ ___  _____
+#| |    / _ \ |/ _` |  / _` / __| | | | '_ \| '_ \ / _` / __|  / _` | '_ \ / _` | \ \/ / _ \
+#| |___|  __/ | (_| | | (_| \__ \ | | | | | | | | | (_| \__ \ | (_| | |_) | (_| | |>  < (_) |
+#\_____/\___|_|\__,_|  \__,_|___/ |_|_|_| |_|_| |_|\__,_|___/  \__,_|_.__/ \__,_|_/_/\_\___/
+#
+# Logo abaixo é o caminho do instalador do jogo e pode ser alterado por você, de acordo com às suas necessidades:
+# Coloque o endereço da PASTA entre às "aspas" e mude o nome do executável do instalador.
+# Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
+cd "/home/$USER/.jogos/wineprefixes/steam/drive_c/Program Files (x86)/Steam/"
+~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine Steam.exe
+# Só altere essas duas linhas acima, como já explicado.
 
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine OriginThinSetup.exe
 
+
+
+
+
+# Não mexa nas demais linhas, deixa do jeito que está.
+
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
-echo "Acesse o seu programa no: \"Menu inciar > Jogos"\"
+echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
 echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
-sleep 3
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 pkill -9 .exe
+notify-send "Instalação FINALIZADA com SUCESSO."
+sleep 10
+notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+sleep 10
+notify-send "Se quiser, pode fechar o terminal."
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/Origin/drive_c/ 
+#xdg-open ~/.jogos/wineprefixes/Origin/drive_c/
 #xdg-open ~/.jogos/scripts/run/Origin-run.sh
 
 # Opções extras:
