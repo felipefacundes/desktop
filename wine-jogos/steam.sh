@@ -106,12 +106,12 @@ wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 ~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine SteamSetup.exe /S
 
 ##############################################################################################
-# _          _                     _ _       _                       _           _
-#| |        (_)                   | (_)     | |                     | |         (_)
-#| |     ___ _  __ _    __ _ ___  | |_ _ __ | |__   __ _ ___    __ _| |__   __ _ ___  _____
-#| |    / _ \ |/ _` |  / _` / __| | | | '_ \| '_ \ / _` / __|  / _` | '_ \ / _` | \ \/ / _ \
-#| |___|  __/ | (_| | | (_| \__ \ | | | | | | | | | (_| \__ \ | (_| | |_) | (_| | |>  < (_) |
-#\_____/\___|_|\__,_|  \__,_|___/ |_|_|_| |_|_| |_|\__,_|___/  \__,_|_.__/ \__,_|_/_/\_\___/
+# ██╗     ███████╗██╗ █████╗      █████╗ ██████╗  █████╗ ██╗██╗  ██╗ ██████╗
+# ██║     ██╔════╝██║██╔══██╗    ██╔══██╗██╔══██╗██╔══██╗██║╚██╗██╔╝██╔═══██╗
+# ██║     █████╗  ██║███████║    ███████║██████╔╝███████║██║ ╚███╔╝ ██║   ██║
+# ██║     ██╔══╝  ██║██╔══██║    ██╔══██║██╔══██╗██╔══██║██║ ██╔██╗ ██║   ██║
+# ███████╗███████╗██║██║  ██║    ██║  ██║██████╔╝██║  ██║██║██╔╝ ██╗╚██████╔╝
+# ╚══════╝╚══════╝╚═╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝ ╚═════╝
 #
 # Logo abaixo é o caminho do instalador do jogo e pode ser alterado por você, de acordo com às suas necessidades:
 # Coloque o endereço da PASTA entre às "aspas" e mude o nome do executável do instalador.
@@ -191,11 +191,14 @@ notify-send "Se quiser, pode fechar o terminal."
 #                     ',;lxdl:,'
 #
 # Tutorial by:
-#  ___    _             ___                     _
-# | __|__| (_)_ __  ___| __|_ _ __ _  _ _ _  __| |___ ___
-# | _/ -_) | | '_ \/ -_) _/ _` / _| || | ' \/ _` / -_|_-<
-# |_|\___|_|_| .__/\___|_|\__,_\__|\_,_|_||_\__,_\___/__/
-#            |_|
+#
+# ███████╗███████╗██╗     ██╗██████╗ ███████╗    ███████╗ █████╗  ██████╗██╗   ██╗███╗   ██╗██████╗ ███████╗███████╗
+# ██╔════╝██╔════╝██║     ██║██╔══██╗██╔════╝    ██╔════╝██╔══██╗██╔════╝██║   ██║████╗  ██║██╔══██╗██╔════╝██╔════╝
+# █████╗  █████╗  ██║     ██║██████╔╝█████╗      █████╗  ███████║██║     ██║   ██║██╔██╗ ██║██║  ██║█████╗  ███████╗
+# ██╔══╝  ██╔══╝  ██║     ██║██╔═══╝ ██╔══╝      ██╔══╝  ██╔══██║██║     ██║   ██║██║╚██╗██║██║  ██║██╔══╝  ╚════██║
+# ██║     ███████╗███████╗██║██║     ███████╗    ██║     ██║  ██║╚██████╗╚██████╔╝██║ ╚████║██████╔╝███████╗███████║
+# ╚═╝     ╚══════╝╚══════╝╚═╝╚═╝     ╚══════╝    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚══════╝╚══════╝
+#
 #
 # ┏┓
 # ┃┃╱╲ nesta
@@ -223,12 +226,14 @@ notify-send "Se quiser, pode fechar o terminal."
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
 #~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 ntdll.dll
 
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/steam/drive_c/windows/syswow64/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/steam/drive_c/windows/system32/
+# INSTALE O DXVK - Manualmente
 
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 l3codecx.ax
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10_1.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10core.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d11.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i dxgi.dll
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
+
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 /i l3codecx.ax
+#~/.jogos/scripts/winetricks d3d10=native
+#~/.jogos/scripts/winetricks d3d10_1=native
+#~/.jogos/scripts/winetricks d3d10core=native
+#~/.jogos/scripts/winetricks d3d11=native
+#~/.jogos/scripts/winetricks dxgi=native
