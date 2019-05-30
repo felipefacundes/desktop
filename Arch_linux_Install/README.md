@@ -276,7 +276,7 @@ echo -e "vm.laptop_mode=1" >> /etc/sysctl.conf
 ##### Para Plasma kde
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm firefox-i18n-pt-br firefox plasma-pa
+pacman -S kf5-aids kate nomacs gimp krita packagekit packagekit-qt5 discover okular kf5 plasma plasma-wayland-session plasma-mediacenter qtav mpv youtube-dl vlc sddm firefox-i18n-pt-br firefox plasma-pa xdg-user-dirs
 
 systemctl enable sddm
 ```
@@ -284,20 +284,20 @@ systemctl enable sddm
 ##### Para instalar o Cinnamon:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S cinnamon lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
+pacman -S cinnamon lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br xdg-user-dirs
 systemctl enable lightdm
 ```
 
 ##### Para instalar o GNOME:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior firefox firefox-i18n-pt-br
+sudo pacman -S gnome gnome-extra gnome-shell gdm gimp viewnior firefox firefox-i18n-pt-br xdg-user-dirs
 systemctl enable gdm
 ```
 ##### Para instalar o DEEPIN:
 ###### Leia. Na linha abaixo, contém 3 linhas de comando, e uma alternativa de comando. Obedeça cada comando, e leia a alternativa:
 ```
-pacman -S pacman -S deepin-control-center deepin-daemon deepin-api deepin-desktop-base deepin-desktop-schemas deepin-dock deepin-gtk-theme deepin-launcher deepin-menu deepin-network-utils deepin-polkit-agent-ext-gnomekeyring deepin-qt5dxcb-plugin deepin-qt5integration deepin-session-ui deepin-shortcut-viewer deepin-sound-theme deepin-system-monitor deepin-wallpapers startdde lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
+pacman -S pacman -S deepin-control-center deepin-daemon deepin-api deepin-desktop-base deepin-desktop-schemas deepin-dock deepin-gtk-theme deepin-launcher deepin-menu deepin-network-utils deepin-polkit-agent-ext-gnomekeyring deepin-qt5dxcb-plugin deepin-qt5integration deepin-session-ui deepin-shortcut-viewer deepin-sound-theme deepin-system-monitor deepin-wallpapers startdde lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br xdg-user-dirs
 
 systemctl enable lightdm
 
@@ -308,13 +308,13 @@ pacman -Rdd deepin-anything
 ##### Para instalar o XFCE:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacman -S xfce4 xfce4-goodies lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
+sudo pacman -S xfce4 xfce4-goodies lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br xdg-user-dirs
 systemctl enable lightdm
 ```
 ##### Para instalar o MATE:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacman -S mate mate-extra lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br
+sudo pacman -S mate mate-extra lightdm-gtk-greeter lightdm gimp viewnior firefox firefox-i18n-pt-br xdg-user-dirs
 systemctl enable lightdm
 ```
 ##### O KDE usa 800MB de RAM, o  Cinnamon e o GNOME usam 750MB de RAM, o DEEPIN usa 700MB de RAM, o XFCE e o MATE usam 650MB de RAM
