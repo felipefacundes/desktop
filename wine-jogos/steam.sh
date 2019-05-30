@@ -13,55 +13,57 @@ mkdir -p ~/.jogos/icons/
 mkdir -p ~/.jogos/libraries/dxvk/
 mkdir -p ~/.jogos/scripts/run/
 mkdir -p ~/.jogos/setups/
-#mkdir -p ~/.jogos/wineprefixes/steam/
+#mkdir -p ~/.jogos/wineprefixes/Origin/
 
 cd ~/.jogos/scripts/run/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/steam-run.sh
-chmod +x steam-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/Origin-run.sh
+chmod +x Origin-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/steam.png
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/Origin.png
 cd ~/.jogos/scripts/
+# https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 cd ~/.jogos/wines/
-rm -rf wine-staging-4.8-1-x86_64
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/wine-staging-4.8-1-x86_64.tar.xz
-tar -xf wine-staging-4.8-1-x86_64.tar.xz
+rm -rf wine-staging-4.9-1-x86_64
+# https://lutris.nyc3.digitaloceanspaces.com/runners/wine/wine-tkg-4.6-x86_64.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/wine-staging-4.9-1-x86_64.tar.xz
+tar -xf wine-staging-4.9-1-x86_64.tar.xz
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
-echo "#!/usr/bin/env xdg-open" > steam.desktop
-echo "[Desktop Entry]" >> steam.desktop
-echo "Name=Steam Windows" >> steam.desktop
-echo "Comment=Rode Jogos do Windows no Linux" >> steam.desktop
-echo "Categories=Game;" >> steam.desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/steam-run.sh" >> steam.desktop
-echo "Type=Application" >> steam.desktop
-echo "StartupNotify=true" >> steam.desktop
-echo "Icon=/home/$USER/.jogos/icons/steam.png" >> steam.desktop
-echo "Terminal=false" >> steam.desktop
+echo "#!/usr/bin/env xdg-open" > Origin.desktop
+echo "[Desktop Entry]" >> Origin.desktop
+echo "Name=Origin" >> Origin.desktop
+echo "Comment=Loja de Jogos da EA Games" >> Origin.desktop
+echo "Categories=Game;" >> Origin.desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/Origin-run.sh" >> Origin.desktop
+echo "Type=Application" >> Origin.desktop
+echo "StartupNotify=true" >> Origin.desktop
+echo "Icon=/home/$USER/.jogos/icons/Origin.png" >> Origin.desktop
+echo "Terminal=false" >> Origin.desktop
 
 # Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-#export WINE=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-export WINE=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
-#export WINEVERPATH=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-export WINEVERPATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
-#export WINESERVER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wineserver
-export WINESERVER=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wineserver
-#export WINELOADER=~/.jogos/wines/Proton-4.6-GE-2/dist/bin/wine
-export WINELOADER=~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine
-#export WINEDLLPATH=$WINEPATH”~/.jogos/wines/wine-staging-4.8-1-x86_64/lib/wine/fakedlls”
-#export LD_LIBRARY32_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib/
-export LD_LIBRARY32_PATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/lib32/
-#export LD_LIBRARY64_PATH=~/.jogos/wines/Proton-4.6-GE-2/dist/lib64/
-export LD_LIBRARY64_PATH=~/.jogos/wines/wine-staging-4.8-1-x86_64/lib/
+#export WINE=~/.jogos/wines/tkg-4.6-x86_64/bin/wine
+export WINE=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine
+#export WINEVERPATH=~/.jogos/wines/tkg-4.6-x86_64/bin/wine
+export WINEVERPATH=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine
+#export WINESERVER=~/.jogos/wines/tkg-4.6-x86_64/bin/wineserver
+export WINESERVER=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wineserver
+#export WINELOADER=~/.jogos/wines/tkg-4.6-x86_64/bin/wine
+export WINELOADER=~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine
+#export WINEDLLPATH=$WINEPATH”~/.jogos/wines/wine-staging-4.9-1-x86_64/lib/wine/fakedlls”
+#export LD_LIBRARY32_PATH=~/.jogos/wines/tkg-4.6-x86_64/lib/
+export LD_LIBRARY32_PATH=~/.jogos/wines/wine-staging-4.9-1-x86_64/lib32/
+#export LD_LIBRARY64_PATH=~/.jogos/wines/tkg-4.6-x86_64/lib64/
+export LD_LIBRARY64_PATH=~/.jogos/wines/wine-staging-4.9-1-x86_64/lib/
 
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/steam
+export WINEPREFIX=~/.jogos/wineprefixes/Origin
 # Esta é uma opção que às vezes é necessária para alguns jogos
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
@@ -69,41 +71,42 @@ export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
 export DRI_PRIME=1
-export DXVK_HUD=1
+#export DXVK_HUD=1
 
-# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list           galliumnine vulkansdk steam
-~/.jogos/scripts/winetricks -q corefonts vlc d3dx9 vcrun2012 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
-~/.jogos/scripts/winetricks autostart_winedbg=disable csmt=off hosts
+# Aqui prepara o Wine para o jogo poder rodar:        # Não use -> l3codecx     # Opção para winetricks: dlls list       galliumnine vulkansdk nvapi=disabled
+~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+~/.jogos/scripts/winetricks -q vcrun2008 vcrun2010 vcrun2013 vcrun2015 vcrun2017
+~/.jogos/scripts/winetricks nvapi64=disabled autostart_winedbg=disable csmt=off hosts vd=1360x768
 
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 ~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine vulkan-sdk.exe /S
+
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
 cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine DXSDK_Jun10.exe
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine DXSDK_Jun10.exe
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.11.tar.gz
+# https://github.com/Joshua-Ashton/d9vk/releases/tag/0.12
+wget -nc https://github.com/Joshua-Ashton/d9vk/releases/download/0.12/d9vk-0.12.tar.gz
 tar -xf dxvk-1.2.1.tar.gz
 tar -xf d9vk-0.12.tar.gz
 
+# INSTALE O DXVK
 bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
-bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
+#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 
 # Executar o instalador e depois o jogo
+~/.jogos/scripts/winetricks -q win10
 
-~/.jogos/scripts/winetricks -q win7
 # Primeiro configurar o wine
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/winecfg
-
-cd ~/.jogos/setups/
-wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine SteamSetup.exe /S
+~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/winecfg
 
 ##############################################################################################
 # _          _                     _ _       _                       _           _
@@ -117,7 +120,7 @@ wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 # Coloque o endereço da PASTA entre às "aspas" e mude o nome do executável do instalador.
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 cd "/home/$USER/.jogos/wineprefixes/steam/drive_c/Program Files (x86)/Steam/"
-~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe
+~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine Steam.exe
 # Só altere essas duas linhas acima, como já explicado.
 
 
@@ -125,10 +128,7 @@ cd "/home/$USER/.jogos/wineprefixes/steam/drive_c/Program Files (x86)/Steam/"
 
 
 
-
-# Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/steam/drive_c/
-#xdg-open ~/.jogos/scripts/run/steam-run.sh
+# Não mexa nas demais linhas, deixa do jeito que está.
 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
@@ -143,6 +143,10 @@ sleep 10
 notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
 sleep 10
 notify-send "Se quiser, pode fechar o terminal."
+
+# Irá abrir a localização e o script de inicialização do jogo:
+#xdg-open ~/.jogos/wineprefixes/Origin/drive_c/
+#xdg-open ~/.jogos/scripts/run/Origin-run.sh
 
 # Opções extras:
 # programa.exe -opengl
@@ -217,17 +221,19 @@ notify-send "Se quiser, pode fechar o terminal."
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/steam/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 ntdll.dll
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 ntdll.dll
 
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/steam/drive_c/windows/syswow64/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/steam/drive_c/windows/system32/
+# INSTALE O DXVK - Manualmente
 
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 l3codecx.ax
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10_1.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d10core.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i d3d11.dll
-#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32.exe /n /i dxgi.dll
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
+
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 /i l3codecx.ax
+#~/.jogos/scripts/winetricks d3d10=native
+#~/.jogos/scripts/winetricks d3d10_1=native
+#~/.jogos/scripts/winetricks d3d10core=native
+#~/.jogos/scripts/winetricks d3d11=native
+#~/.jogos/scripts/winetricks dxgi=native
