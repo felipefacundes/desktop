@@ -123,7 +123,7 @@ cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
 
 
 
-# Não mexe nas demais linhas, deixa do jeito que está.
+# Não mexa nas demais linhas, deixa do jeito que está.
 
 # Irá abrir a localização e o script de inicialização do jogo:
 xdg-open ~/.jogos/wineprefixes/GTAV/drive_c/
