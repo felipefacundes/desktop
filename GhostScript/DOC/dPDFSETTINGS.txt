@@ -1,0 +1,13 @@
+Controls and features specific to PostScript and PDF input
+-dPDFSETTINGS=configuration
+    Presets the "distiller parameters" to one of four predefined settings:
+
+        /screen selects low-resolution output similar to the Acrobat Distiller (up to version X) "Screen Optimized" setting.
+        /ebook selects medium-resolution output similar to the Acrobat Distiller (up to version X) "eBook" setting.
+        /printer selects output similar to the Acrobat Distiller "Print Optimized" (up to version X) setting.
+        /prepress selects output similar to Acrobat Distiller "Prepress Optimized" (up to version X) setting.
+        /default selects output intended to be useful across a wide variety of uses, possibly at the expense of a larger output file. 
+
+    NB Adobe has recently changed the names of the presets it uses in Adobe Acrobat Distiller, in order to avoid confusion with earlier versions we do not plan to change the names of the PDFSETTINGS parameters. The precise value for each control is listed in the table above.
+    Please be aware that the /prepress setting does not indicate the highest quality conversion. Using any of these presets will involve altering the input, and as such may result in a PDF of poorer quality (compared to the input) than simply using the defaults. The 'best' quality (where best means closest to the original input) is obtained by not setting this parameter at all (or by using /default). 
+    The PDFSETTINGS presets should only be used if you are sure you understand that the output will be altered in a variety of ways from the input. It is usually better to adjust the controls individually (see the table below) if you have a genuine requirement to produce, for example, a PDF file where the images are reduced in resolution. 
