@@ -55,7 +55,7 @@ export DXVK_HUD=1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/warframe/drive_c/Program Files (x86)/warframe/"
+cd "/home/$USER/.jogos/wineprefixes/warframe/drive_c/Program Files (x86)/Steam/"
 ~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine Steam.exe -applaunch 230410
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
