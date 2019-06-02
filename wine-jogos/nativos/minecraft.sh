@@ -52,11 +52,7 @@ export vblank_mode=0
 cd ~/.jogos/nativos/minecraft
 wget -nc "https://tlaun.ch/download.php?&package=mcl/jar" -O TLauncher-MCL.jar
 notify-send "Para rodar esse jogo você precisará do jre8-openjdk (OpenJDK 1.8) e java-openjfx"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Para rodar esse jogo você precisará do jre8-openjdk (OpenJDK 1.8) e java-openjfx"
-echo "Acesse nosso grupo do Telegram:"
-echo "https://t.me/winehq_linux"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
 # | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
@@ -121,6 +117,7 @@ java -jar TLauncher-MCL.jar
 
 ################################# Finalização
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Para rodar esse jogo você precisará do jre8-openjdk (OpenJDK 1.8) e java-openjfx"
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
 echo "Criação de Felipe Facundes"
