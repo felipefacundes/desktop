@@ -198,7 +198,7 @@ cd "/home/$USER/.jogos/wineprefixes/warframe/drive_c/Program Files (x86)/Steam/"
 
 ################################# Finalização
 pkill -9 .exe
-notify-send "Na Guia "Gráficos" habilite o "desktop virtual", se preferir"
+notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 ~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/winecfg
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
