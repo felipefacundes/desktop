@@ -40,7 +40,9 @@ export WINEPREFIX=~/.jogos/wineprefixes/GTAV
 export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
-export DRI_PRIME=1
+# Para placas gráficas híbridas use o DRI_PRIME=1
+#export DRI_PRIME=1
+export DXVK_LOG_LEVEL=none
 export DXVK_HUD=1
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
@@ -57,7 +59,7 @@ export DXVK_HUD=1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/GTAV/drive_c/Program Files (x86)/Steam/"
-~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe
+~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine Steam.exe -applaunch 271590
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
