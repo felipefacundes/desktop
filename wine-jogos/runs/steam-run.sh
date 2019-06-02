@@ -205,7 +205,7 @@ cd "/home/$USER/.jogos/wineprefixes/steam/drive_c/Program Files (x86)/Steam/"
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 /i /S l3codecx.ax
+#~/.jogos/wines/wine-staging-4.8-1-x86_64/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native
 #~/.jogos/scripts/winetricks d3d10_1=native
 #~/.jogos/scripts/winetricks d3d10core=native
