@@ -1,32 +1,11 @@
 #!/bin/bash
-# PlayOnGit - Scripts do Wine - para iniciar sem precisar de PlayOnLinux
+# PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
 # Faça o seu pedido de tutorial e GamePlay no nosso:
-# Grupo Gamer do Telegram: https://t.me/winehq_linux
+# 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
-cd ~
-mkdir -p ~/.local/share/applications/wine/Programs/
-mkdir -p ~/.jogos/wines/
-mkdir -p ~/.jogos/icons/
-mkdir -p ~/.jogos/libraries/dxvk/
-mkdir -p ~/.jogos/scripts/run/
-mkdir -p ~/.jogos/setups/
-#mkdir -p ~/.jogos/wineprefixes/TheSims4/
-
-# Criando o atalho .desktop
-cd ~/.local/share/applications/
-echo "#!/usr/bin/env xdg-open" > TheSims4.desktop
-echo "[Desktop Entry]" >> TheSims4.desktop
-echo "Name=The Sims 4" >> TheSims4.desktop
-echo "Comment=Jogo ao estilo Second Life (brincar de "casinha" kkk)" >> TheSims4.desktop
-echo "Categories=Game;" >> TheSims4.desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/TheSims4-run.sh" >> TheSims4.desktop
-echo "Type=Application" >> TheSims4.desktop
-echo "StartupNotify=true" >> TheSims4.desktop
-echo "Icon=/home/$USER/.jogos/icons/TheSims4.png" >> TheSims4.desktop
-echo "Terminal=false" >> TheSims4.desktop
 
 # Essa é a versão escolhida do Wine
 export TERM=xterm
@@ -55,22 +34,63 @@ export WINEPREFIX=~/.jogos/wineprefixes/TheSims4
 export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
-export DRI_PRIME=1
+# Para placas gráficas híbridas use o DRI_PRIME=1
+#export DRI_PRIME=1
+export DXVK_LOG_LEVEL=none
 export DXVK_HUD=1
 
+# Primeiro configurar o wine
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/winecfg
+# Executar o instalador e depois o jogo
 
-# Aqui é o caminho do jogo e pode ser alterado por você, de acordo com às suas necessidades:
-cd "/home/$USER/.jogos/wineprefixes/TheSims4/drive_c/Program Files (x86)/Origin"
-~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine Origin.exe
+#⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
+#  _          _                     _ _       _                       _           _
+# | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
+# | |     ___ _  __ _    __ _ ___  | |_ _ __ | |__   __ _ ___    __ _| |__   __ _ ___  _____      ▏▏
+# | |    / _ \ |/ _` |  / _` / __| | | | '_ \| '_ \ / _` / __|  / _` | '_ \ / _` | \ \/ / _ \     ▏▏
+# | |___|  __/ | (_| | | (_| \__ \ | | | | | | | | | (_| \__ \ | (_| | |_) | (_| | |>  < (_) |    ▏▏
+# \_____/\___|_|\__,_|  \__,_|___/ |_|_|_| |_|_| |_|\__,_|___/  \__,_|_.__/ \__,_|_/_/\_\___/     ⧩
+#⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
+# Logo abaixo é o CAMINHO do instalador do jogo e pode ser alterado por você, de acordo com às suas necessidades:
+# Coloque o endereço da PASTA entre às "ASPAS" e mude o nome do executável do instalador.
+# Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
+#⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
+cd "/home/maria/.jogos/wineprefixes/TheSims4/drive_c/The SIMS 4/Game/Bin"
+
+~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine TS4_x64.exe
+
+#⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
+### Só altere essas DUAS linhas ACIMA, como já explicado.
+#⛔◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭◭⛔
+#   _        _                _
+#  | |   ___(_)__ _   __ _ __(_)_ __  __ _    ◭
+#  | |__/ -_) / _` | / _` / _| | '  \/ _` |   ▏▏
+#  |____\___|_\__,_| \__,_\__|_|_|_|_\__,_|   ▏▏
+#       ____
+#  _  _ ____ ____    _  _ ____ _  _ ____    _  _ ____ ____    ___  ____ _  _ ____ _ ____    _    _ _  _ _  _ ____ ____
+#  |\ | |__| |  |    |\/| |___  \/  |__|    |\ | |__| [__     |  \ |___ |\/| |__| | [__     |    | |\ | |__| |__| [__
+#  | \| |  | |__|    |  | |___ _/\_ |  |    | \| |  | ___]    |__/ |___ |  | |  | | ___]    |___ | | \| |  | |  | ___]
+#⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open "/home/$USER/.jogos/wineprefixes/TheSims4/drive_c/Program Files (x86)/"
+#xdg-open ~/.jogos/wineprefixes/TheSims4/drive_c/
 #xdg-open ~/.jogos/scripts/run/TheSims4-run.sh
 
-# Opções extras:
+
+
+################################# Opções extras:
+# Opções da TheSims4: https://developer.valvesoftware.com/wiki/Command_Line_Options
+#-insecure
+#-forcenovsync
+#-nojoy
+#-fullscreen ou -full
+#-applaunch 230410
+# Acima são opções da TheSims4
+#
 # programa.exe -opengl
 # progrma.exe -dx9
+#
 # Nosso grupo do Telegram para ajudar o pessoal a rodar jogos do Windows no Linux. E para fazer pedidos de tutorial:
 # https://t.me/winehq_linux
 # Canal do telegram. Para os arquivos: mfc42.dll e l3codecx.ax só efetuar a busca com o hashtag: #ageofempires
@@ -110,7 +130,7 @@ cd "/home/$USER/.jogos/wineprefixes/TheSims4/drive_c/Program Files (x86)/Origin"
 #            ',:ldxl'..............'lxxo;,'
 #              ',;lx0x;..........,cldo:'
 #               '',cxXXd,....,cdxkd:'
-#                   ',;o0N0odkkkk,'
+#                   ',視嗢荒華者喝啕喙調﬏磌,'
 #                     ',;lxdl:,'
 #
 # Tutorial by:
@@ -135,8 +155,7 @@ cd "/home/$USER/.jogos/wineprefixes/TheSims4/drive_c/Program Files (x86)/Origin"
 
 
 
-# Oções descartadas:
-
+################################# Oções descartadas:
 
 #cd ~/.local/share/applications
 #rm -rf wine*
@@ -144,14 +163,16 @@ cd "/home/$USER/.jogos/wineprefixes/TheSims4/drive_c/Program Files (x86)/Origin"
 #cd ~/.jogos/wineprefixes/TheSims4/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 ntdll.dll
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 /i /S ntdll.dll
 
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/TheSims4/drive_c/windows/syswow64/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/TheSims4/drive_c/windows/system32/
+# INSTALE O DXVK - Manualmente
 
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 l3codecx.ax
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i d3d10.dll
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i d3d10_1.dll
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i d3d10core.dll
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i d3d11.dll
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32.exe /n /i dxgi.dll
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
+
+#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 /i /S l3codecx.ax
+#~/.jogos/scripts/winetricks d3d10=native
+#~/.jogos/scripts/winetricks d3d10_1=native
+#~/.jogos/scripts/winetricks d3d10core=native
+#~/.jogos/scripts/winetricks d3d11=native
+#~/.jogos/scripts/winetricks dxgi=native
