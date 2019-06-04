@@ -316,8 +316,4 @@ notify-send "Se quiser, pode fechar o terminal."
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
 #$W/bin/wine regsvr32 /i /S l3codecx.ax
-#~/.jogos/scripts/winetricks d3d10=native
-#~/.jogos/scripts/winetricks d3d10_1=native
-#~/.jogos/scripts/winetricks d3d10core=native
-#~/.jogos/scripts/winetricks d3d11=native
-#~/.jogos/scripts/winetricks dxgi=native
+#~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
