@@ -8,47 +8,12 @@
 GN=tibia
 SN="Tibia"
 CME="MMO free-to-play"
-# Criar as pastas
-mkdir -p ~/.local/share/applications/
-#mkdir -p ~/.jogos/nativos/$GN
-mkdir -p ~/.jogos/nativos/
-mkdir -p ~/.jogos/icons/
-mkdir -p ~/.jogos/scripts/run/
-mkdir -p ~/.jogos/setups/
-
-cd ~/.jogos/scripts/run/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh
-chmod +x $GN-run.sh
-cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/$GN.png
-
-
-# Criando o atalho .desktop
-cd ~/.local/share/applications/
-echo "#!/usr/bin/env xdg-open" > $GN.desktop
-echo "[Desktop Entry]" >> $GN.desktop
-echo "Name=$SN" >> $GN.desktop
-echo "Comment=$CME" >> $GN.desktop
-echo "Categories=Game;" >> $GN.desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> $GN.desktop
-echo "Type=Application" >> $GN.desktop
-echo "StartupNotify=true" >> $GN.desktop
-echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> $GN.desktop
-echo "Terminal=false" >> $GN.desktop
-
 
 export TERM=xterm
 export ESYNC=0
 export vblank_mode=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-
-# Executar o instalador e depois o jogo
-cd ~/.jogos/nativos/
-wget -nc https://static.tibia.com/download/tibia.x64.tar.gz
-tar -xf tibia.x64.tar.gz
-cd Tibia
-chmod +x Tibia
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -111,20 +76,6 @@ cd "/home/$USER/.jogos/nativos/Tibia/"
 
 
 
-
-################################# Finalização
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Instalação FINALIZADA com SUCESSO"
-echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
-echo "Criação de Felipe Facundes"
-echo "Acesse nosso grupo do Telegram:"
-echo "https://t.me/winehq_linux"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-notify-send "Instalação FINALIZADA com SUCESSO."
-sleep 10
-notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
-sleep 10
-notify-send "Se quiser, pode fechar o terminal."
 
 #
 #                    ,cldxOxoc:;,
