@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.0-1-x86_64
+WV=wine-staging-4.9-1-x86_64
 GN=dmc-2013
 SN="DmC - Devil May Cry 2013"
 CME="Jogo de Ação"
@@ -78,10 +78,10 @@ export vblank_mode=0
 export DXVK_LOG_LEVEL=none
 export DXVK_HUD=1
 
-# Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk gdiplus
+# Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk  dotnet40
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-~/.jogos/scripts/winetricks -q corefonts mfc42 vcrun6 d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 dotnet40
+~/.jogos/scripts/winetricks -q corefonts mfc42 vcrun6 d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
 ~/.jogos/scripts/winetricks -q vcrun2005
 ~/.jogos/scripts/winetricks -q vcrun2008
 ~/.jogos/scripts/winetricks -q vcrun2010
