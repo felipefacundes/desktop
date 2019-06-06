@@ -7,7 +7,7 @@
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.8-1-x86_64
 GN=dmc5
-SN="DMC 5"
+SN="DmC - Devil May Cry 2019"
 CME="Jogo de Ação"
 
 
