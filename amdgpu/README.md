@@ -66,7 +66,7 @@ Section "Device"
 	Option "EnablePageFlip" "on"
 	Option "AccelMethod" "glamor"
 	Option "TripleBuffer" "enabled"
-    Option "UseFastTLS" "2"
+	Option "UseFastTLS" "2"
 	Option "DRI" "3"
 EndSection
 ```
