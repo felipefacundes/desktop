@@ -60,8 +60,14 @@ options amdgpu cik_support=1
 
 ```
 Section "Device"
-    Identifier "AMD"
-    Driver "amdgpu"
+	Identifier "AMD"
+	Driver "amdgpu"
+	Option "TearFree" "on" 
+	Option "EnablePageFlip" "on"
+	Option "AccelMethod" "glamor"
+	Option "TripleBuffer" "enabled"
+    Option "UseFastTLS" "2"
+	Option "DRI" "3"
 EndSection
 ```
 
