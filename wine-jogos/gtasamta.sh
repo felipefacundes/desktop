@@ -7,7 +7,7 @@
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.8-1-x86_64
 GN=gtasamta
-SN="GTA SA com MTA e SA-MP"
+SN="GTA SA"
 CME="Jogo de ação em terceira pessoa"
 
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
