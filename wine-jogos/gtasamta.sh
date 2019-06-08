@@ -122,11 +122,12 @@ cd ~/.jogos/libraries/dxvk/
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
-#cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
+cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/d3d9.dll ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/d3d9.dll ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+~/.jogos/scripts/winetricks d3d9=native 
+#d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
 
 # Versão do Windows
 ~/.jogos/scripts/winetricks -q win7
@@ -138,8 +139,8 @@ cd ~/.jogos/setups/
 wget -nc https://1fizort.oloadcdn.net/dl/l/nxXtlshHNT44t0SO/SEZr6cm-WOU/GTA+San+Andreas+%2BTradu%C3%A7%C3%A3o.exe -O "GTA San Andreas +Tradução.exe"
 $W/bin/wine "GTA San Andreas +Tradução.exe"
 
-wget -nc https://mirror.mtasa.com/mtasa/main/mtasa-1.5.6.exe
-$W/bin/wine mtasa-1.5.6.exe
+#wget -nc https://mirror.mtasa.com/mtasa/main/mtasa-1.5.6.exe
+#$W/bin/wine mtasa-1.5.6.exe
 
 #wget -nc http://files.sa-mp.com/sa-mp-0.3.7-R3-1-install.exe
 #$W/bin/wine sa-mp-0.3.7-R3-1-install.exe
