@@ -141,8 +141,8 @@ $W/bin/wine "GTA San Andreas +Tradução.exe"
 wget -nc https://mirror.mtasa.com/mtasa/main/mtasa-1.5.6.exe
 $W/bin/wine mtasa-1.5.6.exe
 
-wget -nc http://files.sa-mp.com/sa-mp-0.3.7-R3-1-install.exe
-$W/bin/wine sa-mp-0.3.7-R3-1-install.exe
+#wget -nc http://files.sa-mp.com/sa-mp-0.3.7-R3-1-install.exe
+#$W/bin/wine sa-mp-0.3.7-R3-1-install.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
