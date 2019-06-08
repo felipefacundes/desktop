@@ -23,6 +23,7 @@ rm -rf $GN
 #mkdir -p ~/.jogos/wineprefixes/$GN
 
 cd ~/.jogos/scripts/run/
+rm -rf $GN-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh
 chmod +x $GN-run.sh
 cd ~/.jogos/icons/
@@ -134,8 +135,8 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc https://1fizort.oloadcdn.net/dl/l/nxXtlshHNT44t0SO/SEZr6cm-WOU/GTA+San+Andreas+%2BTradu%C3%A7%C3%A3o.exe -O "GTA+San+Andreas++Tradução.exe"
-$W/bin/wine "GTA+San+Andreas++Tradução.exe"
+wget -nc https://1fizort.oloadcdn.net/dl/l/nxXtlshHNT44t0SO/SEZr6cm-WOU/GTA+San+Andreas+%2BTradu%C3%A7%C3%A3o.exe -O "GTA San Andreas +Tradução.exe"
+$W/bin/wine "GTA San Andreas +Tradução.exe"
 
 wget -nc https://mirror.mtasa.com/mtasa/main/mtasa-1.5.6.exe
 $W/bin/wine mtasa-1.5.6.exe
@@ -156,7 +157,7 @@ $W/bin/wine sa-mp-0.3.7-R3-1-install.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
