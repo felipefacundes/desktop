@@ -23,6 +23,7 @@ rm -rf $GN
 #mkdir -p ~/.jogos/wineprefixes/$GN
 
 cd ~/.jogos/scripts/run/
+rm -rf $GN-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh
 chmod +x $GN-run.sh
 cd ~/.jogos/icons/
