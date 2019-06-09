@@ -90,10 +90,12 @@ export DXVK_HUD=1
 ~/.jogos/scripts/winetricks -q vcrun2013
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
+
 ################################# Vulkan SDK
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 $W/bin/wine vulkan-sdk.exe /S
+
 ################################# CODECs
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
 # $W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
