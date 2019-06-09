@@ -208,6 +208,7 @@ $W/bin/wine Steam.exe
 # $W/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
+#~/.jogos/scripts/winetricks vd=1360x768
 pkill -9 .exe
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 $W/bin/winecfg
