@@ -38,8 +38,8 @@ export WINEESYNC=0
 export vblank_mode=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export DXVK_LOG_LEVEL=none
-export DXVK_HUD=1
+#export DXVK_LOG_LEVEL=none
+#export DXVK_HUD=1
 
 # Configurar o wine
 #$W/bin/winecfg
