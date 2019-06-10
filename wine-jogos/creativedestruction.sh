@@ -82,11 +82,11 @@ export DXVK_HUD=1
 
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
-# Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus wininet
-#~/.jogos/scripts/winetricks -q vcrun2005
-#~/.jogos/scripts/winetricks -q vcrun2008
-#~/.jogos/scripts/winetricks -q vcrun2010
+# Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list wininet
+~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+~/.jogos/scripts/winetricks -q vcrun2005
+~/.jogos/scripts/winetricks -q vcrun2008
+~/.jogos/scripts/winetricks -q vcrun2010
 #~/.jogos/scripts/winetricks -q vcrun2012
 #~/.jogos/scripts/winetricks -q vcrun2013
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts
@@ -138,8 +138,8 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-$W/bin/wine SteamSetup.exe /S
+wget -nc https://g91na.gdl.netease.com/creative_destruction_3.0.36_20190307.exe
+$W/bin/wine creative_destruction_3.0.36_20190307.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -154,8 +154,8 @@ $W/bin/wine SteamSetup.exe /S
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-$W/bin/wine Steam.exe
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
+$W/bin/wine
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -212,7 +212,7 @@ $W/bin/wine Steam.exe
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
-pkill -9 .exe
+#pkill -9 .exe
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 $W/bin/winecfg
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -222,7 +222,7 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-pkill -9 .exe
+#pkill -9 .exe
 notify-send "Instalação FINALIZADA com SUCESSO."
 sleep 10
 notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
