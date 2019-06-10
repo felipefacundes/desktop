@@ -14,7 +14,7 @@ CME="Jogo de corrida de demolição"
 # Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
-#export GALLIUM_HUD="fps"
+export GALLIUM_HUD="fps"
 W=~/.jogos/wines/$WV
 export WINE=$W/bin/wine
 export WINEVERPATH=$W
@@ -57,6 +57,7 @@ export DXVK_HUD=1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
+#cd "/home/$USER/.jogos/wineprefixes/flatout2/drive_c/GOG Games/FlatOut 2"
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/flatout2_demo"
 $W/bin/wine FlatOut2.exe
 
