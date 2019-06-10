@@ -83,7 +83,7 @@ export DXVK_HUD=1
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list wininet
-~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus wininet
 ~/.jogos/scripts/winetricks -q vcrun2005
 ~/.jogos/scripts/winetricks -q vcrun2008
 ~/.jogos/scripts/winetricks -q vcrun2010
