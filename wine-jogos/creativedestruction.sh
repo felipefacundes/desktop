@@ -72,7 +72,7 @@ export WINEPREFIX=~/.jogos/wineprefixes/$GN
 # Esta é uma opção que às vezes é necessária para alguns jogos
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
-export WINEARCH=win64
+export WINEARCH=win32
 export WINEESYNC=0
 export vblank_mode=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
