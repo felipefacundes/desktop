@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.9-1-x86_64
+WV=wine-staging-4.0-1-x86_64
 GN=creativedestruction
 SN="Creative Destruction"
 CME="Um Battle Royale diferente e free-to-play"
@@ -33,13 +33,13 @@ export WINEPREFIX=~/.jogos/wineprefixes/$GN
 # Esta é uma opção que às vezes é necessária para alguns jogos
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
-export WINEARCH=win64
+export WINEARCH=win32
 export WINEESYNC=0
 export vblank_mode=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export DXVK_LOG_LEVEL=none
-export DXVK_HUD=1
+#export DXVK_LOG_LEVEL=none
+#export DXVK_HUD=1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
