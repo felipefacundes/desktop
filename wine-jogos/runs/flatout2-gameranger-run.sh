@@ -14,7 +14,7 @@ CME="Jogo de corrida de demolição"
 # Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
-#export GALLIUM_HUD="fps"
+export GALLIUM_HUD="fps"
 W=~/.jogos/wines/$WV
 export WINE=$W/bin/wine
 export WINEVERPATH=$W
@@ -38,8 +38,8 @@ export WINEESYNC=0
 export vblank_mode=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export DXVK_LOG_LEVEL=none
-export DXVK_HUD=1
+#export DXVK_LOG_LEVEL=none
+#export DXVK_HUD=1
 
 # Configurar o wine
 #$W/bin/winecfg
