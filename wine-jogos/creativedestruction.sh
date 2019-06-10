@@ -77,8 +77,8 @@ export WINEESYNC=0
 export vblank_mode=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export DXVK_LOG_LEVEL=none
-export DXVK_HUD=1
+#export DXVK_LOG_LEVEL=none
+#export DXVK_HUD=1
 
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
