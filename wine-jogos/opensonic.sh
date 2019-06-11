@@ -159,7 +159,7 @@ $W/bin/wine
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/opensnc-win-0.1.4/"
-$W/bin/wine
+#$W/bin/wine
 #opensonic.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
