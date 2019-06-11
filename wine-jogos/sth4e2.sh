@@ -140,7 +140,7 @@ tar -xf sh2oi2.tar.xz
 cd sh2oi2/demo
 $W/bin/wine setup.exe
 cd dependence
-cp -rf * "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files/Sonic the Hedgehog 4 - Episode II"
+cp -rf * "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Sonic the Hedgehog 4 - Episode II"
 cd ~/.jogos/setups/
 rm -rf sh2oi2.tar.xz
 rm -rf sh2oi2
