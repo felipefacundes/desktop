@@ -135,8 +135,8 @@ cd ~/.jogos/libraries/dxvk/
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc https://1fizort.oloadcdn.net/dl/l/nxXtlshHNT44t0SO/SEZr6cm-WOU/GTA+San+Andreas+%2BTradu%C3%A7%C3%A3o.exe -O "GTA San Andreas +Tradução.exe"
-$W/bin/wine "GTA San Andreas +Tradução.exe"
+#wget -nc https://1fizort.oloadcdn.net/dl/l/nxXtlshHNT44t0SO/SEZr6cm-WOU/GTA+San+Andreas+%2BTradu%C3%A7%C3%A3o.exe -O "GTA San Andreas +Tradução.exe"
+#$W/bin/wine "GTA San Andreas +Tradução.exe"
 
 #wget -nc https://mirror.mtasa.com/mtasa/main/mtasa-1.5.6.exe
 #$W/bin/wine mtasa-1.5.6.exe
