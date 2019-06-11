@@ -58,7 +58,7 @@ export vblank_mode=0
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files/Sonic the Hedgehog 4 - Episode II"
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Sonic the Hedgehog 4 - Episode II"
 $W/bin/wine Sonic.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
