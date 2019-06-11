@@ -155,8 +155,7 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 # Executar o instalador e depois o jogo
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
-wget -nc "https://gsf-fl.softonic.com/4d2/19d/575f70ae1407e6f392f7e862b3ff0a4c47/file?Expires=1560144218&Signature=6582de22a0e6fb08dbfa4411931f916d6892e5f1&SD_used=&channel=WEB&fdh=no&id_file=c23d3d5e-96d1-11e6-853f-00163ed833e7&instance=softonic_en&type=PROGRAM&url=https://flatout-2.en.softonic.com&Filename=flatout2_demo.zip" -O flatout2_demo.zip
-
+wget -nc "https://dw29.uptodown.com/dwn/w76tVn7onjw1uZFTLSx7oL4mHx_iolJjT308ywRvgxyvgE3HCfdK5wHW7gSEpkwEQAyxZNDrwlAuuKM0McbYs94lniZVlUd78OSUFkKSZVqW3mZZpPczgtPBnghubMyO/Bys5lexKRdjg5co_fcBpZ_6AjlqZgddXvUL-4gkbFrUQvs-3R_2tuWPAQ4g2m3dze6PpUZMaUpvgyuZDF79v8SltP1vqugVdbypWaPXpcCFNDycdHeYHS0lD1O4D7J9K/OhyVzZVNhBydXGaJXOIDmyAITU3jZLvn9tVc4iLfSc2DNQKqMv8Z48FRAhvl0Qe0/flatout-2-1.1.zip" -O flatout2_demo.zip
 #7z x flatout2_demo.zip
 file-roller -h flatout2_demo.zip
 
