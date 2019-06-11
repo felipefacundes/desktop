@@ -155,9 +155,10 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 # Executar o instalador e depois o jogo
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
-wget -nc "https://dw29.uptodown.com/dwn/w76tVn7onjw1uZFTLSx7oL4mHx_iolJjT308ywRvgxyvgE3HCfdK5wHW7gSEpkwEQAyxZNDrwlAuuKM0McbYs94lniZVlUd78OSUFkKSZVqW3mZZpPczgtPBnghubMyO/Bys5lexKRdjg5co_fcBpZ_6AjlqZgddXvUL-4gkbFrUQvs-3R_2tuWPAQ4g2m3dze6PpUZMaUpvgyuZDF79v8SltP1vqugVdbypWaPXpcCFNDycdHeYHS0lD1O4D7J9K/OhyVzZVNhBydXGaJXOIDmyAITU3jZLvn9tVc4iLfSc2DNQKqMv8Z48FRAhvl0Qe0/flatout-2-1.1.zip" -O flatout2_demo.zip
-#7z x flatout2_demo.zip
-file-roller -h flatout2_demo.zip
+#wget -nc "https://files.downloadnow.com/s/software/10/61/38/51/flatout2_demo.zip?token=1560262705_11bc528def482477609644d64d62fcd0&fileName=flatout2_demo.zip" -O flatout2_demo.zip
+#file-roller -h flatout2_demo.zip
+wget -nc ""
+tar -xf fo2demo.tar.xz
 
 cd ~/.jogos/setups/
 #rm -rf GameRangerSetup.exe
