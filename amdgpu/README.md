@@ -68,6 +68,11 @@ Section "Device"
 	Option "TripleBuffer" "enabled"
 	Option "UseFastTLS" "2"
 	Option "DRI" "3"
+	Option "Tiling" "enabled"
+	Option "SwapbuffersWait" "enabled"
+        #Option "DDC" "disabled"
+	Option "XvVsync" "0"
+	Option "EXAVSync" "off"
 EndSection
 ```
 
