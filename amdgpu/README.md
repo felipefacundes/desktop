@@ -75,6 +75,20 @@ Section "Device"
 	Option "EXAVSync" "off"
 EndSection
 ```
+`sudo nano /etc/X11/xorg.conf.d/serverflags.conf`
+
+###### E adicione:
+
+```
+Section "ServerFlags"
+   Option "BlankTime" "0"
+   Option "StandbyTime" "0"
+   Option "SuspendTime" "0"
+   Option "OffTime" "0"
+   Option "DRI3" "on"
+   Option "GlxVisuals" "all"
+EndSection
+```
 
 4. **Para o MKINITCPIO (initramfs).** Execute:
 
