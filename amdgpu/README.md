@@ -62,19 +62,23 @@ options amdgpu cik_support=1
 Section "Device"
 	Identifier "AMD"
 	Driver "amdgpu"
-	Option "TearFree" "on" 
+	Option "TearFree" "on"
 	Option "EnablePageFlip" "on"
-	Option "AccelMethod" "glamor"
-	Option "TripleBuffer" "enabled"
-	Option "UseFastTLS" "2"
+	Option "AccelMethod" "exa" #ou: "glamor"
+	Option "TripleBuffer" "true"
+    	Option "UseFastTLS" "2"
 	Option "DRI" "3"
-	Option "Tiling" "enabled"
-	Option "SwapbuffersWait" "enabled"
-        #Option "DDC" "disabled"
+	Option "Tiling" "true"
+	Option "SwapbuffersWait" "true"
 	Option "XvVsync" "0"
 	Option "EXAVSync" "off"
 EndSection
+
+Section "Extensions"
+    Option "Composite" "enable"
+EndSection
 ```
+
 `sudo nano /etc/X11/xorg.conf.d/serverflags.conf`
 
 ###### E adicione:
