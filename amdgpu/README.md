@@ -122,20 +122,23 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # OPCIONAL: 
 ## GPU OverClock
-
+```
 su -c 'echo "c" > /sys/class/drm/card0/device/pp_od_clk_voltage'
 su -c 'echo high > /sys/class/drm/card0/device/power_dpm_force_performance_level'
 su -c 'echo performance > /sys/class/drm/card0/device/power_dpm_state'
 su -c 'echo "7" > /sys/class/drm/card0/device/pp_sclk_od'
 su -c 'echo "4" > /sys/class/drm/card0/device/pp_mclk_od'
 su -c 'echo 4 > /sys/class/drm/card0/device/pp_power_profile_mode'
+```
 ### Controle do cooler
+```
 su -c 'echo "1" > /sys/class/drm/card0/device/hwmon/hwmon0/pwm1_enable'
 su -c 'echo "150" > /sys/class/drm/card0/device/hwmon/hwmon0/pwm1'
+```
 ### Obter informações
-sudo watch -n 0.5 cat /sys/kernel/debug/dri/0/amdgpu_pm_info
+`sudo watch -n 0.5 cat /sys/kernel/debug/dri/0/amdgpu_pm_info`
 ### Para resetar
-su -c 'echo "r" > /sys/class/drm/card0/device/pp_od_clk_voltage'
+`su -c 'echo "r" > /sys/class/drm/card0/device/pp_od_clk_voltage'`
 
 ```
                     ,cldxOxoc:;,
