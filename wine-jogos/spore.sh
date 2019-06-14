@@ -138,8 +138,8 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-#wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-#$W/bin/wine SteamSetup.exe /S
+wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+$W/bin/wine SteamSetup.exe /S
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
