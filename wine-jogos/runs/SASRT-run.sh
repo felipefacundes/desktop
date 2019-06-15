@@ -8,7 +8,7 @@
 WV=wine-staging-4.10-1-x86_64
 GN=SASRT
 SN="Sonic All Stars Racing Transformed"
-CME="Tiro em terceira pessoa cooperativo free-to-play"
+CME="Aventura e Corrida com Sonic"
 
 # Essa é a versão escolhida do Wine
 export TERM=xterm
