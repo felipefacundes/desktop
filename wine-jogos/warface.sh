@@ -128,9 +128,10 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc https://static.gc.my.com/WarfaceMycomLoader.exe#0.6520647658115158
+wget -nc http://client.downloader.levelupgames.com.br/warface.exe
+#https://static.gc.my.com/WarfaceMycomLoader.exe#0.6520647658115158
 #http://download.levelupgames.com.br/CombatArms//Combatarms_VER_BR_1902.10.exe
-$W/bin/wine WarfaceMycomLoader.exe
+$W/bin/wine warface.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
