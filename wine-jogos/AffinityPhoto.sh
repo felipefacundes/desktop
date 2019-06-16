@@ -134,7 +134,7 @@ export vblank_mode=0
 #~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win10
+~/.jogos/scripts/winetricks -q win7
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
@@ -214,7 +214,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
 # $W/bin/wineconsole mpv-install.bat
-
+~/.jogos/scripts/winetricks -q win10
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 pkill -9 .exe
