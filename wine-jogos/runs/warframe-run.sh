@@ -36,11 +36,11 @@ export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
-#export MESA_GLSL_VERSION_OVERRIDE=440
-#export MESA_GL_VERSION_OVERRIDE=4.4COMPAT
+#export MESA_GLSL_VERSION_OVERRIDE=450
+#export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#export WINEDLLOVERRIDES=d3d11,dxgi=n
+#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 #export DXVK_SPIRV_OPT=ON
 #export DXVK_SHADER_OPTIMIZE=1
 #export DXVK_DEBUG_LAYERS=0
