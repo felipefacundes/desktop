@@ -69,15 +69,13 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/$GN
-# Esta é uma opção que às vezes é necessária para alguns jogos
-#MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
-#export MESA_GLSL_VERSION_OVERRIDE=440
-#export MESA_GL_VERSION_OVERRIDE=4.4COMPAT
+#export MESA_GLSL_VERSION_OVERRIDE=450
+#export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 #export WINEDLLOVERRIDES=d3d11,dxgi=n
