@@ -13,19 +13,22 @@ CME="Rode jogos do Windows no Linux"
 # Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
-#export GALLIUM_HUD=".w256.h64.x1600.y520.d.c1000fps+cpu,.datom-count"
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/$WV
+export WINE64=$W/bin/wine64
 export WINE=$W/bin/wine
 export WINEVERPATH=$W
 export WINEPATH=$W/bin:$WINEPATH
 export WINESERVER=$W/bin/wineserver
+export WINELOADER64=$W/bin/wine64
 export WINELOADER=$W/bin/wine
+export WINEDLLPATH32=$W/lib32/wine/fakedlls
+export WINEDLLPATH64=$W/lib/wine/fakedlls
 export WINEDLLPATH=$W/lib/wine/fakedlls
-export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
 export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
-#$W/bin/wine "cmd"
+export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+#$W/bin/wineconsole "cmd"
 
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
