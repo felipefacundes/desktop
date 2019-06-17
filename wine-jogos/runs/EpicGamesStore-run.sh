@@ -7,8 +7,8 @@
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.10-1-x86_64
 GN=EpicGamesStore
-SN="Loja da Epic Games"
-CME="Loja da Epic Games, para baixar jogos"
+SN="Epic Games Store"
+CME="Loja da Epic Games"
 
 # Essa é a versão escolhida do Wine
 export TERM=xterm
