@@ -49,7 +49,7 @@ echo "StartupNotify=true" >> $GN.desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> $GN.desktop
 echo "Terminal=false" >> $GN.desktop
 
-# Essa é a versão escolhida do Wine
+#1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
@@ -96,7 +96,7 @@ export PULSE_LATENCY_MSEC=60
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-export DXVK_HUD=compiler,fps
+export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo
 
