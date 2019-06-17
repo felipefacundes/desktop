@@ -35,8 +35,6 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.jogos/wineprefixes/$GN
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
-# Para placas gráficas híbridas use o DRI_PRIME=1
-#export DRI_PRIME=1
 export WINEESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
@@ -65,7 +63,6 @@ glxgears -stereo
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
-
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
