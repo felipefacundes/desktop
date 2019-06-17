@@ -10,7 +10,7 @@ GN=steam
 SN="Steam Windows"
 CME="Rode jogos do Windows no Linux"
 
-# Essa é a versão escolhida do Wine
+#1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
