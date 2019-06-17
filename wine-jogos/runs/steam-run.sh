@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.10-1-x86_64
+WV=wine-staging-4.9-1-x86_64
 GN=steam
 SN="Steam Windows"
 CME="Rode jogos do Windows no Linux"
@@ -38,8 +38,18 @@ export WINEESYNC=0
 export vblank_mode=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
+export WINEDLLOVERRIDES=d3d11,dxgi=n
+export DXVK_SPIRV_OPT=ON
+export DXVK_SHADER_OPTIMIZE=1
+export DXVK_DEBUG_LAYERS=0
+export DXVK_SHADER_DUMP_PATH=”/tmp”
+export DXVK_SHADER_READ_PATH=”/tmp”
 export DXVK_LOG_LEVEL=none
-export DXVK_HUD=1
+#export DXVK_HUD=fps,version
+#LD_PRELOAD=”libpthread.so.0 libGL.so.1″
+export __GL_THREADED_OPTIMIZATIONS=1
+export __GL_YIELD=NOTHING
+export DXVK_HUD=fps
 
 
 # Primeiro configurar o wine
