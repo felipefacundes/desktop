@@ -34,8 +34,13 @@ export WINEPREFIX=~/.jogos/wineprefixes/$GN
 #MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
+# Para placas gráficas híbridas use o DRI_PRIME=1
+#export DRI_PRIME=1
 export WINEESYNC=0
 export vblank_mode=0
+# Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
+#export MESA_GLSL_VERSION_OVERRIDE=440
+#export MESA_GL_VERSION_OVERRIDE=4.4COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 export WINEDLLOVERRIDES=d3d11,dxgi=n
@@ -49,8 +54,12 @@ export DXVK_LOG_LEVEL=none
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
 export __GL_THREADED_OPTIMIZATIONS=1
 export __GL_YIELD=NOTHING
-export DXVK_HUD=fps
-
+export PULSE_LATENCY_MSEC=60
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
+export DXVK_HUD=compiler
+glxinfo -B
+glxgears -stereo
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
