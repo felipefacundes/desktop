@@ -148,15 +148,19 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-release-lol.tar.xz
-tar -xf dxvk-release-lol.tar.xz
-cd dxvk-release-lol
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-release-lol.tar.xz
+wget -nc wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
+#tar -xf dxvk-release-lol.tar.xz
+tar -xf d9vk-0.12.tar.gz
+cd d9vk-0.12/
+#cd dxvk-release-lol
 chmod +x setup_dxvk.sh
 
 export WINEPREFIX=~/.wine-appimage-lol
 
-~/.jogos/libraries/dxvk/dxvk-release-lol/setup_dxvk.sh install
-
+#~/.jogos/libraries/dxvk/dxvk-release-lol/setup_dxvk.sh install
+~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
+cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* $WINEPREFIX/drive_c/windows/system32/
 #~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
 
 
