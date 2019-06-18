@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-lol
+WV=wine-staging-4.10-i386-LoL.exec
 GN=LoL
 SN="League of Legends"
 CME="online battle arena free-to-play"
@@ -15,32 +15,32 @@ export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/$WV
-export WINE=$W/bin/wine
-export WINEVERPATH=$W
-export WINEPATH=$W/bin:$WINEPATH
-export WINESERVER=$W/bin/wineserver
-export WINELOADER=$W/bin/wine
-export WINEDLLPATH=$W/lib/wine/fakedlls
-export LD_LIBRARY_PATH="$W/usr/lib":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/lib":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/lib/i386-linux-gnu":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/pulseaudio":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/alsa-lib":$LD_LIBRARY_PATH
-export FONTCONFIG_PATH="$W/etc/fonts"
-export WINELDLIBRARY="$W/lib/ld-linux.so.2"
-export LC_ALL=C LANGUAGE=C LANG=C
-if [ -n "$*" ] ; then
-    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/$@" | cat
-else
-    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/wine" "$@" | cat
-fi
+#export WINE=$W/bin/wine
+#export WINEVERPATH=$W
+#export WINEPATH=$W/bin:$WINEPATH
+#export WINESERVER=$W/bin/wineserver
+#export WINELOADER=$W/bin/wine
+#export WINEDLLPATH=$W/lib/wine/fakedlls
+#export LD_LIBRARY_PATH="$W/usr/lib":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/lib":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/lib/i386-linux-gnu":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/pulseaudio":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/alsa-lib":$LD_LIBRARY_PATH
+#export FONTCONFIG_PATH="$W/etc/fonts"
+#export WINELDLIBRARY="$W/lib/ld-linux.so.2"
+#export LC_ALL=C LANGUAGE=C LANG=C
+#if [ -n "$*" ] ; then
+#    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/$@" | cat
+#else
+#    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/wine" "$@" | cat
+#fi
 #$W/bin/wineconsole "cmd"
-export WINEDEBUG=fixme-all
+#export WINEDEBUG=fixme-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/$GN
+export WINEPREFIX=~/.wine-appimage-lol
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
-export WINEARCH=win64
+#export WINEARCH=win32
 export WINEESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
@@ -68,8 +68,7 @@ glxinfo -B
 glxgears -stereo
 
 # Primeiro configurar o wine
-#$W/bin/winecfg
-
+#$W winecfg
 
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
@@ -86,7 +85,7 @@ glxgears -stereo
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "$WINEPREFIX/drive_c/Riot Games/League of Legends"
-$W/bin/wine LeagueClient.exe
+$W wine LeagueClient.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -140,9 +139,6 @@ $W/bin/wine LeagueClient.exe
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
 # $W/bin/wineconsole mpv-install.bat
-
-################################# Finalização
-#~/.jogos/scripts/winetricks vd=1360x768
 
 ################################# Opções extras:
 # Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
