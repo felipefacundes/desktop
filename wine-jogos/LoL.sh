@@ -5,11 +5,10 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-lol
+WV=wine-staging-4.10-i386-LoL.exec
 GN=LoL
 SN="League of Legends"
 CME="online battle arena free-to-play"
-
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.jogos/wines/
@@ -19,7 +18,7 @@ mkdir -p ~/.jogos/scripts/run/
 mkdir -p ~/.jogos/setups/
 mkdir -p ~/.jogos/wineprefixes/
 cd ~/.jogos/wineprefixes/
-rm -rf $GN
+rm -rf ~/.wine-appimage-lol
 #mkdir -p ~/.jogos/wineprefixes/$GN
 
 cd ~/.jogos/scripts/run/
@@ -32,9 +31,9 @@ cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 cd ~/.jogos/wines/
-rm -rf $WV
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/$WV.tar.xz
-tar -xf $WV.tar.xz
+#rm -rf $WV
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/$WV
+chmod +x $WV
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
@@ -54,32 +53,32 @@ export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/$WV
-export WINE=$W/bin/wine
-export WINEVERPATH=$W
-export WINEPATH=$W/bin:$WINEPATH
-export WINESERVER=$W/bin/wineserver
-export WINELOADER=$W/bin/wine
-export WINEDLLPATH=$W/lib/wine/fakedlls
-export LD_LIBRARY_PATH="$W/usr/lib":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/lib":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/lib/i386-linux-gnu":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/pulseaudio":$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/alsa-lib":$LD_LIBRARY_PATH
-export FONTCONFIG_PATH="$W/etc/fonts"
-export WINELDLIBRARY="$W/lib/ld-linux.so.2"
-export LC_ALL=C LANGUAGE=C LANG=C
-if [ -n "$*" ] ; then
-    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/$@" | cat
-else
-    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/wine" "$@" | cat
-fi
+#export WINE=$W/bin/wine
+#export WINEVERPATH=$W
+#export WINEPATH=$W/bin:$WINEPATH
+#export WINESERVER=$W/bin/wineserver
+#export WINELOADER=$W/bin/wine
+#export WINEDLLPATH=$W/lib/wine/fakedlls
+#export LD_LIBRARY_PATH="$W/usr/lib":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/lib":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/lib/i386-linux-gnu":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/pulseaudio":$LD_LIBRARY_PATH
+#export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu/alsa-lib":$LD_LIBRARY_PATH
+#export FONTCONFIG_PATH="$W/etc/fonts"
+#export WINELDLIBRARY="$W/lib/ld-linux.so.2"
+#export LC_ALL=C LANGUAGE=C LANG=C
+#if [ -n "$*" ] ; then
+#    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/$@" | cat
+#else
+#    LD_PRELOAD="$W/bin/libhookexecv.so" "$WINELDLIBRARY" "$W/bin/wine" "$@" | cat
+#fi
 #$W/bin/wineconsole "cmd"
-export WINEDEBUG=fixme-all
+#export WINEDEBUG=fixme-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/$GN
+export WINEPREFIX=~/.wine-appimage-lol
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
-export WINEARCH=win64
+#export WINEARCH=win32
 export WINEESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
@@ -112,19 +111,20 @@ glxgears -stereo
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
+#~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
 #~/.jogos/scripts/winetricks -q vcrun2005
 #~/.jogos/scripts/winetricks -q vcrun2008
 #~/.jogos/scripts/winetricks -q vcrun2010
 #~/.jogos/scripts/winetricks -q vcrun2012
 #~/.jogos/scripts/winetricks -q vcrun2013
-~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled mscoree=native mshtml=native csmt=off hosts
+#~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled mscoree=native mshtml=native csmt=off hosts
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
 
 ################################# Vulkan SDK
+$W wine winecfg
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
-$W/bin/wine vulkan-sdk.exe /S
+$W wine vulkan-sdk.exe /S
 
 ################################# CODECs
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
@@ -147,28 +147,32 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
-tar -xf dxvk-1.2.1.tar.gz
-tar -xf d9vk-0.12.tar.gz
+wget -nc
+chmod +x ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh
+chmod +x ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh
 
-#bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
-#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
-cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+export WINEPREFIX=~/.wine-appimage-lol
+cd ~/build/dxvk-release-lol/
+chmod +x setup_dxvk.sh
+~/build/dxvk-release-lol/setup_dxvk.sh install
+
+#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+
+
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7
+#~/.jogos/scripts/winetricks -q win7
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy/League%20of%20Legends%20installer%20NA.exe -O "League of Legends installer NA.exe"
-$W/bin/wine "League of Legends installer NA.exe"
+$W wine winecfg
+rm League*of*Legends*installer*BR.exe
+wget -nc "https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy/League%20of%20Legends%20installer%20BR.exe"
+#https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy/League%20of%20Legends%20installer%20NA.exe
+$W wine League*of*Legends*installer*BR.exe
+#League*of*Legends*installer*NA.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -183,7 +187,7 @@ $W/bin/wine "League of Legends installer NA.exe"
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
+cd "$WINEPREFIX/drive_c/"
 #$W/bin/wine
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
@@ -241,7 +245,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
-pkill -9 .exe
+#pkill -9 .exe
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 $W/bin/winecfg
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -251,7 +255,7 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-pkill -9 .exe
+#pkill -9 .exe
 notify-send "Instalação FINALIZADA com SUCESSO."
 sleep 10
 notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
