@@ -121,6 +121,7 @@ glxgears -stereo
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
 
 ################################# Vulkan SDK
+notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 $W wine winecfg
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
@@ -147,14 +148,14 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc
-chmod +x ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh
-chmod +x ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-release-lol.tar.xz
+tar -xf dxvk-release-lol.tar.xz
+cd dxvk-release-lol
+chmod +x setup_dxvk.sh
 
 export WINEPREFIX=~/.wine-appimage-lol
-cd ~/build/dxvk-release-lol/
-chmod +x setup_dxvk.sh
-~/build/dxvk-release-lol/setup_dxvk.sh install
+
+~/.jogos/libraries/dxvk/dxvk-release-lol/setup_dxvk.sh install
 
 #~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
 
@@ -167,7 +168,6 @@ chmod +x setup_dxvk.sh
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-$W wine winecfg
 rm League*of*Legends*installer*BR.exe
 wget -nc "https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy/League%20of%20Legends%20installer%20BR.exe"
 #https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy/League%20of%20Legends%20installer%20NA.exe
@@ -188,7 +188,7 @@ $W wine League*of*Legends*installer*BR.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "$WINEPREFIX/drive_c/"
-#$W/bin/wine
+#$W wine
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -246,8 +246,6 @@ cd "$WINEPREFIX/drive_c/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 #pkill -9 .exe
-notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
-$W/bin/winecfg
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
