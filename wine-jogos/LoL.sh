@@ -159,7 +159,10 @@ chmod +x instala_pow.sh
 
 export WINEPREFIX=~/.wine-appimage-lol
 
-~/.jogos/libraries/dxvk/dxvk-release-lol/instala_pow.sh
+cd "/home/$USER/.jogos/libraries/dxvk/dxvk-release-lol/"
+cp -rf x32/* "$WINEPREFIX/drive_c/windows/system32"
+
+#~/.jogos/libraries/dxvk/dxvk-release-lol/instala_pow.sh
 #~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* $WINEPREFIX/drive_c/windows/system32/
 #~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
