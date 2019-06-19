@@ -1,13 +1,13 @@
 # Uma forma intuitiva de instalar o ArchLinux, por Felipe Facundes
 
-> Grupo do telegram: https://t.me/winehq_linux
-###### Canal do telegram: https://t.me/comandos_linux
-###### Site: https://brasiltts.wordpress.com/
-#
+> by Felipe Facundes
+###### Grupo Telegram: https://t.me/winehq_linux
+###### Canal Telegram: https://t.me/s/PlayOnGit
+###### Site: https://linuxgamers.github.io/
 
 <br></br>
 
-### Primeiro conecte com a internet:
+# Primeiro conecte com a internet:
 
 ##### Verifique sua interface de rede Wifi:
 ```
@@ -17,51 +17,8 @@ iwconfig
 ###### Digite:  `ip link set e à sua interface de rede`
 ###### Exemplo:  `ip link set wlan0 up`
 
-### Particione o HD
-###### Crie `"sda1"` 300MB para boot - Se for `UEFI` a partição de `BOOT` tem que estar em `FAT32`.
-###### Crie `"sda2"` uma partição para a raiz `(/)` do sistema `(root)` de no mínimo 30GB.
-###### Crie `"sda3"` 512MB ou 3GB para swap / `3GB se quiser o modo hibernar` - pode ser uma tamanho maior, até o mesmo número de sua quantidade de RAM
-
-#### Para particionar use esses comandos:
-###### Para checar as partições existentes:
-```
-sudo blkid
-sudo fdisk -l
-```
-##### Para zerar rapidamente o HD e criar uma nova tabela de partição:
-`sudo cfdisk -z /dev/sda`
-##### Para apenas criar partições dentro de uma tabela de partição existente:
-`sudo cfdisk /dev/sda`
-##### Para outro particionador em modo texto, muito eficiente por sinal, na minha opinião o melhor: o `parted`
-`sudo parted /dev/sda`
-##### Para particionador gráfico caso esteja disponível:
-`sudo gparted`
-##### Para formatar corretamente cada partição linux. Formate em ext4 64Bits. Exemplo:  `sudo mke2fs -text4 -O 64bit /dev/sdXnº`
-###### EXT4 é mais compatível com programas DESKTOP: jogos, e etc. Sem dizer que ext4 é um sistema maduro. Que suporta desligamento inadequado.
-`sudo mke2fs -text4 -O 64bit /dev/sda1`
-
-#### Para UEFI
-###### A partição /boot já tem que estar em FAT32
-`mkfs.fat -F32 -n BOOT /dev/sda1`
-
-#### Para apenas carregar o layout do teclado para abnt2:
-###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
-```
-loadkeys br-abnt2
-export LANG=pt_BR.UTF-8
-```
-
-## INSTALAÇÃO: SISTEMA BASE E FERRAMENTAS
-###### Leia. Na linha abaixo, contém 4 linhas de comando, obedeça cada comando:
-
-```
-sudo mount /dev/sda2 /mnt
-sudo mount /dev/sda1 /mnt/boot
-sudo mkswap /dev/sda3 && sudo swapon /dev/sda3
-sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
-```
-#### Para uma reinstalação do sistema sem formatar:
-###### Se for reinstalar os pacotes, antes de formatar, faça um backup:
+# Backup - Para uma reinstalação do sistema sem formatar:
+##### Se for reinstalar os pacotes, antes de formatar, faça um backup:
 
 ###### O BACKUP PODE SER, PARA UMA LISTA. Para uma reinstalação, baixando os pacotes novamente:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
@@ -81,11 +38,12 @@ sudo rm -rf bin dev etc lib lib64 mnt opt proc root run sbin srv sys tmp usr
 sudo btrfs subvol list -a /mnt/
 sudo btrfs subvol delete /mnt/var/lib/machines
 ```
-###### Faça o backup dos pacotes existentes no cache:
+##### Faça o backup dos pacotes existentes no cache:
+###### Primeiro monte a partição root `(raíz)` `(/)`
+`sudo mount /dev/sdaNº /mnt`
 ###### Leia. Na linha abaixo, contém 11 linhas de comando, obedeça cada comando:
 ```
-cd /mnt/var/cache/pacman/
-sudo mkdir -p pkg
+cd /mnt/var/cache/pacman/pkg/
 sudo mv *.pkg.* pkg/
 sudo mv pkg /mnt/
 cd /mnt
@@ -97,6 +55,62 @@ sudo mv pkg /mnt/var/cache/pacman/
 cd /mnt/boot/
 sudo rm -rf *
 ```
+
+# Particione o HD
+###### Crie `"sda1"` 300MB para boot - Se for `UEFI` a partição de `BOOT` tem que estar em `FAT32`.
+###### Crie `"sda2"` uma partição para a raiz `(/)` do sistema `(root)` de no mínimo 30GB.
+###### Crie `"sda3"` 512MB ou 3GB para swap / `3GB se quiser o modo hibernar` - pode ser um tamanho maior, até ao mesmo número de sua RAM
+
+#### Para particionar use esses comandos:
+###### Para checar as partições existentes:
+```
+sudo blkid
+sudo fdisk -l
+```
+##### Para zerar rapidamente o HD e criar uma nova tabela de partição:
+`sudo cfdisk -z /dev/sda`
+##### Para apenas criar partições dentro de uma tabela de partição existente:
+`sudo cfdisk /dev/sda`
+##### Para outro particionador em modo texto, muito eficiente por sinal, na minha opinião o melhor: . `parted`
+`sudo parted /dev/sda`
+##### Para particionador gráfico caso esteja disponível (somente em `Arch based`):
+`sudo gparted`
+##### Para formatar corretamente cada partição linux. Formate em ext4 64Bits. Exemplo:  `sudo mke2fs -text4 -O 64bit /dev/sdXnº`
+###### `EXT4` é mais `compatível` com programas DESKTOP: jogos, e etc. Sem dizer que ext4 é um sistema maduro. Que suporta desligamento inadequado.
+`sudo mke2fs -text4 -O 64bit /dev/sda1`
+
+#### Para `UEFI`
+###### A partição /boot já tem que estar em `FAT32`
+`mkfs.fat -F32 -n BOOT /dev/sda1`
+
+# Exemplo de FORMATAÇÃO
+###### A opção `-L` atribui rótulos às partições, o que ajuda a consultá-las mais tarde através de /dev/disk/by-label sem ter que se lembrar de seus números. Agora, monte suas partições:
+
+```
+mkswap -L SWAP /dev/sda1                        # <‐ SWAP partição
+sudo mke2fs -text4 -O 64bit -L ROOT /dev/sda2   # <‐ ROOT partição
+sudo mke2fs -text4 -O 64bit -L HOME /dev/sda3   # <‐ HOME partição, opicional
+sudo mke2fs -text4 -O 64bit -L BOOT /dev/sda4   # <‐ BOOT partição, opicional
+```
+
+#### Para apenas carregar o layout do teclado para abnt2:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
+```
+loadkeys br-abnt2
+export LANG=pt_BR.UTF-8
+```
+
+## INSTALAÇÃO: SISTEMA BASE E FERRAMENTAS
+###### Leia. Na linha abaixo, contém 4 linhas de comando, obedeça cada comando:
+
+```
+swapon /dev/sda1
+mount /dev/sda2 /mnt
+mount /dev/sda3 /mnt/home
+mount /dev/sda4 /mnt/boot
+sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
+```
+
 # FINALMENTE, VAMOS PARA A INSTALAÇÃO:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
@@ -122,8 +136,8 @@ mkinitcpio -p linux
 ### "Senha do root"
     passwd root
 
-### Para sistemas UEFI
-###### "A partição /boot já tem que estar em FAT32". Lá em cima foi dito, para formatar a partição boot: sudo mkfs.fat -F32 -n BOOT /dev/sda1
+### Para sistemas `UEFI`
+###### "A partição /boot já tem que estar em `FAT32`". Lá em cima foi dito, para formatar a partição boot: `sudo mkfs.fat -F32 -n BOOT /dev/sda4`
 ###### Agora prepare o GRUB para o UEFI:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
@@ -153,7 +167,7 @@ usermod -a -G daemon,disk,wheel,rfkill,dbus,network,video,audio,storage,power,us
 
 ### Editando o SUDOers para ter acesso de administrador:
     nano /etc/sudoers
-###### procure pela linha: "root ALL=(ALL) ALL" 
+###### procure pela linha: "root ALL=(ALL) ALL"
 ###### e logo abaixo inclua o seu usuário assim: UsuárioDaSuaPreferência ALL=(ALL) ALL
 ```
 root ALL=(ALL) ALL
@@ -211,42 +225,42 @@ systemctl enable NetworkManager.service
 systemctl start NetworkManager.service
 ```
 ### Preparar para jogos. Todas às dependências necessárias, inclusive, para aumentar, consideravelmente, a performance em jogos:
-###### Habilite o Multilib em /etc/pacman.conf 
+###### Habilite o Multilib em /etc/pacman.conf
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 ```
 pacman -Syy --asdeps egl-wayland eglexternalplatform libglvnd glfw-wayland clinfo opencl-headers opencl-mesa intel-opencl-clang libclc ocl-icd lib32-ocl-icd lib32-libglvnd lib32-glu glu libva-mesa-driver mesa mesa-demos mesa-vdpau lib32-mesa lib32-mesa-demos lib32-mesa-vdpau lib32-smpeg lib32-sdl_ttf lib32-sdl_mixer lib32-sdl_image lib32-sdl2_ttf lib32-sdl2_mixer lib32-sdl2_image lib32-sdl2 lib32-sdl sdl sdl2 sdl2_image sdl2_mixer sdl2_ttf sdl_image sdl_mixer sdl_ttf smpeg lib32-openal gambas3-gb-openal alure openal-examples openal freealut ffnvcodec-headers libxnvctrl xf86-video-nouveau nvidia-cg-toolkit steam-native-runtime lib32-gtk3 vulkan-devel attr lib32-attr fontconfig lib32-fontconfig lcms2 lib32-lcms2 libxml2 lib32-libxml2 libxcursor lib32-libxcursor libxrandr lib32-libxrandr libxdamage lib32-libxdamage libxi lib32-libxi gettext lib32-gettext freetype2 lib32-freetype2 glu lib32-glu linux-headers dkms libsm lib32-libsm gcc-libs lib32-gcc-libs libpcap lib32-libpcap desktop-file-utils giflib lib32-giflib libpng lib32-libpng gnutls lib32-gnutls libxinerama lib32-libxinerama libxcomposite lib32-libxcomposite libxmu lib32-libxmu libxxf86vm lib32-libxxf86vm libldap lib32-libldap mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils alsa-lib lib32-alsa-lib libxcomposite lib32-libxcomposite mesa lib32-mesa mesa-libgl lib32-mesa-libgl opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libpulse lib32-libpulse libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader sdl2 lib32-sdl2 vkd3d lib32-vkd3d sane libgphoto2 gsm ffmpeg samba xf86-video-ati xf86-video-amdgpu xf86-video-intel xf86-video-nouveau libva-intel-driver libva-utils libva-vdpau-driver libva1 libva1-intel-driver vulkan-icd-loader vulkan-intel vulkan-radeon lib32-vulkan-icd-loader lib32-vulkan-intel lib32-vulkan-radeon lib32-vulkan-validation-layers python-olefile python-pyqt5 xorg-server xorg-server-devel
 ```
 ### Para driver Nvidia:
-###### Habilite o Multilib em /etc/pacman.conf 
+###### Habilite o Multilib em /etc/pacman.conf
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 
 ```
 pacman -Syy nvidia-dkms linux-headers dkms nvidia-settings lib32-libvdpau lib32-libglvnd libglvnd libvdpau nvidia-utils opencl-nvidia xsettingsd xsettings-client ffnvcodec-headers libxnvctrl xf86-video-nouveau lib32-nvidia-utils lib32-opencl-nvidia nccl nvidia-cg-toolkit
 ```
 ### Para driver intel:
-###### Habilite o Multilib em /etc/pacman.conf 
+###### Habilite o Multilib em /etc/pacman.conf
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 ```
 pacman -Syy lib32-vulkan-intel lib32-mesa lib32-libva1-intel-driver lib32-libva-intel-driver libva1-intel-driver libva-utils intel-opencl-clang intel-media-driver intel-graphics-compiler lib32-libglvnd libglvnd linux-headers dkms intel-gpu-tools intel-gmmlib intel-compute-runtime i810-dri xf86-video-intel vulkan-intel mesa libva-intel-driver iucode-tool intel-ucode intel-tbb
 ```
 ### Para driver AMD:
-###### Habilite o Multilib em /etc/pacman.conf 
+###### Habilite o Multilib em /etc/pacman.conf
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 ```
 pacman -Syy opencl-mesa xf86-video-amdgpu xf86-video-ati linux-headers dkms vulkan-devel lib32-libglvnd libglvnd vulkan-radeon lib32-vulkan-icd-loader vulkan-icd-loader lib32-vulkan-validation-layers vulkan-validation-layers
 ```
 ### Para o driver de Áudio:
-###### Habilite o Multilib em /etc/pacman.conf 
+###### Habilite o Multilib em /etc/pacman.conf
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 
     pacman -Syy lib32-libpulse lib32-libcanberra-pulse pulseaudio-equalizer-ladspa ponymix pulseaudio-qt pulseaudio-lirc pulseaudio-jack pulseaudio-equalizer pulseaudio-bluetooth pulseaudio-alsa pulseaudio pavucontrol libpulse libcanberra-pulse libao lib32-libpulse
 
 ### Você poderá habilitar o Radv, para à sua AMDGPU RADEON, para tanto siga esse meu tutorial, super fácil:
 
-https://github.com/felipefacundes/desktop/tree/master/amdgpu
+https://amdgpu.github.io/
 
 ### Para codecs (codecs, são extremamente importante no sistema, para uma melhor harmonia multimídia: som e vídeo):
-###### Habilite o Multilib em /etc/pacman.conf 
+###### Habilite o Multilib em /etc/pacman.conf
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 ```
 pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib32-gst-plugins-base-libs lib32-gst-plugins-base aribb24 gpac gst-libav lame libdvbpsi libiec61883 libmad libmp4v2 libmpeg2 mjpegtools mpg123 twolame xvidcore libquicktime sox libopusenc opus opus-tools opusfile schroedinger aom celt flac libde265 opencore-amr openjpeg2 speex libfishsound gst-plugins-base gst-plugins-base-libs gst-plugins-good gstreamer libcanberra-gstreamer fmt atomicparsley
@@ -257,9 +271,27 @@ pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib
 echo -e "vm.swappiness=0" > /etc/sysctl.conf
 echo -e "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
 echo -e "net.ipv4.ip_forward=1" >> /etc/sysctl.conf
+echo -e "net.ipv4.tcp_dsack=0" > /etc/sysctl.conf
+echo -e "net.ipv4.tcp_sack=0" > /etc/sysctl.conf
+echo -e "fs.file-max=100000" > /etc/sysctl.conf
+echo -e "kernel.sched_migration_cost_ns=5000000" > /etc/sysctl.conf
+echo -e "kernel.sched_autogroup_enabled=0" > /etc/sysctl.conf
+echo -e "vm.dirty_background_bytes=16777216" > /etc/sysctl.conf
+echo -e "vm.dirty_bytes=50331648" > /etc/sysctl.conf
+echo -e "kernel.pid_max=4194304" > /etc/sysctl.conf
 ```
-###### Em /etc/security/limits.conf   Observação:   o comando abaixo aumentará o FPS em jogos.
+###### Em /etc/security/limits.conf   Observação:   o comando abaixo aumentará o desempenho e o FPS em jogos.
 ```
+echo -e "hard stack unlimited" >> /etc/security/limits.conf
+echo -e "nproc unlimited" >> /etc/security/limits.conf
+echo -e "nofile 1048576" >> /etc/security/limits.conf
+echo -e "memlock unlimited" >> /etc/security/limits.conf
+echo -e "as unlimited" >> /etc/security/limits.conf
+echo -e "cpu unlimited" >> /etc/security/limits.conf
+echo -e "fsize unlimited" >> /etc/security/limits.conf
+echo -e "memlock unlimited" >> /etc/security/limits.conf
+echo -e "msgqueue unlimited" >> /etc/security/limits.conf
+echo -e "locks unlimited" >> /etc/security/limits.conf
 echo -e "* hard nofile 1048576" >> /etc/security/limits.conf
 ```
 ###### Inclua em /etc/systemd/
@@ -427,9 +459,12 @@ rm yay-9.2.0-1-x86_64.pkg.tar.xz
 ```
 ### Para você que veio do UBUNTU ou DEBIAN, e está acostumado com o comando apt-get, use:
 `bash <(curl -s https://raw.githubusercontent.com/felipefacundes/apt-get-pacman/master/iniciorapido.sh)`
+
+### Se você quiser instalar Jogos do Windows no Linux, com facilidade. Veja o projeto PlayOnGit
+https://jogoslinux.github.io/
 #
 ###### Para o driver obsoleto e incompatível com os kernels atuais: Catalyst
-###### Não use é obsoleto, está aqui para fins de história do Linux. 
+###### Não use é obsoleto, está aqui para fins de história do Linux.
 
 ###### pacman-key -r 653C3094
 ###### pacman-key --lsign-key 653C3094
