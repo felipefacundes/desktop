@@ -18,7 +18,6 @@ iwconfig
 ###### Exemplo:  `ip link set wlan0 up`
 
 # Backup - Para uma reinstalação do sistema sem formatar:
-##### Se for reinstalar os pacotes, antes de formatar, faça um backup:
 
 ###### O BACKUP PODE SER, PARA UMA LISTA. Para uma reinstalação, baixando os pacotes novamente:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
