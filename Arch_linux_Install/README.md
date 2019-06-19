@@ -10,14 +10,17 @@
 ### Primeiro conecte com a internet:
 
 ##### Verifique sua interface de rede Wifi:
-`iwconfig`
-###### Digite:  "wifi-menu e à sua interface de rede"
-###### Exemplo:  wifi-menu wlp6s0
+```
+lspci -k
+iwconfig
+```
+###### Digite:  `ip link set e à sua interface de rede`
+###### Exemplo:  `ip link set wlan0 up`
 
 ### Particione o HD
-###### Crie sda1 500MB para boot - Se for UEFI a partição de BOOT tem que estar em FAT32.
-###### Crie sda2 para raiz / - Faça uma partição para a raiz do sistema (root)
-###### Crie sda3 512MB ou 3GB para swap / 3GB se quiser o modo hibernar - pode ser uma tamanho maior, até o mesmo número de sua quantidade de RAM
+###### Crie `"sda1"` 300MB para boot - Se for `UEFI` a partição de `BOOT` tem que estar em `FAT32`.
+###### Crie `"sda2"` uma partição para a raiz `(/)` do sistema `(root)` de no mínimo 30GB.
+###### Crie `"sda3"` 512MB ou 3GB para swap / `3GB se quiser o modo hibernar` - pode ser uma tamanho maior, até o mesmo número de sua quantidade de RAM
 
 #### Para particionar use esses comandos:
 ###### Para checar as partições existentes:
@@ -33,7 +36,7 @@ sudo fdisk -l
 `sudo parted /dev/sda`
 ##### Para particionador gráfico caso esteja disponível:
 `sudo gparted`
-##### Para formatar corretamente cada partição linux. Formate em ext4 64Bits. Exemplo:  sudo mke2fs -text4 -O 64bit /dev/sdXnº
+##### Para formatar corretamente cada partição linux. Formate em ext4 64Bits. Exemplo:  `sudo mke2fs -text4 -O 64bit /dev/sdXnº`
 ###### EXT4 é mais compatível com programas DESKTOP: jogos, e etc. Sem dizer que ext4 é um sistema maduro. Que suporta desligamento inadequado.
 `sudo mke2fs -text4 -O 64bit /dev/sda1`
 
