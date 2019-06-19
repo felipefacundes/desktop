@@ -2,9 +2,8 @@
 
 > by Felipe Facundes
 ###### Grupo Telegram: https://t.me/winehq_linux
-###### Canal Telegram: https://t.me/comandos_linux
-
-------------------------------------------------------------------
+###### Canal Telegram: https://t.me/s/PlayOnGit
+###### Site: https://linuxgamers.github.io/
 
 <br></br>
 
@@ -139,6 +138,8 @@ su -c 'echo "150" > /sys/class/drm/card0/device/hwmon/hwmon0/pwm1'
 `sudo watch -n 0.5 cat /sys/kernel/debug/dri/0/amdgpu_pm_info`
 ### Para resetar
 `su -c 'echo "r" > /sys/class/drm/card0/device/pp_od_clk_voltage'`
+
+<br></br>
 
 ```
                     ,cldxOxoc:;,
