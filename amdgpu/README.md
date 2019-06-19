@@ -115,9 +115,9 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
   - Teste o vulkan:
 
 
-  1. vulkaninfo
+  1. `vulkaninfo`
   
-  2. vkcube
+  2. `vkcube`
 
 # OPCIONAL: 
 ## GPU OverClock
