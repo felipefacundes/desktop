@@ -236,7 +236,14 @@ $W/bin/wine Steam.exe
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
+
 pkill -9 .exe
+
+cd ~/.jogos/scripts/
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.wav
+ffplay -nodisp leia.wav &
+sleep 5
+pkill -9 ffplay
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
 $W/bin/winecfg
