@@ -5,6 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
+dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 WV=wine-staging-4.8-1-x86_64
 GN=warframe
 SN="Warframe"
@@ -49,7 +50,7 @@ echo "StartupNotify=true" >> $GN.desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> $GN.desktop
 echo "Terminal=false" >> $GN.desktop
 
-# Essa é a versão escolhida do Wine
+#1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
@@ -77,25 +78,25 @@ export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
-#export MESA_GLSL_VERSION_OVERRIDE=450
-#export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
+export MESA_GLSL_VERSION_OVERRIDE=450
+export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
-#export DXVK_SPIRV_OPT=ON
-#export DXVK_SHADER_OPTIMIZE=1
-#export DXVK_DEBUG_LAYERS=0
-#export DXVK_SHADER_DUMP_PATH=”/tmp”
-#export DXVK_SHADER_READ_PATH=”/tmp”
+export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+export DXVK_SPIRV_OPT=ON
+export DXVK_SHADER_OPTIMIZE=1
+export DXVK_DEBUG_LAYERS=0
+export DXVK_SHADER_DUMP_PATH=”/tmp”
+export DXVK_SHADER_READ_PATH=”/tmp”
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
-#export __GL_THREADED_OPTIMIZATIONS=1
-#export __GL_YIELD=NOTHING
-#export PULSE_LATENCY_MSEC=60
-#export __GL_SHADER_DISK_CACHE=1
-#export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
-#export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export __GL_THREADED_OPTIMIZATIONS=1
+export __GL_YIELD=NOTHING
+export PULSE_LATENCY_MSEC=60
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo
@@ -237,7 +238,16 @@ $W/bin/wine Steam.exe
 #~/.jogos/scripts/winetricks vd=1360x768
 pkill -9 .exe
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
 $W/bin/winecfg
+dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
+
+dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
+
+notify-send "Instalação FINALIZADA com SUCESSO."
+sleep 1
+notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+notify-send "Se quiser, pode fechar o terminal."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
@@ -245,12 +255,6 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-pkill -9 .exe
-notify-send "Instalação FINALIZADA com SUCESSO."
-sleep 10
-notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
-sleep 10
-notify-send "Se quiser, pode fechar o terminal."
 
 ################################# Opções extras:
 # Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
