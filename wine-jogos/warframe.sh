@@ -240,8 +240,8 @@ $W/bin/wine Steam.exe
 pkill -9 .exe
 
 cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.wav
-ffplay -nodisp leia.wav &
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg
+ffplay -nodisp leia.ogg &
 sleep 5
 pkill -9 ffplay
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
