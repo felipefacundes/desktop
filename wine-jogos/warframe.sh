@@ -109,7 +109,7 @@ glxgears -stereo > /dev/null 2>&1
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-echo -e "━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━"
 echo "PlayOnGit"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar alguns MINUTOS."
