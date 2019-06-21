@@ -107,9 +107,13 @@ glxgears -stereo
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-echo "Aguarde enquanto o winetricks, realiza os procedimentos necessários"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Aguarde enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar alguns MINUTOS."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
-echo "Aguarde MAIS UM POUCO"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde MAIS UM POUCO"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
