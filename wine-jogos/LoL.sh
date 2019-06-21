@@ -5,6 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
+dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 WV=wine-staging-4.10-i386-LoL.exec
 GN=LoL
 SN="League of Legends"
@@ -31,7 +32,7 @@ cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 cd ~/.jogos/wines/
-#rm -rf $WV
+rm -rf $WV
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/$WV
 chmod +x $WV
 
@@ -122,6 +123,7 @@ glxgears -stereo
 
 ################################# Vulkan SDK
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
 $W wine winecfg
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
