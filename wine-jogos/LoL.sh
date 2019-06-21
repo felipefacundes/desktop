@@ -256,6 +256,9 @@ cd "$WINEPREFIX/drive_c/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 #pkill -9 .exe
+cd ~/.jogos/scripts/
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg
+ffplay -nodisp -volume 100 -f ogg leia.ogg &
 dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
 #dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
