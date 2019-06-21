@@ -256,6 +256,14 @@ cd "$WINEPREFIX/drive_c/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 #pkill -9 .exe
+dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
+
+#dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
+
+notify-send "Instalação FINALIZADA com SUCESSO."
+sleep 1
+notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+notify-send "Se quiser, pode fechar o terminal."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
@@ -263,12 +271,6 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#pkill -9 .exe
-notify-send "Instalação FINALIZADA com SUCESSO."
-sleep 10
-notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
-sleep 10
-notify-send "Se quiser, pode fechar o terminal."
 
 ################################# Opções extras:
 # Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
