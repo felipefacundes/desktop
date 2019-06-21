@@ -107,16 +107,23 @@ glxgears -stereo
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus
-~/.jogos/scripts/winetricks -q vcrun2005
-~/.jogos/scripts/winetricks -q vcrun2008
-~/.jogos/scripts/winetricks -q vcrun2010
-~/.jogos/scripts/winetricks -q vcrun2012
-~/.jogos/scripts/winetricks -q vcrun2013
+echo "Aguarde enquanto o winetricks, realiza os procedimentos necessários"
+~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+echo "Aguarde MAIS UM POUCO"
+~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
+echo "Em progresso ."
+~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+echo "Em progresso .."
+~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+echo "Em progresso ..."
+~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+echo "Em progresso ...."
+~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
 
 ################################# Vulkan SDK
+echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 $W/bin/wine vulkan-sdk.exe /S
@@ -241,7 +248,7 @@ pkill -9 .exe
 
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg
-ffplay -nodisp -volume 100 -f ogg leia.ogg &
+ffplay -nodisp -volume 100 -f ogg leia.ogg & > /dev/null 2>&1 &
 sleep 5
 pkill -9 ffplay
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
