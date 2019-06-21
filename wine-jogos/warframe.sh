@@ -7,6 +7,8 @@
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 clear
+clear
+clear
 WV=wine-staging-4.8-1-x86_64
 GN=warframe
 SN="Warframe"
