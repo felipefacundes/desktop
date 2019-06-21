@@ -390,27 +390,19 @@ https://github.com/felipefacundes/xmatece
 cd /etc/X11/xorg.conf.d/
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/arch_linux_install_scripts/naodesligamonitor.conf
 ```
-##### Opcional. Para instalar fontes TrueType para aumentar o número de fontes no sistema, pesquise e instale às que preferir:
+##### Para desligar o sistema sem precisar de senha
 
-    pacman -Ss ttf
-
-###### Se preferir instalar todas as fontes disponíveis no repositório, tudo de uma vez, sem ao menos pesquisar:
-###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-pacman -S $(pacman -Ssq ttf)
-fc-cache
+sudo chmod +x /usr/bin/openrc-shutdown
+sudo chmod +s /usr/bin/openrc-shutdown
 ```
 
-###### Ou também você poderá instalar essas fontes:
-###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
-```
-pacman -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei terminus-font tamsyn-font dina-font adobe-source-han-sans-otc-fonts noto-fonts-emoji noto-fonts-cjk gnu-free-fonts font-bitstream-speedo bdf-unifont adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts
+###### Para desligar, passe a usar:
 
-fc-cache
-```
-###### Totalmente opcional, para virtualbox execute:
+`openrc-shutdow --reboot now`
 
-`pacman -S virtualbox-host-modules-arch virtualbox-guest-iso virtualbox`
+###### Ou reiniciar
+`openrc-shutdow --poweroff now`
 
 ### Para instalar às impressoras:
 ###### Leia. Na linha abaixo, contém 5 linhas de comando, obedeça cada comando:
@@ -446,6 +438,32 @@ wget https://github.com/felipefacundes/desktop/blob/master/Arch_linux_Install/ar
 pacman -U yay-9.2.0-1-x86_64.pkg.tar.xz
 rm yay-9.2.0-1-x86_64.pkg.tar.xz
 ```
+##### Opcional. Para instalar fontes TrueType para aumentar o número de fontes no sistema, pesquise e instale às que preferir:
+
+    pacman -Ss ttf
+
+###### Se preferir instalar todas as fontes disponíveis no repositório, tudo de uma vez, sem ao menos pesquisar:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
+```
+pacman -S $(pacman -Ssq ttf)
+fc-cache
+```
+
+###### Ou também você poderá instalar essas fontes:
+###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
+```
+pacman -S wqy-bitmapfont wqy-microhei wqy-microhei-lite wqy-zenhei terminus-font tamsyn-font dina-font adobe-source-han-sans-otc-fonts noto-fonts-emoji noto-fonts-cjk gnu-free-fonts font-bitstream-speedo bdf-unifont adobe-source-code-pro-fonts adobe-source-sans-pro-fonts adobe-source-serif-pro-fonts
+
+fc-cache
+```
+###### Totalmente opcional, para VirtualBox execute:
+
+`pacman -S virtualbox-host-modules-arch virtualbox-guest-iso virtualbox`
+
+###### Virt-Manager é melhor que VirtualBox, e suporta gpu passthrough:
+
+`sudo pacman -S virt-manager`
+
 ### Para você que veio do UBUNTU ou DEBIAN, e está acostumado com o comando apt-get, use:
 `bash <(curl -s https://raw.githubusercontent.com/felipefacundes/apt-get-pacman/master/iniciorapido.sh)`
 
