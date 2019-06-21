@@ -188,16 +188,23 @@ UsuárioDaSuaPreferência ALL=(ALL) ALL
 `pacman -S xorg-xinit xorg-server xorg-server-devel`
 
 ### Colocando o seu sistema para PORTUGUÊS de forma automática:
-###### Leia. Na linha abaixo, contém 12 linhas de comando, obedeça cada comando:
+###### Leia. Na linha abaixo, contém 5 linhas de comando, obedeça cada comando:
 ```
 cd /etc
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/locale.conf
+
+cp -r /etc/locale.conf /etc/vconsole.conf
+
 cd /etc/X11/xorg.conf.d/
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/arch_linux_install_scripts/00-keyboard.conf
-cp -r /etc/locale.conf /etc/vconsole.conf
+```
+###### Localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
+###### Leia. Na linha abaixo, contém 8 linhas de comando, obedeça cada comando:
+```
 echo -e "pt_BR.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 export LANG=pt_BR.UTF-8
+
 wget https://github.com/felipefacundes/desktop/blob/master/Arch_linux_Install/arch_linux_install_scripts/hunspell-pt-br-3.2-5-any.pkg.tar.xz?raw=true -O hunspell-pt-br-3.2-5-any.pkg.tar.xz
 pacman -U hunspell-pt-br-3.2-5-any.pkg.tar.xz
 rm hunspell-pt-br-3.2-5-any.pkg.tar.xz
@@ -211,7 +218,6 @@ setfont
 `keymap="br-abnt2"`
 ###### Rode o serviço: `keymaps`
 `rc-service keymaps start`
-###### Localidade em UTF-8 (padrão universal de caracteres). ISO-8859-1 não é mais utilizado.
 ###### Caso de ERRO na opção ABAIXO: `ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime`
 ###### Execute antes: `rm /etc/localtime`
 ###### O Padrão abaixo `"Sao_Paulo"` é o padrão de Brasília. Mude para o fuso horário da sua respectiva cidade, Veja antes às zonas disponíveis com o comando: `ls -h /usr/share/zoneinfo/America/`
