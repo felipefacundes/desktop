@@ -390,7 +390,7 @@ https://github.com/felipefacundes/xmatece
 cd /etc/X11/xorg.conf.d/
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/arch_linux_install_scripts/naodesligamonitor.conf
 ```
-##### Para desligar o sistema sem precisar de senha
+### Para desligar o sistema sem precisar de senha
 
 ```
 sudo chmod +x /usr/bin/openrc-shutdown
@@ -402,6 +402,7 @@ sudo chmod +s /usr/bin/openrc-shutdown
 `openrc-shutdow --reboot now`
 
 ###### Ou reiniciar
+
 `openrc-shutdow --poweroff now`
 
 ### Para instalar às impressoras:
