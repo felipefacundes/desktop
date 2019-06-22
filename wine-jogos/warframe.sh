@@ -130,8 +130,7 @@ echo "Em progresso ...."
 ~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ....."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
-#~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
-
+#~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 ################################# Vulkan SDK
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
@@ -166,8 +165,8 @@ wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/
 tar -xf dxvk-1.2.1.tar.gz
 tar -xf d9vk-0.12.tar.gz
 
-#bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
-#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
+#bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install > /dev/null 2>&1
+#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install > /dev/null 2>&1
 cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
