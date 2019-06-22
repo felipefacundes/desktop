@@ -263,6 +263,7 @@ pkill -9 .exe
 
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
+#!/bin/ffplay
 ffplay -nodisp -volume 100 -f ogg leia.ogg > /dev/null 2>&1 &
 sleep 5
 pkill -9 ffplay > /dev/null 2>&1
