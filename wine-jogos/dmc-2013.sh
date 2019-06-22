@@ -1,4 +1,7 @@
 #!/bin/bash
+dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
+clear -T $TERM
+#!/bin/bash
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
@@ -23,13 +26,13 @@ rm -rf $GN
 #mkdir -p ~/.jogos/wineprefixes/$GN
 
 cd ~/.jogos/scripts/run/
-rm $GN-run.sh
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh
+rm -rf $GN-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh > /dev/null 2>&1
 chmod +x $GN-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/$GN.png
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/$GN.png > /dev/null 2>&1
 cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.jogos/wines/
 rm -rf $WV
@@ -98,7 +101,7 @@ export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export DXVK_HUD=compiler,fps
 glxinfo -B
-glxgears -stereo
+glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
@@ -106,15 +109,37 @@ glxgears -stereo
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vcrun6 gdiplus 
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-~/.jogos/scripts/winetricks -q corefonts mfc42 d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 dotnet40
-#~/.jogos/scripts/winetricks -q vcrun2005
-#~/.jogos/scripts/winetricks -q vcrun2008
-#~/.jogos/scripts/winetricks -q vcrun2010
-#~/.jogos/scripts/winetricks -q vcrun2012
-#~/.jogos/scripts/winetricks -q vcrun2013
-~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts
-#~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
+echo "━━━━━━━━━"
+echo "PlayOnGit"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar alguns MINUTOS."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "O .NET Framework será instalado e dependendo do processador poderá demorar 20min, ou mais."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo " Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar.
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts mfc42 d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 dotnet40 gdiplus > /dev/null 2>&1
+echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
+echo "Em progresso ."
+#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+echo "Em progresso .."
+#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+echo "Em progresso ..."
+#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+echo "Em progresso ...."
+#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+echo "Em progresso ....."
+~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
+#~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 ################################# Vulkan SDK
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 $W/bin/wine vulkan-sdk.exe /S
@@ -144,16 +169,16 @@ wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/
 tar -xf dxvk-1.2.1.tar.gz
 tar -xf d9vk-0.12.tar.gz
 
-#bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
-#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
+#bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install > /dev/null 2>&1
+#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install > /dev/null 2>&1
 cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7
+~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
@@ -232,9 +257,26 @@ $W/bin/wine Steam.exe
 # $W/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
+#~/.jogos/scripts/winetricks vd=1360x768
+
 pkill -9 .exe
+
+cd ~/.jogos/scripts/
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
+ffplay -nodisp -volume 100 -f ogg leia.ogg > /dev/null 2>&1 &
+sleep 5
+pkill -9 ffplay > /dev/null 2>&1
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
 $W/bin/winecfg
+dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
+
+dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
+
+notify-send "Instalação FINALIZADA com SUCESSO."
+sleep 1
+notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+notify-send "Se quiser, pode fechar o terminal."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
@@ -242,12 +284,6 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-pkill -9 .exe
-notify-send "Instalação FINALIZADA com SUCESSO."
-sleep 10
-notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
-sleep 10
-notify-send "Se quiser, pode fechar o terminal."
 
 ################################# Opções extras:
 # Opções da $GN: https://developer.valvesoftware.com/wiki/Command_Line_Options
