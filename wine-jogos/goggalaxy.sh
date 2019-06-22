@@ -171,6 +171,7 @@ cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/$GN/drive_c
 cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
+echo "Em progresso ......"
 ~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
