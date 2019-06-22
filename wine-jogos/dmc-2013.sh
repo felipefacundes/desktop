@@ -265,11 +265,8 @@ pkill -9 .exe
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
-chmod u+r ~/.jogos/scripts/leia.ogg
-find ~/.jogos/scripts/ | grep treasure ; $beep > /dev/null 2>&1
-ffplay -nodisp -volume 100 -f ogg $beep > /dev/null 2>&1 &
-sleep 5
-pkill -9 ffplay > /dev/null 2>&1
+pactl upload-sample ~/.jogos/scripts/leia.ogg
+paplay $beep --volume=76767
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
 $W/bin/winecfg
