@@ -120,7 +120,7 @@ echo "O .NET Framework será instalado e dependendo do processador poderá demor
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q dotnet40
+~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mfc40 mfc42 corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
@@ -177,7 +177,8 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 #cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+echo "Em progresso ......"
+#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
 ~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
