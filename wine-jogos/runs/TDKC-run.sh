@@ -10,35 +10,56 @@ GN=TDKC
 SN="A Tribute a Donkey Kong Country"
 CME="Um remake de Donkey Kong Country (indie game)"
 
-# Essa é a versão escolhida do Wine
+#1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/$WV
+export WINE64=$W/bin/wine64
 export WINE=$W/bin/wine
 export WINEVERPATH=$W
 export WINEPATH=$W/bin:$WINEPATH
 export WINESERVER=$W/bin/wineserver
+export WINELOADER64=$W/bin/wine64
 export WINELOADER=$W/bin/wine
+export WINEDLLPATH32=$W/lib32/wine/fakedlls
+export WINEDLLPATH64=$W/lib/wine/fakedlls
 export WINEDLLPATH=$W/lib/wine/fakedlls
-export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
 export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
-#$W/bin/wine "cmd"
+export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+#$W/bin/wineconsole "cmd"
 
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/$GN
-# Esta é uma opção que às vezes é necessária para alguns jogos
-#MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
+# Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
+export MESA_GLSL_VERSION_OVERRIDE=450
+export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
+export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+export DXVK_SPIRV_OPT=ON
+export DXVK_SHADER_OPTIMIZE=1
+export DXVK_DEBUG_LAYERS=0
+export DXVK_SHADER_DUMP_PATH=”/tmp”
+export DXVK_SHADER_READ_PATH=”/tmp”
 export DXVK_LOG_LEVEL=none
-export DXVK_HUD=1
+#export DXVK_HUD=fps,version,compiler
+#LD_PRELOAD=”libpthread.so.0 libGL.so.1″
+export __GL_THREADED_OPTIMIZATIONS=1
+export __GL_YIELD=NOTHING
+export PULSE_LATENCY_MSEC=60
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export DXVK_HUD=compiler,fps
+glxinfo -B
+glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
