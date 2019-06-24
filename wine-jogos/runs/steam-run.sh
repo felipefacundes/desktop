@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.9-1-x86_64
+WV=wine-4.11-1-x86_64
 GN=steam
 SN="Steam Windows"
 CME="Rode jogos do Windows no Linux"
@@ -57,9 +57,9 @@ export PULSE_LATENCY_MSEC=60
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-export DXVK_HUD=fps
+export DXVK_HUD=compiler,fps
 glxinfo -B
-glxgears -stereo
+glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
