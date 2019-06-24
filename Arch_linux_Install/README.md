@@ -14,8 +14,8 @@
 lspci -k
 iwconfig
 ```
-###### Digite:  `ip link set e à sua interface de rede`
-###### Exemplo:  `ip link set wlan0 up`
+###### Digite:  
+`wifi-menu`
 
 # Backup - Para uma reinstalação do sistema sem formatar:
 
