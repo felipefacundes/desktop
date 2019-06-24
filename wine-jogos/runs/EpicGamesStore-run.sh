@@ -5,12 +5,12 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.10-1-x86_64
+WV=wine-4.11-1-x86_64
 GN=EpicGamesStore
 SN="Epic Games Store"
 CME="Loja da Epic Games"
 
-# Essa é a versão escolhida do Wine
+#1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
@@ -33,8 +33,6 @@ export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/$GN
-# Esta é uma opção que às vezes é necessária para alguns jogos
-#MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
@@ -58,11 +56,10 @@ export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
-#export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-export DXVK_HUD=compiler
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export DXVK_HUD=compiler,fps
 glxinfo -B
-glxgears -stereo
-
+glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
