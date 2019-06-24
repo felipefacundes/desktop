@@ -158,8 +158,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/setups/
-#wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
-#$W/bin/wine vulkan-sdk.exe /S
+wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
+$W/bin/wine vulkan-sdk.exe /S
 ################################# CODECs
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
 # $W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
