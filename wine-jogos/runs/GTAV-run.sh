@@ -59,7 +59,7 @@ export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export DXVK_HUD=compiler,fps
 glxinfo -B
-glxgears -stereo
+glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
