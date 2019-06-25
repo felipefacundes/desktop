@@ -10,45 +10,6 @@ GN=mkdote-mugen
 SN="Mortal Kombat Defenders of the Earth"
 CME="Jogo de luta baseado em Mugen"
 
-# Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
-mkdir -p ~/.local/share/applications/
-mkdir -p ~/.jogos/wines/
-mkdir -p ~/.jogos/icons/
-mkdir -p ~/.jogos/libraries/dxvk/
-mkdir -p ~/.jogos/scripts/run/
-mkdir -p ~/.jogos/setups/
-mkdir -p ~/.jogos/wineprefixes/
-cd ~/.jogos/wineprefixes/
-rm -rf $GN
-#mkdir -p ~/.jogos/wineprefixes/$GN
-
-cd ~/.jogos/scripts/run/
-rm -rf $GN-run.sh
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh > /dev/null 2>&1
-chmod +x $GN-run.sh
-cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/$GN.png > /dev/null 2>&1
-cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
-chmod +x winetricks
-cd ~/.jogos/wines/
-rm -rf $WV
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/$WV.tar.xz
-tar -xf $WV.tar.xz
-
-# Criando o atalho .desktop
-cd ~/.local/share/applications/
-echo "#!/usr/bin/env xdg-open" > $GN.desktop
-echo "[Desktop Entry]" >> $GN.desktop
-echo "Name=$SN" >> $GN.desktop
-echo "Comment=$CME" >> $GN.desktop
-echo "Categories=Game;" >> $GN.desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> $GN.desktop
-echo "Type=Application" >> $GN.desktop
-echo "StartupNotify=true" >> $GN.desktop
-echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> $GN.desktop
-echo "Terminal=false" >> $GN.desktop
-
 #1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
@@ -103,84 +64,7 @@ glxgears -stereo > /dev/null 2>&1
 # Primeiro configurar o wine
 #$W/bin/winecfg
 
-# Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk vb6run vcrun6 mfc40 mfc42 gdiplus
-# ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
-# Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
-echo "━━━━━━━━━"
-echo "PlayOnGit"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar alguns MINUTOS."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
-echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
-echo "Em progresso ."
-~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
-echo "Em progresso .."
-~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
-echo "Em progresso ..."
-#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-echo "Em progresso ...."
-#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
-echo "Em progresso ....."
-~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
-#~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
-################################# Vulkan SDK
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#cd ~/.jogos/setups/
-#wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
-#$W/bin/wine vulkan-sdk.exe /S
 
-################################# CODECs
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
-# $W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
-
-################################# firefox
-#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
-# $W/bin/wine Firefox*67.0.exe /S
-
-################################# Microsoft Edge
-#wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
-# $W/bin/wine MicrosoftEdgeSetupDev.exe /S
-
-# Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
-# vamos instalar o DXSDK
-mkdir -p ~/.jogos/setups/DXSDK_Jun10/
-cd ~/.jogos/setups/DXSDK_Jun10/
-#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-# $W/bin/wine DXSDK_Jun10.exe
-
-# Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
-#cd ~/.jogos/libraries/dxvk/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
-#tar -xf dxvk-1.2.1.tar.gz
-#tar -xf d9vk-0.12.tar.gz
-
-#bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install > /dev/null 2>&1
-#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install > /dev/null 2>&1
-#cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-echo "Em progresso ......"
-#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
-
-# Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
-
-# Primeiro configurar o wine
-#$W/bin/winecfg
-# Executar o instalador e depois o jogo
-cd $WINWPREFIX/drive_c/
-wget -nc "https://f-cdn.gamejolt.net/data/games/1/20/84520/protected-files-cdn/5b0c957d17231/mk-defenders-of-the-earth-v3.3.7.rar?secure=HxOAhHrPb1tEtFba7kME6w,1561458927" -O mk-defenders-of-the-earth-v3.3.7.rar
-7z x mk-defenders-of-the-earth-v3.3.7.rar
-$W/bin/wine SteamSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -195,7 +79,7 @@ $W/bin/wine SteamSetup.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "$WINWPREFIX/drive_c/MK Defenders of the Earth v3.3.7"
+cd "$WINEPREFIX/drive_c/MK Defenders of the Earth v3.3.7"
 $W/bin/wine "MKDE v3.3.7.exe"
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
