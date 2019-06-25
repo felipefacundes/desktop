@@ -180,7 +180,7 @@ echo "Em progresso ......"
 # Primeiro configurar o wine
 #$W/bin/winecfg
 # Executar o instalador e depois o jogo
-cd "$WINWPREFIX/drive_c/"
+cd "$WINEPREFIX/drive_c/"
 wget -nc "https://f-cdn.gamejolt.net/data/games/1/20/84520/protected-files-cdn/5b0c957d17231/mk-defenders-of-the-earth-v3.3.7.rar?secure=HxOAhHrPb1tEtFba7kME6w,1561458927" -O mk-defenders-of-the-earth-v3.3.7.rar
 7z x mk-defenders-of-the-earth-v3.3.7.rar
 
@@ -197,7 +197,7 @@ wget -nc "https://f-cdn.gamejolt.net/data/games/1/20/84520/protected-files-cdn/5
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "$WINWPREFIX/drive_c/"
+cd "$WINEPREFIX/drive_c/"
 #$W/bin/wine
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
