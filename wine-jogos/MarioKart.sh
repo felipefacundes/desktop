@@ -1,20 +1,4 @@
-#!/bin/bash
-cd ~/.local/share/applications
-rm -rf wine*
-rm mimeinfo.cache
-
-export TERM=xterm
-#export GALLIUM_HUD="cpu,fps"
-#export PATH=/bin/
-export WINE=/home/maria/.jogos/wines/4.0-staging/bin/wine
-#export PATH=/home/maria/.jogos/wines/4.0-staging/bin/
-export WINEVERPATH=/home/maria/.jogos/wines/4.0-staging/bin/wine
-export WINESERVER=/home/maria/.jogos/wines/4.0-staging/bin/wineserver
-export WINELOADER=/home/maria/.jogos/wines/4.0-staging/bin/wine
-#export WINEDLLPATH=
-export LD_LIBRARY32_PATH=/home/maria/.jogos/wines/4.0-staging/lib
-export LD_LIBRARY64_PATH=/home/maria/.jogos/wines/4.0-staging/lib64
-#export WINEDEBUG=+fps
+Não te interessa. O que você está olhando aqui. vai tomar conta da sua vida.
 
 export WINEARCH=win64
 #export vblank_mode=0
