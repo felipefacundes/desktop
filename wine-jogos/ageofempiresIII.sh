@@ -147,6 +147,7 @@ echo "Em progresso ....."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable csmt=off hosts > /dev/null 2>&1
 #nvapi=disabled nvapi64=disabled  > /dev/null 2>&1
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
 ################################# Vulkan SDK
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
@@ -157,8 +158,8 @@ echo "Em progresso ....."
 
 ################################# CODECs
 cd ~/.jogos/setups/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
-$W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
+#$W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
 #wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
@@ -192,7 +193,7 @@ echo "Em progresso ......"
 #~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
