@@ -158,8 +158,8 @@ echo "Em progresso ....."
 
 ################################# CODECs
 cd ~/.jogos/setups/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
-#$W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
+$W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
 #wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
