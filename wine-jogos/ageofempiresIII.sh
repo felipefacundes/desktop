@@ -28,6 +28,8 @@ rm -rf $GN
 cd ~/.jogos/scripts/run/
 rm -rf $GN-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-gameranger-run.sh > /dev/null 2>&1
+chmod +x $GN-gameranger-run.sh
 chmod +x $GN-run.sh
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/$GN.png > /dev/null 2>&1
@@ -41,6 +43,17 @@ tar -xf $WV.tar.xz
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
+echo "#!/usr/bin/env xdg-open" > $GN-gameranger.desktop
+echo "[Desktop Entry]" >> $GN-gameranger.desktop
+echo "Name=FlatOut2 com gameranger" >> $GN-gameranger.desktop
+echo "Comment=FlatOut2 com gameranger" >> $GN-gameranger.desktop
+echo "Categories=Game;" >> $GN-gameranger.desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/$GN-gameranger-run.sh" >> $GN-gameranger.desktop
+echo "Type=Application" >> $GN-gameranger.desktop
+echo "StartupNotify=true" >> $GN-gameranger.desktop
+echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> $GN-gameranger.desktop
+echo "Terminal=false" >> $GN-gameranger.desktop
+
 echo "#!/usr/bin/env xdg-open" > $GN.desktop
 echo "[Desktop Entry]" >> $GN.desktop
 echo "Name=$SN" >> $GN.desktop
@@ -183,6 +196,10 @@ echo "Em progresso ......"
 cd ~/.jogos/setups/
 wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 $W/bin/wine SteamSetup.exe
+
+#rm -rf GameRangerSetup.exe
+wget -nc https://www.gameranger.com/download/GameRangerSetup.exe
+$W/bin/wine GameRangerSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
