@@ -90,7 +90,7 @@ export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/$GN
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
-export WINEARCH=win64
+export WINEARCH=win32
 export WINEESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
@@ -131,7 +131,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ~/.jogos/scripts/winetricks -q vcrun6 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q riched20 msxml4 mfc40 mfc42 corefonts d3dx9 xact quartz d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q wmp10 faudio riched20 msxml4 mfc40 mfc42 corefonts d3dx9 xact quartz d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
