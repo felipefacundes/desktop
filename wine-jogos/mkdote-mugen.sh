@@ -138,7 +138,7 @@ echo "Em progresso ....."
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#cd ~/.jogos/setups/
+cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 $W/bin/wine vulkan-sdk.exe /S
 
