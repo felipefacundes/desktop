@@ -47,7 +47,7 @@ cd ~/.local/share/applications/
 echo "#!/usr/bin/env xdg-open" > $GN-gameranger.desktop
 echo "[Desktop Entry]" >> $GN-gameranger.desktop
 echo "Name=Age III com gameranger" >> $GN-gameranger.desktop
-echo "Comment=AGEIII com gameranger" >> $GN-gameranger.desktop
+echo "Comment=Age III com gameranger" >> $GN-gameranger.desktop
 echo "Categories=Game;" >> $GN-gameranger.desktop
 echo "Exec=/home/$USER/.jogos/scripts/run/$GN-gameranger-run.sh" >> $GN-gameranger.desktop
 echo "Type=Application" >> $GN-gameranger.desktop
@@ -219,7 +219,7 @@ $W/bin/wine GameRangerSetup.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files/Steam/"
 $W/bin/wine Steam.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
