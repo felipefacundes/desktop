@@ -268,12 +268,12 @@ $W/bin/wine Steam.exe
 
 
 ################################# 喇 MPV Player 懶 喇
-pkill -9 .exe
-cd ~/.jogos/setups/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
-tar -xf mpv.tar.xz
-cd ~/.jogos/setups/mpv
-$W/bin/wineconsole mpv-install.bat
+#pkill -9 .exe
+#cd ~/.jogos/setups/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
+#tar -xf mpv.tar.xz
+#cd ~/.jogos/setups/mpv
+#$W/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
