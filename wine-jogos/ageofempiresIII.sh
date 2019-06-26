@@ -46,7 +46,7 @@ tar -xf $WV.tar.xz
 cd ~/.local/share/applications/
 echo "#!/usr/bin/env xdg-open" > $GN-gameranger.desktop
 echo "[Desktop Entry]" >> $GN-gameranger.desktop
-echo "Name=AGEIII com gameranger" >> $GN-gameranger.desktop
+echo "Name=Age III com gameranger" >> $GN-gameranger.desktop
 echo "Comment=AGEIII com gameranger" >> $GN-gameranger.desktop
 echo "Categories=Game;" >> $GN-gameranger.desktop
 echo "Exec=/home/$USER/.jogos/scripts/run/$GN-gameranger-run.sh" >> $GN-gameranger.desktop
