@@ -27,6 +27,7 @@ rm -rf $GN
 
 cd ~/.jogos/scripts/run/
 rm -rf $GN-run.sh
+rm -rf $GN-gameranger-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh > /dev/null 2>&1
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-gameranger-run.sh > /dev/null 2>&1
 chmod +x $GN-gameranger-run.sh
