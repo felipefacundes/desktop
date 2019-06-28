@@ -80,7 +80,7 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/Program Files (x86)/Battle.net"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Battle.net"
 $W/bin/wine Battle.net.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
