@@ -139,7 +139,7 @@ echo "Em progresso ....."
 echo "Nvidia PhysX está sendo instalado"
 cd ~/.jogos/setups/
 wget -nc http://us.download.nvidia.com/Windows/9.18.0907/PhysX-9.18.0907-SystemSoftware.exe
-$W/bin/wine PhysX-9.18.0907-SystemSoftware.exe /S
+$W/bin/wine PhysX-9.18.0907-SystemSoftware.exe /q
 
 ################################# Vulkan SDK
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
