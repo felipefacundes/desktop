@@ -134,6 +134,13 @@ echo "Em progresso ....."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
 
+
+################################# Nvidia PhysX
+echo "Nvidia PhysX está sendo instalado"
+cd ~/.jogos/setups/
+wget -nc http://us.download.nvidia.com/Windows/9.18.0907/PhysX-9.18.0907-SystemSoftware.exe
+$W/bin/wine PhysX-9.18.0907-SystemSoftware.exe /S
+
 ################################# Vulkan SDK
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
