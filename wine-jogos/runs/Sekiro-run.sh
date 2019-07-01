@@ -66,7 +66,7 @@ glxgears -stereo > /dev/null 2>&1
 # Configurar o wine
 #$W/bin/winecfg
 
-# PARA REPARAR E RODAR SEKIRO HABILITE ÀS DUAS OPÇÔES ABAIXO:
+# PARA REPARAR E RODAR O GAME: SEKIRO. HABILITE ÀS DUAS OPÇÕES ABAIXO:
 # $W/bin/wine uninstaller --remove {39e28474-b67b-4209-af1b-e9ad0a83d8ca}
 # ~/.jogos/scripts/winetricks -q vcrun2017
 
