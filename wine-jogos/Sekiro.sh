@@ -261,6 +261,9 @@ $W/bin/wine Steam.exe
 #~/.jogos/scripts/winetricks vd=1360x768
 
 pkill -9 .exe
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Terminando alguns ajustes. Aguarde mais um pouco."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ~/.jogos/scripts/winetricks -q vcrun2017 > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
