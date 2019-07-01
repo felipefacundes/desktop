@@ -121,14 +121,14 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
 echo "Em progresso ."
-~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 echo "Em progresso .."
-~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso ..."
-~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ...."
 #~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2017 > /dev/null 2>&1
