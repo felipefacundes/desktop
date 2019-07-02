@@ -1,1 +1,1 @@
-Não te interessa
+Não te interessa. Vai tomar conta da sua vida
