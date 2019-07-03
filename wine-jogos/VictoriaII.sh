@@ -118,21 +118,21 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-"$HOME/.jogos/scripts/winetricks -q mfc40 mfc42 dotnet20 corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus" > /dev/null 2>&1
+"$HOME/.jogos/scripts/winetricks" -q mfc40 mfc42 dotnet20 corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#"$HOME/.jogos/scripts/winetricks -q vcrun2005" > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks" -q vcrun2005 > /dev/null 2>&1
 echo "Em progresso ."
-#"$HOME/.jogos/scripts/winetricks -q vcrun2008" > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks" -q vcrun2008 > /dev/null 2>&1
 echo "Em progresso .."
-#"$HOME/.jogos/scripts/winetricks -q vcrun2010" > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks" -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso ..."
-#"$HOME/.jogos/scripts/winetricks -q vcrun2012" > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks" -q vcrun2012 > /dev/null 2>&1
 echo "Em progresso ...."
-#"$HOME/.jogos/scripts/winetricks -q vcrun2013" > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks" -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ....."
-"$HOME/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts" > /dev/null 2>&1
-#"$HOME/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native"
+"$HOME/.jogos/scripts/winetricks" autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks" xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
 
 ################################# Vulkan SDK
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -175,10 +175,10 @@ cd "$HOME/.jogos/libraries/dxvk/"
 #cp -rf "$HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x64/*" $HOME/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 #cp -rf "$HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x32/*" $HOME/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
 echo "Em progresso ......"
-#"$HOME/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native" > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
-"$HOME/.jogos/scripts/winetricks -q win7" > /dev/null 2>&1
+"$HOME/.jogos/scripts/winetricks" -q win7 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W/bin/winecfg"
@@ -377,4 +377,4 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #cp -rf $HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* $HOME/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
 #"$W/bin/wine" regsvr32 /i /S l3codecx.ax
-#"$HOME/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native"
+#"$HOME/.jogos/scripts/winetricks" d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
