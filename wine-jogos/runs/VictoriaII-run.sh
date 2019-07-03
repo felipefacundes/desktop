@@ -129,14 +129,14 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 ################################# 喇 MPV Player 懶 喇
 #pkill -9 .exe
-#cd ~/.jogos/setups/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
+#cd "$HOME/.jogos/setups/"
+#wget -nc "https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz"
 #tar -xf mpv.tar.xz
-#cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
+#cd "$HOME/.jogos/setups/mpv"
+# "$W/bin/wineconsole" mpv-install.bat
 
 ################################# Finalização
-#~/.jogos/scripts/winetricks vd=1360x768
+#"$HOME/.jogos/scripts/winetricks" vd=1360x768
 
 ################################# Opções extras:
 # Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
@@ -216,18 +216,18 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 ################################# Oções descartadas:
 
-#cd ~/.local/share/applications
+#cd $HOME/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd $HOME/.jogos/wineprefixes/$GN/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W/bin/wine" regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
+#cp -rf $HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* $HOME/.jogos/wineprefixes/Origin/drive_c/windows/system32/
+#cp -rf $HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* $HOME/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#$W/bin/wine regsvr32 /i /S l3codecx.ax
-#~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+#"$W/bin/wine" regsvr32 /i /S l3codecx.ax
+#"$HOME/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native"
