@@ -14,17 +14,17 @@ CME="Jogo de Estratégia"
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-W=~/.jogos/wines/$WV
-export WINE64=$W/bin/wine64
-export WINE=$W/bin/wine
-export WINEVERPATH=$W
-export WINEPATH=$W/bin:$WINEPATH
-export WINESERVER=$W/bin/wineserver
-export WINELOADER64=$W/bin/wine64
-export WINELOADER=$W/bin/wine
-export WINEDLLPATH32=$W/lib32/wine/fakedlls
-export WINEDLLPATH64=$W/lib/wine/fakedlls
-export WINEDLLPATH=$W/lib/wine/fakedlls
+W="$HOME/.jogos/wines/$WV"
+export WINE64="$W/bin/wine64"
+export WINE="$W/bin/wine"
+export WINEVERPATH="$W"
+export WINEPATH="$W/bin:$WINEPATH"
+export WINESERVER="$W/bin/wineserver"
+export WINELOADER64="$W/bin/wine64"
+export WINELOADER="$W/bin/wine"
+export WINEDLLPATH32="$W/lib32/wine/fakedlls"
+export WINEDLLPATH64="$W/lib/wine/fakedlls"
+export WINEDLLPATH="$W/lib/wine/fakedlls"
 export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
 export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
@@ -32,7 +32,7 @@ export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/$GN
+export WINEPREFIX="$HOME/.jogos/wineprefixes/$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
@@ -64,11 +64,8 @@ glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
-#$W/bin/winecfg
-#~/.jogos/scripts/winetricks quartz
-#~/.jogos/scripts/winetricks -q vcrun2005
-#~/.jogos/scripts/winetricks -q vcrun2008
-#~/.jogos/scripts/winetricks -q vcrun2010
+#"$W/bin/winecfg"
+
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
 # | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
@@ -83,7 +80,7 @@ glxgears -stereo > /dev/null 2>&1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-$W/bin/wine Steam.exe -gl -applaunch 42960
+"$W/bin/wine" Steam.exe -gl -applaunch 42960
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
