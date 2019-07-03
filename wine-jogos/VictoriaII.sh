@@ -118,73 +118,73 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-"$HOME/.jogos/scripts/winetricks" -q mfc40 mfc42 dotnet20 corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+"$HOME/.jogos/scripts/winetricks -q mfc40 mfc42 dotnet20 corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus" > /dev/null 2>&1
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#"$HOME/.jogos/scripts/winetricks" -q vcrun2005 > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks -q vcrun2005" > /dev/null 2>&1
 echo "Em progresso ."
-#"$HOME/.jogos/scripts/winetricks" -q vcrun2008 > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks -q vcrun2008" > /dev/null 2>&1
 echo "Em progresso .."
-#"$HOME/.jogos/scripts/winetricks" -q vcrun2010 > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks -q vcrun2010" > /dev/null 2>&1
 echo "Em progresso ..."
-#"$HOME/.jogos/scripts/winetricks" -q vcrun2012 > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks -q vcrun2012" > /dev/null 2>&1
 echo "Em progresso ...."
-#"$HOME/.jogos/scripts/winetricks" -q vcrun2013 > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks -q vcrun2013" > /dev/null 2>&1
 echo "Em progresso ....."
-"$HOME/.jogos/scripts/winetricks" autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
-#"$HOME/.jogos/scripts/winetricks" xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
+"$HOME/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts" > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native"
 
 ################################# Vulkan SDK
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #cd "$HOME/.jogos/setups/"
-#wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
+#wget -nc "https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe"
 #"$W/bin/wine" vulkan-sdk.exe /S
 
 ################################# CODECs
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
+#wget -nc "https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe"
 # "$W/bin/wine" K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
-#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
+#wget -nc "https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe"
 # "$W/bin/wine" Firefox*67.0.exe /S
 
 ################################# Microsoft Edge
-#wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
+#wget -nc "https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1" -O MicrosoftEdgeSetupDev.exe
 # "$W/bin/wine" MicrosoftEdgeSetupDev.exe /S
 
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
 mkdir -p "$HOME/.jogos/setups/DXSDK_Jun10/"
 cd "$HOME/.jogos/setups/DXSDK_Jun10/"
-#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+#wget -nc "https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe" -O DXSDK_Jun10.exe
 # "$W/bin/wine" DXSDK_Jun10.exe
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd "$HOME/.jogos/libraries/dxvk/"
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
+#wget -nc "https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz"
+#wget -nc "https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz"
 #tar -xf dxvk-1.2.1.tar.gz
 #tar -xf d9vk-0.12.tar.gz
 
-#bash $HOME/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
-#bash $HOME/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
-#cp -rf $HOME/.jogos/libraries/dxvk/d9vk-0.12/x64/* $HOME/.jogos/wineprefixes/$GN/drive_c/windows/system32/
-#cp -rf $HOME/.jogos/libraries/dxvk/d9vk-0.12/x32/* $HOME/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
-#cp -rf $HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* $HOME/.jogos/wineprefixes/$GN/drive_c/windows/system32/
-#cp -rf $HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* $HOME/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
+#bash "$HOME/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install"
+#bash "$HOME/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install"
+#cp -rf "$HOME/.jogos/libraries/dxvk/d9vk-0.12/x64/*" $HOME/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cp -rf "$HOME/.jogos/libraries/dxvk/d9vk-0.12/x32/*" $HOME/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
+#cp -rf "$HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x64/*" $HOME/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cp -rf "$HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x32/*" $HOME/.jogos/wineprefixes/$GN/drive_c/windows/syswow64/
 echo "Em progresso ......"
-#"$HOME/.jogos/scripts/winetricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+#"$HOME/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native" > /dev/null 2>&1
 
 # Versão do Windows
-"$HOME/.jogos/scripts/winetricks" -q win7 > /dev/null 2>&1
+"$HOME/.jogos/scripts/winetricks -q win7" > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W/bin/winecfg"
 # Executar o instalador e depois o jogo
-cd $HOME/.jogos/setups/
-wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+cd "$HOME/.jogos/setups/"
+wget -nc "https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe"
 "$W/bin/wine" SteamSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
@@ -217,8 +217,8 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open $HOME/.jogos/wineprefixes/$GN/drive_c/
-#xdg-open $HOME/.jogos/scripts/run/$GN-run.sh
+#xdg-open "$HOME/.jogos/wineprefixes/$GN/drive_c/"
+#xdg-open "$HOME/.jogos/scripts/run/$GN-run.sh"
 
 
 
@@ -250,10 +250,10 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 ################################# 喇 MPV Player 懶 喇
 #pkill -9 .exe
-#cd $HOME/.jogos/setups/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
+#cd "$HOME/.jogos/setups/"
+#wget -nc "https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz"
 #tar -xf mpv.tar.xz
-#cd $HOME/.jogos/setups/mpv
+#cd "$HOME/.jogos/setups/mpv"
 # "$W/bin/wineconsole" mpv-install.bat
 
 ################################# Finalização
@@ -377,4 +377,4 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #cp -rf $HOME/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* $HOME/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
 #"$W/bin/wine" regsvr32 /i /S l3codecx.ax
-#"$HOME/.jogos/scripts/winetricks" d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+#"$HOME/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native"
