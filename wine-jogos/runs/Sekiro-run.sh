@@ -14,25 +14,25 @@ CME="Jogo de Ação Samurai"
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-W=~/.jogos/wines/$WV
-export WINE64=$W/bin/wine64
-export WINE=$W/bin/wine
-export WINEVERPATH=$W
-export WINEPATH=$W/bin:$WINEPATH
-export WINESERVER=$W/bin/wineserver
-export WINELOADER64=$W/bin/wine64
-export WINELOADER=$W/bin/wine
-export WINEDLLPATH32=$W/lib32/wine/fakedlls
-export WINEDLLPATH64=$W/lib/wine/fakedlls
-export WINEDLLPATH=$W/lib/wine/fakedlls
+W=~/.jogos/wines/"$WV"
+export WINE64="$W"/bin/wine64
+export WINE="$W"/bin/wine
+export WINEVERPATH="$W"
+export WINEPATH="$W/bin:$WINEPATH"
+export WINESERVER="$W"/bin/wineserver
+export WINELOADER64="$W"/bin/wine64
+export WINELOADER="$W"/bin/wine
+export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+export WINEDLLPATH64="$W"/lib/wine/fakedlls
+export WINEDLLPATH="$W"/lib/wine/fakedlls
 export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
 export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
-#$W/bin/wineconsole "cmd"
+#"$W"/bin/wineconsole "cmd"
 
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/$GN
+export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
@@ -48,8 +48,8 @@ export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
-export DXVK_SHADER_DUMP_PATH=”/tmp”
-export DXVK_SHADER_READ_PATH=”/tmp”
+export DXVK_SHADER_DUMP_PATH="/tmp"
+export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
@@ -57,17 +57,17 @@ export __GL_THREADED_OPTIMIZATIONS=1
 export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
 export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
+export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
-# Configurar o wine
-#$W/bin/winecfg
+# Primeiro configurar o wine
+#"$W"/bin/winecfg
 
 # PARA REPARAR E RODAR O GAME: SEKIRO. DESCOMENTE ÀS DUAS OPÇÕES ABAIXO:
-# $W/bin/wine uninstaller --remove {39e28474-b67b-4209-af1b-e9ad0a83d8ca}
+# "$W"/bin/wine uninstaller --remove {39e28474-b67b-4209-af1b-e9ad0a83d8ca}
 # ~/.jogos/scripts/winetricks -q vcrun2017
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
@@ -85,7 +85,7 @@ glxgears -stereo > /dev/null 2>&1
 # PARA REPARAR SEKIRO, caso necessário, descomente às duas opções acima: uninstaller e vcrun2017
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-$W/bin/wine Steam.exe -applaunch 814380
+"$W"/bin/wine Steam.exe -applaunch 814380
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -138,7 +138,7 @@ $W/bin/wine Steam.exe -applaunch 814380
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
+# "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
@@ -149,7 +149,7 @@ $W/bin/wine Steam.exe -applaunch 814380
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
-#-applaunch 814380
+#-applaunch 230410
 # Acima são opções da steam
 #
 # programa.exe -opengl
@@ -224,15 +224,15 @@ $W/bin/wine Steam.exe -applaunch 814380
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#$W/bin/wine regsvr32 /i /S l3codecx.ax
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
