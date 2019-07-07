@@ -66,9 +66,8 @@ glxgears -stereo > /dev/null 2>&1
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 
-# PARA REPARAR E RODAR O GAME: SEKIRO. DESCOMENTE ÀS DUAS OPÇÕES ABAIXO:
-# "$W"/bin/wine uninstaller --remove {39e28474-b67b-4209-af1b-e9ad0a83d8ca}
-# ~/.jogos/scripts/winetricks -q vcrun2017
+# PARA REPARAR E RODAR O GAME: SEKIRO. DESCOMENTE À OPÇÃO ABAIXO:
+#~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -82,7 +81,7 @@ glxgears -stereo > /dev/null 2>&1
 # Coloque o endereço da PASTA entre às "ASPAS" e mude o nome do executável do instalador.
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
-# PARA REPARAR SEKIRO, caso necessário, descomente às duas opções acima: uninstaller e vcrun2017
+# PARA REPARAR SEKIRO, caso necessário, descomente à opção acima: "winxp"
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 "$W"/bin/wine Steam.exe -applaunch 814380
