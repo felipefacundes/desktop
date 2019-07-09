@@ -10,29 +10,29 @@ GN=warframe
 SN="Warframe"
 CME="Tiro em terceira pessoa cooperativo free-to-play"
 
-# Essa é a versão escolhida do Wine
+#1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-W=~/.jogos/wines/$WV
-export WINE64=$W/bin/wine64
-export WINE=$W/bin/wine
-export WINEVERPATH=$W
-export WINEPATH=$W/bin:$WINEPATH
-export WINESERVER=$W/bin/wineserver
-export WINELOADER64=$W/bin/wine64
-export WINELOADER=$W/bin/wine
-export WINEDLLPATH32=$W/lib32/wine/fakedlls
-export WINEDLLPATH64=$W/lib/wine/fakedlls
-export WINEDLLPATH=$W/lib/wine/fakedlls
+W=~/.jogos/wines/"$WV"
+export WINE64="$W"/bin/wine64
+export WINE="$W"/bin/wine
+export WINEVERPATH="$W"
+export WINEPATH="$W/bin:$WINEPATH"
+export WINESERVER="$W"/bin/wineserver
+export WINELOADER64="$W"/bin/wine64
+export WINELOADER="$W"/bin/wine
+export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+export WINEDLLPATH64="$W"/lib/wine/fakedlls
+export WINEDLLPATH="$W"/lib/wine/fakedlls
 export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
 export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
-#$W/bin/wineconsole "cmd"
+#"$W"/bin/wineconsole "cmd"
 
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/$GN
+export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
@@ -42,12 +42,14 @@ export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
+# Para GAMEMODE: gamemoderun
+#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
-export DXVK_SHADER_DUMP_PATH=”/tmp”
-export DXVK_SHADER_READ_PATH=”/tmp”
+export DXVK_SHADER_DUMP_PATH="/tmp"
+export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
@@ -55,15 +57,14 @@ export __GL_THREADED_OPTIMIZATIONS=1
 export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
 export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
+export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
-#$W/bin/winecfg
-
+#"$W"/bin/winecfg
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -79,7 +80,7 @@ glxgears -stereo > /dev/null 2>&1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-$W/bin/wine Steam.exe -applaunch 230410
+"$W"/bin/wine Steam.exe -applaunch 230410
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -125,25 +126,22 @@ $W/bin/wine Steam.exe -applaunch 230410
 
 
 
-
 ################################# 喇 MPV Player 懶 喇
 #pkill -9 .exe
 #cd ~/.jogos/setups/
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
-
-
+# "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Opções extras:
-# Opções da $GN: https://developer.valvesoftware.com/wiki/Command_Line_Options
+# Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
 #-applaunch 230410
-# Acima são opções da $GN
+# Acima são opções da steam
 #
 # programa.exe -opengl
 # progrma.exe -dx9
@@ -217,15 +215,15 @@ $W/bin/wine Steam.exe -applaunch 230410
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#$W/bin/wine regsvr32 /i /S l3codecx.ax
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
