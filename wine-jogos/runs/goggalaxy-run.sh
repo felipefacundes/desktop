@@ -10,39 +10,59 @@ GN=goggalaxy
 SN="GOG Galaxy"
 CME="GOG Store"
 
-# Essa é a versão escolhida do Wine
+#1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
-#export GALLIUM_HUD=".w256.h64.x1600.y520.d.c1000fps+cpu,.datom-count"
 #export GALLIUM_HUD="fps"
-W=~/.jogos/wines/$WV
-export WINE=$W/bin/wine
-export WINEVERPATH=$W
-export WINEPATH=$W/bin:$WINEPATH
-export WINESERVER=$W/bin/wineserver
-export WINELOADER=$W/bin/wine
-export WINEDLLPATH=$W/lib/wine/fakedlls
-export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+W=~/.jogos/wines/"$WV"
+export WINE64="$W"/bin/wine64
+export WINE="$W"/bin/wine
+export WINEVERPATH="$W"
+export WINEPATH="$W"/bin:$WINEPATH
+export WINESERVER="$W"/bin/wineserver
+export WINELOADER64="$W"/bin/wine64
+export WINELOADER="$W"/bin/wine
+export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+export WINEDLLPATH64="$W"/lib/wine/fakedlls
+export WINEDLLPATH="$W"/lib/wine/fakedlls
 export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
 export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
-#$W/bin/wine "cmd"
+export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+#"$W"/bin/wineconsole "cmd"
 
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
-export WINEPREFIX=~/.jogos/wineprefixes/$GN
-# Esta é uma opção que às vezes é necessária para alguns jogos
-#MESA_GL_VERSION_OVERRIDE=4.1 MESA_GLSL_VERSION_OVERRIDE=410 DRI_PRIME=1
+export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
 export vblank_mode=0
+# Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
+export MESA_GLSL_VERSION_OVERRIDE=450
+export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
+export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+export DXVK_SPIRV_OPT=ON
+export DXVK_SHADER_OPTIMIZE=1
+export DXVK_DEBUG_LAYERS=0
+export DXVK_SHADER_DUMP_PATH="/tmp"
+export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
-export DXVK_HUD=1
+#export DXVK_HUD=fps,version,compiler
+#LD_PRELOAD=”libpthread.so.0 libGL.so.1″
+export __GL_THREADED_OPTIMIZATIONS=1
+export __GL_YIELD=NOTHING
+export PULSE_LATENCY_MSEC=60
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH="/tmp"
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export DXVK_HUD=compiler,fps
+glxinfo -B
+glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
-#$W/bin/winecfg
+#"$W"/bin/winecfg
 
 #~/.jogos/scripts/winetricks -q vcrun2017
 #~/.jogos/scripts/winetricks -q win10
@@ -62,7 +82,7 @@ export DXVK_HUD=1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/goggalaxy/drive_c/Program Files (x86)/GOG Galaxy"
-$W/bin/wine GalaxyClient.exe
+"$W"/bin/wine GalaxyClient.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -78,9 +98,8 @@ $W/bin/wine GalaxyClient.exe
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/$GN/drive_c/
-#xdg-open ~/.jogos/scripts/run/$GN-run.sh
-
+#xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
+#xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
 
 
 
@@ -115,17 +134,17 @@ $W/bin/wine GalaxyClient.exe
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
+# "$W"/bin/wineconsole mpv-install.bat
 
 
 ################################# Opções extras:
-# Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
+# Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
 #-applaunch 230410
-# Acima são opções da steam
+# Acima são opções da "$GN"
 #
 # programa.exe -opengl
 # progrma.exe -dx9
@@ -199,15 +218,15 @@ $W/bin/wine GalaxyClient.exe
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
-#$W/bin/wine regsvr32 /i /S l3codecx.ax
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
