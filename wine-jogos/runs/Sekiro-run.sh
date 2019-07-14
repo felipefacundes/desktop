@@ -148,17 +148,15 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 #cd ~/.jogos/setups/mpv
 # "$W"/bin/wineconsole mpv-install.bat
 
-################################# Finalização
-#~/.jogos/scripts/winetricks vd=1360x768
 
 ################################# Opções extras:
-# Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
+# Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
 #-applaunch 230410
-# Acima são opções da steam
+# Acima são opções da "$GN"
 #
 # programa.exe -opengl
 # progrma.exe -dx9
@@ -229,6 +227,18 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 ################################# Oções descartadas:
 
+#export VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay
+#export VK_LAYER_MESA_OVERLAY_STATS=submit,draw,pipeline-graphics
+#export VK_LAYER_MESA_OVERLAY_POSITION=top-right
+#export vulkanpresentmode=0
+#export VkPresentModeKHR=0
+#export VK_PRESENT_MODE_IMMEDIATE_KHR=0
+#export VK_PRESENT_MODE_MAILBOX_KHR=0
+#export VK_PRESENT_MODE_FIFO_KHR=0
+
+#export OGL_FORCE_BLIT_ON
+#export OGL_DEFAULT_SWAP_INTERVAL_FORCE_OFF
+
 #cd ~/.local/share/applications
 #rm -rf wine*
 
@@ -239,8 +249,8 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 # INSTALE O DXVK - Manualmente
 
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
 #"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
