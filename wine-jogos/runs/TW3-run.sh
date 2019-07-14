@@ -10,7 +10,7 @@ GN=TW3
 SN="The Witcher 3"
 CME="Ação e RPG"
 
-#1# Essa é a versão escolhida do Wine
+#A# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
@@ -18,7 +18,7 @@ W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
 export WINEVERPATH="$W"
-export WINEPATH="$W"/bin:$WINEPATH
+export WINEPATH="$W/bin:$WINEPATH"
 export WINESERVER="$W"/bin/wineserver
 export WINELOADER64="$W"/bin/wine64
 export WINELOADER="$W"/bin/wine
@@ -52,24 +52,28 @@ export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
-export __GL_THREADED_OPTIMIZATIONS=1
-export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
+export KWIN_TRIPLE_BUFFER=1
+export TRIPLE_BUFFER=1
+export MESA_NO_ERROR=1
+export __GL_YIELD="NOTHING"
+export XVideoTextureSyncToVBlank=0
+export __GL_SYNC_TO_VBLANK=0
+export __GL_THREADED_OPTIMIZATIONS=1
+export mesa_glthread=true
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-#export PBA=0
 export PBA_DISABLE=0
 export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
+# Para GAMEMODE: gamemoderun
+#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
+
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
-
-#~/.jogos/scripts/winetricks -q vcrun2017
-#~/.jogos/scripts/winetricks -q win10
-
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -84,8 +88,8 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe -gl -applaunch 292030
+cd "/home/facundes/.jogos/wineprefixes/TW3/drive_c/Program Files (x86)/The Witcher 3 Wild Hunt Blood and Wine/bin/x64"
+"$W"/bin/wine witcher3.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -217,6 +221,18 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 
 ################################# Oções descartadas:
+
+#export VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay
+#export VK_LAYER_MESA_OVERLAY_STATS=submit,draw,pipeline-graphics
+#export VK_LAYER_MESA_OVERLAY_POSITION=top-right
+#export vulkanpresentmode=0
+#export VkPresentModeKHR=0
+#export VK_PRESENT_MODE_IMMEDIATE_KHR=0
+#export VK_PRESENT_MODE_MAILBOX_KHR=0
+#export VK_PRESENT_MODE_FIFO_KHR=0
+
+#export OGL_FORCE_BLIT_ON
+#export OGL_DEFAULT_SWAP_INTERVAL_FORCE_OFF
 
 #cd ~/.local/share/applications
 #rm -rf wine*
