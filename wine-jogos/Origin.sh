@@ -205,7 +205,7 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/"$GN"/driv
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
@@ -214,8 +214,9 @@ cd ~/.jogos/setups/
 #wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 #"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
 
-wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
-"$W"/bin/wine OriginThinSetup.exe
+#wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
+wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
+"$W"/bin/wine OriginSetup.exe
 
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
@@ -292,6 +293,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
 pkill -9 .exe
 
+~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
