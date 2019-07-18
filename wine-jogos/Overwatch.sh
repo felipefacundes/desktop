@@ -290,7 +290,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
-pkill -9 .exe
+#pkill -9 .exe
 
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
