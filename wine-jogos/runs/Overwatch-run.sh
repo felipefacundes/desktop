@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.9-1-x86_64
+WV=wine-staging-4.12.1-1-x86_64
 GN=Overwatch
 SN="Overwatch"
 CME="Tiro em primeira pessoa cooperativo pay-to-play"
@@ -143,17 +143,17 @@ $W/bin/wine Battle.net.exe
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
+# "$W"/bin/wineconsole mpv-install.bat
 
 
 ################################# Opções extras:
-# Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
+# Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
 #-applaunch 230410
-# Acima são opções da steam
+# Acima são opções da "$GN"
 #
 # programa.exe -opengl
 # progrma.exe -dx9
@@ -227,15 +227,15 @@ $W/bin/wine Battle.net.exe
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#$W/bin/wine regsvr32 /i /S l3codecx.ax
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
