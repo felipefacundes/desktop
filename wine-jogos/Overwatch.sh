@@ -216,8 +216,9 @@ cd ~/.jogos/setups/
 #wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 #"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
 
-wget -nc "http://dist.blizzard.com/downloads/bna-installers/322d5bb9ae0318de3d4cde7641c96425/retail.1/Battle.net-Setup-enUS.exe" -O Battle.net-Setup-enUS.exe
-"$W"/bin/wine Battle.net-Setup-enUS.exe
+#wget -nc "http://dist.blizzard.com/downloads/bna-installers/322d5bb9ae0318de3d4cde7641c96425/retail.1/Battle.net-Setup-enUS.exe" -O Battle.net-Setup-enUS.exe
+wget -nc "https://us.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe" -O Battle.net-Setup.exe
+"$W"/bin/wine Battle.net-Setup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
