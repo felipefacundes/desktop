@@ -138,9 +138,9 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/dx_especial/
 cd ~/.jogos/setups/dx_especial/
-wget -nc https://lutris.net/files/tools/directx-2010.tar.gz
-tar -xf directx-2010.tar.gz
-"$W"/bin/wine DXSETUP.exe
+#wget -nc https://lutris.net/files/tools/directx-2010.tar.gz
+#tar -xf directx-2010.tar.gz
+#"$W"/bin/wine DXSETUP.exe
 
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 #mkdir -p ~/.jogos/setups/DXSDK_Jun10/
@@ -180,14 +180,14 @@ wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 # "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
 # Para libraries
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "instalando libraries necessárias"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "instalando libraries necessárias"
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/libraries/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-tar -xf mfinstall.tar.xz
-cd mfinstall
-bash install-mf.sh > /dev/null 2>&1
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+#tar -xf mfinstall.tar.xz
+#cd mfinstall
+#bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
