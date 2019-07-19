@@ -154,7 +154,7 @@ echo "Em progresso .."
 ~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
 echo "Em progresso ..."
 ~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2017 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
 echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
 echo "Em progresso ....."
