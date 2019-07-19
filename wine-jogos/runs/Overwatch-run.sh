@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.12.1-1-x86_64
+WV=wine-4.11-1-x86_64
 GN=Overwatch
 SN="Overwatch"
 CME="Tiro em primeira pessoa cooperativo pay-to-play"
