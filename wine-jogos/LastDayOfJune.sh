@@ -131,7 +131,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/dx_especial/
 cd ~/.jogos/setups/dx_especial/
-wget -nc https://lutris.net/files/tools/directx-2010.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/directx-2010.tar.gz
 tar -xf directx-2010.tar.gz
 $W/bin/wine DXSETUP.exe
 
