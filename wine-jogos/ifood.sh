@@ -200,8 +200,8 @@ wget -nc https://s3-sa-east-1.amazonaws.com/iconnectv2.ifood.com.br/Backup/520/I
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/"
+#"$W"/bin/wine 
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
