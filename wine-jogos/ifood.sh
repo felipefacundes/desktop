@@ -118,18 +118,18 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q mfc40 mfc42 corefonts gdiplus > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mfc40 mfc42 corefonts gdiplus > /dev/null 2>&1
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
 echo "Em progresso ."
-~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 echo "Em progresso .."
-~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso ..."
-~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
 echo "Em progresso ...."
-~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ....."
 #~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native
@@ -167,6 +167,13 @@ echo "Em progresso ....."
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
 #tar -xf dxvk-1.2.1.tar.gz
 #tar -xf d9vk-0.12.tar.gz
+
+cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+rm atl100.dll
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/x64/atl100.dll
+cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+rm atl100.dll
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/x32/atl100.dll
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
