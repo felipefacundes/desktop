@@ -118,7 +118,7 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#~/.jogos/scripts/winetricks -q mfc40 mfc42 corefonts gdiplus > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts > /dev/null 2>&1
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
@@ -168,13 +168,13 @@ echo "Em progresso ....."
 #tar -xf dxvk-1.2.1.tar.gz
 #tar -xf d9vk-0.12.tar.gz
 
-~/.jogos/scripts/winetricks atl100=native
 cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 rm atl100.dll
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/x64/atl100.dll
 cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 rm atl100.dll
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/x32/atl100.dll
+~/.jogos/scripts/winetricks atl100=native
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
