@@ -20,46 +20,46 @@ mkdir -p ~/.jogos/setups/
 mkdir -p ~/.jogos/wineprefixes/
 cd ~/.jogos/wineprefixes/
 rm -rf ~/.wine-appimage-lol
-#mkdir -p ~/.jogos/wineprefixes/$GN
+#mkdir -p ~/.jogos/wineprefixes/"$GN"
 
 cd ~/.jogos/scripts/run/
-rm -rf $GN-run.sh
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh
-chmod +x $GN-run.sh
+rm -rf "$GN"-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/"$GN"-run.sh
+chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/$GN.png
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/"$GN".png
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 cd ~/.jogos/wines/
-rm -rf $WV
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/$WV
-chmod +x $WV
+rm -rf "$WV"
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV"
+chmod +x "$WV"
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
-echo "#!/usr/bin/env xdg-open" > $GN.desktop
-echo "[Desktop Entry]" >> $GN.desktop
-echo "Name=$SN" >> $GN.desktop
-echo "Comment=$CME" >> $GN.desktop
-echo "Categories=Game;" >> $GN.desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> $GN.desktop
-echo "Type=Application" >> $GN.desktop
-echo "StartupNotify=true" >> $GN.desktop
-echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> $GN.desktop
-echo "Terminal=false" >> $GN.desktop
+echo "#!/usr/bin/env xdg-open" > "$GN".desktop
+echo "[Desktop Entry]" >> "$GN".desktop
+echo "Name=$SN" >> "$GN".desktop
+echo "Comment=$CME" >> "$GN".desktop
+echo "Categories=Game;" >> "$GN".desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
+echo "Type=Application" >> "$GN".desktop
+echo "StartupNotify=true" >> "$GN".desktop
+echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
+echo "Terminal=false" >> "$GN".desktop
 
 #1# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela, para CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-W=~/.jogos/wines/$WV
-#export WINE=$W/bin/wine
-#export WINEVERPATH=$W
-#export WINEPATH=$W/bin:$WINEPATH
-#export WINESERVER=$W/bin/wineserver
-#export WINELOADER=$W/bin/wine
-#export WINEDLLPATH=$W/lib/wine/fakedlls
+W=~/.jogos/wines/"$WV"
+#export WINE="$W"/bin/wine
+#export WINEVERPATH="$W"
+#export WINEPATH="$W"/bin:$WINEPATH
+#export WINESERVER="$W"/bin/wineserver
+#export WINELOADER="$W"/bin/wine
+#export WINEDLLPATH="$W"/lib/wine/fakedlls
 #export LD_LIBRARY_PATH="$W/usr/lib":$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH="$W/usr/lib/i386-linux-gnu":$LD_LIBRARY_PATH
 #export LD_LIBRARY_PATH="$W/lib":$LD_LIBRARY_PATH
@@ -91,8 +91,8 @@ export WINEDLLOVERRIDES=mscoree,mshtml,d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
-export DXVK_SHADER_DUMP_PATH=”/tmp”
-export DXVK_SHADER_READ_PATH=”/tmp”
+export DXVK_SHADER_DUMP_PATH="/tmp"
+export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
@@ -100,11 +100,11 @@ export __GL_THREADED_OPTIMIZATIONS=1
 export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
 export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
+export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export DXVK_HUD=compiler,fps
 glxinfo -B
-glxgears -stereo
+glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #$W/bin/winecfg
@@ -124,35 +124,35 @@ glxgears -stereo
 ################################# Vulkan SDK
 notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
-$W wine winecfg
+"$W" wine winecfg
 cd ~/.jogos/setups/
 wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
-$W wine vulkan-sdk.exe /S
+"$W" wine vulkan-sdk.exe /S
 
 ################################# CODECs
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
-# $W/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
+# "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
 #wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
-# $W/bin/wine Firefox*67.0.exe /S
+# "$W"/bin/wine Firefox*67.0.exe /S
 
 ################################# Microsoft Edge
 #wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
-# $W/bin/wine MicrosoftEdgeSetupDev.exe /S
+# "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
 cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-# $W/bin/wine DXSDK_Jun10.exe
+# "$W"/bin/wine DXSDK_Jun10.exe
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/dxvk-release-lol.tar.xz
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/dxvk-release-lol.tar.xz
 #wget -nc wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
-tar -xf dxvk-release-lol.tar.xz
+#tar -xf dxvk-release-lol.tar.xz
 #tar -xf d9vk-0.12.tar.gz
 #cd d9vk-0.12/
 cd dxvk-release-lol
@@ -161,8 +161,8 @@ chmod +x instala_pow.sh
 
 export WINEPREFIX=~/.wine-appimage-lol
 
-cd "/home/$USER/.jogos/libraries/dxvk/dxvk-release-lol/"
-cp -rf x32/* "$WINEPREFIX/drive_c/windows/system32"
+#cd "/home/$USER/.jogos/libraries/dxvk/dxvk-release-lol/"
+#cp -rf x32/* "$WINEPREFIX/drive_c/windows/system32"
 
 #~/.jogos/libraries/dxvk/dxvk-release-lol/instala_pow.sh
 #~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
@@ -175,13 +175,13 @@ cp -rf x32/* "$WINEPREFIX/drive_c/windows/system32"
 #~/.jogos/scripts/winetricks -q win7
 
 # Primeiro configurar o wine
-#$W/bin/winecfg
+#"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
 rm League*of*Legends*installer*BR.exe
 wget -nc "https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy/League%20of%20Legends%20installer%20BR.exe"
 #https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy/League%20of%20Legends%20installer%20NA.exe
-$W wine League*of*Legends*installer*BR.exe
+"$W" wine League*of*Legends*installer*BR.exe
 #League*of*Legends*installer*NA.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
@@ -198,7 +198,7 @@ $W wine League*of*Legends*installer*BR.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "$WINEPREFIX/drive_c/"
-#$W wine
+#"$W" wine
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -214,8 +214,8 @@ cd "$WINEPREFIX/drive_c/"
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/$GN/drive_c/
-#xdg-open ~/.jogos/scripts/run/$GN-run.sh
+#xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
+#xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
 
 
 
@@ -251,17 +251,20 @@ cd "$WINEPREFIX/drive_c/"
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
+# "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 #pkill -9 .exe
 cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg
-ffplay -nodisp -volume 100 -f ogg leia.ogg &
-sleep 5
-pkill -9 ffplay
-dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
+export beep=~/.jogos/scripts/leia.ogg
+pactl upload-sample ~/.jogos/scripts/leia.ogg
+paplay "$beep" --volume=76767
+notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+#dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
+#"$W"/bin/winecfg
+#dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
 #dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
 
@@ -358,15 +361,15 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#$W/bin/wine regsvr32 /i /S l3codecx.ax
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
