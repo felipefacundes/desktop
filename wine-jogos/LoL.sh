@@ -155,9 +155,9 @@ cd ~/.jogos/libraries/dxvk/
 #tar -xf dxvk-release-lol.tar.xz
 #tar -xf d9vk-0.12.tar.gz
 #cd d9vk-0.12/
-cd dxvk-release-lol
-chmod +x setup_dxvk.sh
-chmod +x instala_pow.sh
+#cd dxvk-release-lol
+#chmod +x setup_dxvk.sh
+#chmod +x instala_pow.sh
 
 export WINEPREFIX=~/.wine-appimage-lol
 
