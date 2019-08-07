@@ -27,10 +27,10 @@ rm -rf "$GN"
 
 cd ~/.jogos/scripts/run/
 rm -rf "$GN"-run.sh
-wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
@@ -46,7 +46,7 @@ echo "[Desktop Entry]" >> "$GN".desktop
 echo "Name=$SN" >> "$GN".desktop
 echo "Comment=$CME" >> "$GN".desktop
 echo "Categories=Game;" >> "$GN".desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/"$GN"-run.sh" >> "$GN".desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
 echo "Type=Application" >> "$GN".desktop
 echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/"$GN".png" >> "$GN".desktop
