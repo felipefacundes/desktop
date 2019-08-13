@@ -16,7 +16,7 @@ done
 
 rm imagem.pgm
 tesseract imagem.tif texto -l por hocr
-echo "Obrigado por converter imagem em texto com o OCR script de Roque Felipe, o destruidor desde os tempos mais primordios."
+echo "Obrigado por converter imagem em texto com o OCR script de Felipe Facundes, o destruidor desde os tempos mais primordios."
 #rm *.tif
 exit
 
