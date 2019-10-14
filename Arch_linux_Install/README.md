@@ -177,7 +177,7 @@ UsuárioDaSuaPreferência ALL=(ALL) ALL
 `pacman -S xorg-xinit xorg-server xorg-server-devel`
 
 ### Colocando o seu sistema para PORTUGUÊS de forma automática:
-###### Leia. Na linha abaixo, contém 12 linhas de comando, obedeça cada comando:
+###### Leia. Na linha abaixo, contém 13 linhas de comando, obedeça cada comando:
 ```
 cd /etc
 wget https://raw.githubusercontent.com/felipefacundes/desktop/master/Arch_linux_Install/locale.conf
@@ -265,7 +265,7 @@ https://amdgpu.github.io/
 pacman -S lib32-libcanberra-gstreamer lib32-gstreamer lib32-gst-plugins-good lib32-gst-plugins-base-libs lib32-gst-plugins-base aribb24 gpac gst-libav lame libdvbpsi libiec61883 libmad libmp4v2 libmpeg2 mjpegtools mpg123 twolame xvidcore libquicktime sox libopusenc opus opus-tools opusfile schroedinger aom celt flac libde265 opencore-amr openjpeg2 speex libfishsound gst-plugins-base gst-plugins-base-libs gst-plugins-good gstreamer libcanberra-gstreamer fmt atomicparsley
 ```
 ### Para deixar o seu computador muito mais rápido, eficiente, mais seguro. Aumente a performance e o FPS em JOGOS:
-###### Leia. Na linha abaixo, contém 3 linhas de comando, obedeça cada comando:
+###### Leia. Na linha abaixo, contém 12 linhas de comando, obedeça cada comando:
 ```
 echo -e "vm.swappiness=0" > /etc/sysctl.conf
 echo -e "net.ipv4.tcp_syncookies=1" >> /etc/sysctl.conf
@@ -278,8 +278,11 @@ echo -e "kernel.sched_autogroup_enabled=0" > /etc/sysctl.conf
 echo -e "vm.dirty_background_bytes=16777216" > /etc/sysctl.conf
 echo -e "vm.dirty_bytes=50331648" > /etc/sysctl.conf
 echo -e "kernel.pid_max=4194304" > /etc/sysctl.conf
+echo -e "vm.oom_kill_allocating_task=1" > /etc/sysctl.conf
 ```
+
 ###### Em /etc/security/limits.conf   Observação:   o comando abaixo aumentará o desempenho e o FPS em jogos.
+###### Leia. Na linha abaixo, contém 11 linhas de comando, obedeça cada comando:
 ```
 echo -e "hard stack unlimited" >> /etc/security/limits.conf
 echo -e "nproc unlimited" >> /etc/security/limits.conf
