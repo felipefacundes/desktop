@@ -274,7 +274,7 @@ pacman -Syy opencl-mesa xf86-video-amdgpu xf86-video-ati linux-headers dkms vulk
 ###### Habilite o `Multilib` em /etc/pacman.conf
 ###### Retire a hashtag antes das duas linhas: [multilib] e Include = /etc/pacman.d/mirrorlist
 
-    pacman -Syy lib32-libpulse lib32-libcanberra-pulse pulseaudio-equalizer-ladspa ponymix pulseaudio-qt pulseaudio-lirc pulseaudio-jack pulseaudio-equalizer pulseaudio-bluetooth pulseaudio-alsa pulseaudio pavucontrol libpulse libcanberra-pulse libao lib32-libpulse
+    pacman -Syy alsa-plugins alsa-utils lib32-alsa-plugins lib32-alsa-lib lib32-libpulse lib32-libcanberra-pulse pulseaudio-equalizer-ladspa ponymix pulseaudio-qt pulseaudio-lirc pulseaudio-jack pulseaudio-equalizer pulseaudio-bluetooth pulseaudio-alsa pulseaudio pavucontrol libpulse libcanberra-pulse libao lib32-libpulse
 
 ### Você poderá habilitar o Radv, para à sua AMDGPU RADEON, para tanto siga esse meu tutorial, super fácil:
 
