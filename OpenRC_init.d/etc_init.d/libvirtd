@@ -1,0 +1,15 @@
+#!/usr/bin/openrc-run
+# Credits: Felipe Facundes
+# Telegram: @fefacundes
+# Telegram Group: t.me/winehq_linux
+
+
+start () { /usr/bin/libvirtd -d
+}
+
+restart () { /usr/bin/pkill -9 libvirtd ;
+/usr/bin/libvirtd -d
+}
+
+stop () { /usr/bin/pkill -9 libvirtd
+}
