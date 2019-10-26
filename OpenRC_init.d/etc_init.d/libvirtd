@@ -12,8 +12,6 @@
 #stop () { /usr/bin/pkill -9 libvirtd
 #}
 
-#!/sbin/openrc-run
-
 description="Virtual Machine Management (libvirt) Guests"
 
 depend() {
