@@ -2,6 +2,7 @@
 # Credits: Felipe Facundes
 # Telegram: @fefacundes
 # Telegram Group: t.me/winehq_linux
+
 #start () { /usr/bin/libvirtd -d
 #}
 
@@ -177,6 +178,7 @@ libvirtd_net_stop() {
 }
 
 start() {
+	/usr/bin/libvirtd -d
 	local uri=
 	local uuid=
 	local name=
