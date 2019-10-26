@@ -12,9 +12,9 @@
                             |                                                                  |
  Status do Serviço          | /etc/init.d/<service> status  "ou" rc-service <service> status   | systemctl status <service>
                             |                                                                  |
- Mostrar os scripts         | rc-status  rc-update show                                        | systemctl list-units
+ Mostrar os scripts         | rc-status  "ou" rc-update show                                   | systemctl list-units
                             |                                                                  |
- Mostrar serviços iniciados | ls /etc/init.d/  "ou" rc-update -v show                          | systemctl list-unit-files --type=service
+ Mostrar serviços iniciados | ls /etc/init.d/ "ou" rc-update -v show                    | systemctl list-unit-files --type=service
                             |                                                                  |
  Habilitar serviço          | rc-update add <service> <runlevel>                               | systemctl enable <service>
                             |                                                                  |
