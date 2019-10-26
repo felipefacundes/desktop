@@ -1,9 +1,9 @@
 # Comandos: OpenRC vs Systemd
 
 
-           Comando          |                            OpenRC                           |                  Systemd
-                            |                                                             |
-:--------------------------:|:-----------------------------------------------------------:|:----------------------------------------:
+           Comando          |                            OpenRC                                |             Systemd
+                            |                                                                  |
+:--------------------------:|:----------------------------------------------------------------:|:-----------------------------------:
  Iniciar um serviço         | /etc/init.d/<service> start  "ou" rc-service <service> start     | systemctl start <service>
                             |                                                                  |
  Parar um serviço           | /etc/init.d/<service> stop  "ou" rc-service <service> stop       | systemctl stop <service>
