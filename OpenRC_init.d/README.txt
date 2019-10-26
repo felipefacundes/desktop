@@ -14,7 +14,7 @@
                             |                                                                  |
  Mostrar os scripts         | rc-status  rc-update show                                        | systemctl list-units
                             |                                                                  |
- Mostrar serviços iniciados | ls /etc/init.d/  rc-update -v show                               | systemctl list-unit-files --type=service
+ Mostrar serviços iniciados | ls /etc/init.d/  "ou" rc-update -v show                          | systemctl list-unit-files --type=service
                             |                                                                  |
  Habilitar serviço          | rc-update add <service> <runlevel>                               | systemctl enable <service>
                             |                                                                  |
@@ -35,4 +35,4 @@
                             |
  Mostrar Logs               | journalctl -r --since=today
                             |
- Mostrar evento específico   | journalctl _SYSTEMD_UNIT=<service>.service
+ Mostrar evento específico  | journalctl _SYSTEMD_UNIT=<service>.service
