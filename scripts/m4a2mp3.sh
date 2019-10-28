@@ -3,7 +3,7 @@
 for i in *.[mM][4][aA];
   do name=`echo $i | cut -d'.' -f1`;
   echo $name;
-  ffmpeg -i "$i" -acodec copy -vn -n "${name}.mp3";
+  ffmpeg -i "$i" -acodec libmp3lame -vn -n "${name}.mp3";
 done 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Criação de Felipe Facundes"
