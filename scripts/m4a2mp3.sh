@@ -1,6 +1,6 @@
 # Crédito: Felipe Facundes
 # Telegram: @FeFacundes
-for i in *.m4a;
+for i in "*[mM][4][aA]";
   do name=`echo $i | cut -d'.' -f1`;
   echo $name;
   ffmpeg -i "$i" -acodec copy -vn -n "${name}.mp3";
