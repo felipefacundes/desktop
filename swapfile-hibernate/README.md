@@ -27,7 +27,7 @@ sudo swapon /swapfile
 ### Em GRUB_CMDLINE_LINUX_DEFAULT= no arquivo /etc/default/grub ###
 #### inlua resume e resume_offset. Include resume_offset and resume ####
 #### use o UUID (recomendado). UUID recommended #####
-    resume=UUID="seu UUID" resume_offset="seu offset"
+    resume=UUID=seu_UUID resume_offset=seu_offset
 
 ### Em "HOOKS" no arquivo /etc/mkinitcpio.conf ###
 #### logo após filesystems, inclua resume. Beffore filesystems. ####
@@ -35,7 +35,7 @@ sudo swapon /swapfile
 
 ### Finalize rodando os comandos. Run commands ###
 ```
-sudo mkinitcpio -p linux
+sudo mkinitcpio -P
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ### Em FSTAB
