@@ -129,7 +129,7 @@ https://github.com/felipefacundes/desktop/tree/master/GRUB
 ```
 pacman -S grub ntfs-3g fuse2 fuse3 dosfstools efibootmgr exfat-utils mtools f2fs-tools gpart libusbx udftools gvfs gvfs-afc gvfs-gphoto2 gvfs-mtp ifuse fuseiso libisoburn sdl xz gettext device-mapper lxcfs bash-completion bash freetype2 jfsutils btrfs-progs reiserfsprogs xfsprogs nilfs-utils polkit
 
-mkinitcpio -p linux
+mkinitcpio -P
 ```
 
 ### "Senha do root"
