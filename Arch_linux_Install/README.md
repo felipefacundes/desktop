@@ -105,7 +105,9 @@ export LANG=pt_BR.UTF-8
 ```
 swapon /dev/sda1
 mount /dev/sda2 /mnt
+mkdir -p /mnt/home
 mount /dev/sda3 /mnt/home
+mkdir -p /mnt/boot
 mount /dev/sda4 /mnt/boot
 sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
 ```
