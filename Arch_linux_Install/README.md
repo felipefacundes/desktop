@@ -100,7 +100,7 @@ export LANG=pt_BR.UTF-8
 ```
 
 ## INSTALAÇÃO: SISTEMA BASE E FERRAMENTAS
-###### Leia. Na linha abaixo, contém 4 linhas de comando, obedeça cada comando:
+###### Leia. Na linha abaixo, contém 7 linhas de comando, obedeça cada comando:
 
 ```
 swapon /dev/sda1
