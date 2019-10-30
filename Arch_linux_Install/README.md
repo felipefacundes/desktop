@@ -113,7 +113,7 @@ sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
 # FINALMENTE, VAMOS PARA A INSTALAÇÃO:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacstrap -i /mnt grub base wget base-devel linux mkinitcpio
+sudo pacstrap -i /mnt grub base wget base-devel linux mkinitcpio nano
 sudo genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 
