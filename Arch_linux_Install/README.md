@@ -113,7 +113,7 @@ sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
 # FINALMENTE, VAMOS PARA A INSTALAÇÃO:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacstrap -i /mnt grub base wget base-devel btrfs-progs
+sudo pacstrap -i /mnt grub base wget base-devel linux mkinitcpio
 sudo genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 
@@ -435,7 +435,7 @@ resume=UUID="swap UUID" em "GRUB_CMDLINE_LINUX_DEFAULT="
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
-mkinitcpio -p linux
+mkinitcpio -P
 ```
 ##### Se você usa arquivo de troca de paginação - arquivo para memória virtual (swapfile) e quer que o sistema hiberne, siga o tutorial abaixo:
 https://github.com/felipefacundes/desktop/tree/master/swapfile-hibernate
