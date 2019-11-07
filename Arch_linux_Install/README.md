@@ -115,12 +115,12 @@ sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
 # FINALMENTE, VAMOS PARA A INSTALAÇÃO:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-sudo pacstrap -i /mnt grub base wget base-devel linux mkinitcpio nano
-sudo genfstab -U -p /mnt >> /mnt/etc/fstab
+pacstrap -i /mnt grub base wget base-devel linux mkinitcpio nano
+genfstab -U -p /mnt >> /mnt/etc/fstab
 ```
 
 ### Agora é dentro do sistema (chroot):
-`sudo arch-chroot /mnt`
+`arch-chroot /mnt`
 
 ##### Para HDs encryptados, ou seja, somente, se você, deliberadamente, encryptou o seu HD, para tanto, siga esse LINK do meu tutorial:
 
