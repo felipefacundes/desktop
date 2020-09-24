@@ -143,9 +143,9 @@ mkinitcpio -P
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 
 `grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable`
-######ou
+###### ou
 `grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --removable`
-######Finalize com:
+###### Finalize com:
 `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Para BIOS (i386-pc):
