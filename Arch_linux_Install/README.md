@@ -138,7 +138,7 @@ mkinitcpio -P
     passwd root
 
 ### Para sistemas `UEFI`
-###### "A partição `/boot` ou `/boot/efi` já tem que estar em `FAT32`". Lá em cima foi dito, para formatar a partição boot: `sudo mkfs.fat -F32 -n BOOT /dev/sda4`
+###### A partição `/boot` ou `/boot/efi` já tem que estar em `FAT32`. Lá em cima foi dito, para formatar a partição boot: `sudo mkfs.fat -F32 -n BOOT /dev/sda4`
 ###### Agora prepare o GRUB para o UEFI:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 
