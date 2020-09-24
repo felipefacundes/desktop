@@ -79,7 +79,9 @@ sudo fdisk -l
 `sudo mke2fs -text4 -O 64bit /dev/sda1`
 
 #### Para `UEFI`
-###### A partição /boot já tem que estar em `FAT32`
+###### A partição `/boot` ou `/boot/EFI` já tem que estar em `FAT32`
+###### Vale ressaltar que uma partição `FAT32` tem que ter no mínimo `40M`
+###### Se for usar como `/boot` tem que ter no mínimo `100M` como `/boot/EFI` o mínimo é `40M`
 `mkfs.fat -F32 -n BOOT /dev/sda1`
 
 # Exemplo de FORMATAÇÃO
@@ -138,11 +140,11 @@ mkinitcpio -P
     passwd root
 
 ### Para sistemas `UEFI`
-###### A partição `/boot` ou `/boot/efi` já tem que estar em `FAT32`. Lá em cima foi dito, para formatar a partição boot: `sudo mkfs.fat -F32 -n BOOT /dev/sda4`
+###### A partição `/boot` ou `/boot/EFI` já tem que estar em `FAT32`. Lá em cima foi dito, para formatar a partição boot: `sudo mkfs.fat -F32 -n BOOT /dev/sda4`
 ###### Agora prepare o GRUB para o UEFI:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 
-`grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/efi --removable`
+`grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/EFI --removable`
 ###### ou
 `grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --removable`
 ###### Finalize com:
