@@ -144,16 +144,16 @@ mkinitcpio -P
 ###### Agora prepare o GRUB para o UEFI:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 
-`grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/EFI --removable`
+`grub-install --verbose --recheck --target=x86_64-efi --force --efi-directory=/boot/EFI --bootloader-id=ARCH --removable`
 ###### ou
-`grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot --removable`
+`grub-install --verbose --recheck --target=x86_64-efi --force --efi-directory=/boot --bootloader-id=ARCH --removable`
 ###### Finalize com:
 `grub-mkconfig -o /boot/grub/grub.cfg`
 
 ### Para BIOS (i386-pc):
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
-grub-install --target=i386-pc --recheck /dev/sda
+grub-install --verbose --recheck --target=i386-pc --force /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ### Se você possui dual boot com Rwindows, instale o seguinte o "os-prober", depois repita o comando acima, ou o faça antes de executar:
