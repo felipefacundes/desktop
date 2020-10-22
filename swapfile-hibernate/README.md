@@ -16,15 +16,15 @@ sudo mkswap /swapfile
 sudo swapon /swapfile
 ```
 
-### Descubra o dispositivo que foi criado.    UUID device of the swapfile
+### Descubra o dispositivo que foi criado.    -    UUID device of the swapfile
 
     sudo findmnt -no SOURCE,UUID -T /swapfile
   
-### Recomenda-se ao usar resume=UUID no grub.    UUID recommended
+### Recomenda-se ao usar resume=`UUID` no grub. Então pesquise o seu `UUID`.    -    UUID recommended
 
-    sudo findmnt -no UUID -T /var/lib/swap/swapfile
+    sudo findmnt -no UUID -T /swapfile
 
-### Descubra o offset do arquivo swap (swapfile).    Offset of the swapfile
+### Descubra o offset do arquivo swap (swapfile).    -    Offset of the swapfile
 
 #### É indicado o número no primeiro bloco (no ínicio)
 
@@ -33,6 +33,14 @@ sudo swapon /swapfile
 ### Ou para descubrir logo o offset, use:
 
     sudo filefrag -v /swapfile | grep "0:        0.."
+
+##### Aparecerá algo como:
+
+```diff
+- 0:        0..    8191:  121849856.. 121858047:   8192:
+```
+
+##### O seu offset será: `121849856`
     
 ### Edite o arquivo `/etc/default/grub`
 
@@ -40,20 +48,25 @@ sudo swapon /swapfile
 
 ### Em `GRUB_CMDLINE_LINUX_DEFAULT=`
 
-#### inlua resume e resume_offset.    Include resume_offset and resume
-#### use o UUID (recomendado).    UUID recommended
+#### inlua `resume` e `resume_offset`.    -    Include resume_offset and resume
+
+#### use o UUID (recomendado).    -    UUID recommended
 
     resume=UUID=seu_UUID resume_offset=seu_offset
+
+###### Exemplo:
+
+    resume=UUID=2c5008af-9ebc-4706-b903-741bda1222ab resume_offset=121849856
     
 ### Edite o arquivo `/etc/mkinitcpio.conf`
 
 `sudo vim /etc/mkinitcpio.conf`
 
-### Em `"HOOKS"` logo após `filesystems`, inclua `resume`.    Beffore filesystems. 
+### Em `"HOOKS"` logo após `filesystems`, inclua `resume`.    -    Beffore filesystems. 
 
     .. filesystems resume ..
 
-### Finalize rodando os comandos.    Run commands
+### Finalize rodando os comandos.    -    Run commands
 
 ```
 sudo mkinitcpio -P
@@ -62,7 +75,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Em FSTAB
 
-    sudo nano /etc/fstab
+    sudo vim /etc/fstab
     
 ##### Inclua:
 
