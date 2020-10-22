@@ -1,23 +1,23 @@
-# Uma forma intuitiva de instalar o ArchLinux, por Felipe Facundes
+## Uma forma intuitiva de instalar o ArchLinux, por Felipe Facundes
 
 > by Felipe Facundes
 ###### Grupo Telegram: https://t.me/winehq_linux
 ###### Canal Telegram: https://t.me/s/PlayOnGit
 ###### Site: https://linuxgamers.github.io/
 
-<br></br>
+<br><br/>
 
-# Primeiro conecte com a internet:
+## Primeiro conecte com a internet:
 
 ##### Verifique sua interface de rede Wifi:
 ```
 lspci -k
 iwconfig
 ```
-###### Digite:  
+###### Digite:
 `wifi-menu`
 
-# Backup - Para uma reinstalação do sistema sem formatar:
+## Backup - Para uma reinstalação do sistema sem formatar:
 
 ###### O BACKUP PODE SER, PARA UMA LISTA. Para uma reinstalação, baixando os pacotes novamente:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
@@ -55,7 +55,7 @@ cd /mnt/boot/
 sudo rm -rf *
 ```
 
-# Particione o HD
+## Particione o HD
 ###### Crie `"sda1"` 300MB para boot - Se for `UEFI` a partição de `BOOT` tem que estar em `FAT32`.
 ###### Crie `"sda2"` uma partição para a raiz `(/)` do sistema `(root)` de no mínimo 30GB.
 ###### Crie `"sda3"` 512MB ou 3GB para swap / `3GB se quiser o modo hibernar` - pode ser um tamanho maior, até ao mesmo número de sua RAM
@@ -84,7 +84,7 @@ sudo fdisk -l
 ###### Se for usar como `/boot` tem que ter no mínimo `100M` como `/boot/EFI` o mínimo é `40M`
 `mkfs.fat -F32 -n BOOT /dev/sda1`
 
-# Exemplo de FORMATAÇÃO
+## Exemplo de FORMATAÇÃO
 ###### A opção `-L` atribui rótulos às partições, o que ajuda a consultá-las mais tarde através de /dev/disk/by-label sem ter que se lembrar de seus números. Agora, monte suas partições:
 
 ```
@@ -114,7 +114,7 @@ mount /dev/sda4 /mnt/boot
 sudo pacman -Syy archlinux-keyring arch-install-scripts btrfs-progs
 ```
 
-# FINALMENTE, VAMOS PARA A INSTALAÇÃO:
+## FINALMENTE, VAMOS PARA A INSTALAÇÃO:
 ###### Leia. Na linha abaixo, contém 2 linhas de comando, obedeça cada comando:
 ```
 pacstrap -i /mnt grub base wget base-devel linux mkinitcpio nano
@@ -484,9 +484,9 @@ https://jogoslinux.github.io/
 ###### pacman -S opencl-catalyst lib32-catalyst-utils lib32-catalyst-libgl lib32-opencl-catalyst
 #
 
-<br></br>
+<br><br/>
 
-```
+```bash
                     ,cldxOxoc:;,
                ,;:okKNXKK0kO0Okxddol:;,
         ,;codxkkOKXKko:'......,;clx0KXXOxol:,
