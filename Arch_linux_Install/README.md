@@ -2,9 +2,9 @@
 
 > by Felipe Facundes
 
-###### Grupo Telegram: https://t.me/winehq_linux
-###### Canal Telegram: https://t.me/s/PlayOnGit
-###### Site: https://linuxgamers.github.io/
+###### Grupo Telegram: [https://t.me/winehq_linux](https://t.me/winehq_linux)
+###### Canal Telegram: [https://t.me/s/PlayOnGit](https://t.me/s/PlayOnGit)
+###### Site: [https://linuxgamers.github.io/](https://linuxgamers.github.io/)
 
 <br><br/>
 
