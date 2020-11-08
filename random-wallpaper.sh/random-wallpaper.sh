@@ -34,8 +34,17 @@ done;
 # Para fluxbox
 # fbsetbg -a
 
-# Para NITROGEN
+# NITROGEN
 # nitrogen --set-zoom-fill
+
+# FEH
+# feh --bg-scale
 
 # Para png e jpg
 # *[jJpP][nNpP][gG]
+
+# Busca estática
+# "$(ls -c "$HOME"/Imagens/Wallpapers/*[jJpP][nNpP][gG] | shuf -n 1)"
+
+# Busca recursiva com find
+# "$(find "$HOME"/Imagens/Wallpapers/ -name "*[jJpP][nNpP][gG]" | shuf -n 1)"
