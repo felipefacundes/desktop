@@ -5,8 +5,7 @@
 #done
 
 for i in *.*;
-  do fullname="$i";
-  name="${fullname%.*}";
+  do name="${i%.*}";
   # name=`echo $i | cut -d'.' -f1`;
   echo $name;
   convert -density 300 -quality 85% "$i" "${name}.webp";
