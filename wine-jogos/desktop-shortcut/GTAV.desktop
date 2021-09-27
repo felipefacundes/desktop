@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=GTA V
-Exec=~/.jogos/scripts/run/GTAV-run.sh
-Type=Application
-StartupNotify=true
-Path=~/.jogos/wineprefixes/GTAV/drive_c/
-Icon=~/.jogos/icons/GTAV.png
-StartupWMClass=GTAV.exe
