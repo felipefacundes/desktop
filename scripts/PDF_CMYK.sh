@@ -6,7 +6,7 @@
 # PDF/X-3
 # -dPDFX=true
 
-# Vector / Imagem
+# Vector / Image
 # -sDEVICE=pdfwrite
 
 # -dPDFSETTINGS=configuration
