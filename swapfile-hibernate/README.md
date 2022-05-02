@@ -11,7 +11,8 @@
 ```bash
 sudo fallocate -l 3G /swapfile
 ou
-sudo dd if=/dev/zero of=/swapfile bs=3M count=1024 status=progress
+
+sudo dd if=/dev/zero of=/swapfile bs=3M count=1024 oflag=direct,dsync status=progress && sync
 
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
