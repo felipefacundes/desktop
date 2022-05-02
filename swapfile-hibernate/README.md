@@ -37,11 +37,13 @@ sudo swapon /swapfile
     sudo filefrag -v /swapfile
 
 ### Ou para descubrir logo o offset, use:
-$$
+
+```markdown
     sudo filefrag -v /swapfile | grep "0:        0.."
-- Ou:
+Ou:
     sudo filefrag -v /swapfile | grep "0:        0.." | awk '{print $4}'
-$$
+```
+
 ##### Aparecerá algo como:
 
 ```diff
