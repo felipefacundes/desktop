@@ -1,1 +1,0 @@
-ffmpeg -ss 3.0 -t 7.5 -i *.webm -s 616x182 arquivo.gif
