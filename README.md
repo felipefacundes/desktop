@@ -1,4 +1,4 @@
-# Desktop
+# Desktop - dotfiles (Old repo)
 ### Licença LGPL v3
 
 
